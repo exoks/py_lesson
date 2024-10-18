@@ -6,7 +6,6 @@ from module import print_hello_world
 a=5
 b=2
 
-
 print("[fun & loop: ] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 for index in range(1, 5):
     print(index);
@@ -29,7 +28,7 @@ print("E(X): ", a // b);
 
 print("[list : ] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 list1 = [1, "hello", "World", 2]
-list2 = [None] *4
+list2 = [None] * 4
 
 for element in list1:
     print(element);

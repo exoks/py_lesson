@@ -66,4 +66,28 @@ parent: super class, base calss, parent class.
 			__repr__()	: return a String format (or representation) info about the object (just read)
 					>>---------------->>> __repr__/__str__: used mainly for debuging and developing purposes.
 			__str__()	: return a String format (or representation) info about the object (expands values) 
- 
+
+> [ Overriding: ]
+	- can not override the hidden function:
+	+ the concept is simple: when we override a function in python, the object will have 2 functions, the python interpreter 
+	find 2 functions but it gives the praiority to (direved class function)
+	+ but we call still reach the base class function using super() function
+	+ in C++ we used to do something passing parameters from object constructor to base_class constructor
+
+		C++: DerivedName::DerivedName(arg1, arg2): BaseClass(arg1, arg2)
+			{
+			}
+		python: 
+			def __init__(arg1, arg2)
+				super.__init__(arg1, arg2)
+
+> [ Static Functions: ]
+	+ syntax:
+		@staticmethod
+		def function_name(args)
+			# body function
+
+	+ usage: [ClassName].staticMethod()
+	+ static function has the same usage in the other languages.
+
+

@@ -91,3 +91,27 @@ parent: super class, base calss, parent class.
 	+ static function has the same usage in the other languages.
 
 
+> [ Abstraction: ]
+	+ the class ABC (abstract base class) is the class that all abs classes should inherite from it, ABC inherite from [Object]
+		syntax: from abc import ABC
+	+ Python/C++ abstract method (pure virtual function) is the key to create an abstract class.
+	+ class types: concrete (advj: chi haja madiya) class, abstract class 
+		abstract method syntax:
+
+		@abstractmethod
+		def function_name(args)
+			# function body
+			pass
+	+ In python the abstract funtion can have a body, in C++98 pure virtual function can't have a body.
+	+ keyword: < @abstractmethod > force the derived classes to override the function.
+	+ keyword: < pass > used in case we want to define a body for this function or even a class.
+
+> [ Polymorphism: ]
+	+ simply the function is built on based_class, so we can use derived classes as paramteres to work with
+		examples that use polymorphism:
+			- datatypes: list, set ...
+			- functions: len(obj), isinstance(base_class, obj)
+
+!!!:  [ << self Vs This-> >> ]
+- C++ (this): The this pointer is automatically passed to instance methods. You don’t see this in the method signature, but you can still use it inside the method to access the current instance.
+- Python we have to add self the method signture, and use it also inside the metod to access the current instance

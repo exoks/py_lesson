@@ -1,0 +1,117 @@
+					[ Object Oriented programming ]
+
+> [Class & Object]
+	- class syntax:
+
+		class [ClassName]:
+			mamber=value
+	
+	- object syntax:
+		object = [ClassName]()
+		object.attrub (or property)
+
+	- self: key word it plays the role of this key word, it allows the interpreter to use access properties of the class
+		syntax:
+			def member_function(self, args ...)
+				self.value-rate
+
+	- __init___(): function, simply the constructor (encapsulation)
+		syntax:
+			instread of C/C++ syntax [ClassName](...) we replace it by function __init()__
+			def __init__(self, pro1, pro1, pro3)
+				self.pro1 = pro1
+				self.pro2 = pro2
+				...
+
+			use: object = Class(...)
+
+> [ Inheritance: ]
+child: Derived class, Extended class, child class, subclass.
+parent: super class, base calss, parent class.
+	
+	- Syntax in python:
+	class DerivedClass(BaseClass):
+		# class body
+
+	- Types of inheritance:
+		+ Single inheritance			:A, B(A)
+		+ Multi-Level inheritance		:A, B(A), C(B)
+		+ Multiple inheritance			:A, B, C(A, B)
+		+ Hierarchical inheritance		:A, B(A), C(A)
+
+	- Some special functions:
+		+ issubclass(derived_class, base_class)		==> boolean
+		+ isinstance(obj, base_class)				==> boolean
+	
+	- Hierarchical inheritance my cause some conflict if the two based class has the same function_name/attr_name
+		+ default behaviour: using the values of the first class and ignoring the others.
+		+ solution: hidding names using __ before the name, the interpreter will have to rename it again based on this syntax:
+	
+			syntax: _ClassName__IdentifierName
+
+		+ each class inherite by default from object class.
+		+ object class exists in builtins.py module, it get's imported by default by interpreter.
+		+ builtins.py : containes all functions we used before, and a lot of classess.
+
+		> Object class attrubes:
+			__class__	: return className <class 'Class.Class'>
+			__dict__	: return object properties and values
+			__doc__		: return str documentation about class
+			__module__	: return module name
+
+		> Object class functions:
+			__init()__	: constructor
+			__del__()	: destructor
+			__sizeof__(): sizeof the object
+			__repr__()	: return a String format (or representation) info about the object (just read)
+					>>---------------->>> __repr__/__str__: used mainly for debuging and developing purposes.
+			__str__()	: return a String format (or representation) info about the object (expands values) 
+
+> [ Overriding: ]
+	- can not override the hidden function:
+	+ the concept is simple: when we override a function in python, the object will have 2 functions, the python interpreter 
+	find 2 functions but it gives the praiority to (direved class function)
+	+ but we call still reach the base class function using super() function
+	+ in C++ we used to do something passing parameters from object constructor to base_class constructor
+
+		C++: DerivedName::DerivedName(arg1, arg2): BaseClass(arg1, arg2)
+			{
+			}
+		python: 
+			def __init__(arg1, arg2)
+				super.__init__(arg1, arg2)
+
+> [ Static Functions: ]
+	+ syntax:
+		@staticmethod
+		def function_name(args)
+			# body function
+
+	+ usage: [ClassName].staticMethod()
+	+ static function has the same usage in the other languages.
+
+
+> [ Abstraction: ]
+	+ the class ABC (abstract base class) is the class that all abs classes should inherite from it, ABC inherite from [Object]
+		syntax: from abc import ABC
+	+ Python/C++ abstract method (pure virtual function) is the key to create an abstract class.
+	+ class types: concrete (advj: chi haja madiya) class, abstract class 
+		abstract method syntax:
+
+		@abstractmethod
+		def function_name(args)
+			# function body
+			pass
+	+ In python the abstract funtion can have a body, in C++98 pure virtual function can't have a body.
+	+ keyword: < @abstractmethod > force the derived classes to override the function.
+	+ keyword: < pass > used in case we want to define a body for this function or even a class.
+
+> [ Polymorphism: ]
+	+ simply the function is built on based_class, so we can use derived classes as paramteres to work with
+		examples that use polymorphism:
+			- datatypes: list, set ...
+			- functions: len(obj), isinstance(base_class, obj)
+
+!!!:  [ << self Vs This-> >> ]
+- C++ (this): The this pointer is automatically passed to instance methods. You don’t see this in the method signature, but you can still use it inside the method to access the current instance.
+- Python we have to add self the method signture, and use it also inside the metod to access the current instance

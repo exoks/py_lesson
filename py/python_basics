@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2024/10/16 11:15:25 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/03/24 11:37:06 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/03/24 14:22:42 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -197,9 +197,10 @@ Function of class List:
 # ==============================================================================
 
  >> [ Tuple (topule): ]
-	def:  is a fixed-size array of pointers (pholymorphism always there),
+	> def:  is a fixed-size array of pointers (pholymorphism always there),
         can't be modified (no appending, inserting, or deleting) stored in
         read-only memory areas, immutable (adjv: unable to be changed)
+
 	> syntax:
 			tuple = (val1, val2, ..., valN);
 	- Tuple are used a lists but it can't be modifed like lists,
@@ -208,7 +209,7 @@ Function of class List:
 	+ More secure read-only values.
 
 >> [ Set: ]
-	def: sets are implemented using a hash table (know as hash sets) data
+	> def: sets are implemented using a hash table (know as hash sets) data
     structure, each element added to the set is passed through a hash function,
     which produces a fixed-size integer hash value, This hash table is used to
     determine where the element will be placed in the hash table.
@@ -246,7 +247,7 @@ Function of class List:
 
 >> [ Dict (Dictionary): ]
 		- dict are implemented as hash tables.	
-		syntax:
+		> syntax:
 			dict = {
 				key1: value1
 				key1: value2
@@ -273,7 +274,7 @@ Function of class List:
 ===[ Functions : ]==============================================================
 	+ Functions that exist in python are called build-in functions
 	+ Functions created by user is called user-defined functions
-	syntax:
+	> syntax:
 		def function_name(args=defautl_value):
 			# function body
 		return [experssion]
@@ -318,5 +319,72 @@ Function of class List:
 #   defined.                                                                   |
 # + using dir(module) function will display all module content.                |
 # ==============================================================================
+
+===[ Date & Time: ]============================================================
+- Python contains more than module to deal with work and time.
+  * datetime 
+  * calendar
+
+>> [ datetime: ]===
+  - Classes
+    * date: functions to deal with 'date'
+    * time: functions to deal with 'time' 
+    * datetime: functions to deal with 'date & time'
+    * timedelta: functions to deal with diff between time 
+    * timezone: functions to deal with diff between date according to zone
+    ex:
+      - datetime.datetime.now() => return date in form [yy-mm-dd hh-mm-ss] 
+
+  - Constructor
+    class datetime.datetime(year, month, day, hour=0, minute=0, second=0,
+    microsecond=0, tzinfo=None, *, fold=0)
+
+  - Change Date Format: strftime()
+    strftime('')
+    - '%a': display the day in form of 'Mon', 'thu', ...
+    - '%A': display the full day name 'Monday'. 
+    - '%w': display day of the week in form of number sun: 0, mon: 1, ... 
+    - '%d': display day of the month in form of number 01 -> 31
+
+    - '%b': display the month in the form of 'Dec' 
+    - '%B': display the month in the form of 'Decomber'
+    - '%m': display the number of the month according to the year 
+
+    - '%y': display the year in form of '18'
+    - '%Y': display the full form of the year '2018'
+
+    - '%H': display hour in form of '24' 00 -> 23 
+    - '%I': display hour in form of '12' 00 -> 12
+    - '%p': to show 'AM' or 'PM'
+    - '%M': number of munites
+    - '%S': number of seconds
+    - '%f': show microsecond instead of seconds 
+
+    - '%j': day number according to the year 001 => 366 
+    - '%U': week number according to the year 00 => 53: first day is sunday
+    - '%W': week number according to the year 00 => 53: first day is monday 
+    - '%c': show time & date in form of 'Mon Dec 3 18:52:05 2020'
+    - '%x': show date in form of '16/02/2024'
+    - '%X': show time in the form of '18:52:05' 
+
+>> [ calendar: ]===
+
+===[ Format Specification Mini-Language ]=======================================
+- In python there is a form similar to the one in C or c++ in printf function
+  |C/C++ | [flags][width][.precision][conversion]%
+
+  f-strings / str.format() 
+  |Python| f{var:[flags][width][.precision][type]}
+    - Flags: alignment, sign,padding, comma separators | ':', ',' adds commas 
+    - Width: min nbrs of chars to display | '10' 
+    - .precision: .2f -> 2 dicimal places 
+    - Type: conversions (f, d, s, x ...) 
+
+===[ String Literal Prefixes: ]=================================================
+- f"": formatted string literal (f-string): vari 
+- r"": row-string literl: treats '\' as literal character, no escape sequences
+- b"": byte string literal: represent a byte object
+- u"": Unicode String Literal
+- fr"" or rf"": f-string & r-string
 
 ================================================================================

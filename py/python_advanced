@@ -1,7 +1,22 @@
-> [ User-Input: ]
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀         𓐓  python_advanced 𓐔           
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀      Dev: oezzaou <oussama.ezzaou@gmail.com> 
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/03/24 16:45:18 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/03/24 17:12:46 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ User-Input: ]==============================================================
 	+ input() function to read from the standart input
 		syntax:
-			> input(str: msg to dislay on stdout) => return str, it works like readline function
+			> input(str: msg to dislay on stdout) => return str, it works like
+        readline function
 	
 	Questions: how to achieve explicit type casting in python ?
 
@@ -14,21 +29,26 @@
 	+ dict()	: converts an iterable to dict
 
 
-> [ Iterators: ]
-	python	: when iterator reach the end it throw an exception < StopIteration >
-	c++		: when iterator reach the end it reach the value end of iterator ( means the value after the end element)
-
+===[ Iterators: ]===============================================================
+	- Python  : when iterator reach the end it throw an exception <StopIteration>
+	- C++		  : when iterator reach the end it reach the value end of iterator
+              (means the value after the end element)
 
 	+ Iterator Vs Iterable
 	- Iterator is an object (like C++) we can access it's element randomly 
-	_ Iterable in an object can access there element randomly (Subscript Operator in c++)
-	_ Every iterable data_type in python has an iterator object
+	- Iterable in an object can access there element randomly
+    (Subscript Operator in c++)
+	- Every iterable data_type in python has an iterator object
 		syntax:
 			using function iter():
-				+ iter(data_type)  => return an iterator object			| container.begin() in c++
-				+ iterate over data_type require the function next()	| iter++: using operator++ | addition operator
+				+ iter(data_type)  => return an iterator object
+          |=> container.begin() in c++
+				+ iterate over data_type require the function next()
+          |=> iter++: using operator++ | addition operator
 
-Question: How to create an iterator class in python ? it is been created before in cpp
+# QUESTION:=====================================================================
+# How to create an iterator class in python ? it has been created C++          |
+# ==============================================================================
 
 	class Iterator:
 		def __iter__():
@@ -41,29 +61,46 @@ Question: How to create an iterator class in python ? it is been created before 
 			newIter = iter(Iterator());		==> return Iterator object.
 			next(newIter) 					==> return value.
 
-		+ create internal function member called __iter__() : return object iterator itself
-		+ create internal function member called __next__() : return the value 
-		+ __iter__() is called by the function iter() / __next_() is called by next()
-		+ if iter() can't find __iter__(), it will look for __getitem__() to create an iterator starting from index=0, if not
-			found python will raises < TypeError > with a messgae similar to "TypeError: 'objectName' object is not iterable"
-		+ class list_iterator (of list) is seperate class built internaly in C in CPython (Standart python interpreter), you don't 			see it directly in python code source
-		+ the idea of creating an iterator of (data_type) still the same as C++, using it as nested class is good idea
+		+ create internal function member called __iter__() :
+      |=> return object iterator itself
+		+ create internal function member called __next__() :
+      |=> return the value 
+		+ __iter__() is called by the function iter() /
+      |=> __next_() is called by next()
+		+ if iter() can't find __iter__(), it will look for __getitem__()
+      to create an iterator starting from index=0,
+      if not found python will raises < TypeError > with a messgae
+      similar to "TypeError: 'objectName' object is not iterable"
+		+ class list_iterator (of list) is seperate class built internaly
+      in C in CPython (Standart python interpreter),
+      you don't see it directly in python code source.
+		+ the idea of creating an iterator of (data_type) still the same as C++,
+      using it as nested class is good idea.
 
-!!!:  [ << self Vs This-> >> ] 	<< Explicit is better than implicit >>
-- C++ (this): The this pointer is automatically passed to instance methods. You don’t see this in the method signature, but you can still use it inside the method to access the current instance.
-- Python we have to add self the method signture, and use it also inside the method to access the current instance.
+# INFO:===[ << self Vs This-> >> ]===<< Explicit is better than implicit >>=====
+# - C++ (this): The this pointer is automatically passed to instance methods.  |
+#   You don’t see this in the method signature, but you can still use it       |
+#   inside the method to access the current instance.                          |
+# - Python we have to add self the method signture, and use it also inside     |
+#   the method to access the current instance.                                 |
+# ==============================================================================
 
-> [ Regex: ]
+===[ Regex: ]===================================================================
 	- how to deal wil regex in python ?
 	- all regex function are implemented in module < re >
 	- functions to deal with regex:
-		+ search(pattern, string, flags=0) : return Object match contains all the data otherwize return (None ~= NULL)
-		+ finditer(pattern, string, flags=0) : return Oject iterator contains object Match 
-		+ findall(pattern, string, flags=0) : return list, if not found returns an empty list
+		+ search(pattern, string, flags=0) : return Object match contains all the
+      data otherwize return (None ~= NULL).
+		+ finditer(pattern, string, flags=0) : return Oject iterator contains
+      object Match. 
+		+ findall(pattern, string, flags=0) : return list, if not found returns an
+      empty list
 		+ split(pattern, string, maxspit=0, flags=0): 
 		+ sub(pattern, repl, string, count=0, flags=0):
-Note:
-	- regex for me is just a revison
+
+# NOTE:=========================================================================
+#	- regex for me is just a revison.                                            |
+#	==============================================================================
 
 	> Special characters:
 	+ "^word"	: line starts with "word"
@@ -95,8 +132,8 @@ Note:
 	+ \W		: == [a-zA-Z0-9_]
 	...
 
-> [Exceptions Handling: ]
-	- types of erros:
+===[Exceptions Handling: ]======================================================
+	> types of erros:
 		+ Syntax Error: when we don't respect the rule of language
 		+ Run time Errors (Exceptions) : will stop the running of the program
 		+ Logical Erros: code is working but we get the unexpected result
@@ -169,22 +206,25 @@ Note:
 	           +-- UnicodeWarning
 	           +-- BytesWarning
 
-	+ Custom Excpetion class means that class should inherite from BaseException or one his childes
+	+ Custom Excpetion class means that class should inherite from
+    BaseException or one his childes
 
 	==> How to display message error associated with exception object ?
 		+ using < as > keyword:
-			syntax:
+			> syntax:
 
 			try:
 				# do something
 			execpt BaseException as msg: # this one puts the message in variable msg
 				print('Error Message:', msg)
 
-	+ raise:(v: to lift something to higher position, ex: raise your hand) ( == throw in C++)
-		syntax:
+	+ raise:(v: to lift something to higher position, ex: raise your hand)
+    ( == throw in C++)
+
+		> syntax:
 			raise Exception(message_error)
 
-> [ Dealing with files: ]
+===[ Dealing with files: ]======================================================
 	+ we can deal with files in python throw the function open()
 		syntax:
 			> open('filePath', mode='r', buffering=-1, endcoding=None, errors=None, newline=None):
@@ -201,60 +241,74 @@ Note:
 
 	+ File Object members:
 		> Properties:
-			- name						: is a str represent the file's name
-			- mode						: mode of file
-			- encoding					: encoding name
-			- closed					: is closed or not
+			- name						          : is a str represent the file's name
+			- mode						          : mode of file
+			- encoding				          : encoding name
+			- closed					          : is closed or not
 
 		> Functions:
-			- write(str)				: write 'str' to file
-			- writelines(lines)			: write lines (as list) to file
-			- read(n = -1)				: read from file with buffer n (n = -1 means read the whole file)
-			- readline(limits = -1)		: read line by line with a number of charactere 'limits'
-			- readlines(limits = -1)	: return list, each element is a line with a number of character 'limits'
-			- tell()					: return the index of the last character has been readed.
-			- seek(offset, from_what=0)	: seek to index you want, from_what is optional: (0: back to first, 1: stay on the current
-			character, 2: go to end of file)
-			- close()					: (close file descriptor C) & clean the memory
+			- write(str)				        : write 'str' to file
+			- writelines(lines)			    : write lines (as list) to file
+			- read(n = -1)				      : read from file with buffer n
+                                    (n = -1 means read the whole file).
+			- readline(limits = -1)		  : read line by line with a number
+                                    of charactere 'limits'.
+			- readlines(limits = -1)	  : return list, each element is a line with
+                                    a number of character 'limits'.
+			- tell()					          : return the index of the last character
+                                    has been readed.
+			- seek(offset, from_what=0)	: seek to index you want, from_what is opt:
+      (0: back to first, 1: stay on the current character, 2: go to end of file)
+
+			- close()					: (close file descriptor C) & clean the memory.
 
 	+ os module: very important module help us manage files and dirs
 		> Functions:
-			- os.rename(source, destination)	: rename file
-			- os.remove(path)					: remove file
-			- os.path.exists(path)				: check if the file is exist
-			- ms.mkdir(path)					: create dir
-			- os.rmdir(path)					: rm dir
-			- os.getcwd()						: get current working dir path
-			- os.open(path, mode)				: to interact with file on low-level mode: ex: os.O_RDONLY .. (open system call)
+			- os.rename(source, destination)  : rename file
+			- os.remove(path)					        : remove file
+			- os.path.exists(path)				    : check if the file is exist
+			- ms.mkdir(path)					        : create dir
+			- os.rmdir(path)					        : rm dir
+			- os.getcwd()						          : get current working dir path
+			- os.open(path, mode)				      : interact with file on low-level mode:
+                                          ex: os.O_RDONLY .. (open system call)
 
-	Conclusion:
-    - When you call open() in Python, the CPython interpreter uses C-level functions (like fopen()
-	from the C standard library or system calls like open() in Unix) to create a file stream or file descriptor.
-    - The file object in Python is a higher-level abstraction that wraps these C-level operations,
-	allowing for easy file handling with features like buffering, encoding, and iteration over lines.
+# CONCLUSION:===================================================================
+# - When you call open() in Python, the CPython interpreter uses C-level       |
+#   functions (like fopen() from the C standard library or system calls like   |
+#   open() in Unix) to create a file stream or file descriptor.                |
+# - The file object in Python is a higher-level abstraction that wraps these   |
+#   C-level operations, allowing for easy file handling with features like     |
+#   buffering, encoding, and iteration over lines.                             |
+# ==============================================================================
 
 	> Block Expression:
-		- Allows to create a code block where certain things are automatically handled, this is good for handling files,
-		network connections, database connections, to make sure they are properly released (closed)
-		even if the errors occur during the execution of the block.
-		syntax:
+		- Allows to create a code block where certain things are automatically
+      handled, this is good for handling files, network connections, database
+      connections, to make sure they are properly released (closed)
+      even if the errors occur during the execution of the block.
+
+		> syntax:
 			with expression as [varibale]
 				# block
-		Note:
-		- The most common use case of block expressions in Python is the with statement, which uses context managers to define\
-		blocks of code where certain actions happen before the block starts and after the block ends.
-		- inside the block you can do anything, close to the idea of { } in c++.
 
-> : [ Pipe Package manager: ]
+# NOTE:=========================================================================
+# - The most common use case of block expressions in Python is the with        |
+#   statement, which uses context managers to define\ blocks of code where     |
+#   certain actions happen before the block starts and after the block ends.   |
+# - Inside the block you can do anything, close to the idea of { } in c++.     |
+# ==============================================================================
+
+===[ Pipe Package manager: ]====================================================
 	> python3 -m pip --version
 	> pip3 install [package_name]
 	> pip3 uninstall [package_name]
 	> pip3 list
 
-> [ databases]
+===[ databases: ]===============================================================
 	> read when you need to.
 
-> [ Multi-Threading: ]
+===[ Multi-Threading: ]=========================================================
 	- How to create thread ? _thread module < Python: 2.4 < threading module
 	
 	1 > import threading module
@@ -264,10 +318,10 @@ Note:
 	5 > call function start
 
 	> threading members:
-		+ active_count()	: return number of threads
-		+ main_thread()		: return 'thread' object
+		+ active_count()	  : return number of threads
+		+ main_thread()		  : return 'thread' object
 		+ current_thread()	: return current 'thread' object
-		+ enumerate()		: list of active threads
+		+ enumerate()		    : list of active threads
 	
 	> Thread class:
 		> properties:
@@ -276,10 +330,11 @@ Note:
 			+ deamon		: ?
 
 		> Functions:
-			+ run()					: where to put the block of codes.
-			+ start()				: run the thread, it calss run() functions.
-			+ is_alive()			: return true if it's active otherwise false.
-			+ join(timeout=None)	: join thread, to force process wait for this thread, timeout: add delay to start
+			+ run()					      : where to put the block of codes.
+			+ start()				      : run the thread, it calss run() functions.
+			+ is_alive()			    : return true if it's active otherwise false.
+			+ join(timeout=None)	: join thread, to force process wait for this
+                              thread, timeout: add delay to start.
 	
 	> Deadlock:
 		- To handle deadlock or prevent deadlock.
@@ -297,12 +352,15 @@ Note:
 			block.release()
 
 		Note: Threads can be added in queue to start it with sync way.
-		syntax:
+		> syntax:
 			> from queue import Queue, Queue(len)
 
 		Queue Members:
-			> get()			: return thread from queue and remove it, it the queue is empty it raise and exception
-			> put(iterm)	: put thread int he queue
-			> qsize()		: size of queue
-			> empty()		: check if queue is empty
-			> Full()		: check if the queue if full
+			> get()			  : return thread from queue and remove it,
+                      It the queue is empty it raise and exception
+			> put(iterm)  : put thread int he queue
+			> qsize()		  : size of queue
+			> empty()		  : check if queue is empty
+			> Full()		  : check if the queue if full
+
+================================================================================

@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2024/10/16 11:15:25 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/03/24 14:22:42 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/03/24 15:52:38 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -379,9 +379,23 @@ Function of class List:
     - Width: min nbrs of chars to display | '10' 
     - .precision: .2f -> 2 dicimal places 
     - Type: conversions (f, d, s, x ...) 
+      - Types:
+      'd': int dicimal
+      'b': binary format {10:b} => 1010
+      'o': octral format
+      'x': hex format, lowercase
+      'X': hex format, upper case
+      'n': as as 'd' but usese localseprator => 1000 | 1,000
+      'e': expononential notaion, lowercase
+      'E': exponential notaion, uppercase
+      'f': fixed point notation 
+      'F': fixed point notation, uppercase
+      'g': general format, uses fixed or exponential, whichever is shorter
+      'G': same thing, in uppercase
+      '%': multiplies by 100 + %
 
 ===[ String Literal Prefixes: ]=================================================
-- f"": formatted string literal (f-string): vari 
+- f"": formatted string literal (f-string): varibale insertion 
 - r"": row-string literl: treats '\' as literal character, no escape sequences
 - b"": byte string literal: represent a byte object
 - u"": Unicode String Literal

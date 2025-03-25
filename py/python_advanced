@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/03/24 16:45:18 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/03/24 17:12:46 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/03/25 16:57:19 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -362,5 +362,59 @@
 			> qsize()		  : size of queue
 			> empty()		  : check if queue is empty
 			> Full()		  : check if the queue if full
+
+===[ Python NULL types: ]=======================================================
+- In Python NULL is not used exactly or in low-level meaning as C/C++
+- NULL in C/C++ means the pointer does not point or store any address value
+- Python use a 'Singleton object', which means there is only one instance of
+  'None' in given python session, It is used to represent
+  * The absence of a value
+  * the default return value fo functions that do not return anything. 
+  * Empty variables or uninitialized values.
+
+# NOTE:=========================================================================
+# - None is not a NULL pointer, It is an object, That reference points on it   |
+# - 'is' operator is used to check if the value is None or not.                |
+# - In low-level term None is more like null object instead of null pointer.   | 
+# - None still occupies space in memory.                                       |
+# ==============================================================================
+
+# TIP:==========================================================================
+# - None Object does not have attributes for functions, It is simple, trying to| 
+#   access any their attrs will riase an AttributeError expresion.             |
+# ==============================================================================
+
+=> [ NULL-like concepts: ]
+- There are some types that express the 'absense of value', But It is NOT 'None'
+
+  1|- 'NaN' is a special floating-point value defined by the IEEE floating-point
+      standard, It is used to represent 'undefined or unrepresentable' value 
+      ex: 0/0, square root of negative number
+
+# TRICK:
+  - fVar = float("NaN") : this function cast or convert NaN string to float object
+  representation
+  - NaN object is checked using 'math.isnan(object)'
+
+  2|- Zero = 0 is considered in integers as presense of value, I could simply
+      say it takes literly the mathimatical meaning, It is considered 'False'
+      in boolean context.
+
+  3|- Empty = '' in String '' means the absense of value, It is considered
+      False in context boolean.
+
+# CONCLUSION:===================================================================
+# The absense of values in python can be represented based on data type:       |
+# 1 > int: 0                                                                   | 
+# 2 > float: nan                                                               |
+# 3 > string: empty ''                                                         |
+# 4 > Other object None                                                        | 
+# - I have a custom object, In case I want to make 'NULL' object, I can simply | 
+#   define an object with no attrs and assign it, python already has this obj  |
+#   called 'None', Use in this object would be a smart idea.                   |
+# - Sinse the memory managment part are abstructed, I can't deal with pointers |
+#  so defining a null object, would be a good idea instead of null pointer.    |
+# - NULL in term of null pointer does not exist in python (null object).       |
+# ==============================================================================
 
 ================================================================================

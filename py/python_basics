@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2024/10/16 11:15:25 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/03/24 15:52:38 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/03/26 12:16:45 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -400,5 +400,41 @@ Function of class List:
 - b"": byte string literal: represent a byte object
 - u"": Unicode String Literal
 - fr"" or rf"": f-string & r-string
+
+===[ main function: ]===========================================================
+- main() is used to improves 'code organization and readability'
+- It allows the script to be 'imported as a module' without executing the main 
+  logic automaticaly.
+- It follows the 'best practices' used in many other programming languages
+  (C/C++, Java)
+
+  > Syntax: 
+    if __name__ == "__main__":
+      main()
+
+    # INFO:=====================================================================
+    # - This statement ensures that the script runs 'only when executed        |
+    #   directly', no when imported as a module.                               | 
+    # ==========================================================================
+
+  - When you run the script directly:
+      bashcmd: python script.py
+    * The __name__ variable is set to "__main__", so "main()" executes.
+
+  - When you import the script in another python file:
+      bashcmd: import script #script.py
+    * the '__name__' i set to "script", so "main()" does not run.
+
+# INFO:=========================================================================
+# 1| The __name__ varibale in python is a special built-in variable that helps |
+#     determine a script is being 'run directly' or imported as a module       |
+#   - Every python script has a build-in variable called '__name__'            |
+#   - When script is 'run directly', '__name__' is set to "__main__"           | 
+#   - When a script is 'imported as a module', '__name__' is set to the module's
+# ============================================================================== 
+
+- '__name__' is a safegurad to not run the module it is used as module, in c/c++
+  only one entry point is exist, in python there is another story, every file
+  can have a main function.
 
 ================================================================================

@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2024/10/16 11:15:25 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/03/26 12:16:45 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/03/26 12:17:42 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -436,5 +436,35 @@ Function of class List:
 - '__name__' is a safegurad to not run the module it is used as module, in c/c++
   only one entry point is exist, in python there is another story, every file
   can have a main function.
+
+===[ documentation in python: ]=================================================
+- The __doc__ attr in python is 'special buil-in attribute' that stores the 
+  'docstring' (documentation string) of a module, class function for method.
+
+  bashcmd:
+    > Syntax:
+      * Module : 
+      """ This is a documnation for module"""
+      print(__doc__)
+      help(__doc__)
+
+      * def fun():
+        """ This is a documentation for function"""
+      - print(fun.__doc__)
+      or
+      - help(greet)
+
+      * class Person:
+        """ This is a documentation for class"""
+      - print(Person.__doc__)
+      or
+      - help(Person)
+
+# CONCLUSION:===================================================================
+# * Why Use __doc__?                                                           |
+#   ✅ Improves code readabilit.                                                |
+#   ✅ Helps with auto-documentation (e.g., help(), Sphinx)                     |
+#   ✅ Best practice in Python for documentatio.                                |
+# ==============================================================================
 
 ================================================================================

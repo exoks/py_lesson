@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/03/24 16:45:18 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/03/26 10:01:54 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/03/27 08:51:53 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -17,7 +17,9 @@
 		syntax:
 			> input(str: msg to dislay on stdout) => return str, it works like
         readline function
-	
+
+  # NOTE: input reads the line without newline 
+  
 	Questions: how to achieve explicit type casting in python ?
 
 	+ int()		: converts object to int
@@ -35,8 +37,8 @@
               (means the value after the end element)
 
 	+ Iterator Vs Iterable
-	- Iterator is an object (like C++) we can access it's element randomly 
-	- Iterable in an object can access there element randomly
+	- Iterator is an object (like C++) we can access its element randomly 
+	- Iterable is an object can access there element randomly
     (Subscript Operator in c++)
 	- Every iterable data_type in python has an iterator object
 		syntax:
@@ -47,7 +49,7 @@
           |=> iter++: using operator++ | addition operator
 
 # QUESTION:=====================================================================
-# How to create an iterator class in python ? it has been created C++          |
+# How to create an iterator class in python ? I have been created it C++       |
 # ==============================================================================
 
 	class Iterator:
@@ -59,7 +61,7 @@
 
 		usage:
 			newIter = iter(Iterator());		==> return Iterator object.
-			next(newIter) 					==> return value.
+			next(newIter) 					      ==> return value.
 
 		+ create internal function member called __iter__() :
       |=> return object iterator itself
@@ -78,7 +80,7 @@
       using it as nested class is good idea.
 
 # INFO:===[ << self Vs This-> >> ]===<< Explicit is better than implicit >>=====
-# - C++ (this): The this pointer is automatically passed to instance methods.  |
+# - C++ (this): this pointer is automatically passed to instance methods.      |
 #   You don’t see this in the method signature, but you can still use it       |
 #   inside the method to access the current instance.                          |
 # - Python we have to add self the method signture, and use it also inside     |

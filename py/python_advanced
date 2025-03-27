@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/03/24 16:45:18 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/03/27 09:08:47 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/03/27 10:07:44 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -457,5 +457,33 @@
     args = parser.parse_args()
     # accessing args
     args.age
+
+===[ filter() in python: ]======================================================
+- filter() is a built-in function that is used to filter elements from an 
+  iterable (list, tuple or string) based on condition provided by a function,
+  filter() return an iterator that includes only those elements that satisfy the
+  condition.
+
+# INFO: [ List Comprehensions ]=================================================
+  * Is a way to create a new list by performing an operation on each item in an 
+    existing iterable (list, tuple, string, ...) and optionally applying a 
+    condition to filter elements.
+
+  [ expression 'for' item 'in' iterbale 'if' condition ]
+
+  => 'expression': the operation you want to perform on each iterm
+  => 'item': The varibale represents each item in the iterbale.
+  => 'iterbale': the collection (list, tuple, range, ...) to loop through.
+  => 'condition (optional)' filter or the condition to be satisfied. 
+
+# TIP:==========================================================================
+# - list comprehensions are often used to replace 'for' loops when creating or |
+#   transforming lists (transforming & filtring).                              | 
+# ==============================================================================
+
+# NOTE:=========================================================================
+# - list comprehensions allows you to write cleaner and more readble code      |
+#   compared to using traditional loops for list creation.                     |
+# ==============================================================================
 
 ================================================================================

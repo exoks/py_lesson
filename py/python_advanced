@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/03/24 16:45:18 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/03/27 11:18:07 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/04/05 16:47:44 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -493,4 +493,33 @@
 #   compared to using traditional loops for list creation.                     |
 # ==============================================================================
 
+===[ yield operator: ]==========================================================
+- Instead of returning a single value and ending, a function with 'yield'
+  can 'produce a sequence of values', one at a time, 'pausing between each'.
+
+  => [ advj: ]
+    > [ Memory efficient: ]
+      - It does not store the whole result in memory.
+      - Great for big data, file processing, etc
+    > [ Lazy evaluation: ]
+      - Values are generted 'only when needed'
+    > [ Stateful iteration: ]
+      - Remembers where it left off btween calls. 
+
+ex: 
+  def countdown(n):
+      while n > 0:
+        yield n
+        n -= 1
+
+  for elem in countdown(3):
+      print(elem)
+
+  # NOTE: each time through the loop, it 'resumes' from the last 'yield'
+
+  # INFO: ======================================================================
+  # - Use 'yield' when you want to 'iterate over data efficiently' especially  |
+  #   large or streaming data, without 'building full lists in memory'.        |
+  # ============================================================================
+      
 ================================================================================

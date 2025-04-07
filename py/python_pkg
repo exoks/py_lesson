@@ -1,0 +1,177 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀       𓐓  python_module_pkg 𓐔           
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀       Dev: oezzaou </var/spool/mail/oezzaou> 
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/04/05 10:08:08 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/04/07 18:13:13 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ PyPi: python package index: ]==============================================
+- 'Pypi' is the same as 'pip' (python installs packages) 
+
+- The basic structure for a python package is:
+
+    packaging_tutorial/
+    -> src/
+        -> example_package_YOUR_USERNAME_HERE
+        -> __init__.py
+        -> example.py 
+
+    # NOTE:=====================================================================
+    # - package user name are used to prevent the confilict that could happen  |
+    #   between two packages in python server.                                 |
+    # - the dir contains python files should match the project this smplifies  |
+    #   the configuation and is more abvious to users who install the ackage.  |
+    # - __init__.py is recommended because the existence of this file allows   | 
+    #   users to impor tthe dir as regular package.                            | 
+    # ==========================================================================
+
+# INFO: these are the main file for the package
+
+> [ distribution files: ]
+  - You will now add files that are used to prepare teh project for distribution,
+    when you are done, the project structure will look like this:
+
+  packaging_totorial/
+  |--> LICENSE
+  |--> pyproject.toml
+  |--> README.md
+  |--> src/
+      |--> example_package_YOUR_USERNAME_HERE/
+          |--> __init__.py
+          |--> example.py
+  |--> tests/
+
+  # NOTE: tests: are used for package tests
+
+> [ Choosing a build backend: ]
+  -  'build backend' determines how your project will specify its
+      configuration, including metadata, and input files,
+      build backends have different levels fo functionality.
+
+================================================================================
+* 'back-end package' is used to build the finale form
+  (built package), it is called 'distributable format' which can include compiled files or zipped metadata.
+
+  > [ Build Output formats: ]
+    1 - sdist ( 'source distribution' )
+      . A '.tar.gz' archive
+      . Includes raw python source ('.py') documentation, license and config files.
+      . Good for 'transparency' and building from 'source code'
+    2 - wheel ( 'binary distribution' ) 
+      . A '.whl' file ( which is really just a zip)
+      . Contains 'compiled Python files' ('.pyc')
+        and metadata in a structured format.
+      . Faster to install because it does not need to        be build again.
+
+# NOTE:
+# - '.pyc' python compiled is machine code format from the .py code source code
+# this format is interpreted instruction by instructi by the python interpreter.
+
+> [ '.py' VS '.tar.gz' VS '.whl' ]
+
+        -------------------------------------------
+        |   '.py'   |   '.tar.gz'   |   '.whl'    | 
+---------------------------------------------------
+human   |     yes   |     yes       | ❌ (zipped/ |
+readble |           |               |   compiled) |
+---------------------------------------------------
+contains|     yes   |     yes       |  sometimes  |
+raw .py |           |               |             |
+---------------------------------------------------
+fast to |     yes   | (needs build) |      yes    |
+install |           |               |             |
+---------------------------------------------------
+Upload  |    No     |      yes      |      yes    |
+to PyPi |           |               |             |
+---------------------------------------------------
+
+> [ Create a minimal python package: ]
+
+  |mypkg/
+  |-> pyproject.toml
+  |-> mypkg/
+  |---> __init__.py
+
+# NOTE:=========================================================================
+# - '.toml' stands for Tom's obvious, minimal languae used for config file like|
+#   .yaml, It is clean, human-readable.                                        |
+# - In python the .toml file is most often used as pyproject.toml.             |
+# ==============================================================================
+
+# INFO:=========================================================================
+# - '.toml' file tells pip, build, setuptools, poetry. and others how to build,|
+# install and manage packages.                                                 |
+# ==============================================================================
+
+===[ Makefile VS py build tools]===
+* Makefile = builds binaries (C/C++ etc).
+* Python build tool = builds packages for distribution/installing.
+
+===[ Example: ]===
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mypkg"
+version = "0.1.0"
+description = "A demo package"
+authors = [{ name = "You", email = "you@example.com" }]
+readme = "README.md"
+license = { text = "MIT" }
+dependencies = ["requests"]
+
+[project.urls]
+Homepage = "https://example.com/mypkg"
+
+> [ Break Down: ]
+
+  [build-system]
+    - Required for packagin tools. 
+    - 'requires': build dependencies like 'setuptools', 'wheel'
+    - build-backend: which backend to use to build your package
+
+  [ project ]
+    - This replaces the older 'setup.py' and 'setup.cfg'
+    - 'name': the name fo your package on PyPI
+    - 'version': your package version
+    - 'description': short description
+    - 'authors': List of authors
+    - 'readme': Markdown file for long description
+    - 'license': License type (or path to file)
+    - 'dependencies': Runtime dependencies like 'flask', 'numpy', etc 
+
+  [ project.urls ]
+    - 'Homepage' = "https://github.com/yourname/mypkg" 
+
+# INFO:=========================================================================
+# .toml is also used in:                                                       |
+# - Poetry: uses 'pyproject.toml' for everything (dependencies, scripts,       |
+#   versioning, etc).                                                          |
+# - Black: (python formatter) uses 'pyproject.toml' for config.                | 
+# - Ruff, pytest, mypy, and many other tools now support '.toml'-based configs.|
+# ==============================================================================
+
+
+===[ tqdm(): 'taqaddum' ]=======================================================
+- tqdm: stands for 'taqaddum' in arabic means progress or advance, It is used
+  to display progress bars for loops and iterables. It helps track the execution
+  time of long-running processes in a visually appealing way. 
+
+  ''
+      from tqdm import tqdm
+  
+      tqdm(iterbale)
+  ''
+
+# CONCLUSION: ==================================================================
+# - tqdm simply adds progress bar decoration to loops and helps you track the  | 
+#   operation.                                                                 |
+# ==============================================================================

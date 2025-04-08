@@ -5,18 +5,16 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/04/05 10:08:08 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/04/07 18:42:33 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/04/08 11:08:55 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
 #  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
 #  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
 
-===[ PyPi: python package index: ]==============================================
-- 'Pypi' is the same as 'pip' (python installs packages) 
+===[ Packaging & distribution: ]================================================
 
 > [ Package Structure: ]
-
    |-> mypkg/
      |--> pyproject.toml 
      |--> LISENCE
@@ -62,7 +60,7 @@
       . Faster to install because it does not need to be build again.
 
 # NOTE:=========================================================================
-# - '.pyc' python compiled is machine code format from the .py code source code|
+# - python compiled is machine code .pyc' format from the .py code source code |
 # this format is interpreted instruction by instructi by the python interpreter|
 # ==============================================================================
 
@@ -99,10 +97,10 @@ to PyPi |           |               |             |
 
 # INFO:=========================================================================
 # - '.toml' file tells pip, build, setuptools, poetry. and others how to build,|
-# install and manage packages.                                                 |
+#   install and manage packages.                                               |
 # ==============================================================================
 
-===[ Makefile VS PY Build Tools ]===
+===[ Makefile VS Py Build Tools ]===
 * Makefile = builds binaries (C/C++ etc).
 * Python build tool = builds packages for distribution/installing.
 
@@ -150,8 +148,6 @@ Homepage = "https://example.com/mypkg"
 # - Black: (python formatter) uses 'pyproject.toml' for config.                | 
 # - Ruff, pytest, mypy, and many other tools now support '.toml'-based configs.|
 # ==============================================================================
-
-===[ tqdm(): 'taqaddum' ]=======================================================
 - tqdm: stands for 'taqaddum' in arabic means progress or advance, It is used
   to display progress bars for loops and iterables. It helps track the execution
   time of long-running processes in a visually appealing way. 
@@ -166,3 +162,110 @@ Homepage = "https://example.com/mypkg"
 # - tqdm simply adds progress bar decoration to loops and helps you track the  | 
 #   operation.                                                                 |
 # ==============================================================================
+
+===[ python environment: ]===
+  python environment: is isolated space where you can install and use python
+  packages without affecting other project or the system python.
+
+# QUESTION:=====================================================================
+# Why using python env ?                                                       |
+#  - Avoid version conflicts between packages.                                 |
+#  - To keep your project dependencies clean.                                  |
+#  - To test different setups or tools safely.                                 |
+# ==============================================================================
+
+> [ Python env types: ]
+  1|> System python
+    - the gloabl python installed on your OS
+      /usr/bin/python
+
+  # NOTE:> Avoid installing packages here, as it affects your while system.
+
+  2|> Virtual Environment (venv)
+    - A lightweight isolated python env just for your project  
+
+  # NOTE:> pip will only install packages in the virtual env 
+
+  3|> Conda Environment
+      - Similar to venv but managed by 'Anaconda'
+      - Good for data science or when you need 
+      non-python packages (e.g, C libraries)
+
+# QUESTION:===================================================
+# - What is inside a venv ?                                  |
+# myenv/                                                     |
+# ├── bin/ (or Scripts/)  # Python, pip, activate script     |
+# ├── lib/                # Python libraries (site-packages) |
+# └── pyvenv.cfg          # Config file                      |
+# ============================================================
+
+===[ Instalation Process: ]===
+
+    |>> pip install mypkg <<|
+
+1|> Find the package
+    - pip looks on https://pypi.org
+    - choses the right .whl (wheel/binary) or .tar.gz (source) for your python
+      version 
+
+  # NOTE: If it is local, step this step (the zero conditional)
+  # INFO: C/C++ use makefile or cmake to build packages.
+
+======[ Python VS C/C++ builder ]===
+- C/C++ → Needs Makefile/CMake to compile code
+- Python → No compilation needed, uses pyproject.toml to package and install
+
+> python has a standard
+  - pip (installer)
+  - setuptools/flit/poetry (builders)
+  - wheel/tar.gz (binary/soure package format)
+
+> Python has:
+  * pip – installer for packages
+  * PyPI – central package repository
+  * Virtual environments – isolated install locations
+
+  - Packages are just '.py' or '.whl' files copied into site-packages
+  - ✅ Simple, standardized, and portable
+
+> C/C++ does not have a native installer — but:
+  - It does have package managers and build systems, which together act like
+    an installer:
+    - Package Managers for C/C++
+    - Conan → C/C++ package manager (like pip)
+    - vcpkg → Microsoft's C++ package manager
+
+They let you:
+    - Fetch libraries (conan install fmt/10.0.0)
+    - Manage dependencies
+    - Integrate with build tools (like CMake)
+
+    But:  ❌ no universal standard (unlike Python)
+          🛠️ Build + Install Tools
+
+> To "install" a C++ project (e.g., into /usr/local/lib), you usually:
+    cmake .
+    make
+    sudo make install
+
+    # NOTE:=====================================================================
+    # - make install copies headers and libraries to system paths  Not as      |
+    #   portable or simple as pip install package.                             |
+    # ==========================================================================
+
+               -------------------------------------------
+               |   Feature   |   Python    |   C/C++     |
+  --------------------------------------------------------
+  |Installer   |     ✅      |     ❌      | Not built-in|
+  --------------------------------------------------------
+  |Package     |     ✅      |             |   ❌ None   |
+  |registry	   |             |     PyPI    |(conan/vcpkg)|
+  --------------------------------------------------------
+  |Virtual envs|     ✅	     |⚠️    Easy    | Rare, use   |
+  |            |             |             | containers  |
+  --------------------------------------------------------
+  |Dependency  |     ✅      |   Automatic | Manual or   |
+  |   mgmt     |             |	⚠️          | Conan/vcpkg |
+  --------------------------------------------------------
+
+================================================================================

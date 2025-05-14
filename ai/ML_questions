@@ -1,0 +1,135 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀        𓐓  machine_learning 𓐔           
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀   Student:  oezzaou  oussama.ezzaou@gmail.com 
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 06:57:32 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/12 08:13:05 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ diff between supervised learning and traditional programming ]=============
+Yes — that's a very insightful observation!
+
+At first glance, supervised learning does resemble traditional programming:
+🧠 Traditional Programming vs. Supervised Learning
+Aspect	Traditional Programming	Supervised Machine Learning
+Input	Data + Explicit rules	Labeled training data
+Output	Result	A model (that makes predictions)
+Who defines the logic?	The programmer writes the rules	The algorithm learns the rules from data
+🔍 Example to compare:
+Traditional Programming:
+
+def is_adult(age):
+    return age >= 18
+
+    You write the logic explicitly.
+
+Supervised Learning:
+
+You feed a model lots of examples like:
+Age	Is Adult
+17	No
+19	Yes
+15	No
+22	Yes
+
+The model then learns that around age 18 is the threshold — without you writing that rule.
+🧠 So what's the real difference?
+
+    Traditional programming: Logic is handcrafted by humans.
+
+    Supervised ML: Logic is learned from data, making it useful for complex or fuzzy problems where rules are hard to define.
+
+===[ Who is responsible for predection ? ]======================================
+but who is responsile for prediction ?
+ChatGPT said:
+
+Great question! In supervised learning, the machine learning model is responsible for making predictions — after it has been trained on labeled data.
+📌 Who makes the prediction?
+
+    ✅ The trained model — not the developer — makes predictions on new, unseen data.
+
+⚙️ How it works in steps:
+
+    You provide data:
+
+        Inputs (features) and correct outputs (labels).
+
+        Example: {"height": 170, "weight": 70} → "healthy"
+
+    The ML algorithm trains a model:
+
+        It learns patterns in the data (e.g., relationships between height, weight, and health).
+
+    You get a trained model:
+
+        This model now contains a mathematical representation of those learned patterns.
+
+    You ask it to predict:
+
+        You give it a new input (e.g., {"height": 180, "weight": 95}).
+
+        The model uses what it learned to output a prediction (e.g., "overweight").
+
+🧠 Analogy:
+
+Think of it like a student learning from examples:
+
+    You (the teacher) give questions and answers (training data).
+
+    The student studies and learns the patterns.
+
+    Later, the student takes a test (new data) — they are the one making the prediction.
+
+===[ rules in the ML model ?]===================================================
+Yes — you're absolutely right! 🔍
+The model does implement rules, but those rules are not written by the developer — they are learned automatically from the data.
+🧠 What kind of “rules” does the model learn?
+
+They are typically mathematical relationships or patterns between the inputs and outputs.
+For example:
+
+Let’s say we train a model to predict house prices based on size:
+Size (sqft)	Price ($)
+1000	200,000
+1500	300,000
+2000	400,000
+
+The model might "learn" a rule like:
+
+price = 200 × size
+
+So later, if you ask:
+
+    What’s the price of a 1,800 sqft house?
+
+The model will predict:
+
+    200 × 1800 = 360,000
+
+🔍 Are these rules always simple like that?
+
+No — in real-world models, the rules can be very complex, involving:
+
+    Multiple variables
+
+    Non-linear relationships
+
+    Probabilities
+
+    Decision trees or neural networks
+
+But the concept is the same:
+
+    The model creates internal rules (often in the form of weights, splits, or thresholds) to map inputs to outputs.
+
+🔧 Summary
+Item	Who creates it?
+Features (data format)	Developer / Data engineer
+Rules (patterns in data)	✅ Learned by the model
+Final prediction	✅ Made by the model

@@ -1,0 +1,87 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                𓐓  ML_model 𓐔           
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀       Dev:  oezzaou  oussama.ezzaou@gmail.com 
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/14 15:54:37 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ Model: Linear Regression ]=================================================
+* Linear regression: (easy) is used to 'model the relationship' between: 
+  - One independent variable (push_swap: Size)
+  - One independent variable (push_swap: Range)
+    > It fits a 'stright' line through the 'data that best predict the output'.
+
+  > [ Model Formula: ]
+
+      f(x) = ax + b
+
+    - The formula is called 'model' also in ML.
+    - f(x): (y) is the target (y-hat is the estimated/predicted value)
+    - x: Input feature  
+
+    # NOTE:=====================================================================
+    # - Training set is the data used for training the model.                  |
+    # - The generted fuction is called sometimes 'hypothesis'.                 |
+    # ==========================================================================
+
+  > [ Example: ]
+    - Predection of salary based on the experionce:
+    _______________________________
+    | Experience (x) | Salary (y) |
+    |----------------|------------|
+    | 1              |  $30k      |
+    | 2              |  $35k      |
+    | 3              |  $40k      |
+    |_4______________|__$45k______|
+
+    * The model my learn: 
+
+      Salary = 5000 * Experience + 25000 
+
+    * if input feature = 5
+      Salary predected = 500 * 5 + 25000 = 50000$
+
+    > [ What it does ?: ]
+      - It taks a data set of (x, y) data points.
+      - Find the 'line for the function that minimize the error' between
+        'predicted and actual value'.
+      - After training it can predict a 'y-hat' for any input feature 'x' 
+
+# TIP:========================================================================== 
+# - Curve function gives sometimes more predictive input (The same case that   |
+#   i have faced) in push swap Where a I got a curve function between size     |
+#   and range and i have choosen to work with linear function instead to       |
+#   simplify the calculation.                                                  |
+# - Improving means find the function (model) that gives target inputs (y-hat) |
+#   'predective output' closer to the 'actual output'.                         | 
+# - Improving the model involves changing the value of 'a (slop)' and          | 
+#   'b y-intercept'. That is the same what i have done to improve my function  |
+#   in push_swap (a, b: are called parametters/coefficients/weights).          |
+# - But how can we measure and make sure that the optimized function is the    |
+#   suitable one ? (cost function).                                            | 
+# ==============================================================================
+
+  > [ Cost Function: Squared error cost function ]
+  - In machine learning a cost function is 'mathematical formula' that measures
+    how wrong model's prediction are. It simply tells the model how 'far off'
+    from the true value (it measures the quality of fiting).
+      * Low Cost: good predictions
+      * High Cost: bad predictions
+
+               |-----------------------------------------------------|
+      Formula: | J(a, b) = 1 / 2n * ensemble (i -> n) (Ypi - Yai)^2  | 
+               |-----------------------------------------------------|
+
+      # TIP: DO NOT forget to prove it mathimaticaly. 
+
+      - Yp: is the actual output at 'i' 
+      - Yi: is the predictive output estemated by the model. 
+      - (Ypi - Yai) is called the 'error'
+      - n: number of trained examples. 

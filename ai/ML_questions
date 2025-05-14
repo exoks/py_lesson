@@ -1,11 +1,11 @@
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
-#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀        𓐓  machine_learning 𓐔           
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀            𓐓  ML_questions 𓐔           
 #  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
 #  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀   Student:  oezzaou  oussama.ezzaou@gmail.com 
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 06:57:32 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/12 08:13:05 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/14 18:25:39 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -13,123 +13,108 @@
 #  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
 
 ===[ diff between supervised learning and traditional programming ]=============
-Yes — that's a very insightful observation!
+- At first glance, supervised learning does resemble traditional programming:
 
-At first glance, supervised learning does resemble traditional programming:
-🧠 Traditional Programming vs. Supervised Learning
-Aspect	Traditional Programming	Supervised Machine Learning
-Input	Data + Explicit rules	Labeled training data
-Output	Result	A model (that makes predictions)
-Who defines the logic?	The programmer writes the rules	The algorithm learns the rules from data
-🔍 Example to compare:
-Traditional Programming:
+# QUESTION:[ Traditional Programming vs. Supervised Learning: ]=================
+# Aspect	Traditional Programming	Supervised Machine Learning
+# Input	Data + Explicit rules	Labeled training data
+# Output	Result	A model (that makes predictions)
+# Who defines the logic?	The programmer writes the rules	The algorithm learns
+# the rules from data
 
-def is_adult(age):
-    return age >= 18
+  > [ 🔍 Example to compare: ]
+    1|> Traditional Programming:
+      def is_adult(age):
+        return age >= 18
 
-    You write the logic explicitly.
+    # NOTE: You write the logic explicitly.
 
-Supervised Learning:
+    2|> Supervised Learning:
+      - You feed a model lots of examples like:
+    ___________________________
+    |   Age   |   Is Adult    |
+    |---------|---------------|
+    |   17    |   No          |
+    |---------|---------------|
+    |   19	  |   Yes         |
+    |---------|---------------|
+    |   15    |   No          |
+    |---------|---------------|
+    |   22    |   Yes         |
+    |_________|_______________|
 
-You feed a model lots of examples like:
-Age	Is Adult
-17	No
-19	Yes
-15	No
-22	Yes
+    - The model then learns that around age 18 is the threshold — without you
+      writing that rule.
 
-The model then learns that around age 18 is the threshold — without you writing that rule.
-🧠 So what's the real difference?
-
-    Traditional programming: Logic is handcrafted by humans.
-
-    Supervised ML: Logic is learned from data, making it useful for complex or fuzzy problems where rules are hard to define.
+    # QUESTION:[ what's the real difference?: ]================================= 
+    # - Traditional programming: Logic is handcrafted by humans.               |
+    # - Supervised ML: Logic is learned from data, making it useful for complex|
+    #   or fuzzy problems where rules are hard to define.                      |
+    # ==========================================================================
 
 ===[ Who is responsible for predection ? ]======================================
-but who is responsile for prediction ?
-ChatGPT said:
+* In supervised learning, the machine learning model is responsible for
+making predictions — after it has been trained on labeled data.
 
-Great question! In supervised learning, the machine learning model is responsible for making predictions — after it has been trained on labeled data.
-📌 Who makes the prediction?
-
-    ✅ The trained model — not the developer — makes predictions on new, unseen data.
-
-⚙️ How it works in steps:
-
-    You provide data:
-
-        Inputs (features) and correct outputs (labels).
-
+# QUESTION:[ Who makes the prediction? ]========================================
+- The trained model — not the developer — makes predictions on new, unseen data.
+⚙️ 
+  > [ How it works in steps: ]
+    1|> You provide data:
+        - Inputs (features) and correct outputs (labels).
         Example: {"height": 170, "weight": 70} → "healthy"
 
-    The ML algorithm trains a model:
+    2|> The ML algorithm trains a model:
+        - It learns patterns in the data (e.g., relationships between height,
+          weight, and health).
 
-        It learns patterns in the data (e.g., relationships between height, weight, and health).
+    2|> You get a trained model:
+        - This model now contains a mathematical representation of those learned
+          patterns.
 
-    You get a trained model:
+    4|> You ask it to predict:
+        - You give it a new input (e.g., {"height": 180, "weight": 95}).
+        - The model uses what it learned to output a prediction
+          (e.g., "overweight").
 
-        This model now contains a mathematical representation of those learned patterns.
-
-    You ask it to predict:
-
-        You give it a new input (e.g., {"height": 180, "weight": 95}).
-
-        The model uses what it learned to output a prediction (e.g., "overweight").
-
-🧠 Analogy:
-
-Think of it like a student learning from examples:
-
-    You (the teacher) give questions and answers (training data).
-
-    The student studies and learns the patterns.
-
-    Later, the student takes a test (new data) — they are the one making the prediction.
+# INFO:[ Analogy: ]=============================================================
+# * Think of it like a student learning from examples:                         |
+#  - You (the teacher) give questions and answers (training data).             |
+#  - The student studies and learns the patterns.                              |
+#  - Later, the student takes a test (new data) — they are the one making the  |
+#    prediction.                                                               |
+# ==============================================================================
 
 ===[ rules in the ML model ?]===================================================
-Yes — you're absolutely right! 🔍
-The model does implement rules, but those rules are not written by the developer — they are learned automatically from the data.
-🧠 What kind of “rules” does the model learn?
+The model does implement rules, but those rules are not written by the developer
+— they are learned automatically from the data.
 
-They are typically mathematical relationships or patterns between the inputs and outputs.
-For example:
+# QUESTION: What kind of “rules” does the model learn?
+- They are typically mathematical relationships or patterns between the inputs
+and outputs.
+  > [ Example: ]
+    - Let’s say we train a model to predict house prices based on size:
+      _____________________________________
+      |   Size    |   (sqft)	Price ($)   |
+      |-----------|-----------------------|
+      |   1000    | 	200,000             |
+      |   1500	  |   300,000             |
+      |   2000	  |   400,000             |
+      |___________|_______________________|
 
-Let’s say we train a model to predict house prices based on size:
-Size (sqft)	Price ($)
-1000	200,000
-1500	300,000
-2000	400,000
+    - The model might "learn" a rule like:
+      [ price = 200 × size ]
 
-The model might "learn" a rule like:
+    - So later, if you ask:
+      What’s the price of a 1,800 sqft house?
+      The model will predict:
+        [ 200 × 1800 = 360,000 ]
 
-price = 200 × size
-
-So later, if you ask:
-
-    What’s the price of a 1,800 sqft house?
-
-The model will predict:
-
-    200 × 1800 = 360,000
-
-🔍 Are these rules always simple like that?
-
-No — in real-world models, the rules can be very complex, involving:
-
-    Multiple variables
-
-    Non-linear relationships
-
-    Probabilities
-
-    Decision trees or neural networks
-
-But the concept is the same:
-
-    The model creates internal rules (often in the form of weights, splits, or thresholds) to map inputs to outputs.
-
-🔧 Summary
-Item	Who creates it?
-Features (data format)	Developer / Data engineer
-Rules (patterns in data)	✅ Learned by the model
-Final prediction	✅ Made by the model
+# QUESTION: Are these rules always simple like that?
+* No — in real-world models, the rules can be very complex, involving:
+  - Multiple variables
+  - Non-linear relationships
+  - Probabilities
+  - Decision trees or neural networks
+* But the concept is the same: The model creates internal rules (often in the
+  form of weights, splits, or thresholds) to map inputs to outputs.

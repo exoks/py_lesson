@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/14 15:54:37 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/15 23:51:28 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -24,7 +24,7 @@
 
     - The formula is called 'model' also in ML.
     - f(x): (y) is the target (y-hat is the estimated/predicted value)
-    - x: Input feature  
+    - x: Input feature 
 
     # NOTE:=====================================================================
     # - Training set is the data used for training the model.                  |
@@ -36,17 +36,17 @@
     _______________________________
     | Experience (x) | Salary (y) |
     |----------------|------------|
-    | 1              |  $30k      |
-    | 2              |  $35k      |
-    | 3              |  $40k      |
-    |_4______________|__$45k______|
+    | 1              |  30k      |
+    | 2              |  35k      |
+    | 3              |  40k      |
+    |_4______________|__45k______|
 
     * The model my learn: 
 
       Salary = 5000 * Experience + 25000 
 
     * if input feature = 5
-      Salary predected = 500 * 5 + 25000 = 50000$
+      Salary predected = 500 * 5 + 25000 = 50000
 
     > [ What it does ?: ]
       - It taks a data set of (x, y) data points.
@@ -75,13 +75,29 @@
       * Low Cost: good predictions
       * High Cost: bad predictions
 
+      (MSQ): stands for Mean Squared Error
                |-----------------------------------------------------|
       Formula: | J(a, b) = 1 / 2n * ensemble (i -> n) (Ypi - Yai)^2  | 
                |-----------------------------------------------------|
 
       # TIP: DO NOT forget to prove it mathimaticaly. 
 
-      - Yp: is the actual output at 'i' 
-      - Yi: is the predictive output estemated by the model. 
-      - (Ypi - Yai) is called the 'error'
+      - Yai: is the actual/True output at 'i' 
+      - Ypi: is the predictive output estemated by the model at 'i'. 
+      - (Ypi - Yai) is called the 'error' or 'residual', distance
+        between [actual/True output, predictive output], residual can
+        be 'positive/negative'.
       - n: number of trained examples. 
+
+# QUESTION:[ Why devided by 2n ?]=============================================== 
+# - Dividing 'n' gives the **average** squared error across all training       |
+#   examples truning it into a [ mean squared error ].                         |
+# - Dividing by '2' is done for 'mathematical convenience', when you perform   |
+#   'gradient descent' to minimize the cost function, you will compute its     |
+#   derivative, The derivative of a squared term (e.g., (h − y)^2) brings      |
+#   down a factor of 2, which cancels out with the 1 / 2, 'This simplifies the |
+#   gradient update formula'.                                                  | 
+# CONCLUSION:                                                                  |
+# - 1/n → Makes the cost function an average per training example.             |
+# - 1/2 → Simplifies the math when taking derivatives.                         |
+# ==============================================================================

@@ -1,0 +1,167 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                    𓐓  Math 𓐔           
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀       Dev:  oezzaou OussamaEzzaou@gmail.com 
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/15 19:09:30 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/15 23:46:48 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ Math: Derivative ]=========================================================
+* At its core, a 'derivative' measures 'how something changes'. More precisely,
+  it tells you the 'rate of change' of a fucntion at any given point.
+
+Taking a derivative means you are answring this question:
+  "if I change the input a little, how much does the output change ?"
+
+> Mathematically:  
+  - Given a function f(x), the derivative f'(x) tells you how fast f changes
+    'with respect to' x.
+
+> [ Examples: ]
+  1|> Let is say a position of a car over time is given by:
+      [ f(t) = t^2 ]
+  
+  - This means the cars distance from home at seconds is t^2 meters
+    the derivative is:
+      [ f'(t) = 2t ]
+
+  - at t = 4 seconds
+      f(4) = 16 (car distance is 16m )
+      f'(4) =  8
+  
+    t    | 0 -> 1 -> 2 -> 3 -> 4  | s 
+    -----|------------------------|----
+    f(t) | 0 -> 1 -> 4 -> 9 -> 16 | m 
+    -----|------------------------|----
+    f'(t)| 0 -> 1 -> 4 -> 6 -> 8  | m/s 
+
+  - This means at t=3 the car distance is 9m and it is moving 6 ms at this point 
+  # CONCLUSION:=================================================================
+  # - So, The derivative tells us the velocity — how fast the position is      |
+  #   changing.                                                                |
+  # ============================================================================
+
+  - let is make the the rate of changes constant: grows constant. 
+    [ f(t) = t ]
+    
+    - the derivation is:
+      [ f'(t) = 1 ] 
+  
+  - This means that the speed is changing by [ 1 m/s ] at any point.
+
+  2|> [ Cost Function: ]
+      - Let’s say a company’s production cost is:
+          C(x) = 100 + 5x + 0.5x^2
+          C(x) = 100 + 5x + 0.5x^2
+
+      - Where xx is the number of products made, and CC is the cost in dollars.
+        The derivative:
+          C′(x) = 5 + x
+
+      - This means:
+        * For each additional unit made, cost increases by 5 + x dollars
+        * At x=10: cost increases by 15 dollars per unit
+        * It tells how marginal cost behaves
+
+  3|> [ Population Growth: ]
+      - Suppose a population grows according to:
+        P(t) = 1000 * e^0.03t
+
+      - Where tt is in years. The derivative is:
+        P'(t) = 1000 * 0.03 * e^0.03t
+
+      - It tells how fast the population is growing at any time 't', and that
+        growth is 'exponential'.
+
+> [ General Patterns: ]
+    _____________________________________________________________________
+    | Function f(x)   | Derivative f'(x)   | Interpretation             |
+    |-----------------|--------------------|----------------------------|
+    | x^2             | 2x                 | Change grows linearly      |
+    | x^3             | 3x^2               | Change grows quadratically |
+    | sin(x)          | cos(x)             | Change oscillates          |
+    | e^x             | e^x                | Growth matches size        |
+    | ln(x)           | 1/x                | Slows as x grows           |
+    |_________________|____________________|____________________________|
+
+===[ Math: Partial Derivative ]================================================= 
+* A partial derivative measures 'how a multivariable function changes with the'
+  'respect to one variable while holding all the variables constant'.
+
+  > Ex:
+      f(x, y) = x^2 + 3xy + y^2
+
+  - How does 'f' change if i change 'x' a little, but keep 'y' fixed ?
+    |=> that is 'the partial derivative with the respect to x' written ∂f/∂x
+  - How does 'f' change if i change 'y' a littel, but keep 'x' fixed ? 
+    |=> that is 'the partial derivative with the respect to y' written ∂f/∂y
+
+# QUESTION:[ Why are partial derivative used ?]
+- Because many real-world systems depend on multiple variables, partial
+  derivatives help us isolate the effect of just one variable.
+  ______________________________________________________________________________
+  | Term               | Meaning                                               |
+  |--------------------|-------------------------------------------------------|
+  | Partial Derivative | Rate of change with respect to one variable at a time |
+  | Notation           | ∂f/∂x fsubscript(x)                                   |
+  | Key Feature        | Other variables are 'held constant'                   |
+  | Main Use           | Understand systems with 'multiple variables'          |
+  |____________________|_______________________________________________________|
+
+> [ Examples: Derivative VS Partial Derivative ]
+  [[[ Derivative]]]
+    f(x) = 3x^2 + 2x + 1
+  - This has 'one variable' x, so we use the regular derivaitve:
+    f'(x) = d/dx(3x^2 + 2x + 1) = 6x + 2
+  - [ This tell us the slop (rate fo change) of the function at any point x ] 
+
+ [[[ Partial Derivative ]]] 
+    f(x, y) = 3x^2 + 2xy + y^2
+
+    | ∂f/∂x = 6x + 2y 
+  --|
+    | ∂f/∂y = 2x + 2y
+
+  - These tell us:
+    * How 'f' changes in the 'x direction' (slop if you walk east).
+    * How 'f' changes in the 'y direction' (slop if you walk north).
+
+  # INFO:
+  # - Steep (of a slop) rising of falling at a sharp angle.
+  #   ex: a steep slop
+  # - Descent (Noun) a Movement down 
+
+===[ Analogy: ]=================================================================
+- Imagine you're on a hill.
+- The derivative is like walking along a 1D trail — you're asking
+  |=> "how steep is the path right here?"
+
+  The partial derivative is like looking at the steepness:
+
+  - North-South (∂f/∂y)
+  - East-West (∂f/∂x)
+
+- You're still on the hill, but you're isolating one direction at a time.
+
+===[ In Software Term: 💻 ]======================================================
+* Derivative:
+  - Used when modeling simple curves or optimizing single-variable functions.
+
+* Partial Derivative:
+  - Crucial in:
+    > Gradient Descent (you compute partials for each variable)
+    > Neural Networks (backpropagation uses partial derivatives)
+    > Physics Engines (e.g., surface normals)
+    > Multivariable optimization (e.g., tuning hyperparameters)
+
+# CONCLUSION:
+# - Derivatives are for single-variable functions.
+# - Partial derivatives are for multi-variable functions.
+# - Partial derivatives are just an extension of the derivative idea
+#   => they measure change in one direction while holding others constant.

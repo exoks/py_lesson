@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/15 23:51:28 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/18 16:27:05 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -100,4 +100,68 @@
 # CONCLUSION:                                                                  |
 # - 1/n → Makes the cost function an average per training example.             |
 # - 1/2 → Simplifies the math when taking derivatives.                         |
+# ==============================================================================
+
+===[ Descent Gradient: ]===
+* This algorithm is used to find the lowest point in the function. There are
+  a lot of algorithms used to find the lowest point.
+
+  1|_ find the solution of the equation f'(x) = 0 (where the slop at Xl is 0) 
+  2|_ descent algorithm
+  3|_ ...
+
+- The cost function depends on the linear regression function, which depends on
+  the slop (a) and y-intercept (b) => Cost function depends on the slop and
+  y-intercept.
+
+       J(a, b) = 1/2n sum(1 -> n) (Yp - Ya)^2 
+
+    => [ J(a, b) = 1/2n sum(1 ->n) (ax + b - Ya)^2 ]
+
+- J(a, b) is a multi-variable function, We will use the partial dirivative to
+  track the rate of change (slop of J(a,b) at in respect of 'a' or 'b').
+  > Initial derivative of J(a, b) in respect of a | range of change cost J(a,b)
+    according to slop (a). 
+  > Initial derivative of J(a, b) in repsect of b | range of change cost J(a,b)
+    according to y-intercept (b).
+
+# INFO:[ Descent Gradient Analogy ]=============================================
+# - It is like moving blind you just make a small step and feel the steepness  |
+#   then you move on.                                                          |
+# ==============================================================================
+- let's take a = 0 and b = 0
+
+  1|> Solution:
+    - we need to find the dirivative on 'a' and dirivative on 'b'. 
+    - Let's take a random point in the graph the slop(a) and cost function(a,b)
+
+        J(a,b)
+          |
+          |                   /
+          |                  /
+          |___________ /\   /
+          |           /| \_/
+          |          / |
+          |         /  |
+          |------------|-----------> (a)
+                    <- Ai ->
+
+  1|> The idea is to choose a point 'slop a(i)' as an initial value. 
+  2|> Partial derivative gives me the 'rate of change' at a specific '(ai)'
+  3|> Start moving by a step 'alpha' based on this form: 
+
+     /|-> A(new) = A(i) - alpha * change of range at point A(i) 
+  --||
+     \|-> B(new) = B(i) - alpha * change of rate at point B(i)
+    
+     /|-> A(new) = A(i) - LR * (Partial Dirived at A(i) Point)  
+  --||
+     \|-> B(new) = A(i) - LR * (Partial Dirived at B(i) Point)
+
+# INFO:=========================================================================
+# - What we do exactly here is to move on the x Axis to find the point that has|
+#   the partial dirivative at xi = 6xi/6x|/6yi/6y = slop = 0.                  |
+# CONCLUSION:===================================================================
+# - The gradient descent algorithm is about finding the min of the function    |
+#   min(f(x)) where the slop is 0 (It is one of the most poplular algorithms). |
 # ==============================================================================

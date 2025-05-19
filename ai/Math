@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/15 19:09:30 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/15 23:46:48 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/19 16:58:30 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -14,7 +14,7 @@
 
 ===[ Math: Derivative ]=========================================================
 * At its core, a 'derivative' measures 'how something changes'. More precisely,
-  it tells you the 'rate of change' of a fucntion at any given point.
+  it tells you the 'rate of change' of a function at any given point.
 
 Taking a derivative means you are answring this question:
   "if I change the input a little, how much does the output change ?"
@@ -27,7 +27,7 @@ Taking a derivative means you are answring this question:
   1|> Let is say a position of a car over time is given by:
       [ f(t) = t^2 ]
   
-  - This means the cars distance from home at seconds is t^2 meters
+  - This means the cars distance from home at second is t^2 meters
     the derivative is:
       [ f'(t) = 2t ]
 
@@ -58,9 +58,8 @@ Taking a derivative means you are answring this question:
   2|> [ Cost Function: ]
       - Let’s say a company’s production cost is:
           C(x) = 100 + 5x + 0.5x^2
-          C(x) = 100 + 5x + 0.5x^2
 
-      - Where xx is the number of products made, and CC is the cost in dollars.
+      - Where x is the number of products made, and C is the cost in dollars.
         The derivative:
           C′(x) = 5 + x
 
@@ -73,7 +72,7 @@ Taking a derivative means you are answring this question:
       - Suppose a population grows according to:
         P(t) = 1000 * e^0.03t
 
-      - Where tt is in years. The derivative is:
+      - Where t is in years. The derivative is:
         P'(t) = 1000 * 0.03 * e^0.03t
 
       - It tells how fast the population is growing at any time 't', and that
@@ -119,7 +118,7 @@ Taking a derivative means you are answring this question:
     f(x) = 3x^2 + 2x + 1
   - This has 'one variable' x, so we use the regular derivaitve:
     f'(x) = d/dx(3x^2 + 2x + 1) = 6x + 2
-  - [ This tell us the slop (rate fo change) of the function at any point x ] 
+  - [ This tell us the slop (rate of change) of the function at any point x ] 
 
  [[[ Partial Derivative ]]] 
     f(x, y) = 3x^2 + 2xy + y^2
@@ -147,7 +146,7 @@ Taking a derivative means you are answring this question:
   - North-South (∂f/∂y)
   - East-West (∂f/∂x)
 
-- You're still on the hill, but you're isolating one direction at a time.
+- You are still on the hill, but you are isolating one direction at a time.
 
 ===[ In Software Term: 💻 ]======================================================
 * Derivative:
@@ -160,8 +159,78 @@ Taking a derivative means you are answring this question:
     > Physics Engines (e.g., surface normals)
     > Multivariable optimization (e.g., tuning hyperparameters)
 
-# CONCLUSION:
-# - Derivatives are for single-variable functions.
-# - Partial derivatives are for multi-variable functions.
-# - Partial derivatives are just an extension of the derivative idea
-#   => they measure change in one direction while holding others constant.
+# CONCLUSION:===================================================================
+# - Derivatives are for single-variable functions.                             |
+# - Partial derivatives are for multi-variable functions.                      |
+# - Partial derivatives are just an extension of the derivative idea           |
+#   => they measure change in one direction while holding others constant.     |
+# ==============================================================================
+
+> [ Tangent line equation: ]====================================================
+* If 'f' is 'differentiable' at x = a
+  
+  1|> Use this direct mathimathic rule to find it:
+        => [ y = f'(a) * (x - a) + f(a) ] 
+
+  2|> If 'f' is 'differentiable' at x=a => the slop is a so the equation is:
+        => [ y = (f'(a) * x) + b ]
+      - The point (a, f(a)) belong to f(x) and tangent line equation, so: 
+        => [ f(a) = (f'(a) * a) + b ] 
+        => [ b = f(a) - f'(a) * a ] 
+
+  # NOTE:
+  # - You can write f'(x), dy/dx or f'(x) * dx = dy
+
+===[ Why limits introduced in math ?: ]=========================================
+* Limits were created to solve a big problem in 'calculus' and 'analysis'.
+
+  'How do we deal with values that constantly changing, especially when they'
+  'get extremly close to something -- but never actually reach it ?'
+
+===[ Problem: ]===
+* Imagine you are trying to measure 'how fast' something is moving at an exact
+  moment.
+
+- let's say a car drives 100 km in 2 hours - that is 50km/h.
+
+- But what if you want to know the exact speed at a single moment, like at t = 1
+hour?
+You can’t measure it directly, because speed is based on how distance changes
+over time. Instead, you look at the average speed over smaller and smaller
+time intervals around t = 1. Then, you use a limit to figure out what value the
+speed is approaching as the interval gets closer and closer to zero. That gives
+you the instantaneous speed.
+# NOTE: It is about finding the instantaneous speed(sor3a lahdiya)
+- The smaller the interval, the more accurate your answer gets. But this raises
+  the question:
+  'What happens as the time interval gets closer and closer to zero?'
+
+- This "approaching" behavior is 'not easy to define'using regular math, You
+  need a way to 'talk about a value you are getting close to' even if you
+  never each it.
+
+# CONCLUSION:[Limits give us a precise way to say]==============================
+# - As X gets closer and closer to some value, Y get closer and closer to this |
+#   other value.                                                               | 
+# So in this example:                                                          | 
+# - As the time interval approaches to t=1h, the average speed appraoches the  |
+#   'instantaneous speed'.                                                     | 
+# - This idea helps define:                                                    |
+#   . Instantaneous speed (used in derivatives)                                |
+#   . Area under curves (used in integrals)                                    |
+#   . Functions that behave oddly near a point                                 |
+#   . Infinite series (like 1 + 1/2 + 1/4 + 1/8 + …)                           |
+# ==============================================================================
+
+# QUESTION:[ If the derivative gives me V(t), why do I need limits? ]===========
+- You can’t get a derivative without limits — because
+  the derivative is the
+  limit of average rates of change.
+- The 'derivative is defined as a limit' 
+- Without the concept of a limit, we could not rigorously define what a
+  derivative means. 
+# QUESTION:[ Why not just say "derivative"? ]===================================
+- We do -- but behind the scenes, every derivative relies on a limit.
+- Derivative is a 'shortcut' to calculate the rate of cchange at a at x E R.
+- Limits allows as to calculate at specific point, The derivatie is another
+  shortcut that calculate the derivative in interval.

@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/15 19:09:30 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/19 18:10:53 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/19 18:55:43 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -173,13 +173,21 @@ Taking a derivative means you are answring this question:
         => [ y = f'(a) * (x - a) + f(a) ] 
 
   2|> If 'f' is 'differentiable' at x=a => the slop is a so the equation is:
-        => [ y = (f'(a) * x) + b ]
+        (1) => [ y = f'(a) * x + b ]
       - The point (a, f(a)) belong to f(x) and tangent line equation, so: 
-        => [ f(a) = (f'(a) * a) + b ] 
-        => [ b = f(a) - f'(a) * a ] 
+            => [ f(a) = f'(a) * a + b]
+        (2) => [ b = f(a) - f'(a) * a ] 
+      - from (1) and (2):
+        f(x) = f'(a) * x - f'(a) * a + f(a)  
+  =====> [ y = f'(a) * (x - a) + f(a) ]: This is the first equation 
+  # NOTE:=============================================================
+  # - the second section is the proof for the first equation:        |
+  #   |=> [ y = f'(a) * (x - a) + f(a) ]                             |
+  # ==================================================================
 
-  # NOTE:
-  # - You can write f'(x), dy/dx or f'(x) * dx = dy
+  # INFO:=============================================================
+  # - You can write f'(x), dy/dx or f'(x) * dx = dy                  |
+  # ==================================================================
 
 ===[ Why limits introduced in math ?: ]=========================================
 * Limits were created to solve a big problem in 'calculus' and 'analysis'.
@@ -209,9 +217,10 @@ you the instantaneous speed.
   need a way to 'talk about a value you are getting close to' even if you
   never each it.
 
-# CONCLUSION:[Limits give us a precise way to say]==============================
-# - As X gets closer and closer to some value, Y get closer and closer to this |
-#   other value.                                                               | 
+# CONCLUSION:===================================================================
+# - Limits give us a precise way to say:                                       |
+# - 'As X gets closer and closer to some value, Y get closer and closer to this|
+#   other value'                                                               | 
 # So in this example:                                                          | 
 # - As the time interval approaches to t=1h, the average speed appraoches the  |
 #   'instantaneous speed'.                                                     | 
@@ -241,8 +250,8 @@ you the instantaneous speed.
   shortcut that calculate the derivative in interval.
 
 # WARNING:[ When the point is not differentiable: ]=============================
-# - f'(x) = 0 DOES NOT MEAN that f is not differentiable at x 
-# - Ex: 
+# - f'(x) = 0 DOES NOT MEAN that f is not differentiable at x. 
+#   > Ex: 
 #     f(x) = |x|
 #         |
 #         |
@@ -265,3 +274,5 @@ you the instantaneous speed.
 #   are facing. Same with a function: at a sharp point, the slope isn’t 0 — it’s
 #   undefined.
 # ==============================================================================
+
+

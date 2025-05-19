@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/15 19:09:30 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/19 18:55:43 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/19 23:58:06 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -198,9 +198,7 @@ Taking a derivative means you are answring this question:
 ===[ Problem: ]===
 * Imagine you are trying to measure 'how fast' something is moving at an exact
   moment.
-
 - let's say a car drives 100 km in 2 hours - that is 50km/h.
-
 - But what if you want to know the exact speed at a single moment, like at t = 1
 hour?
 You can’t measure it directly, because speed is based on how distance changes
@@ -275,4 +273,26 @@ you the instantaneous speed.
 #   undefined.
 # ==============================================================================
 
+===[ Limit cases: ]===
+  - Let's take f(x) and x = a is point from the difined interval of f(x)  
 
+  1|>lim(x->a) f(x) - f(a) / x - a = slop E R  
+      - f is derivative at x = a 
+      - tangent line equation:  y = f'(a) * (x - a) + f(a) 
+  2|>lim(x->a+) f(x) - f(a) / x - a = l <-> lim(x->a+) f(x) - f(a) / x - a = c
+      - f is derivate at the right of a | y = R * (x - a) + f(a)  
+      - f is derivate at the left of a  | y = L * (x - a) + f(a) 
+      - f is not derivative at x = a
+  3|> lim(x->a) f(x) - f(a) / x - a = ∞ (+∞ or -∞)
+      - f is not derivative 
+
+> [ Summry: ]
+    ________________________________________________________________
+    |            Property           | Left   | Right  | Derivative |
+    |                               | exists | exists |  at 'a'    |
+    |-------------------------------|--------|--------|------------|
+    | - Both exist and equal        |   ✅   |   ✅   |     ✅     |
+    | - Left exists, right does not |   ✅   |   ❌   |     ❌     |
+    | - Right exists, left does not |   ❌   |   ✅   |     ❌     |
+    | - Both exist, not equal       |   ✅   |   ✅   |     ❌     |
+    |_______________________________|________|________|____________|

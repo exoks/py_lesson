@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/18 16:27:05 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/21 16:57:27 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -158,6 +158,19 @@
   --||
      \|-> B(new) = A(i) - LR * (Partial Dirived at B(i) Point)
 
+     /|-> A(new) = A(i) - LR * &/&x J(a,b)  
+  --||
+     \|-> B(new) = A(i) - LR * &/&y J(a,b)
+
+     /|-> A(new) = A(i) - LR *  &/&x (sum(i=0->m) (Y-hat(i) - Ya)^2 / 2m)
+  --||
+     \|-> B(new) = A(i) - LR * &/&y (sum(i=0->m) (Y-hat(i) - Ya)^2 / 2m)
+
+     /|-> A(new) = A(i) - LR *  (sum(i=0->m) (Y-hat(xi) - Ya)^2 / m) * xi
+  --||
+     \|-> B(new) = A(i) - LR * (sum(i=0->m) (Y-hat(xi) - Ya)^2 / m)
+
+
 # INFO:=========================================================================
 # - What we do exactly here is to move on the x Axis to find the point that has|
 #   the partial dirivative at xi = 6xi/6x|/6yi/6y = slop = 0.                  |
@@ -165,3 +178,7 @@
 # - The gradient descent algorithm is about finding the min of the function    |
 #   min(f(x)) where the slop is 0 (It is one of the most poplular algorithms). |
 # ==============================================================================
+
+- When you use all the training data to calculate the min(J(w,b)), In simple
+  term using all training data at each step of greadient descent is called 
+  'batch gradient descent'.

@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/15 19:09:30 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/19 23:58:06 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/22 23:45:44 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -296,3 +296,187 @@ you the instantaneous speed.
     | - Right exists, left does not |   ❌   |   ✅   |     ❌     |
     | - Both exist, not equal       |   ✅   |   ✅   |     ❌     |
     |_______________________________|________|________|____________|
+
+===[ Linear Algebra: ]==========================================================
+* To understand the linear algbera in a good way, we have to start from the 
+  equations. An equation is a 'statement that asserts the equality of two'
+  'expressions'
+
+  > [ Syntax: ]
+    Expression1 = Expression2 
+
+  > [ Type of equations based on the degree ] 
+    1|> Linear Equation (Degree 1)
+        ax + b = 0
+
+    2|> Quadratic Equation (Degree 2)
+        ax^2 + bx + c = 0
+
+    3|> Cubic Equation (Degree 3) 
+        ax^3 + bx^2 + cx + d = 0
+
+    4|> Quartic: 
+        ax^4 + bx^3 + cx^2 + dx + e = 0
+
+    5|> Higher-Degree 
+        ax^n + bx^n-1 ... = 0 
+
+  - Called 'polynomial equation' of degree 'n'. 
+
+# NOTE:
+# - Multiple equations solved together is called 'system of quations'.
+#   * Linear system.
+#   * Nonlinear system: include at least one nonlinear equation 
+# REVISION:
+# - System equation: allows us to model real 'world problems' where 'multiple 
+#   condition must be satisfied at the same time'.
+
+# QUESTION:[ What is the diff between function and equation? ]=================
+# - An quation is statemnt of equality between two expressions, its goal is to
+#   solve the variable(s) that makes the quation true.
+# - A function is a rule or relationship that assigns 'exactly one output'
+#   for 'each input', It tells you how to compute the value of 'f(x)' for any
+#   'x'.
+# - Relation: Every function can be written as an equation.
+#   ex: f(x) = x + 2 => y = x + 2 
+# WARNING: > Not every equation is a function.
+# - ex: x^2 + y^2 = r, this is the equation of the circle
+# - let's take x = 0 => 0^2 + y^2 = r => y = r and y = -r
+# - x input => have two value 7 => it is not function
+# # CONCLUSION:
+# - An equation asks: "What value make this true" 
+# - A function tells you: "Given this input, what is the output". 
+# - A function must return one and only one output per input.
+# - Equations that allow multiple outputs for a single input violate this rule.
+# - Therefore, not all equations define functions.
+# - Function in most programming language return only one object.
+# ==============================================================================
+
+> [ Simple linear equation: ]
+    ax + b = c
+
+  -> To solve this equation and find Xs that solve this equation ax + b = c, The
+     process is easy Xs = c-b / a => Xs is the crossing point between the line
+     y = ax + b and axis x: y = 0
+
+> [ Multi linear equation: ]
+    ax + by + cz + b = 0 
+
+  > Ex:
+    x + y = 2
+
+  -> (1, 1) is a solution for this equation, (2, 1) is also another solution,
+      multi linear equation accept an infinite number of solution,
+      - If you take any point A(x, y) from the line y = -x + 2, A is a solution 
+        for the equation [ x + y = 2 ].
+      - emmm as you can see we must add another equation condition that tells
+        what is the relation between x and y:
+
+       | x + y = 2
+    => |
+       | x - y = 6
+
+      - This equation just add another equation condition, It says find x and y
+        where x + y = 2 and x - y = 6, This system is called "system equation". 
+        where two condition are related and we need to find the 'satisfied'.
+        solution for this 'linear equation system'.
+      - In this case we have 2 ways to find the solution: 
+                            /   \
+                          /       \
+                        /           \
+        [ Algebraic Method ]      [ Ghraphical Method]
+
+  > [ real-life problem example: ]
+    - we have 24 dh and want to by 10 items of books and pens, The book is 3dh
+      and the pen is 2dh, the system equation for this problem is:
+      
+      | x + y = 10
+    =>|
+      | 3x + 2y = 24
+
+      - x: number of books
+      - y: number of pen
+
+      - Solution is the point (4, 6):
+      | x + y = 10    => 4 + 6 = 10
+    =>|
+      | 3x + 2y = 24   => 12 + 12 = 24 
+
+    * You have to buy 4 books and 6 pens. 
+
+===[ Algebraic Method: ]===
+- Solve one equation for one variable, then substitute into the others. 
+
+  > Ex:
+     | 2x + y  = 0 
+  => |
+     | x  + y = 1
+
+- First we are going to solve one equation:
+     2x + y = 0 => y = -2x 
+
+     x + y = 1
+  => x - 2x = 1
+  => x = -1 (x is found)
+
+- let's get back to the same equation and look for y.
+     x + y = 1
+  => -1 + y = 1
+  => y = 2 (y is found) 
+
+- the point (-1, 2) is the solution of the linear ssystem equation. 
+     | 2x + y  = 0 => 2 * -1 + 2 = 0  (True) 
+  => |
+     | x  + y = 1 => -1 + 2 = 1 (True)
+
+# NOTE:========================================================================= 
+# - This method is good for small systems (2 -> 3 equations), It can be        |
+#   expended for mediam systems also.                                          | 
+# - Simple but not efficient for large systems.                                |
+# ==============================================================================
+
+===[ Ghraphical Method: ]===
+* You draw the equations on a graph and look for 'intersections'. 
+  - graph all the lines, the point where intersect is the solution:
+    M(x,y) satisfies all the equations.
+
+# NOTE:=========================================================================
+# - Use this method if the system has 2 variable.                              |
+# - You want a visual understanding.                                           | 
+# - Not practical for 3+ variables or precise answers.                         | 
+# INFO:=========================================================================
+# - Algebraic methods are good for small to mediam linear systems, It is often | 
+#   and hard to find the solution for the system equations.                    |
+# - Ghraphical method is not practical at all, it is good just if want to      |
+#   understand the system equation solution.                                   | 
+# - mathematician suffered alot with these method, they had to find an         |
+#   efficient and inovative solution which is [LINEAR ALGEBRA]                 |
+# ==============================================================================
+ 
+===[ Linear Algebra: ]===
+* Linear algebra is a branch of mathematics, It is the 'theory' of vectors and
+  matrices.
+
+- let's take a linear system equation: 
+     | 2x + y  = 0 
+  => |
+     | x  + y = 1 
+
+- Linear algebra says: 
+  . vector i-> = (2, 1): oriented vector on x 
+  . vector j-> = (1, 1): oriented vector y
+  . vector r-> (0, 1) is i-> + j->
+
+vector r is linear transfored array, it must returned to its original state:
+  - i->(1, 20) =>> i->(1, 0)
+  - j->(1, 1)  =>> j->(0, 1)
+
+- r'-> vector is (-1, 2): x=-1 and y=2 is the solution for the linear
+  system equation.
+
+     | 2x + y  = 0 
+  => |
+     | x  + y = 1 
+
+# CONCLUSION:
+# - Linear algebra: The solution is the vector before the linear transformation. 

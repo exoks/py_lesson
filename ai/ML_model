@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/21 16:57:27 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/25 20:22:02 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -15,7 +15,7 @@
 ===[ Model: Linear Regression ]=================================================
 * Linear regression: (easy) is used to 'model the relationship' between: 
   - One independent variable (push_swap: Size)
-  - One independent variable (push_swap: Range)
+  - One dependent variable (push_swap: Range)
     > It fits a 'stright' line through the 'data that best predict the output'.
 
   > [ Model Formula: ]
@@ -180,5 +180,32 @@
 # ==============================================================================
 
 - When you use all the training data to calculate the min(J(w,b)), In simple
-  term using all training data at each step of greadient descent is called 
+  term using all training data at each step of gradient descent is called 
   'batch gradient descent'.
+
+
+===[ ML: Multiple linear regression ]===========================================
+* This model is used to model the relationship between one 'dependent' variable
+  and 'two or more independent variables'|also called 'predictors' or 'features'
+
+  > [ model formula: ]
+      - single linear regression formula is:
+        f(x) = ax + b
+      - multiple linear regression formula would look like: 
+        f(x, y, ....) = ax + by + cz ... + b
+        f(x1, x2, x3 ...) = a1 * x1 + a2 * x2 + ... + an * xn + b
+      
+      . moving a unit on x
+      . moving b unit on y
+      . moving c unit on z
+        ...
+
+      x-> = |x| = |x1|         a-> = |a| = |a1| 
+            |y|   |x2|               |b|   |a2|
+            |z|   |x3|               |c|   |a3|
+            ...   ...                   ...    ...
+ 
+        [ f(x->) = a-> . x-> + b ] 
+
+  # NOTE: a-> . x-> : is called dot product, It is the projection of a-> on x->
+ 

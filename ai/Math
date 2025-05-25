@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/15 19:09:30 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/23 19:11:58 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/25 16:35:20 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -453,9 +453,21 @@ you the instantaneous speed.
 #   efficient and inovative solution which is [LINEAR ALGEBRA]                 |
 # ==============================================================================
  
-===[ Linear Algebra: ]===
+===[ Linear Algebra: ]==========================================================
 * Linear algebra is a branch of mathematics, It is the 'theory' of vectors and
   matrices.
+
+# REVISION:
+# - We know that the story of the linear algebra starting from the system
+#   equation where we had to find the best solution for a system equation
+#   with an efficient way. linear algebra says the solution: In linear algebra,
+#   solving a system means finding the vector that, when transformed by a
+#   matrix, yields the result vector.
+# - Equation: 
+#   [ A * V-> = V'-> ] 
+# - A : a matrix representing the linear transformation
+# - V : the unknown vector (the solution you're solving for)
+# - V': the result/output vector (what the system produces)
 
 - let's take a linear system equation: 
      | 2x + y  = 0 
@@ -478,10 +490,11 @@ vector r is linear transfored array, it must returned to its original state:
   => |
      | x  + y = 1 
 
-# CONCLUSION:
+# CONCLUSION:===================================================================
 # - Linear algebra: The solution is the vector before the linear transformation. 
+# ==============================================================================
 
-===[ Linear Algebra: Matrices ]=================================================
+===[ Linear Algebra: Matrix ]===================================================
 - Matrix is 'rectangular array(or table)' of numbers arranged in
   'rows and columns'. 
 - they are used becasue they provide a 'compact, origanized, and powerful way'
@@ -513,14 +526,47 @@ vector r is linear transfored array, it must returned to its original state:
       A = |1  0|
           |0  1|
 
+      
     - This one represent the normal state of the oriented vectors (i-> and j->) 
 
   # NOTE:=======================================================================
-  # - A vector is a matrice with just one row or one column.
-  # - A matrix can be thought of as collection of vectors.
-  # - vector is one-dimenstional array of numbers, it has <magnitude>
-  #   and <direction>.
-  # - A two-dimensional array of numbers (rows and columns), it can represent
-  #   <linear transformations>, <systems of equations>. etc. 
+  # - A vector is a matrice with just one row or one column.                   |
+  # - A matrix can be thought of as collection of vectors.                     |
+  # - vector is one-dimenstional array of numbers, it has <magnitude>          |
+  #   and <direction>.                                                         |
+  # - A two-dimensional array of numbers (rows and columns), it can represent  |
+  #   <linear transformations>, <systems of equations>. etc.                   | 
+  # ============================================================================
 
 # QUESTION:[ What is the vector in 1D ? ]=======================================
+# - A 1D vector is a number that represents:
+#   * Magnitude: How far is goes
+#   * Direction: positive (->) or negative (<-) 
+# - You can think of it like:
+#   [ V-> = +3 (right) or V-> = -5 (left) 
+#
+#   .  3: vector going 3 units to the right 
+#   . -5: vector going left 5 units to the left
+# NOTE:
+# - It is just a single number - but that number carries direction too.
+# - All 1D vectors are 'real numbers' | v-> E R
+# - Operation still work, just like higher-dimensional vectors 
+# QUESTION:[ What does it still count as a vector ?]============================
+# - Follows vector rules (addition, scaling, etc ...)
+# - Exist in vector space R^1 
+# - can be used in linear algebra, physics, etc.
+# ==============================================================================
+
+- vector are two main types: row ro column
+
+  > 'colum vector' is the famous one that we know than can be in the plan (x, y).
+    V-> = |x|
+          |y|
+
+  > 'row vector' are not typically interpreted 'geometrically' as object
+    in space. 
+    V-> = [x y] 
+
+    - A row vector acts as a kind of linear functional — it takes a column
+      vector and produces a scalar via the dot product:
+    r⃗⋅v⃗ = x^2 + y^2

@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/15 19:09:30 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/25 16:35:20 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/26 09:10:18 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -523,10 +523,10 @@ vector r is linear transfored array, it must returned to its original state:
           |1  1|
 
     - Matric can represent a linear transformation also:
-      A = |1  0|
+      A = |1  0| = [i-> j->] = I
           |0  1|
 
-      
+    # INFO: > 'I' is called 'identity matrix'
     - This one represent the normal state of the oriented vectors (i-> and j->) 
 
   # NOTE:=======================================================================
@@ -570,3 +570,43 @@ vector r is linear transfored array, it must returned to its original state:
     - A row vector acts as a kind of linear functional — it takes a column
       vector and produces a scalar via the dot product:
     r⃗⋅v⃗ = x^2 + y^2
+
+# INFO:=========================================================================
+# - Linear Transformation: means a vector in the sapce is being mapped to a new|
+#   vector often changing its length, direction or both in linear way (no      |
+#   bending, warping or curing).                                               | 
+# - We can say: Linear Transformation changes the 'vector space',              |
+#   'coordinate plane' or'cartesian plane'                                     | 
+# ==============================================================================
+
+===[ Matrix: Operations ]===
+
+===[ Marix: Reverse Matrix ]===
+
+===[ Math: Quantities ]=========================================================
+- In mathematics, 'quantities' refer to 'measurable' or 'coubtale'
+  properties - things that can be described using numbers, symbols, or units. 
+
+_____________________________________________________________________________
+| Quantity Type | Has Magnitude?  | Has Direction?  | Example               |
+| ------------- | --------------  | --------------  | --------------------- |
+| Scalar        | ✅ Yes          | ❌ No           | Temperature, Speed    |
+| Vector        | ✅ Yes          | ✅ Yes          | Velocity, Force       |
+| Tensor        | ✅ Yes          | ✅ Multi-dir    | Stress tensor, Rank-2 |
+| Algebraic     | ✅ Symbolic     | ❌/abstract     | $x^2 + 1$, $a + b$    |
+| Discrete      | ✅ Countable    | ❌              | 1, 2, 3 items         |
+| Continuous    | ✅ Real values  | ❌              | Distance = 3.25m      |
+|_______________|_________________|_________________|_______________________|
+
+- We can 'classify' all 'mathematical quantities' into just 'two broad types',
+  the most fundamental division would be:
+
+  * 'Scalar Quantities' (It has only magnitude)
+  * 'Vector Quantities' (it has magnitude and direction)
+
+# QUESTION:[ Why this classification? ]=========================================
+# - Because it reflects:
+#     * Whether a quantity is direction-aware (vector), Or purely numerical
+#    (scalar). All other types—like tensors, matrices, algebraic expressions—are
+#    'generalizations' or 'extensions' of these two.
+# ==============================================================================

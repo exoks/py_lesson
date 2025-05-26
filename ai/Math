@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/15 19:09:30 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/26 11:29:13 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/26 12:11:51 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -370,20 +370,25 @@ you the instantaneous speed.
 
       - j-> : is the unit vector on y | j-> = |0| 
                                               |1|
-    ===[ Dot product: ]=== 
+  ===[ Vectors: Product ]=== 
+               |
+      |--------|------------------------------------------------|
+      |                                                         |
+  [ Dot Product (Inner/Scalar Product) ]                  [ Cross Product ] 
+    - Output: Scalar quantity  
 
 # NOTE:[ Analogy: ]=============================================================
-# - You can simply look at the vector as an object (container) that has
-#   properties (x, y, z ...) 
-# - From what you have learnt in C++ vector is an object, (vector quantity in 
-#   math), not and int or double that you can apply operation directly
-#   (scalar quantity in math), Opertion on object must use overloading operator  
-#   , the same idea in math you can't apply the scalar quantity rules directly
-#   on vector quantity. 
-# - the key feature here that there is an object formula but the operations 
-#   are done inside the overloading operators in c++
-# - DO NOT FORGET this analogy in the context of computer sience. 
-
+# - You can simply look at the vector as an object (container) that has        |
+#   properties (x, y, z ...).                                                  | 
+# - From what you have learnt in C++ vector is an object, (vector quantity in  | 
+#   math), not and int or double that you can apply operation directly         |
+#   (scalar quantity in math), Opertion on object must use overloading operators  
+#   , the same idea in math you can't apply the scalar quantity rules directly |
+#   on the vector quantity.                                                    | 
+# - the key feature here that there is an object formula you must respect      |
+#   but the operations are done inside the overloading operators in c++.       |
+# - DO NOT FORGET this analogy in the context of computer sience.              | 
+# ==============================================================================
 # QUESTION:[ What is the vector in 1D ? ]=======================================
 # - A 1D vector is a number that represents:
 #   * Magnitude: How far is goes

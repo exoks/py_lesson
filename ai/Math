@@ -5,12 +5,40 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/15 19:09:30 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/26 09:10:18 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/26 11:29:13 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
 #  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
 #  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ Math: Quantities ]=========================================================
+- In mathematics, 'quantities' refer to 'measurable' or 'coubtale'
+  properties - things that can be described using numbers, symbols, or units. 
+
+_____________________________________________________________________________
+| Quantity Type | Has Magnitude?  | Has Direction?  | Example               |
+| ------------- | --------------  | --------------  | --------------------- |
+| Scalar        | ✅ Yes          | ❌ No           | Temperature, Speed    |
+| Vector        | ✅ Yes          | ✅ Yes          | Velocity, Force       |
+| Tensor        | ✅ Yes          | ✅ Multi-dir    | Stress tensor, Rank-2 |
+| Algebraic     | ✅ Symbolic     | ❌/abstract     | $x^2 + 1$, $a + b$    |
+| Discrete      | ✅ Countable    | ❌              | 1, 2, 3 items         |
+| Continuous    | ✅ Real values  | ❌              | Distance = 3.25m      |
+|_______________|_________________|_________________|_______________________|
+
+- We can 'classify' all 'mathematical quantities' into just 'two broad types',
+  the most fundamental division would be:
+
+  * 'Scalar Quantities' (It has only magnitude)
+  * 'Vector Quantities' (it has magnitude and direction)
+
+# QUESTION:[ Why this classification? ]=========================================
+# - Because it reflects:                                                       |
+#     * Whether a quantity is direction-aware (vector), Or purely numerical    |
+#    (scalar). All other types—like tensors, matrices, algebraic expressions—are
+#    'generalizations' or 'extensions' of these two.                           |
+# ==============================================================================
 
 ===[ Math: Derivative ]=========================================================
 * At its core, a 'derivative' measures 'how something changes'. More precisely,
@@ -297,6 +325,98 @@ you the instantaneous speed.
     | - Both exist, not equal       |   ✅   |   ✅   |     ❌     |
     |_______________________________|________|________|____________|
 
+===[ Vectors: ]================================================================= 
+* Vector is mathimatical quantitie that has both 'magnitude' and 'direction'. 
+  (well-structered object)
+
+  > [ Chasles Relation: ]
+
+      [ AB-> + AC-> = BC-> ] 
+
+    * From this relation we can understand the addition/substruction on vectors.
+    * a-> - a-> = |x| + |-x| = |0| = 0-> (vector quantity)
+                  |y|   |-y|   |0|
+    * ||a|| - ||a|| = 0 (scalar quantity) 
+
+  > [ Multiplication: ]
+    - a-> : ---->  
+    - 2a->: --------> 
+    - -a->: <----
+
+  ===[ vector forms: ]===
+
+    > [ column vector: ]
+      - This form is the most famous one 
+      v-> = |x|
+            |y|
+
+    > [ Polar Form: ]
+      - The 'polar form' of a vector is away to represent a 2D vector using its
+        its 'magnitude' (length) and 'direction' (angle), instead of its
+        'horizontal and vertical components'
+      V-> = < magnitude, alpha >  
+
+      V-> = | ||V->|| * cos(alpha) |
+            | ||V->|| * sin(alpha) |
+
+      - ||v->|| = sqrt(x^2 + y^2)
+      - alpha = tan^-1 (y/x) 
+
+    > [ Unit vectors: ]
+      - V-> = x * i-> + y * j-> 
+
+      - i-> : is the unit vector on x | i-> = |1| 
+                                              |0|
+
+      - j-> : is the unit vector on y | j-> = |0| 
+                                              |1|
+    ===[ Dot product: ]=== 
+
+# NOTE:[ Analogy: ]=============================================================
+# - You can simply look at the vector as an object (container) that has
+#   properties (x, y, z ...) 
+# - From what you have learnt in C++ vector is an object, (vector quantity in 
+#   math), not and int or double that you can apply operation directly
+#   (scalar quantity in math), Opertion on object must use overloading operator  
+#   , the same idea in math you can't apply the scalar quantity rules directly
+#   on vector quantity. 
+# - the key feature here that there is an object formula but the operations 
+#   are done inside the overloading operators in c++
+# - DO NOT FORGET this analogy in the context of computer sience. 
+
+# QUESTION:[ What is the vector in 1D ? ]=======================================
+# - A 1D vector is a number that represents:
+#   * Magnitude: How far is goes
+#   * Direction: positive (->) or negative (<-) 
+# - You can think of it like:
+#   [ V-> = +3 (right) or V-> = -5 (left) 
+#
+#   .  3: vector going 3 units to the right 
+#   . -5: vector going left 5 units to the left
+# NOTE:=========================================================================
+# - It is just a single number - but that number carries direction too.
+# - All 1D vectors are 'real numbers' | v-> E R
+# - Operation still work, just like higher-dimensional vectors 
+# QUESTION:[ What does it still count as a vector ?]============================
+# - Follows vector rules (addition, scaling, etc ...)
+# - Exist in vector space R^1 
+# - can be used in linear algebra, physics, etc.
+# ==============================================================================
+
+- vector are two main types: row or column
+
+  > 'colum vector' is the famous one that we know than can be in the plan (x, y).
+    V-> = |x|
+          |y|
+
+  > 'row vector' are not typically interpreted 'geometrically' as object
+    in space. 
+    V-> = [x y] 
+
+    - A row vector acts as a kind of linear functional — it takes a column
+      vector and produces a scalar via the dot product:
+    r⃗⋅v⃗ = x^2 + y^2
+
 ===[ Linear Algebra: ]==========================================================
 * To understand the linear algbera in a good way, we have to start from the 
   equations. An equation is a 'statement that asserts the equality of two'
@@ -332,7 +452,7 @@ you the instantaneous speed.
 #   condition must be satisfied at the same time'.
 
 # QUESTION:[ What is the diff between function and equation? ]=================
-# - An quation is statemnt of equality between two expressions, its goal is to
+# - An quation is statement of equality between two expressions, its goal is to
 #   solve the variable(s) that makes the quation true.
 # - A function is a rule or relationship that assigns 'exactly one output'
 #   for 'each input', It tells you how to compute the value of 'f(x)' for any
@@ -457,17 +577,18 @@ you the instantaneous speed.
 * Linear algebra is a branch of mathematics, It is the 'theory' of vectors and
   matrices.
 
-# REVISION:
-# - We know that the story of the linear algebra starting from the system
-#   equation where we had to find the best solution for a system equation
-#   with an efficient way. linear algebra says the solution: In linear algebra,
-#   solving a system means finding the vector that, when transformed by a
-#   matrix, yields the result vector.
-# - Equation: 
-#   [ A * V-> = V'-> ] 
-# - A : a matrix representing the linear transformation
-# - V : the unknown vector (the solution you're solving for)
-# - V': the result/output vector (what the system produces)
+# REVISION:=====================================================================
+# - We know that the story of the linear algebra starting from the system      |
+#   equation where we had to find the best solution for a system equation      |
+#   with an efficient way. linear algebra says the solution: In linear algebra,|
+#   solving a system means finding the vector that, when transformed by a      |
+#   matrix, yields the result vector.                                          |
+# - Equation:                                                                  | 
+#   [ A * V-> = V'-> ]                                                         | 
+# - A : a matrix representing the linear transformation                        |
+# - V : the unknown vector (the solution you're solving for)                   |
+# - V': the result/output vector (what the system produces)                    |
+# ==============================================================================
 
 - let's take a linear system equation: 
      | 2x + y  = 0 
@@ -475,8 +596,8 @@ you the instantaneous speed.
      | x  + y = 1 
 
 - Linear algebra says: 
-  . vector i-> = (2, 1): oriented vector on x 
-  . vector j-> = (1, 1): oriented vector y
+  . vector i-> = (2, 1): unit vector on 'x' 
+  . vector j-> = (1, 1): unit vector on 'y'
   . vector r-> (0, 1) is i-> + j->
 
 vector r is linear transfored array, it must returned to its original state:
@@ -508,10 +629,13 @@ vector r is linear transfored array, it must returned to its original state:
           \___|___|_______/
               columns
 
-    # NOTE: A subscript(n * m): is the size of the matrice.
+    # NOTE:
+    # - A subscript(n * m): is the size of the matrice.
+    # - Matrix holds the same idea of an array in the context of computer sience
+    #   Ex: int matrix[row][columns]: array with size [ row * columns ]  
 
 - The 'linear system equation' can be represented as well-structured 'object' in
-  math, This object is called 'matrice'.
+  math, This object is called 'matrix'.
 
   > Ex: 
      | 2x + y  = 0 
@@ -522,12 +646,12 @@ vector r is linear transfored array, it must returned to its original state:
       A = |2  1| 
           |1  1|
 
-    - Matric can represent a linear transformation also:
+    - Matrix can represent a linear transformation also:
       A = |1  0| = [i-> j->] = I
           |0  1|
 
     # INFO: > 'I' is called 'identity matrix'
-    - This one represent the normal state of the oriented vectors (i-> and j->) 
+    - This one represent the normal state of the unit vectors (i-> and j->) 
 
   # NOTE:=======================================================================
   # - A vector is a matrice with just one row or one column.                   |
@@ -538,75 +662,68 @@ vector r is linear transfored array, it must returned to its original state:
   #   <linear transformations>, <systems of equations>. etc.                   | 
   # ============================================================================
 
-# QUESTION:[ What is the vector in 1D ? ]=======================================
-# - A 1D vector is a number that represents:
-#   * Magnitude: How far is goes
-#   * Direction: positive (->) or negative (<-) 
-# - You can think of it like:
-#   [ V-> = +3 (right) or V-> = -5 (left) 
-#
-#   .  3: vector going 3 units to the right 
-#   . -5: vector going left 5 units to the left
-# NOTE:
-# - It is just a single number - but that number carries direction too.
-# - All 1D vectors are 'real numbers' | v-> E R
-# - Operation still work, just like higher-dimensional vectors 
-# QUESTION:[ What does it still count as a vector ?]============================
-# - Follows vector rules (addition, scaling, etc ...)
-# - Exist in vector space R^1 
-# - can be used in linear algebra, physics, etc.
-# ==============================================================================
-
-- vector are two main types: row ro column
-
-  > 'colum vector' is the famous one that we know than can be in the plan (x, y).
-    V-> = |x|
-          |y|
-
-  > 'row vector' are not typically interpreted 'geometrically' as object
-    in space. 
-    V-> = [x y] 
-
-    - A row vector acts as a kind of linear functional — it takes a column
-      vector and produces a scalar via the dot product:
-    r⃗⋅v⃗ = x^2 + y^2
-
 # INFO:=========================================================================
-# - Linear Transformation: means a vector in the sapce is being mapped to a new|
+# - Linear Transformation: means a vector in the space is being mapped to a new|
 #   vector often changing its length, direction or both in linear way (no      |
 #   bending, warping or curing).                                               | 
 # - We can say: Linear Transformation changes the 'vector space',              |
 #   'coordinate plane' or'cartesian plane'                                     | 
 # ==============================================================================
 
-===[ Matrix: Operations ]===
+===[ Matrix: Operations (Addition, Substruction and Multiplication) ]===
+  > [ Addition: ]
+    - they must have the same size
+    - Ex:
+        |1 2| + |3 4| = |4  6|
+        |3 4|   |5 6|   |8 10| 
 
-===[ Marix: Reverse Matrix ]===
+  > [ Substruction: ]
+    - they must have the same size
+        |1 2| - |3 4| = |-2 -2|
+        |3 4|   |5 6|   |-2 -2| 
 
-===[ Math: Quantities ]=========================================================
-- In mathematics, 'quantities' refer to 'measurable' or 'coubtale'
-  properties - things that can be described using numbers, symbols, or units. 
+  > [ Multiplication: ]
+    - You must mulitipy the rows and columns following this rule:  
 
-_____________________________________________________________________________
-| Quantity Type | Has Magnitude?  | Has Direction?  | Example               |
-| ------------- | --------------  | --------------  | --------------------- |
-| Scalar        | ✅ Yes          | ❌ No           | Temperature, Speed    |
-| Vector        | ✅ Yes          | ✅ Yes          | Velocity, Force       |
-| Tensor        | ✅ Yes          | ✅ Multi-dir    | Stress tensor, Rank-2 |
-| Algebraic     | ✅ Symbolic     | ❌/abstract     | $x^2 + 1$, $a + b$    |
-| Discrete      | ✅ Countable    | ❌              | 1, 2, 3 items         |
-| Continuous    | ✅ Real values  | ❌              | Distance = 3.25m      |
-|_______________|_________________|_________________|_______________________|
+    A1 = |a b|    A2 = |e f i|
+         |c d|         |g h j|
 
-- We can 'classify' all 'mathematical quantities' into just 'two broad types',
-  the most fundamental division would be:
+   
+   A1 * A2 = |(ae + bg)  (af + bh)  (ai + bj)|
+             |(ce + dg)  (cf + dh)  (ci + dj)
 
-  * 'Scalar Quantities' (It has only magnitude)
-  * 'Vector Quantities' (it has magnitude and direction)
+    > Ex:
+      |1 2| * |0 3 4| = |4 5  10| 
+      |3 4|   |2 1 3|   |8 13 24| 
 
-# QUESTION:[ Why this classification? ]=========================================
-# - Because it reflects:
-#     * Whether a quantity is direction-aware (vector), Or purely numerical
-#    (scalar). All other types—like tensors, matrices, algebraic expressions—are
-#    'generalizations' or 'extensions' of these two.
-# ==============================================================================
+  # NOTE:> Devision in the context of matrix has no sense 
+
+===[ Marix: Inverse Matrix ]===
+* Inverse Matrix is the same matrix that return the coordinate plan to its 
+  origin values (A^-1) where: 
+  A = |2 0|
+      |0 2|
+
+  A^-1 = |1/2   0| 
+         |0   1/2|
+
+  A * A^-1 = |2 0| * |1/2   0| = |1 0| = I (identify matrix)   
+             |0 2|   |0   1/2|   |0 1|
+
+  # INFO:[ A * A^-1 = I]
+
+  - We are going to use the above equation to solve the system equation in 
+    linear algebra:
+
+    [ A * V-> = V'-> ] 
+
+    - A: is the linear transformation matrix that changed V-> to V'-> and based
+      on the concept of inverse matrix we can say:
+      [ A^-1 * V'-> = V-> ]
+    - Seems totaly logic if A has transformed V-> to V'->, A^-1 would change
+      V'-> to V
+    > Mathimatical proof:
+      => A^-1 * A * V-> = V'-> * A^-1 
+      => I * V-> = V'-> * A^-1
+      => [ V-> = V'-> * A^-1 ] 
+

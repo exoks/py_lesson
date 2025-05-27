@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/26 12:20:35 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/27 19:01:49 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -205,11 +205,17 @@
             |z|   |x3|               |c|   |a3|
             ...   ...                   ...    ...
       
-      # NOTE: X-> is a row vector not a column one. 
+      # NOTE: a-> is a row vector while x-> is a column vector. 
 
         [ f(x->) = a-> . x-> + b ] 
 
   # NOTE: a-> . x-> : is called dot product, It is the projection of a-> on x->
+  # ERROR:
+  # - what i have said is not true at all 
+  # - row vector is not a ghraphical vector, i guess not projection is here. 
+
+  > [ Feature Scaling : ]
+    - I need to understand the problem first to understand the feture scaling.
 
   > [ Cost function: ]
     - In the case of simple linear regression:
@@ -219,4 +225,3 @@
     - b is y-intercept
     - error = residuals = Y-hat(i) - Yactual (Y is the output feature)  
     - 1/2 is used to simplify the derivative in respect of one input feature. 
-

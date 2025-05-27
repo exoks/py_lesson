@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/15 19:09:30 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/26 12:11:51 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/27 16:06:03 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -345,7 +345,7 @@ you the instantaneous speed.
 
   ===[ vector forms: ]===
 
-    > [ column vector: ]
+    > [  vector: ]
       - This form is the most famous one 
       v-> = |x|
             |y|
@@ -376,6 +376,17 @@ you the instantaneous speed.
       |                                                         |
   [ Dot Product (Inner/Scalar Product) ]                  [ Cross Product ] 
     - Output: Scalar quantity  
+
+  - The 'projection' of one vector onto another, 'scaled' by the length
+    of the other.
+
+    . column * row = outer product 
+    . row * column = dot product
+
+  # NOTE:
+  # - for know one we are goint to take this part as it is, the abstruction here
+  #   is not clear  
+  # ERROR: DO NOT FORGET TO UNDERTAND THIS PART
 
 # NOTE:[ Analogy: ]=============================================================
 # - You can simply look at the vector as an object (container) that has        |
@@ -408,7 +419,7 @@ you the instantaneous speed.
 # - can be used in linear algebra, physics, etc.
 # ==============================================================================
 
-- vector are two main types: row or column
+- vector are two main types: row or column 
 
   > 'colum vector' is the famous one that we know than can be in the plan (x, y).
     V-> = |x|
@@ -418,7 +429,7 @@ you the instantaneous speed.
     in space. 
     V-> = [x y] 
 
-    - A row vector acts as a kind of linear functional — it takes a column
+    - A row vector acts as a kind of linear functional — it takes a 
       vector and produces a scalar via the dot product:
     r⃗⋅v⃗ = x^2 + y^2
 
@@ -622,7 +633,7 @@ vector r is linear transfored array, it must returned to its original state:
 
 ===[ Linear Algebra: Matrix ]===================================================
 - Matrix is 'rectangular array(or table)' of numbers arranged in
-  'rows and columns'. 
+  'rows and s'. 
 - they are used becasue they provide a 'compact, origanized, and powerful way'
   'to represent and perform calculations' with complex systems and structures.
 
@@ -632,12 +643,12 @@ vector r is linear transfored array, it must returned to its original state:
     A = |a21 a22 a23 ... a2n|  | rows
         |am1 am2 am3 ... amn| /
           \___|___|_______/
-              columns
+              s
 
     # NOTE:
     # - A subscript(n * m): is the size of the matrice.
     # - Matrix holds the same idea of an array in the context of computer sience
-    #   Ex: int matrix[row][columns]: array with size [ row * columns ]  
+    #   Ex: int matrix[row][s]: array with size [ row * columns ]  
 
 - The 'linear system equation' can be represented as well-structured 'object' in
   math, This object is called 'matrix'.
@@ -659,11 +670,11 @@ vector r is linear transfored array, it must returned to its original state:
     - This one represent the normal state of the unit vectors (i-> and j->) 
 
   # NOTE:=======================================================================
-  # - A vector is a matrice with just one row or one column.                   |
+  # - A vector is a matrice with just one row or one .                   |
   # - A matrix can be thought of as collection of vectors.                     |
   # - vector is one-dimenstional array of numbers, it has <magnitude>          |
   #   and <direction>.                                                         |
-  # - A two-dimensional array of numbers (rows and columns), it can represent  |
+  # - A two-dimensional array of numbers (rows and s), it can represent  |
   #   <linear transformations>, <systems of equations>. etc.                   | 
   # ============================================================================
 
@@ -688,7 +699,7 @@ vector r is linear transfored array, it must returned to its original state:
         |3 4|   |5 6|   |-2 -2| 
 
   > [ Multiplication: ]
-    - You must mulitipy the rows and columns following this rule:  
+    - You must mulitipy the rows and s following this rule:  
 
     A1 = |a b|    A2 = |e f i|
          |c d|         |g h j|
@@ -725,10 +736,9 @@ vector r is linear transfored array, it must returned to its original state:
     - A: is the linear transformation matrix that changed V-> to V'-> and based
       on the concept of inverse matrix we can say:
       [ A^-1 * V'-> = V-> ]
-    - Seems totaly logic if A has transformed V-> to V'->, A^-1 would change
-      V'-> to V
-    > Mathimatical proof:
+    - It Seems totaly logic if 'A' has transformed V-> to V'->, A^-1
+      would change V'-> to V
+    > <Mathimatical proof>:
       => A^-1 * A * V-> = V'-> * A^-1 
       => I * V-> = V'-> * A^-1
       => [ V-> = V'-> * A^-1 ] 
-

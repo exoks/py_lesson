@@ -5,13 +5,13 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/27 16:26:07 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/27 17:09:02 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/27 18:54:28 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
 #  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
 #  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
-===[ Descriptive Statistics: ]================================================== 
+===[ Statistics: ]============================================================== 
 * Statistics is branch of mathematics that deals with 'collecting', 'analyzing',
   'interpreting', 'presenting' and organizing 'data'.  
   - It helps us 'make sense of large amounts of data' and
@@ -34,5 +34,86 @@
    . Graphs and Charts (histograms,
      pie charts) 
 
-===[ Cases and variables: ]=== 
+===[ Descriptive Statistics: ]==================================================
 
+===[ Cases and variables: ]===
+* A 'case' is one unit of 'observation' 
+
+  - Examples:
+    . A person 
+    . A company 
+    . A country
+    . A product 
+    . An ev3ent
+
+  # INFO: each row in a dataset represent a case
+
+  * A 'variable' is a 'characteristic' or 'property' that is measured for
+    each case.
+    - Example:
+      . person: hight age gender
+
+  # INFO:
+  # - variables are the column in your dataset. 
+  # - varibales can be 'quantitaive' (numbers like age etc) or 'qualitaitve'
+  #   (categoris like gender male or female)
+
+  > [ Dataset Example: ]  
+    _____________________________________________
+    | Car Model | Year | Price ($)  | Fuel Type |
+    |-----------|------| -----------|-----------|
+    | Toyota    | 2020 | 18,000     | Gasoline  |
+    | Tesla     | 2022 | 45,000     | Electric  |
+    | Honda     | 2019 | 15,000     | Hybrid    |
+    |___________|______|____________|___________|
+
+    - Cases: each 'car' is case (3 cars == 3 cases)  
+    - Varibales: Car model, Year, Price, Fuel Type (4 varibles for each case) 
+
+  # CONCLUSION:
+  # - Case = on item/subject you are collecting data on (a row)  
+  # - Varibale =  one characteristic of a case column 
+
+===[ Level of Measurements: ]===
+* It tell us 'how data values are categorized' and what kind of math or analysis
+  you can do with them. 
+
+                            [ Level of Measurements: ]
+                                       |
+    |---------------------|------------|---------------|-------------------|
+[ Nominal ]           [ Ordinal ]               [ Interval ]           [ Ratio ]
+- Data re 'names'  - data have a          - you can measure    - all features of
+  or 'categories'    meaningful order       how much more or     intervals plus   
+- No order or        but the diff           less.                a meaningful 
+  ranking between    between values       - There is 'no true'   zero 
+  them               are not                ('zero' zero does  - You can do all 
+- You can't do       meaningfull            not mean noting).    math operations 
+  math on this     - You still can't      > Ex:                > Ex: 
+  data               do math on it          . Temperature (0C    . Height
+> Ex:              > Ex:                      does not mean      . Age
+  . Gender (male,    . Ranking|1st,2nd        no temperature)    . distance 
+    female)          . Movie ratings        . Class Notes (0     . time
+  . Car brand        . Education level        does not mean      . money
+    (Toyota, Ford)     (bachelor              this 'note' is     0 means 'none' 
+                      < Master < phd)         not Exist)         or 'absence' 
+# NOTE:            |                      |                     | 
+# You can only     | You can't rank       | You can do addition/| You can say: |
+# 'count' or       | ordinal data         | /Substruction but   | - Person A   | 
+# 'classify'       | but not measure      | not multiplication /|   is twice as| 
+# nominal data     | the gap between      | division            |   Person B   |
+#                  | the values.          | meaningfully        |              |
+# -----------------|----------------------|---------------------|--------------|
+# - These levels is not numerical         | - These types is numerical vars    |
+#   variables, These types are            | - These levels are called:         | 
+#   called 'catigorical variables'        |   Numerical Variables              | 
+# ----------------------------------------|------------------------------------|
+
+> [ Summray : ]
+   _____________________________________________________________________________
+   | Level    | Can You Order? | Equal Spacing? | True Zero? | Example         |
+   |----------|----------------|----------------|------------|-----------------|
+   | Nominal  | ❌ No          | ❌ No          | ❌ No      | Colors, names   |
+   | Ordinal  | ✅ Yes         | ❌ No          | ❌ No      | grades (A, B, C)|
+   | Interval | ✅ Yes         | ✅ Yes         | ❌ No      | Temperature, IQ |
+   | Ratio    | ✅ Yes         | ✅ Yes         | ✅ Yes     | Height, money   |
+   |__________|________________|________________|____________|_________________|

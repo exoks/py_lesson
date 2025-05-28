@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/27 16:26:07 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/27 18:54:28 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/28 19:09:13 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -14,8 +14,8 @@
 ===[ Statistics: ]============================================================== 
 * Statistics is branch of mathematics that deals with 'collecting', 'analyzing',
   'interpreting', 'presenting' and organizing 'data'.  
-  - It helps us 'make sense of large amounts of data' and
-    'make decisions or predictions' based on that data.
+  - It helps us 'make sense of large amounts of data' and 'make decisions or'
+    'predictions' based on that data.
 
             |-------------[ Statistics Types: ]-------------------| 
             |                                                     |  
@@ -44,17 +44,17 @@
     . A company 
     . A country
     . A product 
-    . An ev3ent
+    . An event
 
   # INFO: each row in a dataset represent a case
 
-  * A 'variable' is a 'characteristic' or 'property' that is measured for
-    each case.
+  * A 'variable' is a 'characteristic' or 'property' that is measured for each
+    case.
     - Example:
-      . person: hight age gender
+      . person: hight, age, gender ... etc
 
   # INFO:
-  # - variables are the column in your dataset. 
+  # - varibales are the column in your dataset. 
   # - varibales can be 'quantitaive' (numbers like age etc) or 'qualitaitve'
   #   (categoris like gender male or female)
 
@@ -108,6 +108,18 @@
 #   called 'catigorical variables'        |   Numerical Variables              | 
 # ----------------------------------------|------------------------------------|
 
+            [ Quantitive Variables ]
+            /                      \
+           /                        \
+    [ Continuous ]                [ Discrete ]
+  - Continuous → ℝ              - Discrete → ℕ
+  - (uncountable)               - (countable) 
+
+# NOTE:
+# - The method used to analyse the data depends of the level of measurement. 
+# - Most of data anaysis ignore the difference between interabl and ratio levels
+# - Sometimes you can treat ordinal level as quatitive varibale. 
+
 > [ Summray : ]
    _____________________________________________________________________________
    | Level    | Can You Order? | Equal Spacing? | True Zero? | Example         |
@@ -117,3 +129,142 @@
    | Interval | ✅ Yes         | ✅ Yes         | ❌ No      | Temperature, IQ |
    | Ratio    | ✅ Yes         | ✅ Yes         | ✅ Yes     | Height, money   |
    |__________|________________|________________|____________|_________________|
+
+===[ Data Matrix & Frequency Table ]===
+
+# REVISION:
+# - case is one unit of observation (person or thing)
+# - varibales are the characteristic of the case  
+
+* Data Matrix & Frequency Table are 'foundational tools for organizing and'
+  'summarizing data'.
+
+  > [ Data Matrix: ]
+    * is a structured format for storing raw data, typically in rows and columns
+      where: 
+      . Columns: varibales 
+      . Rows: cases 
+
+  > [ Examples: ]
+    _________________________________
+    | Person | Age | Gender | Score |
+    |--------|-----|--------|-------|
+    | 1      | 23  | M      | 88    |
+    | 2      | 30  | F      | 92    |
+    | 3      | 25  | M      | 85    |
+    |________|_____|________|_______|
+
+    . rows: cases (person 1, person 2 ...)
+    . columns: varibales (Age, Gender and Score)  
+
+> [ Table Frequency: (Frequency: تكرار)]
+  - It simplifies the large datasets by 'summarizes' how each value or category
+    of a varibale occurs. 
+
+  |> Usage:
+      . Simplfies large datasets
+      . Identifies patterns, trends, or outliers 
+      . Helps visualize the distribution of data
+        => Often used with historgrams or bar charts
+      . Enables quick calculation of:
+        - Mode 
+        - Relative Frequency
+        - Comulative frequency 
+
+  > [ Examples: ] 
+    _________________________________________________
+    | Grade | Frequency | Percentage %| Cumulative %|
+    |-------|-----------|-------------|-------------|
+    | A     | 10        |    28       |    28       |
+    | B     | 15        |    43       |    71       |
+    | C     | 8         |    23       |    94       |
+    | D     | 2         |     6       |    100      |
+    |_______|___________|_____________|_____________|
+    | Total |   35      |   100%      |    100%     | 
+
+# NOTE:
+# - Matrix table is the source to start anaylsis
+# - Frequency table is good to display the data where we can provide summary
+#   for the dataset
+# - You can use the ghraphs to summarize the data
+
+
+              [ Graphs: Catigorical Varibales ] 
+                              |
+        |---------------------|---------------------|
+    [ Pie chart ]                               [ Bar Graph]
+- It is 'circular char'                  - It displays 'catigorical data' 
+  divided into 'slices'                    with rectangular bars
+  where each slice                       - bar can be vertical or horizontal 
+  represents a 'proprotion'              - The x-axis shows categories
+  of the totoal                          - The y-axis shows values (frequency
+- The whole circle reprsents               , percentage) 
+  100% of the data                       - Bars are 'separated' to show they 
+- each slice is sized according            represetn distinct categories.
+  the the 'relative frequency'           > [ Usage: ]
+  (percentage)                             - Camparing 'discrete categories' 
+> [ Usage: ]                                 (gender, type of fruite etc)
+  - Showing 'percentage'                   - Highlighting difference in quantity
+  - When the goal is to                      across groups.
+    visualize 'how a whole is'
+    'divided' into parts
+
+# NOTE:
+# - If the number of variables is large the bar grpah is better than the
+#   pie graph   
+# - Ghraphs are good for the case of catigorical varibales (nominal level)
+
+> [ Dot Plot: Numerical/Quantitive Varibales ]
+* A dot plot is simple way to show 'frequency of data' using 'dots' each dot represents 'one occurrence' of a value in dataset. 
+- It is best for 'small moderate sets of numerical data' especially discret
+  data. 
+
+  > [ Example: ]
+    - Let’s say you ask 10 students how many books they read last month.
+      The data is:
+      2, 3, 2, 5, 3, 4, 2, 3, 5, 4
+
+      Number of Books Read
+      2: ●●●
+      3: ●●●
+      4: ●●
+      5: ●●
+
+        Or
+
+      2   3   4   5
+      ●●● ●●● ●● ●●
+
+  # CONCLUSION:
+  # - A dot plot is a quick and clear way to show how often each value occurs.
+  # - It’s great for small data sets and helps spot patterns easily.
+  # - Each dot = one observation.
+
+  > [ Histogram ]
+    * A histogram is a type of graph that shows the 'distribution of a dataset',
+      It looks similar to a 'bar graph' but it is used for 'continuous'
+      numerical data rather than categories.
+
+# TIP:
+# - You should always convert quentitive variables to catigorical varibale by using intervales 
+# - Examples: wieght
+#  
+#  person 1: 80.9 
+#  person 2: 70
+#  person 3: 40.5
+#  person 5: 90.1 
+#  ...
+# - To best way to visualize the data is to convert the continous varibale to 
+#   intervals 0 -> 20 | 20 -> 40 | 40 -> 60 | 60 -> 80 | 80 -> 100  
+  > [ Usage: ]
+    - To show the shape of data: symmetrical, skewed, bimodal, etc.
+    - To identify patterns, such as:
+      * Central tendency (where values cluster)
+      * Spread (how wide the data is)
+      * Outliers or gaps
+
+# CONCLUSION:[ GLOBAL ]=========================================================
+# - Ghraphs is used to visualize, sammarize and clear observation from the data
+# - [Nominal/Ordinal] => Piechart or Bar Ghraph  
+# - [Interval/Ratio]  => Dot Plot or Histogram  
+#===============================================================================

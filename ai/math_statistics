@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/27 16:26:07 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/28 19:09:13 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/29 00:08:10 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -21,13 +21,13 @@
             |                                                     |  
             |                                                     |
 [ Descriptive Statistics: ]                        [ Inferential Statistics: ]
--> Summarize and describe the main            -> Make predictions about a larger 
-   feature of dataset.                           population from a smaller sample
--> Examples:                                  -> Examples:  
-   . Mean (average)                              . Estimating population averages 
-   . Median (middle value)                         (using a sample)
-   . Mode (most frequent value)                  . hypotheses testing (A/B testing)
-   . Range (difference between                   . Confidence intervals
+-> Summarize and describe the main          -> Make predictions about a larger 
+   feature of dataset.                         population from a smaller sample
+-> Examples:                                -> Examples:  
+   . Mean (average)                            . Estimating population averages
+   . Median (middle value)                       (using a sample)
+   . Mode (most frequent value)                . hypotheses testing(A/B testing)
+   . Range (difference between                 . Confidence intervals
      highest and lowest)                         . Regression analysis
    . Standard Deviation (How spread
      out the values are) 
@@ -53,10 +53,11 @@
     - Example:
       . person: hight, age, gender ... etc
 
-  # INFO:
+  # INFO:=======================================================================
   # - varibales are the column in your dataset. 
-  # - varibales can be 'quantitaive' (numbers like age etc) or 'qualitaitve'
-  #   (categoris like gender male or female)
+  # - varibales can be 'quantitaive' (numbers like age etc) or 'qualitaitve'.
+  #   (categoris like gender male or female).
+  # ============================================================================
 
   > [ Dataset Example: ]  
     _____________________________________________
@@ -70,9 +71,10 @@
     - Cases: each 'car' is case (3 cars == 3 cases)  
     - Varibales: Car model, Year, Price, Fuel Type (4 varibles for each case) 
 
-  # CONCLUSION:
-  # - Case = on item/subject you are collecting data on (a row)  
-  # - Varibale =  one characteristic of a case column 
+  # CONCLUSION:=================================================================
+  # - Case = on item/subject you are collecting data on (a row). 
+  # - Varibale =  one characteristic of a case column. 
+  # ============================================================================
 
 ===[ Level of Measurements: ]===
 * It tell us 'how data values are categorized' and what kind of math or analysis
@@ -115,10 +117,11 @@
   - Continuous → ℝ              - Discrete → ℕ
   - (uncountable)               - (countable) 
 
-# NOTE:
+# NOTE:=========================================================================
 # - The method used to analyse the data depends of the level of measurement. 
 # - Most of data anaysis ignore the difference between interabl and ratio levels
 # - Sometimes you can treat ordinal level as quatitive varibale. 
+# ==============================================================================
 
 > [ Summray : ]
    _____________________________________________________________________________
@@ -132,9 +135,10 @@
 
 ===[ Data Matrix & Frequency Table ]===
 
-# REVISION:
-# - case is one unit of observation (person or thing)
-# - varibales are the characteristic of the case  
+# REVISION:============================================
+# - case is one unit of observation (person or thing).|
+# - varibales are the characteristic of the case.     | 
+# =====================================================
 
 * Data Matrix & Frequency Table are 'foundational tools for organizing and'
   'summarizing data'.
@@ -182,12 +186,15 @@
     |_______|___________|_____________|_____________|
     | Total |   35      |   100%      |    100%     | 
 
-# NOTE:
-# - Matrix table is the source to start anaylsis
+# NOTE:========================================================================
+# - Matrix table is the source to start the anaylsis
 # - Frequency table is good to display the data where we can provide summary
 #   for the dataset
 # - You can use the ghraphs to summarize the data
+# ==============================================================================
 
+===[ Graphs: ]===
+* Graphs are used to 'summarize a distibution' (dataset).
 
               [ Graphs: Catigorical Varibales ] 
                               |
@@ -209,13 +216,15 @@
     visualize 'how a whole is'
     'divided' into parts
 
-# NOTE:
-# - If the number of variables is large the bar grpah is better than the
-#   pie graph   
+# NOTE:=========================================================================
+# - If the number of variables is large, the bar grpah is better than the
+#   pie graph. 
 # - Ghraphs are good for the case of catigorical varibales (nominal level)
+# ==============================================================================
 
 > [ Dot Plot: Numerical/Quantitive Varibales ]
-* A dot plot is simple way to show 'frequency of data' using 'dots' each dot represents 'one occurrence' of a value in dataset. 
+* A dot plot is simple way to show 'frequency of data' using 'dots' each dot
+  represents 'one occurrence' of a value in dataset. 
 - It is best for 'small moderate sets of numerical data' especially discret
   data. 
 
@@ -235,27 +244,32 @@
       2   3   4   5
       ●●● ●●● ●● ●●
 
-  # CONCLUSION:
+  # CONCLUSION:=================================================================
   # - A dot plot is a quick and clear way to show how often each value occurs.
   # - It’s great for small data sets and helps spot patterns easily.
   # - Each dot = one observation.
+  # ============================================================================
 
   > [ Histogram ]
     * A histogram is a type of graph that shows the 'distribution of a dataset',
       It looks similar to a 'bar graph' but it is used for 'continuous'
       numerical data rather than categories.
 
-# TIP:
-# - You should always convert quentitive variables to catigorical varibale by using intervales 
-# - Examples: wieght
+# TIP:==========================================================================
+# - You should always convert quentitive variables to catigorical varibale by
+#   using intervales. 
+# - Examples: weight
 #  
 #  person 1: 80.9 
 #  person 2: 70
 #  person 3: 40.5
 #  person 5: 90.1 
 #  ...
-# - To best way to visualize the data is to convert the continous varibale to 
+#
+# - To best way to visualize the data is to convert the continuous varibale to 
 #   intervals 0 -> 20 | 20 -> 40 | 40 -> 60 | 60 -> 80 | 80 -> 100  
+# ==============================================================================
+
   > [ Usage: ]
     - To show the shape of data: symmetrical, skewed, bimodal, etc.
     - To identify patterns, such as:
@@ -268,3 +282,32 @@
 # - [Nominal/Ordinal] => Piechart or Bar Ghraph  
 # - [Interval/Ratio]  => Dot Plot or Histogram  
 #===============================================================================
+
+===[ Distribution Center: ]===
+* In 'descriptive statistics' the 'center of a distribution' refers to the idea 
+  of the 'middle' of your data set - where most values are located
+  - There are three main measures of the center: 
+
+  |---------------------[ Measures of central tendency ]---------------------|
+[ Mode ]                              |                                 [ Mean ]
+- Most Frequent Value             [ Median ]                  - Add all values 
+- The value that appears      - Middle Value                    and divide by  
+  'most often'                - Arrange data in order and       the number of  
+- Useful for 'categorical'      pick the middle one             values.
+  and 'discrete' data.        - First sort/order the data     > Ex: 1 3 5 7 8 9
+> Examples:                   - pick the middle number is       mean = 33 / 5 
+  - Pie chart: mode is          'odd'                                = 6.6 
+    the category of the       > Ex: 1 3 5 7 8|=> median:5 
+    big slice.                - take the average of the
+  - Histogram: in this          'two middle' numbers if 
+    case we can have            the data numbers is 'even'
+    the category of the       > Ex: 1 3 5 7 8 9 
+    'two mode'.                 |=> median: 5 + 7 / 2 = 6 
+
+# NOTE: Center is called 'middle point' or 'balance point'
+# QUESTION:[ When should you report wich measure of central tendacy ?]==========
+# - Measurment level varibale defines which Measures of central tendency is used 
+#   => Categorical => Mode 
+#   => Quentitive/Nemurical => If distribution has an outlier use median
+#                              otherwise use 'mean'.
+# ==============================================================================

@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/27 16:26:07 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/29 00:08:10 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/29 13:50:20 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -55,7 +55,7 @@
 
   # INFO:=======================================================================
   # - varibales are the column in your dataset. 
-  # - varibales can be 'quantitaive' (numbers like age etc) or 'qualitaitve'.
+  # - varibales can be 'quantitive' (numbers like age etc) or 'categorative'.
   #   (categoris like gender male or female).
   # ============================================================================
 
@@ -84,7 +84,7 @@
                                        |
     |---------------------|------------|---------------|-------------------|
 [ Nominal ]           [ Ordinal ]               [ Interval ]           [ Ratio ]
-- Data re 'names'  - data have a          - you can measure    - all features of
+- Data are 'names'  - data have a          - you can measure    - all features of
   or 'categories'    meaningful order       how much more or     intervals plus   
 - No order or        but the diff           less.                a meaningful 
   ranking between    between values       - There is 'no true'   zero 
@@ -119,7 +119,7 @@
 
 # NOTE:=========================================================================
 # - The method used to analyse the data depends of the level of measurement. 
-# - Most of data anaysis ignore the difference between interabl and ratio levels
+# - Most of data analysis ignore the diff between interval and ratio levels.
 # - Sometimes you can treat ordinal level as quatitive varibale. 
 # ==============================================================================
 
@@ -200,14 +200,14 @@
                               |
         |---------------------|---------------------|
     [ Pie chart ]                               [ Bar Graph]
-- It is 'circular char'                  - It displays 'catigorical data' 
+- It is 'circular chart'                 - It displays 'categorical data' 
   divided into 'slices'                    with rectangular bars
   where each slice                       - bar can be vertical or horizontal 
   represents a 'proprotion'              - The x-axis shows categories
   of the totoal                          - The y-axis shows values (frequency
 - The whole circle reprsents               , percentage) 
   100% of the data                       - Bars are 'separated' to show they 
-- each slice is sized according            represetn distinct categories.
+- each slice is sized according            represent distinct categories.
   the the 'relative frequency'           > [ Usage: ]
   (percentage)                             - Camparing 'discrete categories' 
 > [ Usage: ]                                 (gender, type of fruite etc)
@@ -219,7 +219,7 @@
 # NOTE:=========================================================================
 # - If the number of variables is large, the bar grpah is better than the
 #   pie graph. 
-# - Ghraphs are good for the case of catigorical varibales (nominal level)
+# - Ghraphs are good for the case of categorical varibales (nominal level)
 # ==============================================================================
 
 > [ Dot Plot: Numerical/Quantitive Varibales ]
@@ -256,7 +256,7 @@
       numerical data rather than categories.
 
 # TIP:==========================================================================
-# - You should always convert quentitive variables to catigorical varibale by
+# - You should always convert quentitive variables to categorical variable by
 #   using intervales. 
 # - Examples: weight
 #  
@@ -278,14 +278,15 @@
       * Outliers or gaps
 
 # CONCLUSION:[ GLOBAL ]=========================================================
-# - Ghraphs is used to visualize, sammarize and clear observation from the data
-# - [Nominal/Ordinal] => Piechart or Bar Ghraph  
+# - Ghraphs is used to visualize, sammarize and get clear observation from
+#   the data.
+# - [Nominal/Ordinal] => Pie chart or Bar Ghraph  
 # - [Interval/Ratio]  => Dot Plot or Histogram  
 #===============================================================================
 
 ===[ Distribution Center: ]===
 * In 'descriptive statistics' the 'center of a distribution' refers to the idea 
-  of the 'middle' of your data set - where most values are located
+  of the 'middle' of your data set - where most values are located.
   - There are three main measures of the center: 
 
   |---------------------[ Measures of central tendency ]---------------------|
@@ -306,8 +307,146 @@
 
 # NOTE: Center is called 'middle point' or 'balance point'
 # QUESTION:[ When should you report wich measure of central tendacy ?]==========
-# - Measurment level varibale defines which Measures of central tendency is used 
-#   => Categorical => Mode 
+# - Measurment level variable defines which Measures of central tendency is used 
+#   => Categorical          => Mode 
 #   => Quentitive/Nemurical => If distribution has an outlier use median
 #                              otherwise use 'mean'.
 # ==============================================================================
+
+===[ Measures of dispersion ]===================================================
+* In addition to distribution 'central tendency' information there is another
+  quentitiy that describes 'dispersion' (variability of data).
+  - Measures of dispersion tell us how 'spread out' the values in a dataset are 
+  - They show how much the 'data varies around the center' (like the mean
+    or median).
+
+# INFO: 
+# - disperse: (verb) to spread across or move away over a large area.
+#   . When the rain came down the crowds started to disperse.
+# - dispersion: (noun)  تشتيت
+
+# QUESTION:[ Why datasets might have the same average but very different spreads]
+# - Dispersion helps us understand: 
+#   . 'Consistency' of the data
+#   . 'Reliability' of the average 
+#   . 'Outliers' and extreme values
+
+  > [ Range: ]
+    * Difference between the 'highest' and 'lowest' values. 
+    > Formula: <Max - Min>
+      - Usage: Simple but sensitive to outliers
+  
+# INFO:
+# - Outlier value: extreme value 
+# - In statistics Outlier is a data point that is 'significantly different'
+#   from the rest of the values in a dataset.
+# - It 'stands out' because it is either 'much higher' or 'much lower' than most 
+#   of the data.
+# > Example:
+#   -> Imagine test scores from a class: 
+#       65, 68 72 70 69 71 99
+#   -> Most score are around  65 to 72 but 99 is mcuh higher, that's is likey
+#      an 'outlier'.
+# QUESTION:[ Why are Outliers Important ? ]
+# - They can distort averages (especially mean) 
+# - They might indicate 'data entry errors' unusual events, or
+#   'interesting patterns' 
+# - In some cases they should be 'removed' but sometimes they are
+#   'very important' 
+
+  > [ Interquartile Range (IQR) ]
+    * The range of the 'middle 50%' of the data.
+    - split the range into 4 quatiles
+
+        25%   25%   25%   25%
+      |-----|-----|-----|-----| 
+            Q1    Q2    Q3
+               (Median)
+
+     > Formula: [ IQR = Q3 - Q1 ]
+
+    - Less affected by outliers, good for skewed data.
+
+# NOTE:
+# - Ouliers is the value lower than Q1 - 1.5 (IQR) or higher than Q3 + 1.5 (IQR)
+
+  > [ Box Plot ]
+  * 'Box plot' is a powerful way to visualize 'distribution', 'spread', and
+    'outliers' in dataset
+  - A 'box plot' is a graphical summary of data that shows:
+    . 'The center' (median)
+    . 'The spread' (range and interquartile range) 
+    . 'the shape' (symmetry or skewness)
+    . 'Outliers' 
+
+  - It uses a box and two whiskers to display this information.
+
+  |
+30|       ___________ outlier = value > Q3 + 1.5 * IQR > 35.2  
+  |       ___
+  |        |_________ whisker
+20|     ___|___ Q3 -> 19.3  
+  |  |  |XXXXX|
+  | IQR |-----| Q2 (median) 17
+  |10.6 |YYYYY|
+  |  |  |YYYYY|
+10|  |  |_____| Q1 -> 8.7
+  |        |_________ whisker
+ 0|       _|_
+  |       ----------- outlier = Q1 - 1.5 * IQR < -7.2
+  |__________________________________________________
+
+  > [ Variance: ]
+    * The 'average squared deviation' from the mean. 
+    - while 'range' use the 'min and max' and 'interquartile range' excludes the
+      'outliers values', The 'variance' uses 'all the values'. 
+
+    > [ Formula: ]
+
+        s^2 = 1 / n - 1 * sum(i=1 -> n) (Xi - X-bar)^2
+
+        - X-bar: is the represent the mean 
+        - Xi - X-bar: residual or error between mean f(x) = X-bar = Constant 
+          and each variable Xi 
+        - n: number of values
+        - variance represents a 'relative percentage' of distribution around the mean.
+
+    # INFO: Gives a mathematical measure of spread, but in 'squared units'.
+    # [ Larger variance ] => [ Larger variability ]: and vice versa 
+
+# NOTE:
+# - The problem with variation is the unit, what is the unit of
+#   s^2
+
+  > [ Standard Deviation: ]
+    * The square root of variance, it 'show how much values deviate from the'
+      'mean' in the same units as the data (It is the average of errors or
+      residuals)
+
+    > [ Formula: ]
+      
+      [ s = s^2 = sqrt(1 / n - 1 * sum(i=1 -> n) (Xi - X-bar)^2) ] 
+    - Very common, especially in normal distributions.
+
+  > [ MAD: Mean Absolute Deviation ]
+    * Measures the 'average absolute' Deviation 
+    > [ Formula ]
+      MAD = 1 / n * sum(i=1->n) |xi - x-bar|
+
+    - Easier to interpreet than variance; not affected by squaring. 
+
+> [ Summary: ]
+    ________________________________________________________________________
+    | Measure    | What It Tells You            | Sensitive to | Units     |
+    |            |                              | Outliers?    |           |
+    |------------|------------------------------|--------------|-----------|
+    |- Range     | - Total spread of the data   | ✅ Yes       | - Same    |
+    |- IQR       | - Spread of the middle 50%   | ❌ No        | - Same    |
+    |- Variance  | - Average squared distance   | ✅ Yes       | - Squared |
+    |            |   from the mean.             |              |           |
+    |- Standard  | - Typical distance from the  | ✅ Yes       | - Same    |
+    |  Deviation |   mean.                      |              |           |
+    |- MAD       | - Average absolute deviation | ❌ Less      | - Same    |
+    |            |   from the mean.             |              |           |
+    |____________|______________________________|______________|___________|
+

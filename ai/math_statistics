@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/27 16:26:07 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/29 13:50:20 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/29 15:38:26 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -449,4 +449,33 @@
     |- MAD       | - Average absolute deviation | ❌ Less      | - Same    |
     |            |   from the mean.             |              |           |
     |____________|______________________________|______________|___________|
+
+===[ Z-scores ]=================================================================
+* Z-score tells you 'how many standard deviations a data point is from the mean'.
+
+ - The main goal from the z-score is 'STANDARDIZATION' means => replace the
+   original scores by standard deviations from the mean (changing the original
+   value by another quentity that describe how the standart deviation faraway
+   from the mean)
+ - If we take an observation how far from the mean based on the
+   standard deviation (percentage of standard deviation, ex: 0.50
+   |=> means it is farway by 50% from the standart deviation)
+
+# REVISION:
+# standard deviation => sqert(errors^2 / n - 1) 
+
+  > [ Formula: ]
+    [ z-score = x - mean / standart deviation ] 
+
+  - A Z-score of 0 → the value is exactly the mean.
+  - A positive Z-score → the value is above the mean.
+  - A negative Z-score → the value is below the mean.
+  _________________________________________________
+  | Z-score Range      | Interpretation           |
+  |--------------------|--------------------------|
+  | -1 to +1           | Typical/average values   |
+  | -2 to -1 or 1 to 2 | Unusual, but not extreme |
+  | < -2 or > +2       | Likely outliers          |
+  |____________________|__________________________|
+
 

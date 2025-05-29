@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/27 16:26:07 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/29 15:38:26 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/29 20:51:38 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -383,7 +383,8 @@
 
   |
 30|       ___________ outlier = value > Q3 + 1.5 * IQR > 35.2  
-  |       ___
+  |       ___ _______ whisker'end is the latest value that is not outleir
+
   |        |_________ whisker
 20|     ___|___ Q3 -> 19.3  
   |  |  |XXXXX|
@@ -392,7 +393,7 @@
   |  |  |YYYYY|
 10|  |  |_____| Q1 -> 8.7
   |        |_________ whisker
- 0|       _|_
+ 0|       _|_ _______ whisker'end is the latest value that is not outleir
   |       ----------- outlier = Q1 - 1.5 * IQR < -7.2
   |__________________________________________________
 
@@ -479,3 +480,108 @@
   |____________________|__________________________|
 
 
+===[ Application: ]==============================================================
+* We have 8 schools where xi i E [1, 8] represents the average in math on the
+  scale 0|-->10
+
+- Matrix Table/Data:
+  _________________________________________
+  |Cases (school)| variable:  math average | 
+  |______________|_________________________|
+  | school 1     |    7.4                  |
+  | school 2     |    7.9                  |
+  | school 3     |    4.1                  |
+  | school 4     |    8.1                  |
+  | school 5     |    6.2                  |
+  | school 6     |    7.1                  |
+  | school 7     |    7.4                  |
+  | school 8     |    6.7                  |
+  |______________|_________________________|
+
+ # NOTE: Matrix table is the source of my dataset 
+
+- We need to summarize and visualize the dataset using one of the graphs 
+  The variable math average is a quentitive varibale with interval levels but
+  it is too small so the best graph in this exmaple is 'the dot plot'
+
+
+
+                                     *
+                       *         *  ***  * * 
+  |----|----|----|----|----|----|----|----|----|---->
+  0    1    2    3    4    5    6    7    8    9
+
+  # NOTE:
+  # - from the dot plot we can tell that 4.1 is an outlier value
+  
+  - Let's explore more data or information about our dataset by
+    find the 'central tendency'.
+
+
+    |------------------[ Central Tendency ]------------------|
+    |                           |                            |
+ [ Mode ]                   [ Median ]                    [ Mean ]
+ - Most frequent          m = 7.1 + 7.4 / 2         x-bar = sum (1->8) / 8 
+   value = 7.4            m = 7.25                        = 6.86
+                        - sort values and
+                          take the middle
+                          one if odd otherwise
+                          the average between the 
+                          two middle values
+
+- We get the central tandency, It is the time to measure dispersion/variance
+  of the distribution.
+
+  |-------------------[ Measure of dispersion ]-------------------|
+  |                               |                               |
+[ Range ]              [ InterQuartile Range ]            [ Standard Deviation ]
+=> max - min              => IQR = Q3 - Q1                => sqrt (error ^ 2 / n - 1) 
+=> 8.1 - 4.1              => Q1 = 6.2 + 6.y / 2           => 1.27 
+=> 4                      => Q1 = 6.45  
+                          => Q3 = 7.4 + 7.9 / 2 
+                          => 7.65 
+                          -> IQR = 7.65 - 6.45 
+                                 = 1.2
+
+- Now let's construct a box plot
+- We have:
+  Q1 = 6.45 
+  Q2 = (median) 7.25
+  Q3 = 7.65 
+  IQR = 1.2 
+
+9 _|
+   |
+8 _|        -----|-----
+   |        _____|_____ Q3
+7 _| IQR |  |---------| Q2 (Median)
+   | 1.2 |  |_________| Q1
+6 _|        _____|____
+   |
+5 _|
+   |
+4 _|              *
+   |
+3 _|_____________________________________
+
+> [ Rule: ]
+  - If there is a value < Q1 - 1.5 * IQR, This value is an 'outlier' value 
+  - if there is a value > Q3 + 1.5 * IQR, This value is an 'outlier' value 
+
+  | Q1 - 1.5 * IQR = 6.45 - 1.8 = 4.65 
+=>|
+  | Q3 + 1.5 * IQR = 7.4 + 1.8 = 9.45 
+
+- We notice that we have a value 4.1 < 4.65 so this value is outlier and it is
+  represented by a dot '*'
+  - The end of the 'whisker' would be the value > 4.1 in our dataset => 6.2 
+- There is no value > 9.45 so there is no outlier value over here.
+  'Whisker' will take the max value '8.1'
+
+- We have a clean observation about the distribution data. but we are going to
+  calculate z-score of school 3
+
+  => z-score = 4.1 - 6.86 (mean) / 1.27 standard deviation  
+  => z-score = -2.17  | this value is under mean by 2.17 from the standard
+                        deviation 
+  => -2.17 tells that the value 4.1 is an outlier value. 

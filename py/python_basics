@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2024/10/16 11:15:25 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/03/26 14:13:43 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/30 16:15:27 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -141,7 +141,7 @@ ex:
 >> [ List: ]
 	advs:
 		- It can store different data types, means that use the principale of
-      polymorphism to achive that.
+      polymorphism to acheive that.
 		- valx E [mutuable, immutable]
 
 	syntax:
@@ -374,7 +374,7 @@ Function of class List:
 
   f-strings / str.format() 
   |Python| f{var:[flags][width][.precision][type]}
-    - Flags: alignment, sign,padding, comma separators | ':', ',' adds commas 
+    - Flags: alignment, sign, padding, comma separators | ':', ',' adds commas 
     - Width: min nbrs of chars to display | '10' 
     - .precision: .2f -> 2 dicimal places 
     - Type: conversions (f, d, s, x ...) 
@@ -401,7 +401,7 @@ Function of class List:
 - fr"" or rf"": f-string & r-string
 
 ===[ main function: ]===========================================================
-- main() is used to improves 'code organization and readability'
+- main() is used to improve 'code organization and readability'
 - It allows the script to be 'imported as a module' without executing the main 
   logic automaticaly.
 - It follows the 'best practices' used in many other programming languages

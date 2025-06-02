@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/04/04 10:16:28 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/02 20:16:55 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/02 20:30:22 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -43,3 +43,35 @@
       # Get substring from index 0 to 4 (inclusive of 0, exclusive of 5)
       sub = text[0:5]
       print(sub)  # Output: Hello
+
+===[ find(): member function ]==================================================
+* find() method searches for a 'substring' inside a string and returns:
+  - The 'index of the first occurence' of the substring
+  - Or '-1' if the substring is 'not found' 
+
+  > [ Syntax: ]
+    str.find(substring, start, end)
+
+    - substring: the string you want to search for | 'IT IS REQURED' 
+    - start: Index to start the search from        | default => 0 
+    - end: Index to stop the search (exclusive)    | default => len(str)
+
+  > [ Example: ]
+
+    text = "hello world"
+
+    # Find 'world'
+    print(text.find("world"))   # Output: 6
+    # Find 'o'
+    print(text.find("o"))       # Output: 4 (first 'o')
+    # Find 'z' (not found)
+    print(text.find("z"))       # Output: -1
+
+# QUESTION:[ What is the difference between find() and index() ]================
+# _____________________________________________
+# | Method    | Returns | If Not Found        |
+# |-----------|---------|---------------------|
+# | find()    | Index   | -1                  |
+# | index()   | Index   | Raises ValueError   |
+# |___________|_________|_____________________|
+

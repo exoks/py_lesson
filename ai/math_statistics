@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/27 16:26:07 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/05 17:59:58 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/05 18:40:15 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -590,7 +590,7 @@
   => -2.17 tells that the value 4.1 is an outlier value. 
 
 ===[ Correlation between two variables: ]=======================================
-* Correlation is a 'statistical concept' measure 'how much one varible changes'
+* Correlation is a 'statistical concept' measure 'how much one variable changes'
   'when another variable changes'.
 
 ===[ Crosstab: Contingency table ]===
@@ -621,4 +621,42 @@
       prefer coffe)
     - The 'marginal totals' (last row/column) show the totals for each category
 
-# PROBLEM: We still can't get the relationship or between  varibales
+# PROBLEM: We still can't get the relationship or between variables 
+  > Let's change how many people fall into combination by their percentage.
+    This quentity is called 'column precentage'
+             ___________________________
+             | Coffee | Tea    | Juice | 
+    |--------|--------|--------|-------|
+    | Male   | 44.44  | 25     | 33.33 | 
+    | Female | 55.55  | 75     | 66.66 | 
+    |--------|--------|--------|-------|
+      Total  | 100%   | 100%   | 100%  |
+
+    - Example: 20 / 45 * 100 
+
+- We can convert 25% (percentage) to 0.25 ('Proportions') 
+             ___________________________
+             | Coffee | Tea    | Juice | Marginal Propotions
+    |--------|--------|--------|-------|------------
+    | Male   | 0.4444 | 0.25   | 0.33  | 0.35 
+    | Female | 0.5555 | 0.75   | 0.66  | 0.65 
+    |--------|--------|--------|-------|------------
+      Total  | 1.0    | 1.0    | 1.0   | 1.0
+
+# EXPLANATION:
+  - 66 % of people that drink juice are female 
+  - 25 % of people that drink tea are male
+    ...
+  - In this example we can see that drink preference
+    is independent of gender in this sample.
+
+# NOTE:=========================================================================
+# - These Proportions are called 'conditional proportions' 
+#   . 0.25 propotion is related to two variables (male, tea), That is why is
+#     called canditional.
+# - In the other hand we have propotions that are related to one varibale
+#   called 'marginal propotions'
+#   . 0.35 is the propotion of males in my sample, (related to male case only) 
+# CONCLUSION:===================================================================
+# Crosstab (contingency table) is used => categorical variables 
+# ==============================================================================

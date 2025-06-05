@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/27 16:26:07 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/05 18:40:15 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/05 20:30:03 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -593,12 +593,12 @@
 * Correlation is a 'statistical concept' measure 'how much one variable changes'
   'when another variable changes'.
 
-===[ Crosstab: Contingency table ]===
+===[ Crosstab: Contingency table ]==============================================
 * A cross tabulation (or crosstab) is a 'matrix-style table' that displays the 
-  'frequency distribution' of varibales -- useually used for
-  'catigorical varibales'
+  'frequency distribution' of varibales -- useually used for 'catigorical'
+  'varibales'
 
-  > [ Contigency Table structure: ]
+  > [ Contingency Table structure: ]
     - Rows: represent the 'categories' of one varibale 
     - Columns: represent the 'categoriess' of another variable. 
     - Each 'cell' shows the 'count (or frequencty)' of 'occurrences' for a
@@ -659,4 +659,95 @@
 #   . 0.35 is the propotion of males in my sample, (related to male case only) 
 # CONCLUSION:===================================================================
 # Crosstab (contingency table) is used => categorical variables 
+# ==============================================================================
+
+===[ Scatter plot: ]============================================================
+* A scatter plot shows relationship between 'two' continous (numerical)
+  variables.
+
+  # INFO:
+  # scatter: (verb) to (to cause) move far apart in different directions  
+  # . The soldiers came in and scattered the crowd.
+
+  > [ Syntax: ]
+
+ y (dependent variable)
+  |
+  |         *    *
+  |     *   * *
+  |  *  *  *        *
+  |    *      *
+  |       *
+  |
+  |-------------------> x (independent varibale)
+
+  - From the scatter plot we can know the type of correaltion and direction
+    but it's hard to know the strangth of the correlation. We need to find a
+    quentity that 'measure' the strangth, This quentity is called
+    'Pearson'r 
+
+===[ Pearson Correaltion coefficient: Pearson'R ]===
+* Pearson Correlation coefficient(r) is 'statistical measure' of the
+  'strength and direction' of the 'linear relationship' between 
+  'two continous (numerical) variables'
+
+  # INFO:
+  # - Pearson refers to Karl Pearson (1857-1936) a britishmathematician and one of
+  # the 'founders of modern statistics'
+
+  > [ Formula: ]
+    
+    [ r = sum(Zx * Zy) / n - 1 ]
+
+    * Zx: is the Z-score of each x
+    * Zy: is the Z-score of each y
+    * n : number of cases  
+    * [ -1 <= r <= 1  ] 
+      . r = 0: no linear correaltion 
+      . r > 0: positive linear correlation 
+      . r < 0: negative lineaer correlation 
+      . r == 1: perfect positive linear correlation 
+      . r == -1: perfect negative linear correlation 
+
+  # NOTE:[ Important ]==========================================================
+  # - 'r' stands for 'relation' or 'regression'  
+  # - Pearons'r does not tell us the type of correlation instead use scatter
+  #   plot to check the correlation's type before calculating Pearons'r 
+  # ============================================================================
+
+===[ Regression : ]===
+* Regression is a statistical method used to 'model and analyze the relationship' 
+  between a 'dependent varibale (output)' and one or more
+  'independent variables'
+
+- It answers questions like:
+    " How does Y change when X changes ?"
+
+        |--------------------[ Type of Regression ]--------------------|
+        |                   |                       |                  | 
+  [ Linear ]        [ Multiple-linear]       [ Polynomial ]       [ Logistic ]
+- Models a          - It use 'more than'    - Fits a 'curved'   - Used when the
+  'stright-line'      one input varibale      line instead of     'output' is  
+  relationship      - Formula:                a stright line      'categorical'
+  between             Y = A1*X1 + A2*X2\    - Formula:            (e.g yes/no
+  input and               + ... + AnXn        Y = a*X + b*X^2\     0/1 ..)
+  output.                 + C                     + ... + C
+- Formula:
+  Y = ax + b
+
+  # NOTE:=======================================================================
+  # e.g: is a latin abbreviation means 'exempli gratia' which means for example 
+  # ============================================================================
+
+# QUESTION:[ Why Use Regression ?]============================================== 
+# - Prediction: Estimate Future outcomes
+# - Explanation: Understand relationship between varibales
+# - Inference: 'Quantify' the strength and direction of effects 
+# ==============================================================================
+
+# CONCLUSION:===================================================================
+# - Contingency table or scatter plot are used to describe the relationship
+#   between two variables.
+# - Contingency table => categorical varibales 
+# - Scatter plot      => Numerical variables
 # ==============================================================================

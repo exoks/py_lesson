@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/27 16:26:07 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/29 20:51:38 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/05 17:59:58 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -199,7 +199,7 @@
               [ Graphs: Catigorical Varibales ] 
                               |
         |---------------------|---------------------|
-    [ Pie chart ]                               [ Bar Graph]
+    [ Pie chart ]                               [ Bar Graph ]
 - It is 'circular chart'                 - It displays 'categorical data' 
   divided into 'slices'                    with rectangular bars
   where each slice                       - bar can be vertical or horizontal 
@@ -218,15 +218,15 @@
 
 # NOTE:=========================================================================
 # - If the number of variables is large, the bar grpah is better than the
-#   pie graph. 
+#   pie chart graph. 
 # - Ghraphs are good for the case of categorical varibales (nominal level)
 # ==============================================================================
 
 > [ Dot Plot: Numerical/Quantitive Varibales ]
-* A dot plot is simple way to show 'frequency of data' using 'dots' each dot
-  represents 'one occurrence' of a value in dataset. 
-- It is best for 'small moderate sets of numerical data' especially discret
-  data. 
+  * A dot plot is simple way to show 'frequency of data' using 'dots' each dot
+    represents 'one occurrence' of a value in dataset. 
+  - It is best for 'small moderate sets of numerical data' especially discret
+    data. 
 
   > [ Example: ]
     - Let’s say you ask 10 students how many books they read last month.
@@ -368,7 +368,7 @@
     - Less affected by outliers, good for skewed data.
 
 # NOTE:
-# - Ouliers is the value lower than Q1 - 1.5 (IQR) or higher than Q3 + 1.5 (IQR)
+# - Ouliers is the value lower than Q1 - 1.5*(IQR) or higher than Q3 + 1.5*(IQR)
 
   > [ Box Plot ]
   * 'Box plot' is a powerful way to visualize 'distribution', 'spread', and
@@ -428,13 +428,16 @@
       
       [ s = s^2 = sqrt(1 / n - 1 * sum(i=1 -> n) (Xi - X-bar)^2) ] 
     - Very common, especially in normal distributions.
+    
+    # CONCLUSION:
+    # Standard Deviation is the average distance of each data point from the mean 
 
   > [ MAD: Mean Absolute Deviation ]
     * Measures the 'average absolute' Deviation 
     > [ Formula ]
       MAD = 1 / n * sum(i=1->n) |xi - x-bar|
 
-    - Easier to interpreet than variance; not affected by squaring. 
+    - Easier to interpret than variance; not affected by squaring. 
 
 > [ Summary: ]
     ________________________________________________________________________
@@ -463,7 +466,7 @@
    |=> means it is farway by 50% from the standart deviation)
 
 # REVISION:
-# standard deviation => sqert(errors^2 / n - 1) 
+# standard deviation => sqrt(errors^2 / n - 1) 
 
   > [ Formula: ]
     [ z-score = x - mean / standart deviation ] 
@@ -585,3 +588,37 @@
   => z-score = -2.17  | this value is under mean by 2.17 from the standard
                         deviation 
   => -2.17 tells that the value 4.1 is an outlier value. 
+
+===[ Correlation between two variables: ]=======================================
+* Correlation is a 'statistical concept' measure 'how much one varible changes'
+  'when another variable changes'.
+
+===[ Crosstab: Contingency table ]===
+* A cross tabulation (or crosstab) is a 'matrix-style table' that displays the 
+  'frequency distribution' of varibales -- useually used for
+  'catigorical varibales'
+
+  > [ Contigency Table structure: ]
+    - Rows: represent the 'categories' of one varibale 
+    - Columns: represent the 'categoriess' of another variable. 
+    - Each 'cell' shows the 'count (or frequencty)' of 'occurrences' for a
+      particular 'combination of the two variables' 
+
+- Let is say you surveyed 100 people about their 'preferred drink' and their
+  'genger'
+
+  > [ Example: ]
+             ________________________
+             | Coffee | Tea | Juice | Total 
+    |--------|--------|-----|-------|------
+    | Male   | 20     | 10  | 5     | 35    
+    | Female | 25     | 30  | 10    | 65    
+    |--------|--------|-----|-------|------
+      Total  | 45     | 40  | 15    | 100
+
+    - This table shows the count of drink preferences broken down by gender.
+    - Each cell tells how many people fall into that combination (ex: 20 male
+      prefer coffe)
+    - The 'marginal totals' (last row/column) show the totals for each category
+
+# PROBLEM: We still can't get the relationship or between  varibales

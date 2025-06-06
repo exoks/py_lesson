@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/27 16:26:07 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/05 20:30:03 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/06 07:34:10 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -604,8 +604,8 @@
     - Each 'cell' shows the 'count (or frequencty)' of 'occurrences' for a
       particular 'combination of the two variables' 
 
-- Let is say you surveyed 100 people about their 'preferred drink' and their
-  'genger'
+- Let's say you surveyed 100 people about their 'preferred drink' and their
+  'gender'
 
   > [ Example: ]
              ________________________
@@ -621,7 +621,7 @@
       prefer coffe)
     - The 'marginal totals' (last row/column) show the totals for each category
 
-# PROBLEM: We still can't get the relationship or between variables 
+# PROBLEM: We still can't get the relationship between variables 
   > Let's change how many people fall into combination by their percentage.
     This quentity is called 'column precentage'
              ___________________________
@@ -662,7 +662,7 @@
 # ==============================================================================
 
 ===[ Scatter plot: ]============================================================
-* A scatter plot shows relationship between 'two' continous (numerical)
+* A scatter plot shows relationship between 'two' continuous (numerical)
   variables.
 
   # INFO:
@@ -682,18 +682,25 @@
   |-------------------> x (independent varibale)
 
   - From the scatter plot we can know the type of correaltion and direction
-    but it's hard to know the strangth of the correlation. We need to find a
-    quentity that 'measure' the strangth, This quentity is called
-    'Pearson'r 
+    but it is hard to know the 'strangth' of the correlation. We need to find a
+    quentity that 'measure' the strangth, This quentity is called "Pearson'r" 
+
+# CONCLUSION:===================================================================
+# - Contingency table or scatter plot are used to describe the relationship
+#   between two variables.
+# - Contingency table => categorical varibales 
+# - Scatter plot      => Numerical variables
+# ==============================================================================
 
 ===[ Pearson Correaltion coefficient: Pearson'R ]===
 * Pearson Correlation coefficient(r) is 'statistical measure' of the
   'strength and direction' of the 'linear relationship' between 
   'two continous (numerical) variables'
 
-  # INFO:
-  # - Pearson refers to Karl Pearson (1857-1936) a britishmathematician and one of
-  # the 'founders of modern statistics'
+  # INFO:=======================================================================
+  # - Pearson refers to Karl Pearson (1857-1936) a british mathematician and one
+  #   of the 'founders of modern statistics'.
+  # ============================================================================
 
   > [ Formula: ]
     
@@ -711,26 +718,26 @@
 
   # NOTE:[ Important ]==========================================================
   # - 'r' stands for 'relation' or 'regression'  
-  # - Pearons'r does not tell us the type of correlation instead use scatter
-  #   plot to check the correlation's type before calculating Pearons'r 
+  # - Pearson'r does not tell us the type of correlation instead use scatter
+  #   plot to check the correlation's type before calculating Pearson'r.
   # ============================================================================
 
 ===[ Regression : ]===
-* Regression is a statistical method used to 'model and analyze the relationship' 
-  between a 'dependent varibale (output)' and one or more
-  'independent variables'
+* Regression is a statistical method used to 'model and analyze the'
+  'relationship between' a dependent varibale (output)' and one or more
+  'independent variables'.
 
 - It answers questions like:
     " How does Y change when X changes ?"
 
         |--------------------[ Type of Regression ]--------------------|
-        |                   |                       |                  | 
+        |                   |                      |                   | 
   [ Linear ]        [ Multiple-linear]       [ Polynomial ]       [ Logistic ]
 - Models a          - It use 'more than'    - Fits a 'curved'   - Used when the
   'stright-line'      one input varibale      line instead of     'output' is  
   relationship      - Formula:                a stright line      'categorical'
   between             Y = A1*X1 + A2*X2\    - Formula:            (e.g yes/no
-  input and               + ... + AnXn        Y = a*X + b*X^2\     0/1 ..)
+  input and               + ... + AnXn        Y = a*X + b*X^2\     0/1 ...)
   output.                 + C                     + ... + C
 - Formula:
   Y = ax + b
@@ -739,15 +746,58 @@
   # e.g: is a latin abbreviation means 'exempli gratia' which means for example 
   # ============================================================================
 
-# QUESTION:[ Why Use Regression ?]============================================== 
-# - Prediction: Estimate Future outcomes
-# - Explanation: Understand relationship between varibales
-# - Inference: 'Quantify' the strength and direction of effects 
+# QUESTION:[ Why Use Regression ? ]=============================================
+# - Prediction: Estimate Future outcomes.
+# - Explanation: Understand relationship between variables.
+# - Inference: 'Quantify' the strength and direction of effects. 
+# - Modeling: build mathematical models for decision-making.
 # ==============================================================================
 
-# CONCLUSION:===================================================================
-# - Contingency table or scatter plot are used to describe the relationship
-#   between two variables.
-# - Contingency table => categorical varibales 
-# - Scatter plot      => Numerical variables
+===[ Regression line: ]===
+* It is the best stright-line that describe the linear relationship between two
+  variables.
+
+  > [ Regression analysis: ]
+    * Regression analysis is a powerful 'statistical' method used to:
+    "Understand the relationship between variables and make 'predictions' based"
+    "on that relationship"
+
+  - To make prediction we need to use the line equation:
+    [ Y-hat = ax + b]
+
+    - Where:
+      * a = r * (Sy / Sx)         | S: standard deviation
+                                  | # INFO: a unstandardized Pearson's R
+      ----------------------------|--------------------------------------
+      * b = y-bar - a * x-bar     | y-bar: mean of y
+                                  | x-bar: mean of x
+
+  > [ How good is the line: Fitting ]
+    - The line makes the best fitting with the data when we get a good Accuracy
+      of prediction. but how to measure the data fitting ? using 'r^2'
+      (Pearson's R)^2
+
+    - 'r^2' tells you how much better a regression line predicts the value of a
+      dependent varibale than the mean of the variable.
+
+    > [ Example: ]
+      r^2 = 0.65 |=> 'prediction error' is 65% smaller than when use the 'mean' 
+                 |=> The amount of variance in your dependent varibale (Y) that 
+                     is explained by your independent variable (X).
+
+
+# QUESTION:[ What is 'Analysis' ?]==============================================
+# - In general Analysis means:
+# " The process of examining something carefully and systematically by breaking"
+# "it down into its parts to better understand it, interpret it,"
+# "or solve a problem"
+# - It comes from the Greek word 'analusis' meaning "a breaking up" or
+#   "loosening".
+# >>> Analysis in Different Fields <<< 
+# - Math: analysis is a branch focused on 'limits', continuity, differentiation 
+#   , integration, and infinite series -- essentially, the rigorous study of
+#   change and motion.
+# - Data Science: analysis refers to the process of 'exploring', 'cleaning',
+#   'transforming', and 'modeling data' to extract useful insights and inform 
+#   decision-making.
 # ==============================================================================

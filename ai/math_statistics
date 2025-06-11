@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/27 16:26:07 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/11 16:07:27 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/11 17:54:37 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -897,25 +897,24 @@
     - Case      : Person
     - Variables : Education, Response  
 
-    # NOTE:
-    # - Level of measurment is Nominal (categorical varibales) 
+    # NOTE: Level of measurment is Nominal (categorical varibales) 
   
   > [ Matrix table/data ] 
 
-          ___________________________
-          | Education  |  Response  |
-  ________|____________|____________|
-  Case 1  |     Low    |    Agree   |
-  --------|------------|------------|
-  Case 2  |    hight   |  disagree  |
-  --------|------------|------------|
-  case 3  |   Middle   |  Nor ...   |
-  ...                               |
-  -----------------------------------
+            ___________________________
+            | Education  |  Response  |
+    ________|____________|____________|
+    Case 1  |     Low    |    Agree   |
+    --------|------------|------------|
+    Case 2  |    hight   |  disagree  |
+    --------|------------|------------|
+    case 3  |   Middle   |  Nor ...   |
+    ...                               |
+    -----------------------------------
 
   > [ Contingency Table: ]
     - We are going to use the contingeny table to understand the relationship 
-    between two categorical varibales
+      between two categorical varibales.
 
              ____________________________
              |  Low  |  Middle  | High  | Total 
@@ -928,7 +927,7 @@
     ---------|-------|----------|-------|-------
     Total    |  102  |  109     |  50   | 261
 
-    - As we can see the contingency table does not describe the relationship
+    - As we can see the contingency table does not describe the relationship 
       between 'education' and 'beleive'.
     - Let is use the 'conditional proportions' and 'marginal proportions' 
              ____________________________
@@ -945,8 +944,95 @@
   - 12% of 'low education' people said 'agree'.
   - 5% of 'high education' people said 'agree' 
   - 62% of 'low education' people said 'disagree'
-  # CONCLUSION:
-  # - People with high education is the most people that believe in being 
-  #   exitence outside the earth 
+  # CONCLUSION:=================================================================
+  # - People with high education is the most people that believe in the being 
+  #   existence outside the earth. 
+  # ============================================================================
 
 ===[ Scatter plot ]===
+* The 'height' of the "united state's president" and "replicate resuls" 
+
+  > [ Matrix Table: ]
+            ____________________________
+    case    | height | approval rating |
+    --------|--------|-----------------|
+    Obama   | 185    |      47.0       |
+    --------|--------|-----------------|
+    Bush jr | 182    |      49.9       |
+    --------|--------|-----------------|
+    Clinton | 188    |      55.1       |
+    --------|--------|-----------------|
+    Bush sr | 188    |      60.9       |
+    --------|--------|-----------------|
+
+    > [ Analysis: ]
+      - Cases: obama, bush jr, clinton, bush sr 
+      - Variables: height, approval rating
+
+      # NOTE: Level of measurment is Ration/interval => Quentitive varibales 
+
+    > [ Scatter plot: ]
+      - Since my varibales are quentitive, scatter plot is the best ghraph to 
+        understand the relationship between hieght and approval rating.
+    Approval
+    Rating
+      |
+  70 -|
+     -|
+  60 -|                          *
+     -|                          *
+  50 -|        *
+     -|                 *
+  40 -|
+      |
+      |--|--|--|--|--|--|--|--|--|--> height
+        80  81 82 83 84 85 86 87 88
+
+    - From the scatter plot we can clearly see that there is a positive linear
+      relationship between 'height' and 'approval rating'. 
+    
+    > [ Person'r: Person colleration cofficent ]
+      
+      1|_ Calculate the mean 
+          | mean(height) = 185 + 182 + 188 + 188 / 4 = 185.75 
+        =>|
+          | mean(approval) = 47 + 49.9 + 55.1 + 60.9 / 4 = 53.225 
+
+      2|_ Calculate Standart deviation
+          &(height) = sqrt(sum(x - x-bar)^2 / 4 - 1) 
+          &(rating) = sqrt(sum(y - y-bar)^2 / 4 - 1) 
+
+          &(height) = sqrt((185 - 185.57)^2 + (182 - 185.75)^2... / 3) 
+          &(rating) = sqrt((47 - 53.22)^2 + (49.9 - 53.22).. / 3 ) 
+
+          &(height) = 2.87 
+          &(rating) = 6.12 
+
+      3|_ Person'r
+          r = sum(Z-scoreX * Z-scoreY) / 3) 
+          r = 0.73
+
+      # NOTE: r = 0.73 => It is a strong positive linear correlation 
+
+      4|_ regression equation
+
+          [ y-hat = ax + b ] 
+
+          |a = r * (&(rating) / &(height)) = 1.56
+        =>|
+          |b = mean(rating) - a * mean(height) = -237.11 
+
+          [ y-hat = 1.56 * x - 237.11 ] 
+
+      # NOTE: using regression equation allows us to predict new values
+      
+      5|_ R^2
+        
+          r^2 = 0.73 * 0.73 = 0.53 
+
+        - Percantage of error is less by 53 of the ones given by 'mean'
+# CONCLUSION:===================================================================
+# 1|_ We found the best line that describe the linear relationship between vars. 
+# 2|_ We found equation regression for prediction. 
+# 3|_ 'r' and 'r^2' is used to calculate the line fitting. 
+# ==============================================================================

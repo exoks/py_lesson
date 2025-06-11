@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/11 19:54:01 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/11 22:58:34 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -273,3 +273,87 @@
   #   wahed l mask li kol value, mask howa value wehda akhra li katmatel nafss
   #   l quentity fi range or scale wahed akhur swa kbar mno o la sghar mno.
   # ============================================================================
+
+===[ Checking gradient Descent for Conversion ]===
+
+  > [ Learning Curve: ]
+
+# REVISION:=====================================================================
+# - Gradient Descent algorithm is a method to find the min of cost function
+#   (global minimum). 
+#   J(a,b)
+#
+#   | A(new) = A(old) - LR * & J(a,b) / &A 
+# =>|
+#   | B(new) = B(old) - LR * & J(a,b) / &B 
+#
+# - We keep iterating (making steps) until conversion where A = Cste & B = Cste
+# ==============================================================================
+
+- 'Based on the revesion', we know that the 'cost function' changes at each 
+  'iteration (step)' made using gradient descent algorithm, So let's represent 
+  'the changing of cost by number of iterations' in scatter plot
+
+J(a->, b)
+  |
+  | *
+  | *
+  | *
+  |  *
+  |   *
+  |     *
+  |       *
+  |          * *   *   *
+  |---------------------------------> Iterations
+
+  - This curve is called 'Learning Curve', In this case Gradient descent is
+    'working correctly'
+
+> [ Examples: Case of divertion ]
+
+J(a->, b)                                J(a->, b)
+  |                                          |
+  |                                          |                     * 
+  |                                          |                    * 
+  | *                                        |                   *
+  |  *        *     * *                      |                 * 
+  |   *      * *   *   *                     |               *
+  |     *   *   * *      *    *              |             *
+  |       *                *                 |          *
+  |                                          | *  *  * 
+  |---------------------------> Iters        |---------------------------> Iters
+  - Learning rate is big or there is a       - learing rate is big but the most 
+    problem in the code.                       famous problem in this case 
+                                               the code.
+
+  # NOTE:=======================================================================
+  # - This is the graphical method to check if the gradient descent is
+  #   working properly. 
+  # - There is another method called Automatic covergence test.
+  # ============================================================================
+  
+  > [ Automatic convergence test ]
+    * Is a constant value 'epsilon'
+
+      [ epsilon = 10^-3 = 0.001 ] 
+
+    - If J(a->, b) decreases by <= epsilon in one iteration, declare
+      'convergence'
+
+  # NOTE:=======================================================================
+  # - The learning curve is the best method to check for gradient descent if
+  #   it is working properly. 
+  # ============================================================================
+
+===[ How to find the best Learning Rate: ]===
+* Keep changing the 'learning rate' and visualize the 'learning curve'    
+
+  - It is globaly known to start by: 
+
+    Learning Rate = 0.001     | 
+    Learing Rate = 0.1        | Keep multiplaying by x10
+    Learing Rate = 1          | or x3 ...
+    ...
+
+  - Then choose the learning rate that gives the learning curve that
+    'deacrease fast and continous'.

@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/06 07:38:08 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/11 19:36:25 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -212,16 +212,57 @@
   # NOTE: a-> . x-> : is called dot product, It is the projection of a-> on x->
   # ERROR:
   # - what i have said is not true at all 
-  # - row vector is not a ghraphical vector, i guess not projection is here. 
+  # - row vector is not a ghraphical vector, i guess no projection is here. 
 
-  > [ Feature Scaling : ]
-    - I need to understand the problem first to understand the feture scaling.
+  > [ Feature Scaling: ]
+    * Feature scaling is 'preprocessing technique' used to 'normalize' the 
+      range of independent variables (features) in a dataset
 
-  > [ Cost function: ]
-    - In the case of simple linear regression:
-      J(a,b) = 1/2m * sum(i -> m) (error)^2  
+    - Normalization (min-max scaling), Standardization (Z-score Scaling) are a
+      'common methods of feature scaling'. 
 
-    - a is the slop or f'(a) rate of change (change of y on x) 
-    - b is y-intercept
-    - error = residuals = Y-hat(i) - Yactual (Y is the output feature)  
-    - 1/2 is used to simplify the derivative in respect of one input feature. 
+    # NOTE:=====================================================================
+    # - Instead of working by the original values, we can work by normalization,
+    #   standerdization forms Instead. but Why ?
+    # - To keep the input feature values in the same range, (their ranges must
+    #   be close to each others) 
+    # - Of course there is nothing can make this transformation than
+    #   Normalization (max, mean ...), Standardization (Z-score ...), ... 
+
+  # INFO:
+   - The Z-score normalization or standardization is the most method famous 
+   method to make 'feature scaling'.
+
+===[ Feature Transformation methods: ]==========================================
+
+  |--------------------------------[ Normalization ]-------------------------|
+  |                                       |                                  | 
+[ Min-Max: range normalization ][  Z-score normalization   ][ Robust Scaling ] 
+- Math concept name: 'affine'   |- Math concept: 'standard' |- Base on 'median' 
+  'transformation'.             |  'score transformation'   | and 'IQR', this
+- It maps data from its         |- It 'centers' the data    |  technique is more
+  'original' range to 'new'     |  (mean = 0) and scales    |  'resistant' to 
+  'range' usually '[0, 1]'      |  it to unit variance      |  'outliers'
+  using a 'linear'              |  (std=1)                  |
+  'transformation'              |- Formula:                 |- Formula
+- Formula:                      |       X - mean            |     x - Median 
+         X - Xmin               | X' = ----------           | X' = ----------
+  X'  = ----------              |       std (&)             |         IQR 
+        Xmax - Xmin             |- std: average distance    |- Ref : 'Median'
+- Reference: 'Range'            |  of each x from the mean  | 
+                                |- 'sensetive' to 'outliers'| 
+                                |- reference: 'Mean'        | 
+
+  # QUESTION:[ When to use feature scaling ? ]==================================
+  # - range: (-1 => 1), (-3 => 3), (-0.3 => 0.3) are acceptable ranges.
+  #   |=> (no need for scaling) 
+  # - range: (0 => 3), (-2 => 0.5): it's okey, can be rescaled also 
+  # - range: (-100 => 100) too large => rescale 
+  # - range: (-0.001 => 0.001) too small => rescale
+  # ============================================================================
+
+  # CONCLUSION:=================================================================
+  # - Achno hiya Feature Transformation or scaling hiya bi basata tanrakeb
+  #   wahed l mask li kol value, mask howa value wehda akhra li katmatel nafss
+  #   l quentity fi range or scale wahed akhur swa kbar mno o la sghar mno.
+  # ============================================================================

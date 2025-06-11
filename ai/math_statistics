@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/27 16:26:07 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/06 07:34:10 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/11 15:15:37 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -482,6 +482,13 @@
   | < -2 or > +2       | Likely outliers          |
   |____________________|__________________________|
 
+# INFO:[ Standardization ]
+# - Standardization is a 'numerical transformation' used to 'rescale data'
+#   so that is has:
+# - A mean of 0
+# - A standard deviation of 1
+# > [ Purpose: ]
+#   - Normalize features before traning machine learning models 
 
 ===[ Application: ]==============================================================
 * We have 8 schools where xi i E [1, 8] represents the average in math on the
@@ -681,7 +688,7 @@
   |
   |-------------------> x (independent varibale)
 
-  - From the scatter plot we can know the type of correaltion and direction
+  - From the scatter plot we can know the type of correlation and direction
     but it is hard to know the 'strangth' of the correlation. We need to find a
     quentity that 'measure' the strangth, This quentity is called "Pearson'r" 
 
@@ -746,7 +753,7 @@
   # e.g: is a latin abbreviation means 'exempli gratia' which means for example 
   # ============================================================================
 
-# QUESTION:[ Why Use Regression ? ]=============================================
+# QUESTION:[ Why Use Regression ?]============================================== 
 # - Prediction: Estimate Future outcomes.
 # - Explanation: Understand relationship between variables.
 # - Inference: 'Quantify' the strength and direction of effects. 
@@ -800,4 +807,83 @@
 # - Data Science: analysis refers to the process of 'exploring', 'cleaning',
 #   'transforming', and 'modeling data' to extract useful insights and inform 
 #   decision-making.
+# QUESTION:[ Standardization VS Normalization ]=================================
+# - standardization and normalization are different techniques used in data  
+#   preprocessing especially in machine learning and statistics.
+# > Simple Analogy:
+# - Standardization is like adjusting everyone's test score so the average is 0 
+#   and spread is even. z <= x <= y      | x, z, y E |R
+# - Normalization is like rescaling all scores so the lowest is 0 and the
+#   highest is 100. 0 <= x <= 1 (proportions)
+#
 # ==============================================================================
+
+===[ Correlation Vs Causation: ]===
+
+> [ Correlation: ]
+  * A statistical relationship between two variables
+    - Meaning: When one varibale 'changes', the other tends to 'change as well'
+    
+  # NOTE:
+  # - Correlation IS NOT causation 
+  # - Ex: maybe two varibales changes together but
+  #       no causation between both values 
+
+  |> Example: [ Chocklet and  body weight ]
+    - It seems that the more you eat chocolate the more the weight increase.  
+      |=> Chocklet consumtion: Independent varibale  | body weight: dependent variable. 
+
+      Or
+
+    - The more you are heavy, the more you can eat too much chocolate 
+      |=> body weight: Independent varibale | chocolate consumption
+          dependent varibale 
+
+  # NOTE:
+  # - The correlation seems in both direction, but no causation relation where   
+  #   a variable cause  the other variable, this correlation is fake. 
+  # - We can say that There is another varibale that cause body weight and
+  #   chocolate consumption, is called 'Genetics'.
+  # - Genetices that cause/effect body weight and chocolet consumption 
+  
+  |> Example: [ Ice cream sales & drowning incidents ] 
+     - Ice cream sales & dorwning incidents both increase in summer. 
+     - They are 'correlated' (both go up), but eating ice cream does not 'cause'
+       drowning.
+     - A 'Third factor (hot weather)' affects both.
+
+> [ Causation: ]
+  * One varibale 'directly causes' a change in another
+    - Requires evidence (like an experiment or deep analysis) 
+    - Causation means 'a change in X causes a change in Y' 
+
+  |> Example
+    - Smoking causes lunch cancer (There is a relationship: years of studies
+      and biological mechanisms show this) 
+
+# INFO:[ Analogy ]=============================================================
+# - Correlation is like dancing together. Causation is like one person pushing the other.
+# NOTE:
+# - Regression analysis is effected by outliers, If it is found, You must
+#   invistigvate the value, If it is wrong => you can remove it from data set
+# - It is HARD TO PROVE CAUSATION between two variables. 
+# ==============================================================================
+
+> [ Summary : ]
+    ___________________________________________________________________________
+    | Feature    | Correlation                  | Causation                   |
+    |------------|------------------------------|-----------------------------|
+    | Definition | A relationship between       | One variable directly       |
+    |            | variables                    | affects another             |
+    |------------|------------------------------|-----------------------------|
+    | Direction  | Can be mutual or indirect    | Goes in one direction       |
+    |            |                              | (cause → effect)            |
+    |------------|------------------------------|-----------------------------|
+    | Evidence   | Statistical (correlation     | Experimental, theoretical,  |
+    | type       | coefficient)                 | statistical                 |
+    |------------|------------------------------|-----------------------------|
+    | Example    | Shoe size ↔ vocabulary in    | Vaccination → reduced       |
+    |            | kids (age is third variable) | disease risk                |
+    |____________|______________________________|_____________________________|
+
+===[ Application: ]=============================================================

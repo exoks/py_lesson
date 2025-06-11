@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/27 16:26:07 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/11 15:15:37 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/11 16:07:27 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -665,7 +665,7 @@
 #   called 'marginal propotions'
 #   . 0.35 is the propotion of males in my sample, (related to male case only) 
 # CONCLUSION:===================================================================
-# Crosstab (contingency table) is used => categorical variables 
+# Crosstab (contingency table) is used for => categorical variables 
 # ==============================================================================
 
 ===[ Scatter plot: ]============================================================
@@ -887,3 +887,66 @@
     |____________|______________________________|_____________________________|
 
 ===[ Application: ]=============================================================
+
+===[ Contingency table: ]===
+* We are going to take a sample from morocco that contains 3 categories based
+  on their level of education, We will ask them if they do believe in aliens:
+  - they have to answer, agree, disagree or nor agree nor disagree
+
+  > [ Analysis: ]
+    - Case      : Person
+    - Variables : Education, Response  
+
+    # NOTE:
+    # - Level of measurment is Nominal (categorical varibales) 
+  
+  > [ Matrix table/data ] 
+
+          ___________________________
+          | Education  |  Response  |
+  ________|____________|____________|
+  Case 1  |     Low    |    Agree   |
+  --------|------------|------------|
+  Case 2  |    hight   |  disagree  |
+  --------|------------|------------|
+  case 3  |   Middle   |  Nor ...   |
+  ...                               |
+  -----------------------------------
+
+  > [ Contingency Table: ]
+    - We are going to use the contingeny table to understand the relationship 
+    between two categorical varibales
+
+             ____________________________
+             |  Low  |  Middle  | High  | Total 
+    ---------|-------|----------|-------|-------
+    Agree    |  12   |  31      |   25  | 68 
+    ---------|-------|----------|-------|-------
+    Disagree |  26   |  38      |   17  | 81 
+    ---------|-------|----------|-------|-------
+    Nor      |  64   |  40      |   8   | 112
+    ---------|-------|----------|-------|-------
+    Total    |  102  |  109     |  50   | 261
+
+    - As we can see the contingency table does not describe the relationship
+      between 'education' and 'beleive'.
+    - Let is use the 'conditional proportions' and 'marginal proportions' 
+             ____________________________
+             |  Low  |  Middle  | High  | Total 
+    ---------|-------|----------|-------|-------
+    Agree    |  0.12 |  0.30    |  0.5  | 0.26 
+    ---------|-------|----------|-------|-------
+    Nor      |  0.26 |  0.34    |  0.34 | 0.31 
+    ---------|-------|----------|-------|-------
+    Disagree |  0.62 |  0.36    |  0.16 | 0.43
+    ---------|-------|----------|-------|-------
+    Total    |  1.0  |  1.0     |  1.0  | 1.0
+
+  - 12% of 'low education' people said 'agree'.
+  - 5% of 'high education' people said 'agree' 
+  - 62% of 'low education' people said 'disagree'
+  # CONCLUSION:
+  # - People with high education is the most people that believe in being 
+  #   exitence outside the earth 
+
+===[ Scatter plot ]===

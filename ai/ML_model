@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/11 22:58:34 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/13 00:30:34 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -240,25 +240,25 @@
    - The Z-score normalization or standardization is the most method famous 
    method to make 'feature scaling'.
 
-===[ Feature Transformation methods: ]==========================================
+  > [ Feature Transformation methods: ]
 
   |--------------------------------[ Normalization ]-------------------------|
   |                                       |                                  | 
-[ Min-Max: range normalization ][  Z-score normalization   ][ Robust Scaling ] 
-- Math concept name: 'affine'   |- Math concept: 'standard' |- Base on 'median' 
-  'transformation'.             |  'score transformation'   | and 'IQR', this
-- It maps data from its         |- It 'centers' the data    |  technique is more
-  'original' range to 'new'     |  (mean = 0) and scales    |  'resistant' to 
-  'range' usually '[0, 1]'      |  it to unit variance      |  'outliers'
-  using a 'linear'              |  (std=1)                  |
-  'transformation'              |- Formula:                 |- Formula
-- Formula:                      |       X - mean            |     x - Median 
-         X - Xmin               | X' = ----------           | X' = ----------
-  X'  = ----------              |       std (&)             |         IQR 
-        Xmax - Xmin             |- std: average distance    |- Ref : 'Median'
-- Reference: 'Range'            |  of each x from the mean  | 
-                                |- 'sensetive' to 'outliers'| 
-                                |- reference: 'Mean'        | 
+[ range normalization ]         [  Z-score normalization   ]  [ Robust Scaling ] 
+|- Math concept name: 'affine'  |- Math concept: 'standard'   |-Base on 'median' 
+|  'transformation'.            |  'score transformation'     | and 'IQR', this
+|- It maps data from its        |- It 'centers' the data      | technique is 
+|  'original' range to 'new'    |  (mean = 0) and scales      | more 'resistant'
+|  'range' usually '[0, 1]'     |  it to unit variance        | to 'outliers'
+|  using a 'linear'             |  (std=1)                    |
+|  'transformation'             |- Formula:                   |- Formula
+|- Formula:                     |       X - mean              |      x - Median 
+|         X - Xmin              | X' = ----------             | X' = ----------
+|  X'  = ----------             |       std (&)               |         IQR 
+|        Xmax - Xmin            |- std: average distance      |- Ref : 'Median'
+|- Reference: 'Range'           |  of each x from the mean    | 
+|                               |- 'sensetive' to 'outliers'  | 
+|                               |- reference: 'Mean'          | 
 
   # QUESTION:[ When to use feature scaling ? ]==================================
   # - range: (-1 => 1), (-3 => 3), (-0.3 => 0.3) are acceptable ranges.
@@ -357,3 +357,83 @@ J(a->, b)                                J(a->, b)
 
   - Then choose the learning rate that gives the learning curve that
     'deacrease fast and continous'.
+
+===[ Polynomial Regression ]====================================================
+* 'Polynomial Regression' is a type of regression analysis where the 
+  relationship between the 'independent variable(x)' and the 'dependent'
+  'variable (y)' is modeled as an nth-degree polynomial
+
+  > [ Formula: ]
+    
+    [ Y-hat = a*X + b*X^2 + c*X^3 + ... + alpha ] 
+
+  - It still considered a 'linear model', not because of the curve but because
+    it's "linear in the coefficients".
+
+  # NOTE:=======================================================================
+  # - Polynomial regression transforms the original input features into
+  #   'polynomial terms' (That what is called feature engineering).
+  #   * Original Feature: 'X'
+  #   * Transformed features: X, X^2, X^3, ..., X^n
+  # - These nea features are then used in standard linear regression model to
+  #   find the best-fitting curve.
+  # ============================================================================
+
+  > [ Things to Watch out For ]
+    - 'Overfitting': High-degree polynomials can fit training data too colsely,  
+      hurting generalization.
+    - 'Extrapolation Risk': Polynomial curves can behavewildly outside the data
+       range 
+    - 'Scaling': It is a good idea to normalize or standardize input features  
+      when using high-degree terms.
+
+  > [ Linear Regression VS Polynomial Regression ]
+  _____________________________________________________________________________
+  | Aspect                 | Linear Regression | Polynomial Regression        |
+  |------------------------|-------------------|------------------------------|
+  |-Equation form          |-Y = ax + b        |-Y = aX + cX^2 + ...+ b       |
+  |-Fit shape              |-Straight line     |-Curved line (parabola,       |
+  |                        |                   | cubic, etc.)                 |
+  |-Handles non-linearity? |-❌ No             |-✅ Yes                       |
+  |-Model complexity       |-Low               |- Higher (risk of overfitting |
+  |                        |                   | if degree is too high)       |
+  |________________________|___________________|______________________________|
+
+# CONCLUSION:===================================================================
+# - Polynomial regression is a powerful extension of linear regression that
+#   capture non-linear relationships by transforming features into polynomial
+#   terms, It offers flexibility but must be used carefully to avoid overfitting 
+# ==============================================================================
+
+===[ Feature Engineering: ]===
+* Feature engineering  is the process of 'transforming raw data into meaningful'
+  'inputs (features)' that improve the performance of a machine learning model.
+  - It involves 'selecting', 'creating', 'modifying' , or 'encoding varibales' 
+    (features) in a way that helps the model 'better understand the patterns'
+    'in the data'.
+
+  > [ Feature Engineering Technique ]
+    1. Feature Selection: 
+       - Choosing the most relevant feature. 
+       - Removing redundant or irrelevant features.
+    2. Feature Transformation:
+       - 'Scaling': Normalize or standardize features 
+       - 'Encoding': Convert categorical varibales => Numerical form  
+    3. Feature Creation:
+       - 'Combine existing' features (e.g S=weight * height) 
+       - 'Extract information' (e.g extract "year" from a date)
+    4. Handling Missing data:
+       - Input missing values using 'mean', 'median', 'mode', or 'predictive'
+         'models' 
+    5. Dimensionality Reduction: 
+       - 'Reduce the number of feature' while 'preserving' information (PCA, 
+         t-SNE) 
+
+# CONCLUSION:===================================================================
+# - Feature engineering is the 'art and science' of turning raw data into useful
+#   input for machine learning.
+# - It can dramatically affect model performance and is often more impactful 
+#   than tweaking algorithms themselves.
+# - 'Data cleaning' prepares the data for modeling, 'Feature engineering' makes
+#   the data useful for the model.
+# ==============================================================================

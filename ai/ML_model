@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/13 00:30:34 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/13 01:04:16 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -437,3 +437,29 @@ J(a->, b)                                J(a->, b)
 # - 'Data cleaning' prepares the data for modeling, 'Feature engineering' makes
 #   the data useful for the model.
 # ==============================================================================
+
+===[ Linear Regression VS Classification ]======================================
+# REVISION:
+# - Regression is a type of supervised learning used to predict 'continuous' 
+#   'values' by modeling the relationship between input features and output
+#   * Predicting house prices based on size, location ...
+
+> [ Classification ]
+  * It is a type of 'supervised learning' used to 'predict categorical labels' 
+    by learning patterns in the data that separate different 'classes'
+    . Ex: Predicting whether an email is 'spam' or 'not spam'
+
+  # NOTE:=======================================================================
+  # Regression     => Predict Numbers (e.g price, revenue, ...) 
+  # Classification => Predict categories (e.g pass/fail, ...) 
+  # ============================================================================
+
+# ERROR:========================================================================
+# - While linear regression is meant for regression (predicting continous value) 
+#   , It can be used for 'binary classification' as a simple baseline model, but 
+#   It is generally not recommended.
+# - You can use 'logistic regression' or 'other classification algorithms 
+#   (e.g, decision trees, SVMS, random forests) instead
+# ==============================================================================
+
+===[ Logistic Regression: ]=====================================================

@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 06:57:32 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/14 18:25:39 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/13 01:02:44 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -118,3 +118,36 @@ and outputs.
   - Decision trees or neural networks
 * But the concept is the same: The model creates internal rules (often in the
   form of weights, splits, or thresholds) to map inputs to outputs.
+
+===[ Why using the term of 'Regression' ]=======================================
+
+- The word "regression" comes from Francis Galton, a 19th-century statistician.
+  He was studying the relationship between the height of parents and their
+  children and noticed something interesting:
+
+    "Tall parents tended to have children who were tall—but not as tall."
+    "Short parents had children who were short—but not as short."
+
+- This phenomenon—where extreme traits in parents tended to move closer
+  (or regress) toward the average in their children—was called:
+
+    "Regression toward the mean."
+
+> [ 🧠 How It Got Its Name ]
+  - Galton used the term regression to describe this tendency of values to move
+    toward the average when predicting outcomes. Later, as statistical methods
+    evolved, the technique used to model and predict a continuous outcome became
+    known as regression analysis.
+
+> [💻 Why It Stuck in Machine Learning ]
+  * In machine learning:
+    - Regression means predicting continuous outputs (e.g., price, temperature).
+    - Despite the term’s confusing origin, it became standardized in both
+      statistics and machine learning.
+
+> [ ✅ Summary ]
+  - The name "regression" comes from early statistical studies of heredity,
+    where outcomes appeared to regress toward the mean.
+  - Today, it simply refers to 'predicting continuous values using statistical'
+    or 'machine learning models'.
+

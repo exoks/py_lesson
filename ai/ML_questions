@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 06:57:32 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/13 19:03:17 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/14 19:57:00 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -110,7 +110,7 @@ and outputs.
       The model will predict:
         [ 200 × 1800 = 360,000 ]
 
-# QUESTION: Are these rules always simple like that?
+# QUESTION:[ Are these rules always simple like that? ]=========================
 * No — in real-world models, the rules can be very complex, involving:
   - Multiple variables
   - Non-linear relationships
@@ -150,80 +150,3 @@ and outputs.
     where outcomes appeared to regress toward the mean.
   - Today, it simply refers to 'predicting continuous values using statistical'
     or 'machine learning models'.
-
-===[ Exponential Function: ]====================================================
-* An 'exponential function' is a function where the varibale is the 'exponent' 
-
-      >> [     F(X) = a^X      ] << 
-
-  - 'a': is 'positive constant base (a > 0, a != 1)' 
-  - 'x': is the 'exponent variable' 
-
-- The base value 'a == 2.71828' is a special constant in mathematics. 
-  
-  # NOTE:======================================================================= 
-  # - The number a = 2.71828 is a unique number found by someone called 'Auler'.
-  # - e ≈ 2.71828 is a special constant in mathematics.
-
-- The 'exponential function' with base e == 2.71828 is a special function called
-  'natural exponential function' and is unique because:
-
-    [    d                 ]
-    [   ---- e^x = e^x     ]
-    [    dx                ]
-
-    -  e^x = f'(x) = y = e * e * ... * e 
-                         \--------------/
-                            x times
-
-  # NOTE:=======================================================================
-  # - It is the only exponential function whos rate fo change equals it value 
-  #   making it essential in 'calculus, differential equations' and
-  #   'growth modeling'.
-  # INFO:=======================================================================
-  # - Any exponential a^x can be rewritten using base e: 
-  #   [ a^x = e^x.ln(a) ]
-
-  > [ Properties of Exponential functions: ]
-    - 'Always positive': f(x) > 0 
-    - 'Rapid growth': (a > 1): the bigger x gets the faster f(x) increases 
-    - 'Exponential decay': (if 0 < a < 1): the function rapidly shrinks as x increases. 
-    - 'Domain': All real numbers (−∞,∞)
-    - 'Range': (0, ∞) 
-    - Y-intercept: 'Always f(0) = 1' for any base 'a' 
-
-===[ Logarithms: The inverse of exponentials ]=== 
-* 'A logarithm' is the 'inverse of an exponential function':
-
-    => [ b^x = y    <==>   logb(y) = x   ] 
-
-  - In case of 'natural exponential function' 
-
-    => [ y = f(x) = e^x   <==>  loge(y) = x ] 
-
-  # TIP:========================================================================
-  # - The inverse function of natural exponential function is called
-  #  natural logarihm ln(x):
-  #   [ loge(x) = ln(x) ]
-  # - Rules: 
-  #   ln(e^x) = x  and e^ln(x) = x
-  # ============================================================================
-
-# QUESTION:[ Why are These Concepts Important ?]================================ 
-# - 'Exponential functions': model real-world processes (e.g population growth,
-#   radioactive decay, interest rates, learning curves, etc) 
-# - 'Euler's number': makes formulas in calculus simple and elegant.
-# - 'Logarithms': are used to solve equations involving exponentials. 
-# - 'Natural logs (ln)': show up in integration, derivatives, and statistical
-#   distributions (like normal and exponential) 
-
-> [ Summary: ]
-    _________________________________________________________________
-    | Concept              | Definition             | Example       |
-    |----------------------|------------------------|---------------|
-    |-Exponential Function |-f(x) = a^x             |- 2^x, e^x     |
-    |-Euler’s Number (e)   |-Constant approx 2.718, |- e^x          |
-    |                      | base of natural growth |               |
-    |-Logarithm            |-Inverse of exponential |- log_2(8) = 3 |
-    |-Natural Log (ln)     |-Logarithm with base 'e'|- ln(e^2) = 2  |
-    |______________________|________________________|_______________|

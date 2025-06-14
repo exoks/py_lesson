@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/13 01:04:16 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/14 19:44:13 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -463,3 +463,58 @@ J(a->, b)                                J(a->, b)
 # ==============================================================================
 
 ===[ Logistic Regression: ]=====================================================
+* It is a 'classification algorithm', not a regression algorithm (despite
+  the name), It is used to 'predict the probability' that a given input belongs
+  to a 'particular class', typically in 'binary classification' (e.g., yes/no,
+  spam/not spam, 0/1). 
+
+  > [ Formula: ]
+    
+    => [ Sigmoid (Z) = 1 / 1 + E^-Z ]
+
+      - 0 < g(Z) < 1 
+      - Z = f(a->, b) = a-> * x-> + b 
+   
+# INFO:
+# - 'The sigmoid function' is a mathematical function that maps any real-valued
+#   number into a range between '0 and 1'. It is commonly used in machine
+#   learning, especially in classification tasks.
+# > [ Formula: ]
+#               1 
+#     σ(x) = -------
+#           1 + e^-x
+#
+#     - x: is the input
+#     - e 
+
+    => [ fa->, b(x->) = 1 / 1 + e^(a-> * x-> + b) ]
+                      1-|
+                        |           *   * * *
+                        |        *
+                        |     *
+        -0.5-         * | *  
+                  *     |
+               *        |
+             *          |
+    * * * *             |
+    --------------------|----------------------> x
+                        0
+
+    - 0 < Ouput value < 1, means the probality that 'output value' is 1,
+      givin input 'x->', parameters 'a->, b'
+    - Example: F(x->) = 0.7: 'probalitiy of 70% that y is 1'
+    - Fa->, b(X->) = P(y = 1|x->:w->,b): 'the probality that y is 1 givin input'
+      'x->, parameters a->, b'
+
+  # NOTE:
+  # e: is the natural language of calculas (is the math of rate of change and
+  # growth and areas)
+
+> [ Auler's Number: ]
+
+    => f(x) = (1 + 1 / n)^n   <|>  e = 1 + 1/1! + 1/2! + 1/3! + 1/4! + ..., etc 
+
+  [   lim(n -> inf) (1 + 1/n)^n = e   ]
+
+
+===[ Decision Boundary: ]===

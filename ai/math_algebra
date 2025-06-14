@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/15 19:09:30 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/11 18:15:00 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/14 20:10:49 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -21,8 +21,9 @@ _____________________________________________________________________________
 | ------------- | --------------  | --------------  | --------------------- |
 | Scalar        | ✅ Yes          | ❌ No           | Temperature, Speed    |
 | Vector        | ✅ Yes          | ✅ Yes          | Velocity, Force       |
+|---------------|-----------------|-----------------|-----------------------|
 | Tensor        | ✅ Yes          | ✅ Multi-dir    | Stress tensor, Rank-2 |
-| Algebraic     | ✅ Symbolic     | ❌/abstract     | $x^2 + 1$, $a + b$    |
+| Algebraic     | ✅ Symbolic     | ❌/abstract     | x^2 + 1,  a + b       |
 | Discrete      | ✅ Countable    | ❌              | 1, 2, 3 items         |
 | Continuous    | ✅ Real values  | ❌              | Distance = 3.25m      |
 |_______________|_________________|_________________|_______________________|
@@ -39,291 +40,6 @@ _____________________________________________________________________________
 #    (scalar). All other types—like tensors, matrices, algebraic expressions—are
 #    'generalizations' or 'extensions' of these two.                           |
 # ==============================================================================
-
-===[ Math: Derivative ]=========================================================
-* At its core, a 'derivative' measures 'how something changes'. More precisely,
-  it tells you the 'rate of change' of a function at any given point.
-
-Taking a derivative means you are answring this question:
-  "if I change the input a little, how much does the output change ?"
-
-> Mathematically:  
-  - Given a function f(x), the derivative f'(x) tells you how fast f changes
-    'with respect to' x.
-
-> [ Examples: ]
-  1|> Let is say a position of a car over time is given by:
-      [ f(t) = t^2 ]
-  
-  - This means the cars distance from home at second is t^2 meters
-    the derivative is:
-      [ f'(t) = 2t ]
-
-  - at t = 4 seconds
-      f(4) = 16 (car distance is 16m )
-      f'(4) =  8
-  
-    t    | 0 -> 1 -> 2 -> 3 -> 4  | s 
-    -----|------------------------|----
-    f(t) | 0 -> 1 -> 4 -> 9 -> 16 | m 
-    -----|------------------------|----
-    f'(t)| 0 -> 1 -> 4 -> 6 -> 8  | m/s 
-
-  - This means at t=3 the car distance is 9m and it is moving 6 ms at this point 
-  # CONCLUSION:=================================================================
-  # - So, The derivative tells us the velocity — how fast the position is      |
-  #   changing.                                                                |
-  # ============================================================================
-
-  - let is make the the rate of changes constant: grows constant. 
-    [ f(t) = t ]
-    
-    - the derivation is:
-      [ f'(t) = 1 ] 
-  
-  - This means that the speed is changing by [ 1 m/s ] at any point.
-
-  2|> [ Cost Function: ]
-      - Let’s say a company’s production cost is:
-          C(x) = 100 + 5x + 0.5x^2
-
-      - Where x is the number of products made, and C is the cost in dollars.
-        The derivative:
-          C′(x) = 5 + x
-
-      - This means:
-        * For each additional unit made, cost increases by 5 + x dollars
-        * At x=10: cost increases by 15 dollars per unit
-        * It tells how marginal cost behaves
-
-  3|> [ Population Growth: ]
-      - Suppose a population grows according to:
-        P(t) = 1000 * e^0.03t
-
-      - Where t is in years. The derivative is:
-        P'(t) = 1000 * 0.03 * e^0.03t
-
-      - It tells how fast the population is growing at any time 't', and that
-        growth is 'exponential'.
-
-> [ General Patterns: ]
-    _____________________________________________________________________
-    | Function f(x)   | Derivative f'(x)   | Interpretation             |
-    |-----------------|--------------------|----------------------------|
-    | x^2             | 2x                 | Change grows linearly      |
-    | x^3             | 3x^2               | Change grows quadratically |
-    | sin(x)          | cos(x)             | Change oscillates          |
-    | e^x             | e^x                | Growth matches size        |
-    | ln(x)           | 1/x                | Slows as x grows           |
-    |_________________|____________________|____________________________|
-
-===[ Math: Partial Derivative ]================================================= 
-* A partial derivative measures 'how a multivariable function changes with the'
-  'respect to one variable while holding all the variables constant'.
-
-  > Ex:
-      f(x, y) = x^2 + 3xy + y^2
-
-  - How does 'f' change if i change 'x' a little, but keep 'y' fixed ?
-    |=> that is 'the partial derivative with the respect to x' written ∂f/∂x
-  - How does 'f' change if i change 'y' a littel, but keep 'x' fixed ? 
-    |=> that is 'the partial derivative with the respect to y' written ∂f/∂y
-
-# QUESTION:[ Why are partial derivative used ?]
-- Because many real-world systems depend on multiple variables, partial
-  derivatives help us isolate the effect of just one variable.
-  ______________________________________________________________________________
-  | Term               | Meaning                                               |
-  |--------------------|-------------------------------------------------------|
-  | Partial Derivative | Rate of change with respect to one variable at a time |
-  | Notation           | ∂f/∂x fsubscript(x)                                   |
-  | Key Feature        | Other variables are 'held constant'                   |
-  | Main Use           | Understand systems with 'multiple variables'          |
-  |____________________|_______________________________________________________|
-
-> [ Examples: Derivative VS Partial Derivative ]
-  [[[ Derivative]]]
-    f(x) = 3x^2 + 2x + 1
-  - This has 'one variable' x, so we use the regular derivaitve:
-    f'(x) = d/dx(3x^2 + 2x + 1) = 6x + 2
-  - [ This tell us the slop (rate of change) of the function at any point x ] 
-
- [[[ Partial Derivative ]]] 
-    f(x, y) = 3x^2 + 2xy + y^2
-
-    | ∂f/∂x = 6x + 2y 
-  --|
-    | ∂f/∂y = 2x + 2y
-
-  - These tell us:
-    * How 'f' changes in the 'x direction' (slop if you walk east).
-    * How 'f' changes in the 'y direction' (slop if you walk north).
-
-  # INFO:
-  # - Steep (of a slop) rising of falling at a sharp angle.
-  #   ex: a steep slop
-  # - Descent (Noun) a Movement down 
-
-===[ Analogy: ]=================================================================
-- Imagine you're on a hill.
-- The derivative is like walking along a 1D trail — you're asking
-  |=> "how steep is the path right here?"
-
-  The partial derivative is like looking at the steepness:
-
-  - North-South (∂f/∂y)
-  - East-West (∂f/∂x)
-
-- You are still on the hill, but you are isolating one direction at a time.
-
-===[ In Software Term: 💻 ]======================================================
-* Derivative:
-  - Used when modeling simple curves or optimizing single-variable functions.
-
-* Partial Derivative:
-  - Crucial in:
-    > Gradient Descent (you compute partials for each variable)
-    > Neural Networks (backpropagation uses partial derivatives)
-    > Physics Engines (e.g., surface normals)
-    > Multivariable optimization (e.g., tuning hyperparameters)
-
-# CONCLUSION:===================================================================
-# - Derivatives are for single-variable functions.                             |
-# - Partial derivatives are for multi-variable functions.                      |
-# - Partial derivatives are just an extension of the derivative idea           |
-#   => they measure change in one direction while holding others constant.     |
-# ==============================================================================
-
-> [ Tangent line equation: ]====================================================
-* If 'f' is 'differentiable' at x = a
-  
-  1|> Use this direct mathimathic rule to find it:
-        => [ y = f'(a) * (x - a) + f(a) ] 
-
-  2|> If 'f' is 'differentiable' at x=a => the slop is a so the equation is:
-        (1) => [ y = f'(a) * x + b ]
-      - The point (a, f(a)) belong to f(x) and tangent line equation, so: 
-            => [ f(a) = f'(a) * a + b]
-        (2) => [ b = f(a) - f'(a) * a ] 
-      - from (1) and (2):
-        f(x) = f'(a) * x - f'(a) * a + f(a)  
-  =====> [ y = f'(a) * (x - a) + f(a) ]: This is the first equation 
-  # NOTE:=============================================================
-  # - the second section is the proof for the first equation:        |
-  #   |=> [ y = f'(a) * (x - a) + f(a) ]                             |
-  # ==================================================================
-
-  # INFO:=============================================================
-  # - You can write f'(x), dy/dx or f'(x) * dx = dy                  |
-  # ==================================================================
-
-===[ Why limits introduced in math ?: ]=========================================
-* Limits were created to solve a big problem in 'calculus' and 'analysis'.
-
-  'How do we deal with values that constantly changing, especially when they'
-  'get extremly close to something -- but never actually reach it ?'
-
-===[ Problem: ]===
-* Imagine you are trying to measure 'how fast' something is moving at an exact
-  moment.
-- let's say a car drives 100 km in 2 hours - that is 50km/h.
-- But what if you want to know the exact speed at a single moment, like at t = 1
-hour?
-You can’t measure it directly, because speed is based on how distance changes
-over time. Instead, you look at the average speed over smaller and smaller
-time intervals around t = 1. Then, you use a limit to figure out what value the
-speed is approaching as the interval gets closer and closer to zero. That gives
-you the instantaneous speed.
-# NOTE: It is about finding the instantaneous speed(sor3a lahdiya)
-- The smaller the interval, the more accurate your answer gets. But this raises
-  the question:
-  'What happens as the time interval gets closer and closer to zero?'
-
-- This "approaching" behavior is 'not easy to define'using regular math, You
-  need a way to 'talk about a value you are getting close to' even if you
-  never each it.
-
-# CONCLUSION:===================================================================
-# - Limits give us a precise way to say:                                       |
-# - 'As X gets closer and closer to some value, Y get closer and closer to this|
-#   other value'                                                               | 
-# So in this example:                                                          | 
-# - As the time interval approaches to t=1h, the average speed appraoches the  |
-#   'instantaneous speed'.                                                     | 
-# - This idea helps define:                                                    |
-#   . Instantaneous speed (used in derivatives)                                |
-#   . Area under curves (used in integrals)                                    |
-#   . Functions that behave oddly near a point                                 |
-#   . Infinite series (like 1 + 1/2 + 1/4 + 1/8 + …)                           |
-# - Real-world need:                                                           |
-#   . Physics: how fast objects move or accelerate at a single point in time   |
-#    . Engineering: how systems behave when inputs change slightly             |
-#    . Economics: marginal cost/profit — what happens if you produce one more  |
-#      item.                                                                   |
-#    . Computer graphics: modeling curves smoothly                             |
-# ==============================================================================
-
-# QUESTION:[ If the derivative gives me V(t), why do I need limits? ]===========
-- You can’t get a derivative without limits — because the derivative is the
-  limit of average rates of change.
-- The 'derivative is defined as a limit' 
-- Without the concept of a limit, we could not rigorously define what a
-  derivative means. 
-# QUESTION:[ Why not just say "derivative"? ]===================================
-- We do -- but behind the scenes, every derivative relies on a limit.
-- Derivative is a 'shortcut' to calculate the rate of cchange at a at x E R.
-- Limits allows as to calculate at specific point, The derivatie is another
-  shortcut that calculate the derivative in interval.
-
-# WARNING:[ When the point is not differentiable: ]=============================
-# - f'(x) = 0 DOES NOT MEAN that f is not differentiable at x. 
-#   > Ex: 
-#     f(x) = |x|
-#         |
-#         |
-#     \   |   /
-#      \  |  /
-#       \ | /
-#        \|/____________ (x)
-#         0
-# - f'(x = 0) is not differentiable 
-# QUESTION: Why we can't just say the rate of change is 0 when a function is not
-# differentiable at a point ?
-# - At x = 0:
-#   . The left-hand slope is -1 (from f(x)=−x for x<0)
-#   . The right-hand slope is +1 (from f(x)=x for x>0)
-# - Since the left and right derivatives are not equal, the overall derivative
-#   does not exist at x = 0.
-#===[ Analogy: ]================================================================
-# - Imagine you’re standing at a sharp corner on a path.
-#   Can you say the path is "flat" there? No — there’s no single direction you
-#   are facing. Same with a function: at a sharp point, the slope isn’t 0 — it’s
-#   undefined.
-# ==============================================================================
-
-===[ Limit cases: ]===
-  - Let's take f(x) and x = a is point from the difined interval of f(x)  
-
-  1|>lim(x->a) f(x) - f(a) / x - a = slop E R  
-      - f is derivative at x = a 
-      - tangent line equation:  y = f'(a) * (x - a) + f(a) 
-  2|>lim(x->a+) f(x) - f(a) / x - a = l <-> lim(x->a+) f(x) - f(a) / x - a = c
-      - f is derivate at the right of a | y = R * (x - a) + f(a)  
-      - f is derivate at the left of a  | y = L * (x - a) + f(a) 
-      - f is not derivative at x = a
-  3|> lim(x->a) f(x) - f(a) / x - a = ∞ (+∞ or -∞)
-      - f is not derivative 
-
-> [ Summry: ]
-    ________________________________________________________________
-    |            Property           | Left   | Right  | Derivative |
-    |                               | exists | exists |  at 'a'    |
-    |-------------------------------|--------|--------|------------|
-    | - Both exist and equal        |   ✅   |   ✅   |     ✅     |
-    | - Left exists, right does not |   ✅   |   ❌   |     ❌     |
-    | - Right exists, left does not |   ❌   |   ✅   |     ❌     |
-    | - Both exist, not equal       |   ✅   |   ✅   |     ❌     |
-    |_______________________________|________|________|____________|
 
 ===[ Vectors: ]================================================================= 
 * Vector is mathimatical quantitie that has both 'magnitude' and 'direction'. 
@@ -370,9 +86,9 @@ you the instantaneous speed.
 
       - j-> : is the unit vector on y | j-> = |0| 
                                               |1|
-  ===[ Vectors: Product ]=== 
-               |
-      |--------|------------------------------------------------|
+  ===[ Vectors: Product ]===------| 
+                                  |
+      |---------------------------|-----------------------------|
       |                                                         |
   [ Dot Product (Inner/Scalar Product) ]                  [ Cross Product ] 
     - Output: Scalar quantity  
@@ -383,7 +99,7 @@ you the instantaneous speed.
     . column * row = outer product 
     . row * column = dot product
 
-  # NOTE:
+  # NOTE:=======================================================================
   # - for know one we are goint to take this part as it is, the abstruction here
   #   is not clear  
   # ERROR: DO NOT FORGET TO UNDERSTAND THIS PART
@@ -479,7 +195,7 @@ you the instantaneous speed.
 # - ex: x^2 + y^2 = r, this is the equation of the circle
 # - let's take x = 0 => 0^2 + y^2 = r => y = r and y = -r
 # - x input => have two value 7 => it is not function
-# # CONCLUSION:
+# # CONCLUSION:=================================================================
 # - An equation asks: "What value make this true" 
 # - A function tells you: "Given this input, what is the output". 
 # - A function must return one and only one output per input.

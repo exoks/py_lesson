@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/14 19:44:13 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/15 16:35:10 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -475,7 +475,7 @@ J(a->, b)                                J(a->, b)
       - 0 < g(Z) < 1 
       - Z = f(a->, b) = a-> * x-> + b 
    
-# INFO:
+# INFO:=========================================================================
 # - 'The sigmoid function' is a mathematical function that maps any real-valued
 #   number into a range between '0 and 1'. It is commonly used in machine
 #   learning, especially in classification tasks.
@@ -485,7 +485,7 @@ J(a->, b)                                J(a->, b)
 #           1 + e^-x
 #
 #     - x: is the input
-#     - e 
+#     - e: Aulier's number 2.78 .. 
 
     => [ fa->, b(x->) = 1 / 1 + e^(a-> * x-> + b) ]
                       1-|
@@ -506,7 +506,7 @@ J(a->, b)                                J(a->, b)
     - Fa->, b(X->) = P(y = 1|x->:w->,b): 'the probality that y is 1 givin input'
       'x->, parameters a->, b'
 
-  # NOTE:
+  # NOTE:=======================================================================
   # e: is the natural language of calculas (is the math of rate of change and
   # growth and areas)
 
@@ -518,3 +518,25 @@ J(a->, b)                                J(a->, b)
 
 
 ===[ Decision Boundary: ]===
+* The 'decision boundary' is a concept used in 'classification problems' in 
+  machine learning, it refers to the surface (or lin in 2D) that 'separates'
+  'different classes' predicted by a model
+
+                          [ Type of Decision Boundaries ]
+                                        |
+        |-------------------------------|-------------------------------|
+        |                                                               |
+  [ Linear classifiers ]                            [ Non-linear classifiers ]
+* Produce 'straight lines' (or                    * Produce 'curved or'
+  planes in higher dimensions)                      'irregular boundaries'
+  . Logistic Regression
+  . Linear SVM
+
+# NOTE:=========================================================================
+# - For logistic regression, decision boundary is where the predicted
+#   probability is 0.5
+
+> [ Why It matters: ]
+  * Helps 'understand how your model makes predictions' 
+  * Helps 'visualize and debug classification models'
+  * Determines 'how well the model separates different classes' 

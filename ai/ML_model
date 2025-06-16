@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/15 16:35:10 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/16 18:37:33 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -488,6 +488,10 @@ J(a->, b)                                J(a->, b)
 #     - e: Aulier's number 2.78 .. 
 
     => [ fa->, b(x->) = 1 / 1 + e^(a-> * x-> + b) ]
+        g(fa->,b(x)) => g(a-> . x + b)  
+
+      => g(...): is the sigmoid function 
+
                       1-|
                         |           *   * * *
                         |        *
@@ -519,8 +523,8 @@ J(a->, b)                                J(a->, b)
 
 ===[ Decision Boundary: ]===
 * The 'decision boundary' is a concept used in 'classification problems' in 
-  machine learning, it refers to the surface (or lin in 2D) that 'separates'
-  'different classes' predicted by a model
+  machine learning, it refers to the surface (or line in 2D) that 'separates'
+  'different classes' predicted by a model.
 
                           [ Type of Decision Boundaries ]
                                         |
@@ -540,3 +544,193 @@ J(a->, b)                                J(a->, b)
   * Helps 'understand how your model makes predictions' 
   * Helps 'visualize and debug classification models'
   * Determines 'how well the model separates different classes' 
+# NOTE:> Dataset are given in the form of the matrix (2D array table) 
+
+- Since Logistic regression model = g(fa->, b(x->))  
+                                  = 1 / 1 + e^-(a-> . x-> + b) 
+
+- This rules are true:
+  . g(x->) > 0.5 => 1 class is the probability | y-hat = 1 
+  . g(x->) < 0.5 => 0 class is the probability | y-hat = 0 
+
+  # NOTE: Y-hat is the predictted value that represent the classfication. 
+  > [ Analysis: ]
+    * Let is take the formula of logistic regression: 
+
+        g(fa->,b(x->)) = 1 / 1 + e^-(a-> . x-> + b) 
+
+    * At fa->,b(x->) = 0  ==> g(fa->, b(x->)) = 1 / 1 + e^0 = 0.5 
+      - from this case we can simply tell:
+      if (z = fa->,b(x->) > 0) 
+          g(z) > 0.5 
+      if (z = fa->,b(x->) > 0) 
+          g(z) < 0.5
+
+  # INFO:=======================================================================
+  # - Descision boundary is where z = 0 
+  #   |=> a-> . x-> + b = 0 (this teh threshold)
+  #   |=> resuls a linear boundary that define my boundaries and split dataset
+  #       into two classes.
+  # - This type of classification is called linear decision boundaries. 
+
+
+# NOTE:========================================================================= 
+# - The sigmoid function transforms the output of the linear model into a bunded
+#   range [0, 1]
+# - sigmoid function does transform, map, wrap or squashes, (something like
+#   normalization or feature scaling), This concept is called 'transforming into
+#   a bounded range (in math)' 
+# - fa->, b(x->) = 0: defines the 'decision boundary', because it is where the
+#   probability is exactly 50% 
+# ==============================================================================
+
+> [ Analogy: ]
+  * Think of it like this:
+    - f(x) = a * x + b is like a ruler, measuring how far a point is
+      from the dividing wall. 
+    - f(x) = 0 is the wall itself 
+    - On one side -> class1: on the other -> class 0
+
+# INFO:
+# - The equation f(x) = 0, represents the intercetion part 
+# - Type of intersection parts:
+#   . 2D => point
+#   . 3D => line (intersection between two plans) in case of linear / non-linear
+#           it can be curve or irregular function.
+
+# NOTE:=========================================================================
+# 1|_ understand f(x) gives a set of values that are the solution of f(x) = 0 
+#     f(x) E |R => f(x) = 0 is the middle value f(x) > 0 or f(x) < 0, wich means
+#     values above the line f(x) = 0 and values under the line f(x), this topic
+#     has splited my space into to main categories one above the line and another
+#     one under the line.
+# 2|_ The boundaries equation just split the dataset into to main categories 
+# 3|_ squatching those values under and above the the boundary equation 
+# ==============================================================================
+# 3|_ what is the quentity that help us measure the fitting of that line or sigmoid 
+#     function.
+# 4|_ understand the quentity in a ghraphical way 
+
+# QUESTION:[ If we take the same dataset, the fitting line in both cases
+# linear regression and logistic classfication would be the same line ?]======== 
+# - No, the are 'fitted using different objectives, which leads to different
+#   lines' 
+# ==============================================================================
+
+===[ Cost function: ]===
+
+# REVISION:=====================================================================
+# - Convex function is the function that has the shape of 'bowl shape',
+#   (e.g, cost function, x^2, ...) 
+# - Logistic regression mode:
+#                          1
+#   g(fa->, b(x->)) = ------------ 
+#                       1 + e^fa->,b(x->)
+#   . a->: Controls the 'slop' or 'steepness' of the sigmoid curve. 
+#   . b (bias): shifts the sigmoid 'left or right' and controls the 'threshold' 
+#     or 'location' of the decision boundary.
+
+* If we applied the 'mean squared error' on logistic regression model. The cost
+  function won't be a "convex function" 
+
+  > [ Example: ]
+
+    |
+    | *                            *
+    |  *     *           *        * 
+    |     *    *       *   *    * 
+    | local min  *    *       * 
+    |               *       local min 
+    |           global min
+    |--------------------------------
+
+  - In this case the gradient desecnt won't be able to find the global min 
+    if the local min is found.
+
+  > [ Loss Function: ]
+    * The loss function tells the model 'how far off' its prediction is:
+      => lower is better. 
+    - It simply tells the model how "wrong it is". 
+      _______________________________________________________________
+      | Model Type                | Loss Function                   |
+      |---------------------------|---------------------------------|
+      |-Regression                |-Mean Squared Error (MSE)        |
+      |-Binary classification     |-Binary Cross-Entropy (Log Loss) |
+      |-Multiclass classification |-Categorical Cross-Entropy       |
+      |---------------------------|---------------------------------|
+
+    * In the case of linear regression the loss function 
+        [ L = sum(i->n)(yi-hat - yi)^2 ] 
+
+    * In the case of logistic regression is called 'Binary Cross-Entropy'
+      - It does use two functions on different intervals:
+
+        /
+       | -log(fa->,b(x->))                  |=> if y = 1
+    => |
+       | -log(1 - fa->,b(x->))              |=> if y = 0
+        \
+
+# QUESTION:[ Why applying or wrapping f(x->) by log(x) | function Composition? ] 
+# * Function composition is to 'combine two or more functions' so that the ouput
+#   of one becomes the input of another.
+#   This allows you to build 'complex transformations' from simpler onces and
+#   model 'multi-step' process mathematically. 
+# * Applyting the logarithm function to another function expression is a common
+#   technique in 'mathematics', 'statistics', and 'machine learning' and serves
+#   several powerful purposes: 
+# 1. Simplifies Multiplication into Addition: 
+#     log(a * b) = log(a) + log(b)
+# 2. Turns Exponentials grwoth into linear growth 
+#    log(e^x) = x
+# 3. Makes functions Easier to Optimize 
+#    . Log transforms often 'smooth' curves and convexify loss function
+# 4. Compress Scale (Handles Large Ranges) 
+#    Ex: log(1) = 0, log(10) = 1, log(1000) = 3 
+# 5. Interpretable Grwoth (int % terms)
+
+- We already know that '0 < g(fa->, b(x->)) < 1', when we 'applied logarithm'
+    on the g(z) probabilty value of class '1' givin by the 'sigmoid function'. 
+
+> [ Analogy: -log(y-hat) <=> Think of logarithms as a "Surprize meter"]
+  * It quantifies 'how surprised' the model is when the true label is 1.
+  _______________________________________________________________________________
+  | Prediction (y-hat)           | -log(y-hat) | Interpretation                 |
+  |------------------------------|-------------|--------------------------------|
+  | 0.99 (very confident, right) | ≈ 0.01      | Not surprised — low penalty ✅ |
+  | 0.8 (pretty confident)       | ≈ 0.22      | Mildly surprised 😐            |
+  | 0.5 (uncertain)              | ≈ 0.69      | Not confident — medium penalty |
+  | 0.1 (confident but wrong)    | ≈ 2.30      | Very surprised — big penalty ❌|
+  | 0.01 (very wrong)            | ≈ 4.60      | Shocked — huge penalty 🔥      |
+  |______________________________|_____________|________________________________|
+  - The scale that are used to make interpretation  
+  _________________________________________________
+  | Log Loss Value | Interpretation               |
+  |----------------|------------------------------|
+  | ~0.0 – 0.2     | Very confident and correct ✅|
+  | ~0.3 – 0.7     | Uncertain prediction 😐      |
+  | ~1.0 – 2.0     | Confident but wrong ❌       |
+  | > 3.0          | Very confident and wrong ❌🔥|
+  |________________|______________________________|
+
+> [ Loss function: simplied form ] 
+
+1. coding style
+  L(fa->,b(x->), y-hat) = (y == 1) * -log(f(x->)) + (y == 0) * -log(1 - f(x->)) 
+
+2. math style
+  [ L(fa->,b(x->), y-hat) = y * -log(f(x->)) + (y - 1) * -log(1 - f(x->)) ] 
+
+
+  > [ Cost function: ]
+    * Ja->, b = sum(i = 1|-> m)(L(f(x), y-hat)) / m 
+    _________________________________________________________________
+    [                                                               ]
+    [   ja->, b = sum(-y*log(f(x->) - (y-1)*log(1 - f(x)) / m       ]
+    [           = -(1/m) * sum(ylog(f(x->)) - (y-1)*log(1-f(x))))   ]
+    [_______________________________________________________________]
+
+    # NOTE:=======================================================================
+    # - The cost function is simple know, like the one in linear regression model.
+    # ============================================================================
+

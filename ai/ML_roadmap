@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/21 17:13:59 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/05/22 23:56:38 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/16 18:57:38 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -16,9 +16,9 @@
 1|> Fundamentals (1–2 weeks)
     * Goal: Understand basic AI/ML workflow and core tools.
     > Topics:
-      - NumPy & Pandas (data handling)
-      - Matplotlib/Seaborn (data visualization)
-      - Scikit-learn (basic ML models)
+      - NumPy & Pandas (data handling)                                  |
+      - Matplotlib/Seaborn (data visualization)                         |
+      - Scikit-learn (basic ML models)                                  |
     > Resources:
       - NumPy Quickstart
         |=> 'https://numpy.org/doc/stable/user/quickstart.html'
@@ -30,8 +30,8 @@
 |> Practical Machine Learning (2 weeks)
     * Goal: Learn the ML process — preprocessing, training, evaluation.
     > Topics:
-      - Supervised learning (classification, regression)
-      - Model evaluation (confusion matrix, metrics)
+      - Supervised learning (classification, regression)                |
+      - Model evaluation (confusion matrix, metrics)                    |
     > Mini-Projects:
       - Predict housing prices (regression)
       - Classify iris or MNIST digits
@@ -44,8 +44,8 @@
 3|> Deep Learning Foundations (2–3 weeks)
     * Goal: Build neural networks and understand how deep models work.
     > Topics:
-      - Neural networks, backpropagation
-      - PyTorch or TensorFlow basics
+      - Neural networks, backpropagation                                |
+      - PyTorch or TensorFlow basics                                    |
     > Resources:
       - Deep Learning with PyTorch: A 60 Minute Blitz
         |=> "https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html"
@@ -57,8 +57,8 @@
 4|> Specialization: Computer Vision & YOLO (2–3 weeks)
     * Goal: Apply AI to real-world images using YOLO.
     > Topics:
-      - CNNs, image preprocessing
-      - YOLOv5 or YOLOv8 for object detection
+      - CNNs, image preprocessing                                       |
+      - YOLOv5 or YOLOv8 for object detection                           |
     > Resources:
       - YOLOv5 Docs & Tutorials
         |=> 'https://docs.ultralytics.com/'
@@ -69,9 +69,9 @@
 |> Build Projects (Ongoing)
     * Goal: Apply everything you learned.
     > Ideas:
-      - Object detection with YOLO on custom images
-      - Face mask detection
-      - Real-time webcam object detection
+      - Object detection with YOLO on custom images                     |
+      - Face mask detection                                             |
+      - Real-time webcam object detection                               |
     > Resources:
       - Kaggle
         |=> 'https://www.kaggle.com/'

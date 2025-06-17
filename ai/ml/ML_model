@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/16 18:37:33 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/16 19:58:52 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -413,12 +413,12 @@ J(a->, b)                                J(a->, b)
     'in the data'.
 
   > [ Feature Engineering Technique ]
-    1. Feature Selection: 
+    1. Feature Selection: (disavantage: ignoring of features) 
        - Choosing the most relevant feature. 
        - Removing redundant or irrelevant features.
     2. Feature Transformation:
        - 'Scaling': Normalize or standardize features 
-       - 'Encoding': Convert categorical varibales => Numerical form  
+       - 'Encoding': Convert categorical varibales => Numerical form 
     3. Feature Creation:
        - 'Combine existing' features (e.g S=weight * height) 
        - 'Extract information' (e.g extract "year" from a date)
@@ -734,3 +734,49 @@ J(a->, b)                                J(a->, b)
     # - The cost function is simple know, like the one in linear regression model.
     # ============================================================================
 
+===[ Overfitting & Underfitting ]===============================================
+
+===[ Overfitting: ]===
+* Overfitting occures when a machine 'learning model learns not only th'
+  'underlaying patterns' in the training data but also the 'noise and outliers',
+  this leads the model to perform very well on the training data but
+  'poorly on new, unseen data'
+
+> [ Causes of Overfitting: ]
+    1. 'Too Complex models': using models with too many parameters.   
+    2. 'Insufficient Training Data': Small datasets can cause the model to
+      memorize rather than generalize. 
+    3. 'Too Many Training Epochs': Training for too long can cause the model
+      to adapt too closely to the training data.
+    4. 'Noisy Data': If the training data contains a lot fo 'noise or errors' 
+    , the model may learn those instead of general trands
+
+> [ Consequences of Overfitting: ]
+  * 'Poor Generalization': the model performs well on training data but fails 
+      to predict accurately on validation or test data
+    * 'High Variance': Small changes in the input lead to large changes in
+      the output.  
+    * 'Unreliable Predictions': The model becomes less useful in real-world
+      scenarios. 
+
+  > [ Preventing Overfittiong (high varience): ]
+    1. 'Simplify the model': use fewer parameters or a less complex algorithm. 
+       => You can minimize the number of input featuresfor example
+          (feature selection, take a subset instead of the dataset).
+    2. 'Collect more Training Data': increasing the dataset size helps the model 
+      generalize better.
+    2. 'Regularization': 
+        . 'L1/L2 Regularization': Penalize large weights. 
+        . 'Dropout': Randomly drop neurons during training (in neural networks) 
+    4. 'Early Stopping': Stop training when the validation preformance starts
+       to degrade. 
+    5. 'Cross-Validation' 
+    6. 'Data augmentation': creation in feature engineering
+
+> [ Regularization: ]
+  * Changing the paramters of input features without eleminating the features  
+    we can simply say 'we change the weight of input feature'
+
+" The goal of regularization is to 'penalize odel complexity' by discouraging"
+"overly complex models with large weights, By doing so, it helps the model to"
+"generalize better to new, unseen data"

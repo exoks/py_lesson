@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/16 19:58:52 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/17 19:06:02 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -665,11 +665,11 @@ J(a->, b)                                J(a->, b)
     * In the case of logistic regression is called 'Binary Cross-Entropy'
       - It does use two functions on different intervals:
 
-        /
+        /-----------------------------------------------
        | -log(fa->,b(x->))                  |=> if y = 1
     => |
        | -log(1 - fa->,b(x->))              |=> if y = 0
-        \
+        \-----------------------------------------------
 
 # QUESTION:[ Why applying or wrapping f(x->) by log(x) | function Composition? ] 
 # * Function composition is to 'combine two or more functions' so that the ouput
@@ -777,6 +777,101 @@ J(a->, b)                                J(a->, b)
   * Changing the paramters of input features without eleminating the features  
     we can simply say 'we change the weight of input feature'
 
-" The goal of regularization is to 'penalize odel complexity' by discouraging"
+" The goal of regularization is to 'penalize model complexity' by discouraging"
 "overly complex models with large weights, By doing so, it helps the model to"
 "generalize better to new, unseen data"
+
+  # INFO:===================================================
+  # - Penalize: (verb) to cause someone a disadvantage.
+  #   > Ex: The presetn tax system penlizes poor people. 
+  # ========================================================
+
+> [ Modified cost function: ]
+
+  - Loss function in case of L1 regularization (lasso).
+      [ Loss = Original Loss + lambda * sum(wi^2) ]
+              --------------   --------------------
+                'MSE term'    'Regularization term'
+
+      # INFO:===================================================================
+      # - λ (lambda) scales the penalty on the weights, and smaller weights tend 
+      #   to produce smoother curves (especially in linear and polynomial models)
+      # - “The weights are scaled by lambda, is that why the curve stays smooth”
+      # - Without Regularization (lambda = 0): 
+      #   . The model will try to 'perfectly fit' the training data.
+      #   . This can lead to 'large weights', especially in high-degree
+      #     polynomials or complex models. 
+      #   . Result: the curve 'wiggles' through every data point -> 'not smooth'
+      #     -> 'overfittiong'
+      # - Wit regularization (lambda > 0):
+      #   . The model is 'penalized' for large weights. 
+      #   . To 'minimize loss', it prefers 'smaller weights' even if the error  
+      #     on training data is slightly higher.
+      #   . Resul: the fitted curve is 'smoother', with
+      #     'fewer wild oscillations'  
+
+      - 'Mean squared Term': it does minimize the 'residuals' for the making 
+                             the best fittiong.
+      - 'Regularization term': try to keeps 'Wi' wieghts too small 
+      - 'lambda': Is the 'regular parameter', the ai engineer is the one that
+                  select its value > 0, It balances both goals.
+
+# QUESTION:===================================================================== 
+# * Why not just manually scale the weights to be smaller and then use the
+#   original loss (e.g MSE) ? Why do we need to change the loss function 
+#   itself ?
+# SOLUTION:=====================================================================
+# - You want the training process to learn both: 
+#   . How to 'minimize prediction error'
+#   . How to avoid complexity ()
+#  > You do this by creating 'a single loss function' that combines both goals:
+#    [ Loss = MSE + λ⋅Penalty ]
+#   ... This way, the optimizer balances both during training, not as 
+#       post-processing step.
+#  > [ Analogy: ]
+#   * Imagine teaching a robot to walk:
+#     . Without regularization: just tell it to walk fast (minimize time) 
+#     . With regularization: you also penalize steps that are too wide 
+#       (risk of failing).
+#   * If you don't 'build that penalty into its goal function', it won't
+#     learn safe walking, It will just go fast and fall over.
+# CONCLUSION:=================================================================== 
+# - Wahed a, b ghadi i3tiwni min cost function, ms had l min ghadi i3tini
+#   wahed l model li t3alem bzff, o hna fin endi l mochkil l model makay3tinich
+#   'better generalization, key 3tini poor generalization' lhal howa dik l min
+#   nziid elih wahed term li ghadi ykhalini newssal l nefss l min walakin
+#   bi w-> and b kbar mn l fi lcase lowla.
+# - o had lqadiya katkhali l model dyali t3alem walkin endi wahed marge dyal
+#   error o hadchii howa li kaykhali l model dyali endo 'better generalization'
+#   or unseen data.
+# - 'Regularization slightly increase training' on purpose to achieve a much
+#   'lower test MSE' making the model more reliable on unseen data
+# QUESTION:[ Why can't we just add a fixed value 'lambda' to cost function to 
+# increase the error margin and avoid overfittiong ?]===========================
+# - We can't just add a constant to the loss λ function because it has no 
+#   effect on the optimization process, it does not change the model,
+#   the weights, or the predictions.
+#   (Constant value, it is derivative is 0, it will not effect the new weights
+#   and bias in using the gradient descent algorithm)
+# - Regularization must 'depend on the model  parameters' to actually influence
+#   training and reduce overfitting.
+# ==============================================================================
+
+> [ Summary: ]
+  - Regularization is a core strategy for controlling model complexity, reducing
+    overfittiong, and improving preformance on test data by modifying the loss
+    function to penalize large or unnecessary weights.
+  - Without regularization: 
+    . You are finding the best fit to 'training data' (low bias, high variance)
+  - With regularization: 
+    . You are finding a balance, 'good fit' to training data, but with 'better' 
+      'generalization' to unseen data (prediction).
+  - Regularization "doesn't just increase the loss value, It changes how the"
+    "loss is minimized", and that 'directly affects the final values of the'
+    'weights and bias'
+  > [ Analogy: ]
+    * Imagine fitting a line to noisy (outlier) data.
+      . Without regularization, you might bend the line too much to touch
+        every point. 
+      . With regularization, you allow some error but keep the line
+        'reasonable and smooth', so it works better for future data. 

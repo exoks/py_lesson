@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/17 19:06:02 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/18 00:50:59 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -607,8 +607,8 @@ J(a->, b)                                J(a->, b)
 # 2|_ The boundaries equation just split the dataset into to main categories 
 # 3|_ squatching those values under and above the the boundary equation 
 # ==============================================================================
-# 3|_ what is the quentity that help us measure the fitting of that line or sigmoid 
-#     function.
+# 3|_ what is the quentity that help us measure the fitting of that line or
+#     sigmoid function.
 # 4|_ understand the quentity in a ghraphical way 
 
 # QUESTION:[ If we take the same dataset, the fitting line in both cases
@@ -857,7 +857,7 @@ J(a->, b)                                J(a->, b)
 #   training and reduce overfitting.
 # ==============================================================================
 
-> [ Summary: ]
+==[ Summary: ]==================================================================
   - Regularization is a core strategy for controlling model complexity, reducing
     overfittiong, and improving preformance on test data by modifying the loss
     function to penalize large or unnecessary weights.
@@ -875,3 +875,40 @@ J(a->, b)                                J(a->, b)
         every point. 
       . With regularization, you allow some error but keep the line
         'reasonable and smooth', so it works better for future data. 
+================================================================================
+
+> [ Regularization With Descent Gradient: ]
+  - Cost function with regularization:
+
+    [----------------------------------------------------------------]
+    [                  1                                             ]
+    [  Jw->, b(x->) = ---- * (∑ (fw->,b(x->) - yi)^2 + λ * ∑ (Wi)^2) ]
+    [                  2m                                            ]
+    [----------------------------------------------------------------] 
+
+  - Gradient Descent formual:
+
+       /                   &
+      | Wi = Wi - Alpha * ---- J(W->, b) 
+   /|=|                    &Wi
+   \|=|                  &
+      | b = b - Alpha * ---- J(W->, b) 
+       \                 &b
+
+       /                     1                          lambda
+      | Wi = Wi - Alpha * [ --- sum (f(x->) - y) * x] + ------ * wj ] 
+   /|=|                      m                             m 
+   \|=|                    1 
+      | b = b - Alpha * [ --- sum(f(x->) - y) ]   => Still the same
+       \                   m 
+
+       /                        lambda              J(w->, b) 
+      | Wi = Wi * (1 - alpha * -------) - ( alpha * ---------- ) 
+   /|=|      ---------------------m---     -------------&w-------------- 
+  |           Shrink 'wi' a little bit     The same case where lambda = 0 
+   \|=|                    1 
+      | b = b - Alpha * [ --- sum(f(x->) - y) ]   => Still the same
+       \                   m 
+
+
+

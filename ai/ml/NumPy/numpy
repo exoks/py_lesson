@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/18 09:48:50 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/18 19:04:28 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/18 23:31:51 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -55,86 +55,115 @@
   | ndim      | Number of dimensions (1, 2, 3, ...)                  |
   | flags     | Memory layout flags (C-contiguous, etc.)             |
 
+===[ Array Creation: ]===
+* There are two main methods to create 'ndarray' 
 
-> [ Creating NumPy array from list: ]
+   |-----------------------[ Array Creation Methods ]----------------------|
+   |                                    |                                  |
+[ ndarray class consturctor ]           |          [ built-in Function Factory ]
+> np.ndarray(shape=(3, 2),              | > Use built-in functions:            
+          dtype=np.int32, buffer=data)  |   . np.array()  . np.eye()
+. 'shape': is tuple                     |   . np.zeros()  . np.diago() 
+. 'dtype': is the data type, (int32,    |   . np.onces()  . np. 
+  int64, float32, float64, etc)         |   . np.full()   . np. 
+. 'buffer': data                        |   . np.empty()  . np. 
+# NOTE:=================================|=======================================
+# THIS IS NOT COMMONLY USED, it is      | This is the most commonly used method
+# low-level and mainly for advanced     | to create arrays.
+# memory control.                       |
 
-  * Use the "array factory function", it does accept python list.
-    [ my_array = np.array([elem1, elem2, elem3, ...]) ] 
+> [ built-in Factory Functions: ]
+  1|. 'np.array()', it does accept python list.
+      [ my_array = np.array([elem1, elem2, elem3, ...]) ] 
 
-  * You can Use the same idea in case of multidimential array 
+    - You can Use the same idea in case of multidimential array 
+      [ my_array = np.array([ [...],
+                              [...],
+                               ...   ])]
 
-    [ my_array = np.array([ [...],
-                            [...],
-                            ...]) ]
+    |> Full Prototype Function: 
+        numpy.array(
+            object,
+            dtype=None,
+            *,
+            copy=True,
+            order='K',
+            subok=False,
+            ndmin=0,
+            like=None
+        )
+        _______________________________________________________________________
+        | Parameter | Type       | Description                                |
+        |-----------|------------|--------------------------------------------|
+        | object    | array.like | Input data (list, tuple, ndarray, etc.) to | 
+        |           |            | be converted into an array                 |
+        |-----------|------------|--------------------------------------------|
+        | dtype     | data-type, | Desired data type of the array (e.g.,      |
+        |           | (optional) | `np.int32`, `np.float64`).                 |
+        |-----------|------------|--------------------------------------------|
+        | copy      | bool,      | If `True`, a copy of the data is made. if  |
+        |           | (optional) | `False`, a copy is only made if necessary  |
+        |           |            | Default is `True`                          |
+        |-----------|------------|--------------------------------------------|
+        | order     | {'K', 'A', | Memory layout of the array:                |
+        |           |  'C', 'F'} | `'C'`: C-style (row-major)                 |
+        |           | (optional) | `'F'`: Fortran-style (column-major)        |
+        |           |            | `'A'`: Any                                 |
+        |           |            | `'K'`: Match input as closely as possible  |
+        |-----------|------------|--------------------------------------------|
+        | subok     | bool,      | If `True`, subclasses are passed through;  |
+        |           | (optional) | otherwise, a base-class array is returned  |
+        |-----------|------------|--------------------------------------------|
+        | ndmin     | int,       | Specifies the minimum number of dimensions |
+        |           | (optional) | that the resulting array should have.      |
+        |-----------|------------|--------------------------------------------|
+        | like      | array.like,| Reference object to allow the creation of  | 
+        |           | (optional) | that are not NumPy arrays. Used for array  |
+        |           |            | creation dispatching                       |
+        |-----------|------------|-(introduced in NumPy 1.20)-----------------|
 
-  |> Full prototype function: 
-    numpy.array(
-        object,
-        dtype=None,
-        *,
-        copy=True,
-        order='K',
-        subok=False,
-        ndmin=0,
-        like=None
-    )
+  2|. 'np.zeros()' creates a new array 'filled with zeros', it commonly used for
+      initializing arrays or tensors before performing computations.
+      > [ Syntax: ] 
+        numpy.zeros(shape, dtype=float, order='C')
+
+  3|. 'np.onces()' creates a new array 'filled with ones' 
+      > [ Syntax: ]
+        numpy.ones(shape, dtype=None, order='C')
+
+  4|. 'np.full()' creates an array filled with a specified value 
+      > [ Syntax: ]
+        numpy.full(shape, fill_value, dtype=None, order='C')
+
+  5|. 'np.empty()' creates an uninitialized array
+      > [ Syntax: ]
+        numpy.empty(shape, dtype=float, order='C')
+
+> [ Identity Matrix: ]
+
+  > [ Syntax: ]
+      >>[   np.eye(shape, dtype=float)    ]<<
+
+    # NOTE:===========================================================
+    # - The identity Matrix is very important Matrix in linear algebra  
+    # - The identiy Matrix always squared => that is way it takes only
+    #   one dimention in 'shape'. 
+    
+    . 'shape': is tupple that defines the dimentions of the tensor (m, n) 
+    . 'dtype': (optional) defines the data type of the data stored in the tensor
+               (default float)
+    . 'order': (Optional) whethere to sore the multi-dimensional data in 
+               row-major ('C') or column-major ('F') order, (Default 'C').
  
-________________________________________________________________________________
-| Parameter | Type                | Description                                |
-|-----------|---------------------|--------------------------------------------|
-| object    | array.like          | Input data (list, tuple, ndarray, etc.) to | 
-|           |                     | be converted into an array                 |
-|-----------|---------------------|--------------------------------------------|
-| dtype     | data-type, optional | Desired data type of the array (e.g.,      |
-|           |                     | `np.int32`, `np.float64`).                 |
-|-----------|---------------------|--------------------------------------------|
-| copy      | bool, optional      | If `True`, a copy of the data is made. if  |
-|           |                     | `False`, a copy is only made if necessary  |
-|           |                     | Default is `True`                          |
-|-----------|---------------------|--------------------------------------------|
-| order     | {'K', 'A', 'C', 'F'}| Memory layout of the array:                |
-|           | (Optional)          | `'C'`: C-style (row-major)                 |
-|           |                     | `'F'`: Fortran-style (column-major)        |
-|           |                     | `'A'`: Any                                 |
-|           |                     | `'K'`: Match input as closely as possible  |
-|-----------|---------------------|--------------------------------------------|
-| subok     | bool, optional      | If `True`, subclasses are passed through;  |
-|           |                     | otherwise, a base-class array is returned  |
-|-----------|---------------------|--------------------------------------------|
-| ndmin     | int, optional       | Specifies the minimum number of dimensions |
-|           |                     | that the resulting array should have.      |
-|-----------|---------------------|--------------------------------------------|
-| like      | array\_like,        | Reference object to allow the creation of  | 
-|           | (optional)          | that are not NumPy arrays. Used for array  |
-|           |                     | creation dispatching                       |
-|-----------|---------------------|-(introduced in NumPy 1.20)-----------------|
-
-   # NOTE:====================================================================== 
-   # - my_array's type is 'ndarray', but we do not create the object using
-   #   ndarray class consturctor, we use the 'factory functions' like
-   #   np.array(), np.zeros(), np.onces etc
-
-  * Using 'ndarray' consturctor:
-    np.ndarray(shape=(3, 2), dtype=np.int32, buffer=data)
-
-    . 'shape': is tuple 
-    . 'dtype': is the data type, (int32, int64, float32, float64, etc) 
-    . 'buffer': data
-
-    # NOTE:
-    # THIS IS NOT COMMONLY USED, it is low-level and mainly for advanced memory
-    # control.
-
 > [ Saving Array: ]
   * 'np.save()' is used to 'save NumPy array to a binary file' in '.npy' format
     this is 'fast, compact' and 'preserves' all array information such as:
-   - Shape
-   - Data Type
-   - Endianness
-   - For structured arrays: field names and metadata
+    - Shape
+    - Data Type
+    - Endianness
+    - For structured arrays: field names and metadata
   
-  > Syntax:
-
+  > [ Syntax: ]
     # data will be saved in binary file called my_array.npy
     np.save('my_array', ndarray) 
     # data will be loaded from my_array.npy file and return ndarray object 
@@ -142,14 +171,13 @@ ________________________________________________________________________________
 
 > [ Tensors: ]
   - Tensor comes from the latin word 'tendere' meanint 'to stretch'
-  - Scalar: is a single number that describe magnitude and direction.
-            That is way the 1D array still make sense, same rules still 
-            applied (vector describe, 'direction and magnitude')
+  - Scalar: is a single number that describe magnitude and direction. That is 
+            way the 1D array still make sense, same rules still applied 
+            (vector describe, 'direction and magnitude')
             |=> Vector of length 1 or matrix (1x1)
-  - vector: Is an object mathematical quentity that describes magnitude and
-            direction (sum of scalars) (Row vector or Column Vector)
+  - vector: Is an object mathematical quentity that describes magnitude
+            and direction (sum of scalars) (Row vector or Column Vector)
   - matrices: sum of vectors => (system equation or transformation) 
-
   - Tensor: is a 'mathematical object' that 'generalizes', 'Scalars', 'vectors'
     , and 'matrices' to 'higher dimensions'. 
       . A 'saclar' is a '0th-order' tensor (just a number)=> rank0 |1x1  
@@ -168,5 +196,5 @@ ________________________________________________________________________________
 #   * Machine learning: Frameworks like TensorFlow  use tensors to store
 #                       and compute multi-dimensional data. 
 #   * Computer Vision: Tensor represent images, videos or feature maps
-# - Summary: Tensors are the natural extension of vectors and matrices to
-#            represent complex, multi-dimensional data.
+# > [ Summary: ] Tensors are the natural extension of vectors and matrices
+#                to represent complex, multi-dimensional data.

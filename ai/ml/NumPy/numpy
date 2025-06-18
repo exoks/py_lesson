@@ -1,0 +1,172 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                   𓐓  numpy 𓐔           
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀       Dev: oezzaou </var/spool/mail/oezzaou> 
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/18 09:48:50 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/18 19:04:28 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ NumPy: ]===================================================================
+* NumPy (short for 'Numerical Python') is a powerfull open-source library in
+  python used for 'numerical computing', It provides support for large multi
+  dimensional arryas and matrices, along with a wide collection of mathematical
+  functions to operate on them efficiently.
+
+
+# INFO:[ Python Lists VS NumPy Arrays ]==========================================
+# - Lists are implemented using 'dynamic arrays' in C via the CPython
+#   interpreter.
+#   . Each list element is a 'pointer' to a python object 
+# -> This means lists are: 
+#   . Heterogeneous: can store anything (int, str, object)
+#     (polymorphism + single root object model) 
+#   . Flexible but slower: every access requires pointer
+#     dereferencing + type checking. 
+# - NumPy Arrays (ndarray) are implemented in c and behave like 'contigous'
+#   'memory blocks' storing raw data (not pointers)
+#   . It does not use object to represent a raw data, it does use primitive
+#     data type (bi bassata homa l arrays dyal c)
+#   . All elements are of the 'same fixed data type' (float64, int32)
+#   ______________________________________________________________________
+#   | Feature         | Python List         | NumPy Array                |
+#   |-----------------|---------------------|----------------------------|
+#   | Element storage | Pointers to objects | Raw bytes (fixed-size)     |
+#   | Homogeneity     | Can mix types       | Fixed dtype                |
+#   | Memory locality | Poor                | Excellent (cache-friendly) |
+#   | Vectorization   | Manual loops        | Native (SIMD, BLAS)        |
+#   | Type checking   | Dynamic (slow)      | Static (fast)              |
+#   |_________________|_____________________|____________________________|
+
+
+> [ NumPy Array Object attributes: ]
+  ____________________________________________________________________
+  | Component | Description                                          |
+  |-----------|------------------------------------------------------|
+  | data      | Pointer to the memory block (raw C array)            |
+  | dtype     | Data type of each element (`float32`, `int64`, etc.) |
+  | shape     | Dimensions of the array (e.g., (3, 4))               |
+  | strides   | Number of bytes to step in each dimension            |
+  | ndim      | Number of dimensions (1, 2, 3, ...)                  |
+  | flags     | Memory layout flags (C-contiguous, etc.)             |
+
+
+> [ Creating NumPy array from list: ]
+
+  * Use the "array factory function", it does accept python list.
+    [ my_array = np.array([elem1, elem2, elem3, ...]) ] 
+
+  * You can Use the same idea in case of multidimential array 
+
+    [ my_array = np.array([ [...],
+                            [...],
+                            ...]) ]
+
+  |> Full prototype function: 
+    numpy.array(
+        object,
+        dtype=None,
+        *,
+        copy=True,
+        order='K',
+        subok=False,
+        ndmin=0,
+        like=None
+    )
+ 
+________________________________________________________________________________
+| Parameter | Type                | Description                                |
+|-----------|---------------------|--------------------------------------------|
+| object    | array.like          | Input data (list, tuple, ndarray, etc.) to | 
+|           |                     | be converted into an array                 |
+|-----------|---------------------|--------------------------------------------|
+| dtype     | data-type, optional | Desired data type of the array (e.g.,      |
+|           |                     | `np.int32`, `np.float64`).                 |
+|-----------|---------------------|--------------------------------------------|
+| copy      | bool, optional      | If `True`, a copy of the data is made. if  |
+|           |                     | `False`, a copy is only made if necessary  |
+|           |                     | Default is `True`                          |
+|-----------|---------------------|--------------------------------------------|
+| order     | {'K', 'A', 'C', 'F'}| Memory layout of the array:                |
+|           | (Optional)          | `'C'`: C-style (row-major)                 |
+|           |                     | `'F'`: Fortran-style (column-major)        |
+|           |                     | `'A'`: Any                                 |
+|           |                     | `'K'`: Match input as closely as possible  |
+|-----------|---------------------|--------------------------------------------|
+| subok     | bool, optional      | If `True`, subclasses are passed through;  |
+|           |                     | otherwise, a base-class array is returned  |
+|-----------|---------------------|--------------------------------------------|
+| ndmin     | int, optional       | Specifies the minimum number of dimensions |
+|           |                     | that the resulting array should have.      |
+|-----------|---------------------|--------------------------------------------|
+| like      | array\_like,        | Reference object to allow the creation of  | 
+|           | (optional)          | that are not NumPy arrays. Used for array  |
+|           |                     | creation dispatching                       |
+|-----------|---------------------|-(introduced in NumPy 1.20)-----------------|
+
+   # NOTE:====================================================================== 
+   # - my_array's type is 'ndarray', but we do not create the object using
+   #   ndarray class consturctor, we use the 'factory functions' like
+   #   np.array(), np.zeros(), np.onces etc
+
+  * Using 'ndarray' consturctor:
+    np.ndarray(shape=(3, 2), dtype=np.int32, buffer=data)
+
+    . 'shape': is tuple 
+    . 'dtype': is the data type, (int32, int64, float32, float64, etc) 
+    . 'buffer': data
+
+    # NOTE:
+    # THIS IS NOT COMMONLY USED, it is low-level and mainly for advanced memory
+    # control.
+
+> [ Saving Array: ]
+  * 'np.save()' is used to 'save NumPy array to a binary file' in '.npy' format
+    this is 'fast, compact' and 'preserves' all array information such as:
+   - Shape
+   - Data Type
+   - Endianness
+   - For structured arrays: field names and metadata
+  
+  > Syntax:
+
+    # data will be saved in binary file called my_array.npy
+    np.save('my_array', ndarray) 
+    # data will be loaded from my_array.npy file and return ndarray object 
+    np.lod('my_array.npy')
+
+> [ Tensors: ]
+  - Tensor comes from the latin word 'tendere' meanint 'to stretch'
+  - Scalar: is a single number that describe magnitude and direction.
+            That is way the 1D array still make sense, same rules still 
+            applied (vector describe, 'direction and magnitude')
+            |=> Vector of length 1 or matrix (1x1)
+  - vector: Is an object mathematical quentity that describes magnitude and
+            direction (sum of scalars) (Row vector or Column Vector)
+  - matrices: sum of vectors => (system equation or transformation) 
+
+  - Tensor: is a 'mathematical object' that 'generalizes', 'Scalars', 'vectors'
+    , and 'matrices' to 'higher dimensions'. 
+      . A 'saclar' is a '0th-order' tensor (just a number)=> rank0 |1x1  
+      . A 'vector' is '1st-order tensor' (a list of numbers)=> rank1 |1xm or mx1 
+      . A 'matrix' is '2nd-order tensor' (a grid or table of numbers) rank2|mxn 
+    * 'Tensors' can go beyond this: => rank3 | (m x n x k)
+      . A '3rd-order' tensor might be a cube of numbers (for 'RGB' image data)
+      . 'Higher-order' tensors extend this idea to more dimenstions
+
+# INFO:=========================================================================
+# - Tensors represent 'multilinear relationships' between sets of vectors and
+#   are used to encode data with multiple indices or directions.
+# > [ Use Cases: ]
+#   * Physics: Tensors describe physical quantities like stress, strain
+#   * Engineering: Used in continuum mechanics
+#   * Machine learning: Frameworks like TensorFlow  use tensors to store
+#                       and compute multi-dimensional data. 
+#   * Computer Vision: Tensor represent images, videos or feature maps
+# - Summary: Tensors are the natural extension of vectors and matrices to
+#            represent complex, multi-dimensional data.

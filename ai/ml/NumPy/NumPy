@@ -1,11 +1,11 @@
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
-#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                   𓐓  numpy 𓐔           
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                   𓐓  NumPy 𓐔           
 #  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
 #  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀       Dev: oezzaou </var/spool/mail/oezzaou> 
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/18 09:48:50 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/19 18:43:03 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/19 20:02:26 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -247,6 +247,61 @@
        |=> return array [ True, True, False ] 
        # NOTE: np.not_equale(arr1, arr2) => return array [ False, False, True ]
 
+> [ Array Indexing & Slicing ]
+  - Let's consider arr as an 2D array
+    arr = [[ 3, 1]
+            [4, 2]] 
+
+    * 'Syntax 1': arr[0][1] = 1 | Indexing one element 
+
+    * 'Syntax 2': arr[0, 1] = 1 | indexing one element
+
+    * 'Syntax 3': arr[start_row:end_row, start_col:end_col] | indexing ranges  
+      # NOTE:====================================================================
+      # - If you leave *_(row/col) empty, It will take default value
+      # E [0, cols/rows].
+      # - If you take a slice from 'arr', ANY CHANGE on the Slice, will MAKE
+      #   EFFECT on the original 'arr', Use function 'np.copy()' 
+      # - Syntax: np.copy(slice) or arr[...].copy(), to get new object in memory  
+      #   that does not effect the original object
+
+    * 'Syntax 4': np.diag(arr) => is used for slicing also, It retuns  and
+                  'array' with 'all main diagonal elements at k=0'. 
+        [ np.diag(v, k=0) -> ndarray: ]
+            > v: array_like
+            > k: (optional) key level
+                . k=0: main diagonal 
+                . k>1: 'above' the main diagonal
+                . k<1: 'below' the main diagonal
+
+    * 'Syntax 5': 'np.unique(arr)' returns an 1D array with only unique elements
+                  from 'arr'.
+
+    # NOTE:===================================================================== 
+    # Most of the slicing methods used above requires you to know indeces
+    # specifically, What about if have a large matrix, how can slice it 
+    # then, The answer is the next SECTION (Using comparision operators). 
+
+  * 'Syntax 6': (arr > x), this syntax returns slice arr with 'same dimentions'
+                but with 'boolean values'. It 'compares each element from' 
+                'arr with x'  
+  * 'Syntax 7': (arr[(arr>x) & (arr<y)]), This syntax slice and 1D array that
+                stores all the 'elements in the ]x, y[ range'
+                # NOTE:=========================================================
+                # - using `&` operator is not mandatory. 
+                # - Ex: slice = 1 changes all element in the slice and original
+                #   tensor.
+
+  * 'Syntax 8': 'Union/Diff/Intersection' between 'two arrays'  
+                > [ np.union1d(arr1, arr2)  ]> returns the 'union of arr1 and'
+                                               'arr2 without duplication'.
+                > [ np.setdiff1d(arr1, arr2)]> returns the 'difference between'
+                                                'arr1 and arr2', 1d array 
+                                                contains all elements in 'arr1'
+                                                but not in 'arr2'.
+                > [ np.intersect1d(arr1, arr2)]> returns a 1d array that 
+                                                  contains all the elements in 
+                                                  both 'arr1 and arr2'.
 
 ===[ Saving Array: ]===
   * 'np.save()' is used to 'save NumPy array to a binary file' in '.npy' format
@@ -262,6 +317,7 @@
     # data will be loaded from my_array.npy file and return ndarray object 
     np.load('my_array.npy')
 
+> [ ]
 ===[ Tensors: ]===
   - Tensor comes from the latin word 'tendere' meaning 'to stretch'
   - Scalar: is a single number that describe magnitude and direction. That 

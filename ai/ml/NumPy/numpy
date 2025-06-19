@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/18 09:48:50 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/19 13:39:16 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/19 18:43:03 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -188,7 +188,7 @@
 
   9. 'np.random.randn(rows, cols)' generates a 'standard normal distribution'
 
-  # WARNING:==============================================================
+  # WARNING:====================================================================
   # You need to understand 'Uniform distribution', 'random distribution',
   # 'normal distribution' and 'standard normal distribution' in statistics 
 
@@ -211,7 +211,7 @@
       . axis= 0: represent the row
       . axis= 1: represent the column
       [ numpy.delete(arr, obj, axis=None) ]
-      # NOTE:==================================================================
+      # NOTE:===================================================================
       # - The indexes points on rows/colmns instead of elements, When 'axis' is 
       #   defined.
 
@@ -223,8 +223,8 @@
       axis!=None)
       [ numpy.insert(arr, obj, values, axis=None) ]
 
-  6|> 'np.vstack((y, x))': 'vertical stack', it does stack 'x rows' on the top
-      of 'y rows' 
+  6|> 'np.vstack((y, x))': 'vertical stack', it does stack 'y rows' on the top
+      of 'x rows' 
       . (y, x, ...): tupples of tensors 
 
   7|> 'np.hstack((y, x))': 'horizontal stack', it does stack 'x columns' on the
@@ -237,10 +237,9 @@
   
   10|> 'np.isinf(arr)', it checks for '+-infinity' 
 
-  11|> 'np.concatenate((arr1, arr2, ...))', Concatenates arrays into
-       'one array' 
+  11|> 'np.concatenate((arr1, arr2, ...))', Concatenates arrays into 'one array' 
 
-  12|> 'np.array_equate(arr1, arr2)', it simply compares each element of
+  12|> 'np.array_equale(arr1, arr2)', it simply compares each element of
        'both arrays' 
        |=> return 'True/False'
 

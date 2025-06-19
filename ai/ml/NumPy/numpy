@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/18 09:48:50 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/18 23:31:51 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/19 01:03:02 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -63,10 +63,10 @@
 [ ndarray class consturctor ]           |          [ built-in Function Factory ]
 > np.ndarray(shape=(3, 2),              | > Use built-in functions:            
           dtype=np.int32, buffer=data)  |   . np.array()  . np.eye()
-. 'shape': is tuple                     |   . np.zeros()  . np.diago() 
-. 'dtype': is the data type, (int32,    |   . np.onces()  . np. 
-  int64, float32, float64, etc)         |   . np.full()   . np. 
-. 'buffer': data                        |   . np.empty()  . np. 
+. 'shape': is tuple                     |   . np.zeros()  . np.diag() 
+. 'dtype': is the data type, (int32,    |   . np.onces()  . np.arange()) 
+           int64, float32, float64, etc)|   . np.full()   . 
+. 'buffer': data                        |   . np.empty()  . 
 # NOTE:=================================|=======================================
 # THIS IS NOT COMMONLY USED, it is      | This is the most commonly used method
 # low-level and mainly for advanced     | to create arrays.
@@ -122,8 +122,8 @@
         |           |            | creation dispatching                       |
         |-----------|------------|-(introduced in NumPy 1.20)-----------------|
 
-  2|. 'np.zeros()' creates a new array 'filled with zeros', it commonly used for
-      initializing arrays or tensors before performing computations.
+  2|. 'np.zeros()' creates a new array 'filled with zeros', it commonly used
+      for initializing arrays or tensors before performing computations.
       > [ Syntax: ] 
         numpy.zeros(shape, dtype=float, order='C')
 
@@ -150,11 +150,59 @@
     #   one dimention in 'shape'. 
     
     . 'shape': is tupple that defines the dimentions of the tensor (m, n) 
-    . 'dtype': (optional) defines the data type of the data stored in the tensor
-               (default float)
+    . 'dtype': (optional) defines the data type of the data stored in the
+               tensor (default float).
     . 'order': (Optional) whethere to sore the multi-dimensional data in 
                row-major ('C') or column-major ('F') order, (Default 'C').
- 
+
+> [ Create Array Width Random value ]
+
+  1. 'np.diag([el1, el2, el3, ...])': create a 'squared matrix' with diagonal
+     data rows (el1, el2, el3, ...)
+
+  2. 'np.arange(start, stop, step)': start -> stop 'Integer numbers', and stop
+     is exclusive. 
+
+  3. 'np.linspace(start, stop, arr_length || num=)': start -> stop 'Float Numbers' and 
+     stop is 'inclusive' (linspace stands for 'linear space')
+     # NOTE:===================================
+     # - endpoint=false excludes the stop value 
+     # - (start, stop) E Z
+
+  4. 'np.random.rand(rows, cols)': using rand() function from 'random module'
+     to generate 'random floats' from a 'uniform distribution' 0|-> 1
+
+  5. 'np.random.uniform(start, stop, size=(rows, cols))' generating
+     'random floats' from 'start to stop' from a 'uniform distribution'
+
+  6. 'np.random.random(rows, cols)' generationg random floats from 0|-> 1
+     'random distribution'.
+
+  7. 'np.random.randint(start, stop, lenght=, shape=)': generates random
+     'integer' numbers from start to end with 'length=number' or
+     'shape=(row, col)'
+     # NOTE: stop is => exclusive 
+
+  8. 'np.random.normal(mean, standart deviation, shape=(rows, cols))' generates 
+    'normal distribution'
+
+  9. 'np.random.randn(rows, cols)' generates a 'standard normal distribution'
+
+  # WARNING:==============================================================
+  # You need to understand 'Uniform distribution', 'random distribution',
+  # 'normal distribution' and 'standard normal distribution' in statistics 
+
+  10. 'np.random.choice(arr, size=)' create another array with 'size=' of
+      'random selection' from 'arr' 
+
+  11. 'np.random.permulation(arr)' it create a 'shafled' or 'permulated' array
+      from the 'arr' passed as an argument.
+
+> [ Array Manipulation: ]
+  1. 'np.reshape(arr, shape=(rows, cols))' it will reshapes the 'arr' to new
+     'shape='
+  # WARNING:> if the new shape does not fit the array, A 'Value error' raise up
+
 > [ Saving Array: ]
   * 'np.save()' is used to 'save NumPy array to a binary file' in '.npy' format
     this is 'fast, compact' and 'preserves' all array information such as:
@@ -167,12 +215,12 @@
     # data will be saved in binary file called my_array.npy
     np.save('my_array', ndarray) 
     # data will be loaded from my_array.npy file and return ndarray object 
-    np.lod('my_array.npy')
+    np.load('my_array.npy')
 
 > [ Tensors: ]
-  - Tensor comes from the latin word 'tendere' meanint 'to stretch'
-  - Scalar: is a single number that describe magnitude and direction. That is 
-            way the 1D array still make sense, same rules still applied 
+  - Tensor comes from the latin word 'tendere' meaning 'to stretch'
+  - Scalar: is a single number that describe magnitude and direction. That 
+            is why the 1D array still make sense, same rules still applied 
             (vector describe, 'direction and magnitude')
             |=> Vector of length 1 or matrix (1x1)
   - vector: Is an object mathematical quentity that describes magnitude

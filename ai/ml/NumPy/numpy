@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/18 09:48:50 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/19 01:03:02 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/19 13:39:16 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -155,7 +155,7 @@
     . 'order': (Optional) whethere to sore the multi-dimensional data in 
                row-major ('C') or column-major ('F') order, (Default 'C').
 
-> [ Create Array Width Random value ]
+> [ Create Array With Random value ]
 
   1. 'np.diag([el1, el2, el3, ...])': create a 'squared matrix' with diagonal
      data rows (el1, el2, el3, ...)
@@ -183,7 +183,7 @@
      'shape=(row, col)'
      # NOTE: stop is => exclusive 
 
-  8. 'np.random.normal(mean, standart deviation, shape=(rows, cols))' generates 
+  8. 'np.random.normal(mean, standart deviation, shape=(rows, cols))' generates
     'normal distribution'
 
   9. 'np.random.randn(rows, cols)' generates a 'standard normal distribution'
@@ -199,11 +199,57 @@
       from the 'arr' passed as an argument.
 
 > [ Array Manipulation: ]
-  1. 'np.reshape(arr, shape=(rows, cols))' it will reshapes the 'arr' to new
-     'shape='
+  1|> 'np.reshape(arr, shape=(rows, cols))' it will reshapes the 'arr' to new
+      'shape=' or 'arr.reshape(rows, cols)' 
   # WARNING:> if the new shape does not fit the array, A 'Value error' raise up
 
-> [ Saving Array: ]
+  2|> 'x.T', It does 'Transpose' the array, It 'turnes' 'columns to rows' and
+      'vice versa'.
+
+  3|> 'np.delete(arr, [index0, index1, ...], axis=0/1)': It does remove the list
+      of elements with the [index0, index1, ...] from 'arr'. 
+      . axis= 0: represent the row
+      . axis= 1: represent the column
+      [ numpy.delete(arr, obj, axis=None) ]
+      # NOTE:==================================================================
+      # - The indexes points on rows/colmns instead of elements, When 'axis' is 
+      #   defined.
+
+  4|> 'np.append()': appends 'values' into 'arr' as 'row if axis =0' and as
+      'column if axis=1', otherwise add it to the end of list 
+      numpy.append(arr, values, axis=None)
+
+  5|> 'np.insert()': insert values at a specific index (of row/colmn if
+      axis!=None)
+      [ numpy.insert(arr, obj, values, axis=None) ]
+
+  6|> 'np.vstack((y, x))': 'vertical stack', it does stack 'x rows' on the top
+      of 'y rows' 
+      . (y, x, ...): tupples of tensors 
+
+  7|> 'np.hstack((y, x))': 'horizontal stack', it does stack 'x columns' on the
+      'right of x'
+
+  8|> 'np.split(arr, nbr)' > Split into 'nbr' equal parts.
+
+  9|> 'np.isnan(arr)': check if there is a 'not a number value' exist 
+      |=> return nan arr: [False, True, Fase, ...]
+  
+  10|> 'np.isinf(arr)', it checks for '+-infinity' 
+
+  11|> 'np.concatenate((arr1, arr2, ...))', Concatenates arrays into
+       'one array' 
+
+  12|> 'np.array_equate(arr1, arr2)', it simply compares each element of
+       'both arrays' 
+       |=> return 'True/False'
+
+  13|> 'np.equal(arr1, arr2)', It does the same as np.array_equal but:
+       |=> return array [ True, True, False ] 
+       # NOTE: np.not_equale(arr1, arr2) => return array [ False, False, True ]
+
+
+===[ Saving Array: ]===
   * 'np.save()' is used to 'save NumPy array to a binary file' in '.npy' format
     this is 'fast, compact' and 'preserves' all array information such as:
     - Shape
@@ -217,7 +263,7 @@
     # data will be loaded from my_array.npy file and return ndarray object 
     np.load('my_array.npy')
 
-> [ Tensors: ]
+===[ Tensors: ]===
   - Tensor comes from the latin word 'tendere' meaning 'to stretch'
   - Scalar: is a single number that describe magnitude and direction. That 
             is why the 1D array still make sense, same rules still applied 

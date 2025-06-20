@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/18 09:48:50 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/19 20:02:26 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/20 01:48:16 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -203,7 +203,7 @@
       'shape=' or 'arr.reshape(rows, cols)' 
   # WARNING:> if the new shape does not fit the array, A 'Value error' raise up
 
-  2|> 'x.T', It does 'Transpose' the array, It 'turnes' 'columns to rows' and
+  2|> 'x.T', It does 'Transpose' the array, It 'switches' 'columns by rows' and
       'vice versa'.
 
   3|> 'np.delete(arr, [index0, index1, ...], axis=0/1)': It does remove the list
@@ -216,7 +216,7 @@
       #   defined.
 
   4|> 'np.append()': appends 'values' into 'arr' as 'row if axis =0' and as
-      'column if axis=1', otherwise add it to the end of list 
+      'column if axis=1', otherwise add it to the  & Searching end of list 
       numpy.append(arr, values, axis=None)
 
   5|> 'np.insert()': insert values at a specific index (of row/colmn if
@@ -274,8 +274,11 @@
                 . k>1: 'above' the main diagonal
                 . k<1: 'below' the main diagonal
 
-    * 'Syntax 5': 'np.unique(arr)' returns an 1D array with only unique elements
-                  from 'arr'.
+    * 'Syntax 5': 'np.unique(arr, return_counts=False)' returns an 1D array with
+                  only unique elements from 'arr'.
+      # INFO:==================================================================
+      # If return_counts=True, np.unique() returns another array that contains 
+      # each element 'occurence counter'.
 
     # NOTE:===================================================================== 
     # Most of the slicing methods used above requires you to know indeces
@@ -303,6 +306,69 @@
                                                   contains all the elements in 
                                                   both 'arr1 and arr2'.
 
+> [ Sorting & searching: ]
+  1|_ 'np.sort(arr) & arr.sort()': It 'sorts' an array. 
+      -> 'np.sort(arr)'         => return a new sorted array 
+      -> 'arr.sort()'           => sort the original array
+      -> '(np.sort(arr))[::-1]' => return a new sorted array in 'descending'
+         'order' 
+      -> 'np.sort(arr, axis=0)' => 'sorts each column' of 'arr' in 'ascending order'
+      -> 'np.sort(arr, axis=1)' => 'sorts each row' of 'arr' in ''
+
+  2|_ 'np.argsort(arr)' returns the 'indeces' of 'arr sorted'  
+      > Ex: arr = [2, 1, 3] => np.argsort(arr) = [1, 0, 2] 
+            index: 0, 1, 2  =>            elems:  1, 2, 3 => sorted
+      - Sorting by a specific column:
+          arr[arr[:,0].argsort()]
+          . arr[:, 0]: slice column at index 0 from all rows
+          . arr[arr[:,0].argsort()]: sorts the column at index = 0 
+
+  3|_ [ Searching: ]
+    * 'np.(argmax(arr)/argmin(arr))':
+      - 'np.argmax(x)': finding the 'index' of the 'first occurence of maximum'
+        'value'. 
+      - 'np.armin(x)': finding the 'index' of the 'first occurence of minimum'
+        'value'.
+
+> [ Math Operations: ]
+  1|> 'Addition': 'arr1 + arr2' || 'np.add(arr1, arr2)' 
+                  - np.add() is 'recommanded' because it is 'fast'.
+
+  2|> 'Substraction': 'arr1 - arr2' || 'np.substract(arr1, arr2)' 
+
+  3|> 'Multiplication': 'arr1 * arr2' || 'np.multiply(arr1, arr2)' 
+  
+  4|> 'Divison': 'arr1 / arr2' || 'np.divide(arr1, arr2)'  
+
+  5|> Math Operations: 
+      - 'np.sqrt(arr)'            : square root 
+      - 'np.exp(arr)'             : natural exponential  
+      - 'np.power(arr, exponent)' : Xi^exponent 
+      - 'arr.mean(axis=None)'     : mean of all
+          . If 'axis=0': average of columns => [cmean0, cmean1, ...]
+          . If 'axis=1': average of rows    => [rmean0, rmean1, ...]
+        # NOTE:> You can use 'np.mean(arr)' syntax. 
+      - 'arr.sum(axis=None)'      : sum of all elements 
+          . if 'axis=0': sum of columns     => [csum0, csum1, ...] 
+          . if 'axis=1': sum of rows        => [rsum0, rsum1, ...] 
+        # NOTE:> You can use 'np.sum(arr)' Syntax 
+      - 'np.dot(arr1, arr2)' It makes 'dot product' in linear algebra 
+      - 'np.matmul(arr1, arr2)' It makes 'matrix multiplication'
+      - 'np.linalg.det(arr)': returns the 'determinant'
+        # NOTE: 'linalg' stands for linear algebra
+
+      - 'np.linalg.inv(arr)': returns the 'inverse matrix' of 'arr'
+      - 'np.linalg.eig(arr)': returns two values 'eigenvalues' and 'eigenvectors' 
+
+      # INFO:[ Statistical Operations ] 
+      - 'np.var(arr) || arr.var()': returns the 'variance' 
+      - 'np.std(arr) || arr.std()': retuns the 'standard deviation'
+      - 'np.median(arr)': returns the 'middle value (median)' 
+      - 'np.max() || arr.max()': returns  the 'max value'
+      - 'np.min() || arr.min()': returns  the 'min value'
+      - 'np.corrcoef(arr)': returns 'correlation matrix' 
+      - 'np.cov(arr)': returns 'covariance matrix'
+
 ===[ Saving Array: ]===
   * 'np.save()' is used to 'save NumPy array to a binary file' in '.npy' format
     this is 'fast, compact' and 'preserves' all array information such as:
@@ -317,7 +383,6 @@
     # data will be loaded from my_array.npy file and return ndarray object 
     np.load('my_array.npy')
 
-> [ ]
 ===[ Tensors: ]===
   - Tensor comes from the latin word 'tendere' meaning 'to stretch'
   - Scalar: is a single number that describe magnitude and direction. That 

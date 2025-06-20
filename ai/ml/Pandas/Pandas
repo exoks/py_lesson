@@ -1,0 +1,82 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                  𓐓  Pandas 𓐔           
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀       Dev: oezzaou </var/spool/mail/oezzaou> 
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/20 13:04:51 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+# ===[ General Information: ]===================================================
+* In 'Data Science before training a model', The data yypically goes through
+  'serveral key stages' in a pipeline, These steps are crucial for ensuring the
+  model receives 'clean', 'structured', and 'meaningful data':
+
+  1|> [ Data Collection: ] 
+      * 'Gather' data from different sources: 
+        - Databases(SQL, NOSQL)
+        - APIs
+        - CSV/Excel Files
+        - Web scraping
+        - Sensors, logs, etc
+
+  2|> [ Data Cleaning: ] 
+      * 'Fix or remove, corrupted, duplicate, or missing data': 
+        - Handle 'missing' values (e.g, file, drop, interpolate)
+        - Remove 'duplicates'
+        - Correct insconsistent formatting
+        - Handle 'outliers' or 'noise'
+        - 'Normalize' inconsistent units 
+
+  3|> [ Data Transformation: (Preprocessing) ]
+      * 'Convert data' into a 'suitable format':
+        - 'Encoding': categorical varibales (e.g, one-hot, label encoding) 
+        - 'Feature Scaling': normalization or standardization 
+        - 'Text/vector conversion' (e.g TF-IDF, embeddings)
+        - 'Datetime parsing' or transformations 
+
+  4|> [ Exploratory Data Analysis (EDA) ] 
+      * Analyze and visualize data to understand its structure
+        - Histograms, boxplots, scatter plots
+        - Correlation matrix
+        - Summary statistics (mean, median, std) 
+        - find patterns, trends, anomalies
+  
+  5|> [ Feature Engineering: ]
+      * 'Create' new features or 'transform' existing onces to improve model
+        performance:
+        - Polynomial features 
+        - Interaction terms
+        - Log transforms
+        - Aggregation (e.g, mean, sum per group)
+
+  6|> [ Data Splitting: ]
+      * Split data into subsets: 
+        - 'Training set': to train the model
+        - 'Validation set': to tune parameters (optional)
+        - 'Test set': to evaluate model performance
+
+===[ Summary: ]===
+
+    Raw Data 
+       ↓
+  Data Collection 
+       ↓
+  Data Cleaning 
+       ↓
+Preprocessing (Transformation & Encoding)
+       ↓
+Exploratory Data Analysis (EDA)
+       ↓
+  Feature Engineering 
+       ↓
+  Train-Test Split 
+       ↓
+  Model Training
+
+================================================================================

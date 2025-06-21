@@ -5,12 +5,24 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/18 09:48:50 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/20 01:48:16 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/21 16:27:48 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
 #  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
 #  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ Summary: Index ]===========================================================
+1|> Array Creation: different methods to create 'ndarray' arrays 
+    . Built-in functions factory     | np.array()/zeros()/onces()/full()/empty() 
+    . ndarray consturctur            | ndarray(shape=, dtype=, ...)
+    . create array with random values|  
+
+2|> Array Manipulation               | np.reshape()/append()/delete()/vstack() .. 
+3|> Array Indexing & Slicing
+4|> Searching & Sorting 
+5|> Math operations
+6|> Tensors
 
 ===[ NumPy: ]===================================================================
 * NumPy (short for 'Numerical Python') is a powerfull open-source library in
@@ -161,7 +173,7 @@
      data rows (el1, el2, el3, ...)
 
   2. 'np.arange(start, stop, step)': start -> stop 'Integer numbers', and stop
-     is exclusive. 
+     is exclusive. (like 'range' in python) 
 
   3. 'np.linspace(start, stop, arr_length || num=)': start -> stop 'Float Numbers' and 
      stop is 'inclusive' (linspace stands for 'linear space')

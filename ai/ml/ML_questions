@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 06:57:32 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/14 19:57:00 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/21 15:46:42 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -150,3 +150,121 @@ and outputs.
     where outcomes appeared to regress toward the mean.
   - Today, it simply refers to 'predicting continuous values using statistical'
     or 'machine learning models'.
+
+===[ Different Field Of AI: ]===================================================
+
+Great! The **AI field** is broad and contains many job titles, each focusing on
+different parts of the AI development and deployment lifecycle.
+
+Here’s a breakdown of the most **common job titles** in **AI and machine
+learning**, including what each one does, what skills they need, and how they differ from each other.
+
+---
+
+## 🧠 1. **AI Engineer**
+
+* **Focus:** Build, optimize, and deploy AI/ML models into production.
+* **Tools:** Python, TensorFlow, PyTorch, Docker, Kubernetes, APIs.
+* **Skills:** ML + software engineering + DevOps.
+* **Think:** "I take AI from research to real-world use."
+
+---
+
+## 📊 2. **Data Scientist**
+
+* **Focus:** Analyze data and build models to find insights and make predictions.
+* **Tools:** Python, R, Pandas, Scikit-learn, Jupyter, SQL.
+* **Skills:** Statistics, data visualization, ML, problem-solving.
+* **Think:** "I find patterns and make data-driven decisions."
+
+---
+
+## 🏗️ 3. **Data Engineer**
+
+* **Focus:** Design and build systems to collect, store, and clean data.
+* **Tools:** SQL, Spark, Hadoop, Airflow, Python, AWS/GCP.
+* **Skills:** ETL (Extract, Transform, Load), big data, cloud infrastructure.
+* **Think:** "I make sure the data is ready for analysis or modeling."
+
+---
+
+## 📐 4. **Machine Learning Engineer**
+
+* **Focus:** Design, train, and deploy machine learning models.
+* **Tools:** Scikit-learn, TensorFlow, PyTorch, MLFlow, ONNX.
+* **Skills:** Software engineering + ML + math.
+* **Think:** "I build the brain of the AI system."
+
+---
+
+## 🗣️ 5. **NLP Engineer** *(Natural Language Processing)*
+
+* **Focus:** Work with language data — chatbots, summarizers, translators.
+* **Tools:** Hugging Face Transformers, NLTK, spaCy, OpenAI APIs.
+* **Skills:** Linguistics + ML + deep learning.
+* **Think:** "I teach machines to understand and generate language."
+
+---
+
+## 👁️ 6. **Computer Vision Engineer**
+
+* **Focus:** Build systems that understand images or video (e.g. face
+             recognition, self-driving cars).
+* **Tools:** OpenCV, PyTorch, TensorFlow, YOLO, CNNs.
+* **Skills:** Deep learning + image processing + math.
+* **Think:** "I give eyes to machines."
+
+---
+
+## 🧪 7. **AI Research Scientist**
+
+* **Focus:** Invent new AI algorithms and publish papers.
+* **Tools:** Python, PyTorch, TensorFlow, MATLAB, Latex.
+* **Skills:** Advanced math (optimization, stats), research, theory.
+* **Think:** "I push the boundaries of what's possible with AI."
+
+---
+
+## 🧑‍🔧 8. **ML Ops Engineer** *(Machine Learning Operations)*
+
+* **Focus:** Automate the lifecycle of ML models (training → testing → deployment → monitoring).
+* **Tools:** MLFlow, Airflow, Docker, Kubernetes, CI/CD.
+* **Skills:** DevOps + AI.
+* **Think:** "I make AI models work continuously and reliably."
+
+---
+
+## 🕹️ 9. **Robotics Engineer (AI-Powered)**
+
+* **Focus:** Build intelligent robots using sensors, perception, and AI.
+* **Tools:** ROS (Robot Operating System), C++, Python, Lidar, OpenCV.
+* **Skills:** Mechanics + control systems + AI.
+* **Think:** "I build robots that sense and act intelligently."
+
+---
+
+## 🔄 Summary Table
+
+| Title                | Main Focus                    | Background Needed        |
+| -------------------- | ----------------------------- | ------------------------ |
+| AI Engineer          | Deploy AI to production       | Software + ML            |
+| Data Scientist       | Analyze data, build models    | Statistics + ML          |
+| Data Engineer        | Build data pipelines          | Software + Big Data      |
+| ML Engineer          | Train and scale ML models     | ML + Software            |
+| NLP Engineer         | Language-focused AI           | Linguistics + DL         |
+| Computer Vision Eng. | Image/video-based AI          | DL + CV                  |
+| AI Researcher        | Invent new AI algorithms      | Advanced Math + Research |
+| ML Ops Engineer      | Model automation + monitoring | DevOps + ML              |
+| Robotics Engineer    | Intelligent machines          | Mechanics + AI + Sensors |
+
+---
+
+## 💡 Want to Choose the Right Path?
+
+Tell me:
+
+* What’s your background? (Math, coding, science, etc.)
+* What kind of projects interest you? (Chatbots, games, cars, etc.)
+* Do you prefer research or real-world applications?
+
+I can then guide you to the **best role** for your career path in AI.

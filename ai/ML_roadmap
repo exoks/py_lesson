@@ -5,20 +5,49 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/21 17:13:59 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/16 18:57:38 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/21 16:13:37 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
 #  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
 #  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
 
+
+===[ ML-Engineer Skills: Data Scientist + Software Engineer ]===================
+_______________________________________________________________________________
+ | Skill                    | Comes from...          | Example                 |
+ |--------------------------|------------------------| ------------------------|
+ | Data preprocessing       | Data Scientist         | Clean and prepare data  |
+ |                          |                        | with Pandas, NumPy      |
+ |--------------------------|------------------------|-------------------------|
+ | Model building           | Data Scientist         | Train models using      |
+ |                          |                        | Scikit-learn or PyTorch |
+ |--------------------------|------------------------|-------------------------|
+ | Mathematics & Statistics | Data Scientist         | Understand algorithms,  |
+ |                          |                        | loss functions,         |
+ |                          |                        | regularization          |
+ |--------------------------|------------------------|-------------------------|
+ | Software development     | Software Engineer      | Write modular,          |
+ |                          |                        | testable Python code    |
+ |--------------------------|------------------------|-------------------------|
+ | Version control          | Software Engineer      | Use Git to manage       |
+ |                          |                        | projects and teams      |
+ |--------------------------|------------------------|-------------------------|
+ | APIs & deployment        | Software Engineer      | Use Flask, FastAPI,     |
+ |                          |                        | Docker, etc. to deploy  |
+ |                          |                        | models                  |
+ |--------------------------|------------------------|-------------------------|
+ | Performance optimization | Software Engineer + ML | Improve model speed,    |
+ |                          | memory, and accuracy   |                         |
+ |__________________________|________________________|_________________________|
+
 ===[ ML: RoadMap ]==============================================================
 1|> Fundamentals (1–2 weeks)
     * Goal: Understand basic AI/ML workflow and core tools.
     > Topics:
-      - NumPy & Pandas (data handling)                                  |
-      - Matplotlib/Seaborn (data visualization)                         |
-      - Scikit-learn (basic ML models)                                  |
+      - NumPy & Pandas (data handling)         | Data preprocessing | Done, ... 
+      - Matplotlib/Seaborn (data visualization)                     |
+      - Scikit-learn (basic ML models)                              |
     > Resources:
       - NumPy Quickstart
         |=> 'https://numpy.org/doc/stable/user/quickstart.html'

@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/23 00:24:47 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/23 10:49:02 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -194,6 +194,39 @@ Exploratory Data Analysis (EDA)
 * A 'DataFrame' is a 'two-dimensional labeled data structure' (like a table or
   spreadsheet).
 
+# INFO:[ Origin Of the Term 'DataFrame' ]=======================================
+# - The name `DataFrame` comes from the 'R programming language' which used it
+#   to describe a 'tabular data structure' that is: 
+#   . 2-dimensional (like a matrix)
+#   . Has 'Labeled axes' (rows and columns)
+#   . Can store 'heterogeneous data types' (different types in different
+#     columns) 
+# - 'Wes Mckinney', the creator of Pandas, was inspired by R when he designed
+#   Pandas, He browwed the name and concept of the 'DataFrame'
+# QUESTION:[ Why Not `DataMatrix` name for example ? ]--------------------------
+# - A 'matrix' is a mathematical concept that implies: 
+#   ____________________________________________________________________________
+#   | Matrix Characteristic | DataFrame Equivalent | Why Not Enough?           |
+#   |-----------------------|----------------------|---------------------------|
+#   |-Purely numerical      |-Columns can be, ints |-DataFrames can store      |
+#   |                       | strings, etc         | mixed types               |
+#   |-Only 2D and           |-DataFrames are 2D    |-Matrices are not flexible | 
+#   | homogeneous           | but heterogeneous    | for real-world data       |
+#   |-Indexed by position   |-DataFrames are       |-Real data often needs     | 
+#   | only                  | labeled              | named columns/index       |
+#   |_______________________|______________________|___________________________|
+# - 'DataMatrix' would be misleading because:
+#  . It suggest only 'numeric, homogeneous' data (like in NumPy)
+#  . It ignores 'labels' which are contral to pandas 
+#  . It does not reflect the 'flexibility' needed for real-world datasets
+#    (think CSV files, Databases, etc)
+# - 'DataFrame' make Sense because: 
+#  > 'Frame' suggest a 'structure or container', just like a photo frame
+#    contains multiple photos.
+#  > 'Data' represent the 'contents', actual values, columns rows
+#  > Together, 'DataFrame' means: 'A structured, labeled container for'
+#    'your data'
+
 --> [ Internal Components: (Attributes) ]
     - '_data': Under the hood, stores data in a 'block manager' which manages
                a dictionary of 'ndarray' or 'ExtensionArray' columns grouped by
@@ -222,3 +255,31 @@ Exploratory Data Analysis (EDA)
     # |-------|----------|----------|
     # | case2 | ezzaou   |  30      |
     # |_______|__________|__________|
+
+--> [ Pandas Core Class UML: ]
+    +------------------------------------------------+
+    |                DataFrame                       |
+    +------------------------------------------------+
+    | – _data: BlockManager                          |
+    | – index: Index                                 |
+    | – columns: Index                               |
+    +------------------------------------------------+
+    | + __init__(...)                                |
+    | + locate/iloc/select etc.                      |
+    | + groupby(), merge(), pivot(), to_csv(), ...   |
+    +------------------------------------------------+
+                       ▲         ▲
+                       |         |
+         contains      |         | contains
+                       |         |
+        +----------------+   +----------------+
+        |    Series      |   |     Index      |
+        +----------------+   +----------------+
+        | – values: ndarray/ExtensionArray    |
+        | – index: Index                      |
+        | – name: Optional[str]               |
+        +----------------+   +----------------+
+        | + __init__(...)                     |
+        | + arithmetic methods (add, mean, ..)|
+        | + isna(), plot(), …                 |
+        +----------------+   +----------------+

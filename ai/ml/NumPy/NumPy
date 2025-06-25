@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/18 09:48:50 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/25 20:01:02 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/25 20:37:18 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -151,10 +151,10 @@
       > [ Syntax: ]
         numpy.empty(shape, dtype=float, order='C')
 
-> [ Identity Matrix: ]
+> [ 6|. Identity Matrix: ]
 
   > [ Syntax: ]
-      >>[   np.eye(shape, dtype=float)    ]<<
+      >>[np.eye(N, M=None, k=0, dtype=np.float64, order='C', *, like=None)]<<
 
     # NOTE:===========================================================
     # - The identity Matrix is very important Matrix in linear algebra  
@@ -162,11 +162,18 @@
     #   one dimention in 'shape'. 
     # - eye stands for eye matrix or identity matrix.
     
-    . 'shape': is tupple that defines the dimentions of the tensor (m, n) 
-    . 'dtype': (optional) defines the data type of the data stored in the
-               tensor (default float).
-    . 'order': (Optional) whethere to sore the multi-dimensional data in 
-               row-major ('C') or column-major ('F') order, (Default 'C').
+    - 'N': Number of 'rows' in the output matrix (required) 
+    - 'M': number of 'columns' (optional) if 'None' defaults to
+          'N' (square matrix) 
+    - 'k': (key level) diagonal index 
+      . 'k=0': -> main diagonal 
+      . 'k>0': -> above main  
+      . 'k<0': -> below main 
+    - 'dtype': data type of the output array (default: float) 
+    - 'order': 'C' or 'F': Memory layout: row-major('C') or column-major ('F') 
+    - 'like': 'array_like' or 'None': new in Numpy 1.20 allows creation based on
+              the tyep fo another array (used in array creation protocols)
+
 
 > [ Create Array With Random value ]
 

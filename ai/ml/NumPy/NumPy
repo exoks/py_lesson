@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/18 09:48:50 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/28 16:36:00 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/28 19:09:24 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -85,7 +85,7 @@
 # memory control.                       |
 
 > [ built-in Factory Functions: ]
-  1|. 'np.array()', it does accept python list.
+  1|> 'np.array()', it does accept python list.
       [ my_array = np.array([elem1, elem2, elem3, ...]) ] 
 
     - You can Use the same idea in case of multidimential array 
@@ -134,24 +134,24 @@
         |           |            | creation dispatching                       |
         |-----------|------------|-(introduced in NumPy 1.20)-----------------|
 
-  2|. 'np.zeros()' creates a new array 'filled with zeros', it commonly used
+  2|> 'np.zeros()' creates a new array 'filled with zeros', it commonly used
       for initializing arrays or tensors before performing computations.
       > [ Syntax: ] 
         numpy.zeros(shape, dtype=float, order='C')
 
-  3|. 'np.onces()' creates a new array 'filled with ones' 
+  3|> 'np.onces()' creates a new array 'filled with ones' 
       > [ Syntax: ]
         numpy.ones(shape, dtype=None, order='C')
 
-  4|. 'np.full()' creates an array filled with a specified value 
+  4|> 'np.full()' creates an array filled with a specified value 
       > [ Syntax: ]
         numpy.full(shape, fill_value, dtype=None, order='C')
 
-  5|. 'np.empty()' creates an uninitialized array
+  5|> 'np.empty()' creates an uninitialized array
       > [ Syntax: ]
         numpy.empty(shape, dtype=float, order='C')
 
-> [ 6|. Identity Matrix: ]
+> [ 6|> Identity Matrix: ]
 
   > [ Syntax: ]
       >>[np.eye(N, M=None, k=0, dtype=np.float64, order='C', *, like=None)]<<
@@ -173,7 +173,16 @@
     - 'order': 'C' or 'F': Memory layout: row-major('C') or column-major ('F') 
     - 'like': 'array_like' or 'None': new in Numpy 1.20 allows creation based on
               the tyep fo another array (used in array creation protocols)
+  
+  7|> 'np.indices()': is a numpy function that 'generates grid index arrays'
+                      for a given shape. 
 
+      [ np.indices(dimensions, dtype=int, sparse=False) ]
+
+        . 'dimensions': Tuple indicationg the shape of the output gride
+                        (e.g (3, 4))
+        . 'dtype': Data type of the input array 
+        . 'sparse': if 'True', returns a sparse meshgrid (saves memory)
 
 > [ Create Array With Random value ]
 
@@ -188,6 +197,7 @@
      # NOTE:===================================
      # - endpoint=false excludes the stop value 
      # - (start, stop) E Z
+     # ========================================
 
   4. 'np.random.rand(rows, cols)': using rand() function from 'random module'
      to generate 'random floats' from a 'uniform distribution' 0|-> 1
@@ -277,6 +287,37 @@
         . 'mode': Specifies how to pad the array, Common values include
           'constant', 'edge', 'reflect', 'symmetric', etc
         . '**kwargs': Extra arguments specific to the 'padding mode'
+
+  15|> 'np.tile(A, reps)': 'repeats (tiles)' an array multiple times to build a
+                          large array. (It's like "copy-pasting" your array in
+                          a gride pattern)
+
+              >>> [ np.tile(A, reps) ] <<<
+
+        . 'A': The input array to be repeated (tiled)
+        . 'reps': A single int or a tuple of ints, how many times to repeat
+                  along each axis
+
+      # INFO:-------------------------------------------------------------------
+      # - tile: (noun) one of the flat square pieces that are used for covering 
+      #   roofs, floors, or walls. (قَرْميد)
+      # ------------------------------------------------------------------------
+
+    > [ Ex: ]
+          np.tile([1, 2, 3], (2, 3))
+
+  16|> 'np.repeat(a, repeats, axis=None)' 
+      - `np.repeat()`: 'repeats individual elements' of an array, rather than 
+                       repeating the entire array like `np.tile()`
+
+    > [ Ex: ]
+      np.repeat([1, 2, 3], 2) # => [1, 1, 2, 2, 3, 3]
+      np.repeat([1, 2, 3], [1, 2, 3]) # => [1, 2, 2, 3, 3, 3] 
+
+  # INFO:===============================================
+  # - np.repeat() => 'repeats elements' of an array
+  # - np.tile()   => 'repeats the whole array' structure
+  # ====================================================
 
 > [ Array Indexing & Slicing ]
   - Let's consider arr as an 2D array

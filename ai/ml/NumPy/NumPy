@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/18 09:48:50 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/25 20:37:18 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/28 16:36:00 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -266,6 +266,17 @@
   13|> 'np.equal(arr1, arr2)', It does the same as np.array_equal but:
        |=> return array [ True, True, False ] 
        # NOTE: np.not_equale(arr1, arr2) => return array [ False, False, True ]
+
+  14|> 'np.pad(array, pad-width, mode="constant", **kwargs)' 
+       - This function adds 'padding to arrays', that is it adds values (like
+         zeros or other constants) around the edges of an array along one or
+         more dimensions.
+        . 'Array': The input Numpy array you want to pad 
+        . 'pad_width': Specifies the number of values padded to the edges of
+          each axis
+        . 'mode': Specifies how to pad the array, Common values include
+          'constant', 'edge', 'reflect', 'symmetric', etc
+        . '**kwargs': Extra arguments specific to the 'padding mode'
 
 > [ Array Indexing & Slicing ]
   - Let's consider arr as an 2D array

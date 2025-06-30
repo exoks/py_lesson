@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/30 19:11:11 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/30 22:24:46 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -329,8 +329,9 @@ Exploratory Data Analysis (EDA)
     - 'df.iloc'
 
 ===[ Filtering and Ordering: ]===
-  
-  - "df[df['x'] > y]": returns all the the 'cases/samples/observations' that
+ 
+> [ Filtering: ]
+  - 1|> "df[df['x'] > y]": returns all the the 'cases/samples/observations' that
     have an input feature 'x' greater (`>`) than 'y'.
 
     # NOTE:---------------------------------------------------------------------
@@ -338,4 +339,57 @@ Exploratory Data Analysis (EDA)
     # - It is almost the same idea in 'NumPy' 
     # --------------------------------------------------------------------------
   
-  - "df[]": 
+  2|> "df.isin()": is used to 'filter data' by checking whether each element in
+    DataFrame or Series 'exist in a list or another set values'. It returns a
+    'Boolean Mask', `True` if the element 'is in' the given list, else `False`
+
+  3|> "df['x'].str.contains()": method is used to 'check if a string column' 
+      'contains a certain substring or pattern' (using regex by default)
+
+  4|> 'df.set_index()': is used to 'change the index' of a DataFrame to one or
+      more existing columns. 
+
+      > Ex:
+          df.set_index('x'): 'x' is the input feature label 
+
+  5|> 'df.filter()': is used to 'select specific rows or columns' based on
+      'labels (names)', 'not by values'.
+
+      df.filter(items=[label1, label2, label3, ...], like="regrex", axis=)
+        . 'axis=': 0 represent the samples/observation labels 
+                   axis=1: represetn the input feature labels
+        . 'items=': get a list of items (row labels or column labels)
+        . 'like=': like="x", brings all labels that contains 'x' as part from
+                   the names. 
+  6|> "df.loc['x']": is a powerful method for 'label-based selection' in pandas  
+                   It allows you to 'access rows and columns by their labels',
+                   not by position (use iloc for that)
+
+      >>> [ df.loc[row_label, column_label] ] <<<
+
+      . You can pass single labels, lists, slices or boolean masks
+      . It includes both the 'start and end' of labels slices (unlike python's
+        exclusive slicing)
+
+        df.loc[start_row_lebale:end_row_label, start_col_label: end_col_label]
+
+  7|> "df.iloc[]": is used for 'position-based indexing', It lets you select rows
+                 and columns by 'integer location', just like you would with
+                 python lists
+
+      # INFO:------------------------------
+      # - loc: stands for LOCation
+      # - iloc: stands for Integer LOCation
+
+      >>>[ df.iloc[start_row_idx: end_row_idx, start_col_idx: end_row_idx] ]<<<
+
+  # NOTE:-------------------------------------
+  # loc[] and iloc[] are Similar techniques to indexing and slicing in NumPy
+
+    . You can pass integers, lists of integers, slices, or boolean masks.
+
+> [ Ordering: ]
+  8|> "df.sort_values(by=['label1', ...], ascending=[True, ...])", Is used to
+    'sort a DataFrame or Series by one or more columns (or by its values)'
+
+[df.sort_values(by, axis=0, ascending=True, inplace=False, na_position='last') ]

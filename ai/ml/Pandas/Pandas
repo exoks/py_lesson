@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/23 10:49:02 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/30 19:11:11 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -13,7 +13,7 @@
 #  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
 
 # ===[ General Information: ]===================================================
-* In 'Data Science before training a model', The data yypically goes through
+* In 'Data Science before training a model', The data typically goes through
   'serveral key stages' in a pipeline, These steps are crucial for ensuring the
   model receives 'clean', 'structured', and 'meaningful data':
 
@@ -88,7 +88,7 @@ Exploratory Data Analysis (EDA)
     - Time series analysis
     - Importing/exporting real-world data (CSV, Excel, SQL, etc) 
     # NOTE:---------------------------------------------------------------------
-    # - Pandas is not 'replacement' for Numpy, It 'extends' it.
+    # - Pandas is not a 'replacement' for Numpy, It 'extends' it.
     # - It brings 'structure', 'labels', and 'data-aware operations' that are
     #   crucial for real-world data analysis 
     # - 'ndarray' is great for 'nemerical computation'; Pandas is optimized for
@@ -113,7 +113,6 @@ Exploratory Data Analysis (EDA)
 #     values, labels, and mixed data types. (Pandas handles this gracefully)
 # 4|> Seamless Integration: Works well with other data science tools, (like
 #     Numpy, Matplotlib, Scikit-learn, etc) 
-#
 #>>> [ Numpy VS Pandas ]
 # ______________________________________________________________________________ 
 # | Aspect            | NumPy                 | Pandas                         |
@@ -283,3 +282,60 @@ Exploratory Data Analysis (EDA)
         | + arithmetic methods (add, mean, ..)|
         | + isna(), plot(), …                 |
         +----------------+   +----------------+
+
+
+===[ Reading in file: ]===
+* As the first step made is to read a dataset from a file to dataframe
+  (.csv, .text, .json)
+
+  1|> "pd.read_csv(r'file_path')" this function is used to read in 'csv files' 
+ 
+    . header=: (optional) It is used for input feature labels 
+                      Ex: 'header=None' removes the labels and use index instead 
+    . names=[inputfeature1, inputfeature2, ...], this function can be used also 
+
+    # REVISION:----------------------------------------------------------------
+    # - '\', ":",  are still special characthere until you till python to deal
+    # with them as a row string
+    # - What makes 'DataFrame' different is having labels 
+
+    # TIP:---------------------------------------------------- 
+    # - df is the standard name of the dataset red from a file
+
+    . sep='separator': defines the separator between input features. 
+
+  2|> 'pandas.read_table(data.txt)' this function is used to read a txt files 
+
+  3|> 'pandas.read_json('data.json')': used to read json file into a DataFrame 
+
+  4|> 'pandas.read_excel(data.xlsx, sheet_name='')': used for excel files
+
+
+  # INFO:----------------------------------------------------------------------
+  # - pd.set_option('display.max.rows', nbr/None): is used to display a nbr of
+  #   rows
+  # - pd.set_option('display.max_columns', nbr/None) is used to display a nbr
+  #   of columns (None to display all columns)
+
+===[ DataFrame Exploring:  ]===
+    - 'df.info()': used to get a 'concis summary' of a 'Pandas DataFrame', It is
+      very helpful for 'understanding the structure' of your dataset quickly.
+    - 'df.head(nbr=5)': used to display the 'nbr' from the 'head' of 'DataFrame' 
+    - 'df.tail(nbr=5)': used to display the 'nbr' from the 'tail (end)' of
+                        'DataFrame' 
+    - 'df.shape': shape of the 'DataFrame (dimensions)' 
+    - "df['x']": used to get the a specific input feature by its name. 
+    - 'df.loc'
+    - 'df.iloc'
+
+===[ Filtering and Ordering: ]===
+  
+  - "df[df['x'] > y]": returns all the the 'cases/samples/observations' that
+    have an input feature 'x' greater (`>`) than 'y'.
+
+    # NOTE:---------------------------------------------------------------------
+    # - '>' were used as an example, you CAN USE ANY OTHER COMPARISON operator.
+    # - It is almost the same idea in 'NumPy' 
+    # --------------------------------------------------------------------------
+  
+  - "df[]": 

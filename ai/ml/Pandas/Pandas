@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/02 00:32:38 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/02 00:39:51 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -95,7 +95,7 @@ Exploratory Data Analysis (EDA)
     #   'data manipulation', 'cleaning', and exploration. 
   - The term 'Pandas' is term derived from 'Panel Data', a term used in
     'econometrices' to describe 'multidimensional structured data' 
-      . 'Panel Data' = data that invovles 'observations over multiple time'
+      . 'Panel Data' = data that involves 'observations over multiple time'
         'periods' for the same individuals (e.g time series + cross-sectional
          data)
       . The 'library name' reflects its focus on providing powerful and flexible 
@@ -284,7 +284,7 @@ Exploratory Data Analysis (EDA)
         +----------------+   +----------------+
 
 
-===[ Reading in file: ]===
+===[ Reading in file: ]=========================================================
 * As the first step made is to read a dataset from a file to dataframe
   (.csv, .text, .json)
 
@@ -319,7 +319,7 @@ Exploratory Data Analysis (EDA)
   # - pd.set_option('display.max_columns', nbr/None) is used to display a nbr
   #   of columns (None to display all columns)
 
-===[ DataFrame Exploring:  ]===
+===[ DataFrame Exploring:  ]====================================================
     - 'df.info()': used to get a 'concis summary' of a 'Pandas DataFrame', It is
       very helpful for 'understanding the structure' of your dataset quickly.
     - 'df.head(nbr=5)': used to display the 'nbr' from the 'head' of 'DataFrame' 
@@ -327,7 +327,7 @@ Exploratory Data Analysis (EDA)
                         'DataFrame' 
     - 'df.shape': shape of the 'DataFrame (dimensions)' 
 
-===[ Index Manipulation / Label Management ]===
+===[ Index Manipulation / Label Management ]====================================
   1|> 'df.set_index()': is used to 'change the index' of a DataFrame to one or
       more existing columns. 
 
@@ -350,9 +350,9 @@ Exploratory Data Analysis (EDA)
                      'False' > (simply define if you want to change the object
                      itself or not)
 
-===[ Filtering and Ordering: ]===
+===[ Filtering and Ordering: ]=================================================
  
-> [ Filtering: ]
+===[ Filtering: ]===
   - 1|> "df[df['x'] > y]": (boolean indexing) returns all the the 'cases/'
         'samples/observations' that have an input feature 'x' greater (`>`) than
         'y'.
@@ -399,7 +399,7 @@ Exploratory Data Analysis (EDA)
       |___________________|_________|__________|__________________________|
 
   # TIP:[ fd.loc[] & df.iloc[] as filters ]-------------------------------------
-  # - fd.loc[] and df.iloc[] are indexer but it can be used as filters if you 
+  # - fd.loc[] and df.iloc[] are indexer but they can be used as filters if you 
   #   combine it with boolean indexing
   #   > Ex:
   #     df.loc[ fd['x'] > y]
@@ -407,20 +407,20 @@ Exploratory Data Analysis (EDA)
   #     # fd['x'] > y: is a boolean indexing technique that generates a boolean
   #     # mask that can be used with loc[] or iloc[]
   #
-  #     # NOTE:boolean mask tells the loc wich columns or rows to keep
+  #     # NOTE:> boolean mask tells the loc/iloc wich columns or rows to keep
 
 
-> [ Ordering: ]
-  8|> "df.sort_values(by=['label1', ...], ascending=[True, ...])", Is used to
+===[ Ordering: ]===
+  5|> "df.sort_values(by=['label1', ...], ascending=[True, ...])", Is used to
     'sort a DataFrame or Series by one or more columns (or by its values)'
 
 [df.sort_values(by, axis=0, ascending=True, inplace=False, na_position='last') ]
 
-  9|> 'df.sort_index()': is used to 'sort a DataFrame or Series by its index' 
+  6|> 'df.sort_index()': is used to 'sort a DataFrame or Series by its index' 
       'labels, not by column values'
 
 
-===[ Indexing: ]===
+===[ Indexing: ]================================================================
 * 'Index': is an object that stores all axis labels for all pandas objects 
 
   1|> "df.loc['x']": is a powerful method for 'label-based selection' in pandas  
@@ -430,7 +430,6 @@ Exploratory Data Analysis (EDA)
       >>> [ df.loc[row_label, column_label] ] <<<
 
       . You can pass single labels, lists, slices or boolean masks
-      . It includes both the 'start and end' of labels slices (unlike python's
         exclusive slicing)
 
         df.loc[start_row_lebale:end_row_label, start_col_label: end_col_label]
@@ -496,7 +495,7 @@ Exploratory Data Analysis (EDA)
 # |            | condition                         | of data                   |
 # |____________|___________________________________|___________________________|
 
-===[ Group by <groupby()> && Aggregation<agg()>: ]===
+===[ Group by <groupby()> && Aggregation<agg()>: ]==============================
 * 'groupby()' function in Pandas is used to 'split data' into 'groups based' on
   'one or more keys (column values)', 'apply' a function (e.g 'sum', 'mean',
   'count') and then 'combine' the results into a 'new DataFrame', This process
@@ -593,7 +592,7 @@ Exploratory Data Analysis (EDA)
   #   (like sum, mean, count, etc.) on a DataFrame or Series.
   # ----------------------------------------------------------------------------
 
-# QUESTION:[ Boolean indexing & boolean Mask ]==================================
+# QUESTION:[ Boolean indexing VS boolean Mask ]---------------------------------
 # - 'Boolean indexing' is a way to 'filter data' in a DataFrame or series by
 #   using a 'boolean condition' to select rows or columns.
 # - 'Boolean mask' is a 'Series or array of True/False values' used to filter 

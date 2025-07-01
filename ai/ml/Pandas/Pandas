@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/01 15:14:39 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/01 23:55:56 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -168,12 +168,12 @@ Exploratory Data Analysis (EDA)
 # - multiple Series (each representing an input feature) can be combined into a
 #   DataFrame — a 2D data matrix — to visualize and analyze both the features
 #   (columns) and the cases (rows) easily.
-# - DataFrame object represent my data matrix or matrix table that i have learnt 
+# - DataFrame object represent my matrix table that i have learnt in 
 #   in 'math_statistics'.
 
 ===[ Series ]===
-* A Series is essentially a 'one-dimensional labeled array' than can hold any data 
-  type
+* A Series is essentially a 'one-dimensional labeled array' than can hold any
+  data type
 
 --> [ Internal Components: (Attribues) ]
     - 'values': Stores the actual data as a 'NumPy''ndarray' (or sometimes
@@ -301,7 +301,7 @@ Exploratory Data Analysis (EDA)
     # with them as a row string
     # - What makes 'DataFrame' different is having labels 
 
-    # TIP:---------------------------------------------------- 
+    # TIP:----------------------------------------------------
     # - df is the standard name of the dataset red from a file
 
     . sep='separator': defines the separator between input features. 
@@ -326,15 +326,12 @@ Exploratory Data Analysis (EDA)
     - 'df.tail(nbr=5)': used to display the 'nbr' from the 'tail (end)' of
                         'DataFrame' 
     - 'df.shape': shape of the 'DataFrame (dimensions)' 
-    - "df['x']": used to get the a specific input feature by its name. 
-    - 'df.loc'
-    - 'df.iloc'
 
 ===[ Filtering and Ordering: ]===
  
 > [ Filtering: ]
   - 1|> "df[df['x'] > y]": returns all the the 'cases/samples/observations' that
-    have an input feature 'x' greater (`>`) than 'y'.
+        have an input feature 'x' greater (`>`) than 'y'.
 
     # NOTE:---------------------------------------------------------------------
     # - '>' were used as an example, you CAN USE ANY OTHER COMPARISON operator.
@@ -342,8 +339,8 @@ Exploratory Data Analysis (EDA)
     # --------------------------------------------------------------------------
   
   2|> "df.isin()": is used to 'filter data' by checking whether each element in
-    DataFrame or Series 'exist in a list or another set values'. It returns a
-    'Boolean Mask', `True` if the element 'is in' the given list, else `False`
+      DataFrame or Series 'exist in a list or another set values'. It returns a
+      'Boolean Mask', `True` if the element 'is in' the given list, else `False`
 
   3|> "df['x'].str.contains()": method is used to 'check if a string column' 
       'contains a certain substring or pattern' (using regex by default)
@@ -387,12 +384,12 @@ Exploratory Data Analysis (EDA)
       # - loc: stands for LOCation
       # - iloc: stands for Integer LOCation
 
-      >>>[ df.iloc[start_row_idx: end_row_idx, start_col_idx: end_row_idx] ]<<<
+      >> [ df.iloc[start_row_idx: end_row_idx, start_col_idx: end_row_idx] ] <<
 
-  # NOTE:-------------------------------------
+  # NOTE:-------------------------------------------------------------------
   # loc[] and iloc[] are Similar techniques to indexing and slicing in NumPy
 
-    . You can pass integers, lists of integers, slices, or boolean masks.
+  . You can pass 'integers', 'lists of integers', 'slices', or 'boolean masks'.
 
 > [ Ordering: ]
   8|> "df.sort_values(by=['label1', ...], ascending=[True, ...])", Is used to
@@ -431,18 +428,17 @@ Exploratory Data Analysis (EDA)
 #   |=> result type: Filtered subset
 # Indexing: Selects specific rows/columns by position or label
 #   |=> Result Type: Subset of original 
-#
-# > [ Filtering: Which Rows to keep ]
+# * [ Filtering: Which Rows to keep ]
 #   - Filtering uses a 'boolean condition' to keep only certain rows.
 #   > Ex:
 #     df[df[x] > y]: filtering rows based on a condition 
-# > [ Indexing: what to access ]
+# * [ Indexing: what to access ]
 #  - Indexing is how you access specific parts of the data by 'label (loc)'
 #    or 'position (iloc)'
 #   > Ex:
 #     df.loc['city'] 
 #     df.iloc[1]
-# CONCLUSION:------------------------------------------------------------------
+# CONCLUSION:-------------------------------------------------------------------
 # * Indexing = direct 'selection' (by label or position)
 # * Filtering = 'Conditional' selection (based on a rule)
 # - 'loc' and 'iloc' are 'indexers', but they can perform 'filtering' when given
@@ -450,10 +446,10 @@ Exploratory Data Analysis (EDA)
 # ______________________________________________________________________________
 # | Feature    | Filtering                         | Indexing                  |
 # |------------|-----------------------------------|---------------------------|
-# | Definition | Selects rows based on a condition |-Selects rows or           |
+# | Definition | Selects rows based on a condition | Selects rows or           |
 # |            |                                   | columns by label/position |
 # |------------|-----------------------------------|---------------------------|
-# | Syntax     | `df[condition]`                   |-`df.loc[]`, `df.iloc[]`,  |
+# | Syntax     | `df[condition]`                   | `df.loc[]`, `df.iloc[]`,  |
 # |            |                                   | `df['col']`               |
 # |------------|-----------------------------------|---------------------------|
 # | Returns    | A filtered DataFrame              | A DataFrame, Series, or   | 
@@ -466,4 +462,105 @@ Exploratory Data Analysis (EDA)
 # | Example    |                                   | name/position             | 
 # |------------|-----------------------------------|---------------------------|
 # | Purpose    | Keep only rows that match         | Access specific part(s)   |
-# |____________|_condition_________________________|_of data___________________|
+# |            | condition                         | of data                   |
+# |____________|___________________________________|___________________________|
+
+===[ Group by <groupby()> && Aggregation<agg()>: ]===
+* 'groupby()' function in Pandas is used to 'split data' into 'groups based' on
+  'one or more keys (column values)', 'apply' a function (e.g 'sum', 'mean',
+  'count') and then 'combine' the results into a 'new DataFrame', This process
+  is known as 'the Split-Apply-Combine' strategy.
+
+  > [ Aggregation methods: ]
+    _________________________________________________
+    | Method     | Description                      |
+    |------------|----------------------------------|
+    | `.sum()`   | Total per group                  |
+    | `.mean()`  | Average per group                |
+    | `.count()` | Count non-null entries           |
+    | `.min()`   | Minimum per group                |
+    | `.max()`   | Maximum per group                |
+    | `.size()`  | Total number of rows (incl.NaN)  |
+    | `.agg()`   | Custom or multiple aggregations  |
+    |____________|__________________________________|
+
+  |> 'pd.agg()': is used to apply 'one or more aggregation functions' to a
+      'DataFrame or Series'
+
+      >> [ df.agg(func, axis=0) ] <<
+        
+        . `func`: a function (or list/dict of functions) like 'mean', 'sum', etc
+        . `axis=0`: (defautl) apply to 'columns'
+        . `axis=1`: (defautl) apply to 'rows'
+
+      > [ Example: ]
+
+      import pandas as pd
+      import numpy as np
+
+      df = pd.DataFrame({
+        'A': [1, 2, 3, 4],
+        'B': [5, 6, 7, 8]
+      })
+      # Single aggregation on all columns
+      df.agg('mean')
+      # A    2.5
+      # B    6.5
+      # Multiple aggregations on all columns
+      df.agg(['mean', 'sum'])
+      # Different aggregations per column
+      df.agg({
+          'A': ['min', 'max'],
+          'B': ['mean', 'std']
+      })
+
+  # INFO:[ Use cases: ]-------------------------------
+  # - Cusom summary statistics
+  # - aggregating different columns differently
+  # - grouped aggregations (used with groupby() often)
+
+  |> 'df.describe()': returns 'a quick overview of statistics' for numeric
+     columns
+
+  >> [ df.describe(include=None, exclude=None, percentiles=None) ] <<
+    . include='all': include non-numeric columns
+    . exclude='number': exclude numeric
+    . percentiles: specify percentiles to show (e.g. [.25, .5, .75])
+
+  > [ Exmaple ]
+    # describing the distribution (center tendency (mode, median, mean),
+    # dispersion <range, IQR, std variance, etc)
+    df.describe()
+
+    # return example
+    #         | A    | B    |
+    # |-------|------|------|
+    # | count | 4.0  | 4.0  |
+    # | mean  | 2.5  | 6.5  |
+    # | std   | 1.29 | 1.29 |
+    # | min   | 1.0  | 5.0  |
+    # | 25%   | 1.75 | 5.75 |
+    # | 50%   | 2.5  | 6.5  |
+    # | 75%   | 3.25 | 7.25 |
+    # | max   | 4.0  | 8.0  |
+
+  # INFO:[ Use cases: ]-------------------------------
+  # - Quick look at data distributions 
+  # - Exploratory Data Analysis (EDA)
+
+  # INFO:-----------------------------------------------------------------------
+  # - Aggregation: (noun) the process of combining things or amounts into a
+  #   single group or total:
+  #   . ex: Some animals avoid being eaten by aggregation in groups such as
+  #         schools or fish
+  # - In Context of Pandas means applying a 'summary function' to groups of
+  #   data to get a 'single value' per group (like 'sum', 'mean', 'min', 'max'
+  #   or 'count')
+  # ----------------------------------------------------------------------------
+
+# QUESTION:[ Boolean indexing & boolean codition ]==============================
+# - 'Boolean indexing' is a way to 'filter data' in a DataFrame or series by
+#   using a 'boolean condition' to select rows or columns.
+# - 'Boolean mask' is a 'Series or array of True/False values' used to filter 
+#   data, it's called a 'mask' because it reveals only the elements where the 
+#   condition is true

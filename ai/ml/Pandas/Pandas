@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/30 22:24:46 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/01 15:14:39 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -293,6 +293,8 @@ Exploratory Data Analysis (EDA)
     . header=: (optional) It is used for input feature labels 
                       Ex: 'header=None' removes the labels and use index instead 
     . names=[inputfeature1, inputfeature2, ...], this function can be used also 
+    . index_col='x': you can define the index labels of samples/observations 
+                     cases.
 
     # REVISION:----------------------------------------------------------------
     # - '\', ":",  are still special characthere until you till python to deal
@@ -377,6 +379,10 @@ Exploratory Data Analysis (EDA)
                  and columns by 'integer location', just like you would with
                  python lists
 
+    # NOTE:------------------------------------------------------------------
+    # 'loc' and 'iloc' can be used for filtering, but only when combined with
+    # boolean indexing.
+
       # INFO:------------------------------
       # - loc: stands for LOCation
       # - iloc: stands for Integer LOCation
@@ -393,3 +399,71 @@ Exploratory Data Analysis (EDA)
     'sort a DataFrame or Series by one or more columns (or by its values)'
 
 [df.sort_values(by, axis=0, ascending=True, inplace=False, na_position='last') ]
+
+  9|> 'df.sort_index()': is used to 'sort a DataFrame or Series by its index' 
+      'labels, not by column values'
+
+
+===[ Indexing: ]===
+* 'Index': is an object that stores all axis labels for all pandas objects 
+
+  1|> 'df.reset_index()' is used to 'reset the index' of a 'DataFrame' back to
+      the default (0, 1, 2, ...) 
+      > [ Use cases: ]
+        . Your index is no longer meaningful (ex: after filtering or grouping)
+        . You want to convert the index back into a column
+        . You want a clean DataFrame with the default integer index.
+
+        >>> [ df.reset_index(level=None, drop=False, inplace=False) ] <<<
+
+        . 'level': (opt) specify index level(s) to reset for 'multiIndex'
+        . 'drop': If 'True, do not insert the index' into DataFrame as a column 
+          . Default is 'False'
+        . 'inplace': If 'True', modify the DataFrame in-place. Default is
+                     'False' > (simply define if you want to change the object
+                     itself or not)
+
+  2|> "df.loc['x']": indexing by labels 
+  3|> "df.iloc[index]": indexing by integer indeces
+
+# QUESTION:[ What is the diff between indexing & filtering in pandas ?]========
+# Filtering: Select rows based on 'condition (boolean)'
+#   |=> result type: Filtered subset
+# Indexing: Selects specific rows/columns by position or label
+#   |=> Result Type: Subset of original 
+#
+# > [ Filtering: Which Rows to keep ]
+#   - Filtering uses a 'boolean condition' to keep only certain rows.
+#   > Ex:
+#     df[df[x] > y]: filtering rows based on a condition 
+# > [ Indexing: what to access ]
+#  - Indexing is how you access specific parts of the data by 'label (loc)'
+#    or 'position (iloc)'
+#   > Ex:
+#     df.loc['city'] 
+#     df.iloc[1]
+# CONCLUSION:------------------------------------------------------------------
+# * Indexing = direct 'selection' (by label or position)
+# * Filtering = 'Conditional' selection (based on a rule)
+# - 'loc' and 'iloc' are 'indexers', but they can perform 'filtering' when given
+#   a 'boolean condition' for the 'row selector'.
+# ______________________________________________________________________________
+# | Feature    | Filtering                         | Indexing                  |
+# |------------|-----------------------------------|---------------------------|
+# | Definition | Selects rows based on a condition |-Selects rows or           |
+# |            |                                   | columns by label/position |
+# |------------|-----------------------------------|---------------------------|
+# | Syntax     | `df[condition]`                   |-`df.loc[]`, `df.iloc[]`,  |
+# |            |                                   | `df['col']`               |
+# |------------|-----------------------------------|---------------------------|
+# | Returns    | A filtered DataFrame              | A DataFrame, Series, or   | 
+# |            | (subset of rows)                  | scalar                    |
+# |------------|-----------------------------------|---------------------------|
+# | Input      | Boolean Series (e.g.,             | Label(s), position(s),    | 
+# |            | `df['age'] > 25`)                 | or slices                 |
+# |------------|-----------------------------------|---------------------------|
+# | Output     | Rows where condition is True      | Specific rows/columns by  |
+# | Example    |                                   | name/position             | 
+# |------------|-----------------------------------|---------------------------|
+# | Purpose    | Keep only rows that match         | Access specific part(s)   |
+# |____________|_condition_________________________|_of data___________________|

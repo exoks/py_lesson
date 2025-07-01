@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/01 23:55:56 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/02 00:32:38 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -327,84 +327,14 @@ Exploratory Data Analysis (EDA)
                         'DataFrame' 
     - 'df.shape': shape of the 'DataFrame (dimensions)' 
 
-===[ Filtering and Ordering: ]===
- 
-> [ Filtering: ]
-  - 1|> "df[df['x'] > y]": returns all the the 'cases/samples/observations' that
-        have an input feature 'x' greater (`>`) than 'y'.
-
-    # NOTE:---------------------------------------------------------------------
-    # - '>' were used as an example, you CAN USE ANY OTHER COMPARISON operator.
-    # - It is almost the same idea in 'NumPy' 
-    # --------------------------------------------------------------------------
-  
-  2|> "df.isin()": is used to 'filter data' by checking whether each element in
-      DataFrame or Series 'exist in a list or another set values'. It returns a
-      'Boolean Mask', `True` if the element 'is in' the given list, else `False`
-
-  3|> "df['x'].str.contains()": method is used to 'check if a string column' 
-      'contains a certain substring or pattern' (using regex by default)
-
-  4|> 'df.set_index()': is used to 'change the index' of a DataFrame to one or
+===[ Index Manipulation / Label Management ]===
+  1|> 'df.set_index()': is used to 'change the index' of a DataFrame to one or
       more existing columns. 
 
       > Ex:
           df.set_index('x'): 'x' is the input feature label 
 
-  5|> 'df.filter()': is used to 'select specific rows or columns' based on
-      'labels (names)', 'not by values'.
-
-      df.filter(items=[label1, label2, label3, ...], like="regrex", axis=)
-        . 'axis=': 0 represent the samples/observation labels 
-                   axis=1: represetn the input feature labels
-        . 'items=': get a list of items (row labels or column labels)
-        . 'like=': like="x", brings all labels that contains 'x' as part from
-                   the names. 
-  6|> "df.loc['x']": is a powerful method for 'label-based selection' in pandas  
-                   It allows you to 'access rows and columns by their labels',
-                   not by position (use iloc for that)
-
-      >>> [ df.loc[row_label, column_label] ] <<<
-
-      . You can pass single labels, lists, slices or boolean masks
-      . It includes both the 'start and end' of labels slices (unlike python's
-        exclusive slicing)
-
-        df.loc[start_row_lebale:end_row_label, start_col_label: end_col_label]
-
-  7|> "df.iloc[]": is used for 'position-based indexing', It lets you select rows
-                 and columns by 'integer location', just like you would with
-                 python lists
-
-    # NOTE:------------------------------------------------------------------
-    # 'loc' and 'iloc' can be used for filtering, but only when combined with
-    # boolean indexing.
-
-      # INFO:------------------------------
-      # - loc: stands for LOCation
-      # - iloc: stands for Integer LOCation
-
-      >> [ df.iloc[start_row_idx: end_row_idx, start_col_idx: end_row_idx] ] <<
-
-  # NOTE:-------------------------------------------------------------------
-  # loc[] and iloc[] are Similar techniques to indexing and slicing in NumPy
-
-  . You can pass 'integers', 'lists of integers', 'slices', or 'boolean masks'.
-
-> [ Ordering: ]
-  8|> "df.sort_values(by=['label1', ...], ascending=[True, ...])", Is used to
-    'sort a DataFrame or Series by one or more columns (or by its values)'
-
-[df.sort_values(by, axis=0, ascending=True, inplace=False, na_position='last') ]
-
-  9|> 'df.sort_index()': is used to 'sort a DataFrame or Series by its index' 
-      'labels, not by column values'
-
-
-===[ Indexing: ]===
-* 'Index': is an object that stores all axis labels for all pandas objects 
-
-  1|> 'df.reset_index()' is used to 'reset the index' of a 'DataFrame' back to
+  2|> 'df.reset_index()' is used to 'reset the index' of a 'DataFrame' back to
       the default (0, 1, 2, ...) 
       > [ Use cases: ]
         . Your index is no longer meaningful (ex: after filtering or grouping)
@@ -420,8 +350,109 @@ Exploratory Data Analysis (EDA)
                      'False' > (simply define if you want to change the object
                      itself or not)
 
-  2|> "df.loc['x']": indexing by labels 
-  3|> "df.iloc[index]": indexing by integer indeces
+===[ Filtering and Ordering: ]===
+ 
+> [ Filtering: ]
+  - 1|> "df[df['x'] > y]": (boolean indexing) returns all the the 'cases/'
+        'samples/observations' that have an input feature 'x' greater (`>`) than
+        'y'.
+
+    # NOTE:---------------------------------------------------------------------
+    # - '>' were used as an example, you CAN USE ANY OTHER COMPARISON operator.
+    # - It is almost the same idea in 'NumPy' 
+    # - df['x'] > y: is called boolean indexing technique that generates a
+    #   boolean mask. 
+    # --------------------------------------------------------------------------
+  
+  2|> "df.isin()": is used to 'filter data' by checking whether each element in
+      DataFrame or Series 'exist in a list or another set values'. It returns a
+      'Boolean Mask', `True` if the element 'is in' the given list, else `False`
+
+      # NOTE:----------------------------------------------------------
+      # It does generate a boolean mask
+    
+  3|> "df['x'].str.contains()": method is used to 'check if a string column' 
+      'contains a certain substring or pattern' (using regex by default)
+
+      # NOTE:----------------------------------------------------------
+      # It does generate a boolean mask
+
+  4|> 'df.filter()': is used to 'select specific rows or columns' based on
+      'labels (names)', 'not by values'.
+
+      df.filter(items=[label1, label2, label3, ...], like="regrex", axis=)
+        . 'axis=': 0 represent the samples/observation labels 
+                   axis=1: represetn the input feature labels
+        . 'items=': get a list of items (row labels or column labels)
+        . 'like=': like="x", brings all labels that contains 'x' as part from
+                   the names. 
+   > [ Summary: ]
+      _____________________________________________________________________
+      | Method            | Returns | Uses     | Type of Filtering        |
+      |                   | Boolean | Boolean  |                          |
+      |                   | Mask    | Indexing |                          |
+      |-------------------|---------|----------|--------------------------|
+      | `.isin()`         | ✅ Yes  | ✅ Yes   | Value-based filtering    |
+      | `.str.contains()` | ✅ Yes  | ✅ Yes   | String pattern filtering |
+      | `.filter()`       | ❌ No   | ❌ No    | Label-based (column/row) |
+      |                   |         |          | filtering                |
+      |___________________|_________|__________|__________________________|
+
+  # TIP:[ fd.loc[] & df.iloc[] as filters ]-------------------------------------
+  # - fd.loc[] and df.iloc[] are indexer but it can be used as filters if you 
+  #   combine it with boolean indexing
+  #   > Ex:
+  #     df.loc[ fd['x'] > y]
+  #     
+  #     # fd['x'] > y: is a boolean indexing technique that generates a boolean
+  #     # mask that can be used with loc[] or iloc[]
+  #
+  #     # NOTE:boolean mask tells the loc wich columns or rows to keep
+
+
+> [ Ordering: ]
+  8|> "df.sort_values(by=['label1', ...], ascending=[True, ...])", Is used to
+    'sort a DataFrame or Series by one or more columns (or by its values)'
+
+[df.sort_values(by, axis=0, ascending=True, inplace=False, na_position='last') ]
+
+  9|> 'df.sort_index()': is used to 'sort a DataFrame or Series by its index' 
+      'labels, not by column values'
+
+
+===[ Indexing: ]===
+* 'Index': is an object that stores all axis labels for all pandas objects 
+
+  1|> "df.loc['x']": is a powerful method for 'label-based selection' in pandas  
+                   It allows you to 'access rows and columns by their labels',
+                   not by position (use iloc for that)
+
+      >>> [ df.loc[row_label, column_label] ] <<<
+
+      . You can pass single labels, lists, slices or boolean masks
+      . It includes both the 'start and end' of labels slices (unlike python's
+        exclusive slicing)
+
+        df.loc[start_row_lebale:end_row_label, start_col_label: end_col_label]
+
+  2|> "df.iloc[]": is used for 'position-based indexing', It lets you select rows
+                 and columns by 'integer location', just like you would with
+                 python lists
+
+    # NOTE:------------------------------------------------------------------
+    # 'loc' and 'iloc' can be used for filtering, but only when combined with
+    # 'boolean indexing'.
+
+      # INFO:------------------------------
+      # - loc: stands for LOCation
+      # - iloc: stands for Integer LOCation
+
+      >> [ df.iloc[start_row_idx: end_row_idx, start_col_idx: end_row_idx] ] <<
+
+  # NOTE:-------------------------------------------------------------------
+  # loc[] and iloc[] are Similar techniques to indexing and slicing in NumPy
+
+  . You can pass 'integers', 'lists of integers', 'slices', or 'boolean masks'.
 
 # QUESTION:[ What is the diff between indexing & filtering in pandas ?]========
 # Filtering: Select rows based on 'condition (boolean)'
@@ -556,9 +587,13 @@ Exploratory Data Analysis (EDA)
   # - In Context of Pandas means applying a 'summary function' to groups of
   #   data to get a 'single value' per group (like 'sum', 'mean', 'min', 'max'
   #   or 'count')
+  #
+  # CONCLUSION:----------------------------------------------------------------
+  # - Aggregation is a method to perform a group of statistical operations
+  #   (like sum, mean, count, etc.) on a DataFrame or Series.
   # ----------------------------------------------------------------------------
 
-# QUESTION:[ Boolean indexing & boolean codition ]==============================
+# QUESTION:[ Boolean indexing & boolean Mask ]==================================
 # - 'Boolean indexing' is a way to 'filter data' in a DataFrame or series by
 #   using a 'boolean condition' to select rows or columns.
 # - 'Boolean mask' is a 'Series or array of True/False values' used to filter 

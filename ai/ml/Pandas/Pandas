@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/02 00:39:51 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/02 17:13:23 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -113,7 +113,7 @@ Exploratory Data Analysis (EDA)
 #     values, labels, and mixed data types. (Pandas handles this gracefully)
 # 4|> Seamless Integration: Works well with other data science tools, (like
 #     Numpy, Matplotlib, Scikit-learn, etc) 
-#>>> [ Numpy VS Pandas ]
+# >> [ Numpy VS Pandas ]
 # ______________________________________________________________________________ 
 # | Aspect            | NumPy                 | Pandas                         |
 # |-------------------|-----------------------|--------------------------------|
@@ -163,13 +163,12 @@ Exploratory Data Analysis (EDA)
 #   . `Series`: labeled 1D array 
 #   . `DataFrame`: labeled 2D table 
 # - Adds high-level data manipulation capabilities.
-# ------------------------------------------------------------------------------
 # CONCLUSION:===================================================================
 # - multiple Series (each representing an input feature) can be combined into a
 #   DataFrame — a 2D data matrix — to visualize and analyze both the features
 #   (columns) and the cases (rows) easily.
 # - DataFrame object represent my matrix table that i have learnt in 
-#   in 'math_statistics'.
+#   'math_statistics'.
 
 ===[ Series ]===
 * A Series is essentially a 'one-dimensional labeled array' than can hold any
@@ -196,9 +195,9 @@ Exploratory Data Analysis (EDA)
 # INFO:[ Origin Of the Term 'DataFrame' ]=======================================
 # - The name `DataFrame` comes from the 'R programming language' which used it
 #   to describe a 'tabular data structure' that is: 
-#   . 2-dimensional (like a matrix)
-#   . Has 'Labeled axes' (rows and columns)
-#   . Can store 'heterogeneous data types' (different types in different
+#     . 2-dimensional (like a matrix)
+#     . Has 'Labeled axes' (rows and columns)
+#     . Can store 'heterogeneous data types' (different types in different
 #     columns) 
 # - 'Wes Mckinney', the creator of Pandas, was inspired by R when he designed
 #   Pandas, He browwed the name and concept of the 'DataFrame'
@@ -243,10 +242,10 @@ Exploratory Data Analysis (EDA)
       "feature2": [25, 30]
     }, index=["case1", "case2"])
 
-    #>>> Internally:
+    # >> Internally:
     # name -> Series(['oussama', 'ezzaou', dtype=object])
     # age -> Series([25, 30], dtype=int)
-    #>>> Data Matrix (Matrix Table)
+    # >> Data Matrix (Matrix Table)
     #         _______________________
     #         | Feature1 | Feature2 |
     # |-------|----------|----------|
@@ -371,7 +370,7 @@ Exploratory Data Analysis (EDA)
       # NOTE:----------------------------------------------------------
       # It does generate a boolean mask
     
-  3|> "df['x'].str.contains()": method is used to 'check if a string column' 
+  3|> "df['x'].str.contains()": method is used to 'check if a string column'
       'contains a certain substring or pattern' (using regex by default)
 
       # NOTE:----------------------------------------------------------
@@ -407,7 +406,12 @@ Exploratory Data Analysis (EDA)
   #     # fd['x'] > y: is a boolean indexing technique that generates a boolean
   #     # mask that can be used with loc[] or iloc[]
   #
-  #     # NOTE:> boolean mask tells the loc/iloc wich columns or rows to keep
+  #     # NOTE:--------------------------------------------------------------
+  #     # - boolean mask tells the loc wich columns or rows to keep
+  #     # - You can't use iloc directly with boolean mask. use iloc[] instead
+  #     #  TIP: convert boolean mask to positions (integers) to use it with
+  #     #       iloc[]
+
 
 
 ===[ Ordering: ]===

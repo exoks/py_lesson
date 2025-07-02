@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/18 09:48:50 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/29 14:53:05 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/03 00:48:24 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -253,21 +253,46 @@
       axis!=None)
       [ numpy.insert(arr, obj, values, axis=None) ]
 
-  6|> 'np.vstack((y, x))': 'vertical stack', it does stack 'y rows' on the top
+  6|> 'np.concatenate((arr1, arr2, ...))', Concatenates arrays into 'one array' 
+  
+  7|> 'np.vstack((y, x))': 'vertical stack', it does stack 'y rows' on the top
       of 'x rows' 
       . (y, x, ...): tupples of tensors 
 
-  7|> 'np.hstack((y, x))': 'horizontal stack', it does stack 'x columns' on the
-      'right of x'
+  8|> 'np.hstack((y, x))': 'horizontal stack', it does stack 'x columns' on the
+      'right of x'  
 
-  8|> 'np.split(arr, nbr)' > Split into 'nbr' equal parts.
+  # QUESTION:[ What is the diff between .concatenate(), .vstack() and hstack()]=
+  # __________________________________________________________________________
+  # | Function       | Action          | Axis Used | Auto-reshapes | Flexible | 
+  # |                |                 |           | 1D            | axis     |
+  # |----------------|-----------------|-----------|---------------|----------|
+  # |`np.concatenate`|-General-purpose |-✅ yes    |-❌ No         |-✅ Yes   |
+  # |                | concatenation   |           |               |          | 
+  # |`np.vstack`     |-Stack vertically|-`axis=0`  |-✅ Yes        |-❌ Fixed |
+  # |                | (row-wise)      |           |               |          |
+  # |`np.hstack`     |-Stack           |-`axis=1`  |-✅ Yes        |-❌ Fixed | 
+  # |                | horizontally    |           |               |          |
+  # |                | (col-wise)      |           |               |          | 
+  # |________________|_________________|___________|_______________|__________|
+  # INFO:----------------------------------------------------------------------- 
+  # - auto-reshape: when you pass a 1D array to np.vstack() or np.hstack(), it
+  #   automatically reshapes it to a 2D array so it can stack it properly.
+  #   _______________________________________________________________________
+  #   | Function           | Auto-reshapes 1D?      | Example reshape       |
+  #   |--------------------|------------------------|-----------------------|
+  #   | `np.vstack()`      | ✅ Yes                 | [1, 2] → [[1, 2]]     |
+  #   | `np.hstack()`      | ✅ Yes (in some cases) | [1, 2] → depends      |
+  #   | `np.concatenate()` | ❌ No                  | Must reshape manually |
+  # ----------------------------------------------------------------------------
 
-  9|> 'np.isnan(arr)': check if there is a 'not a number value' exist 
+
+  9|> 'np.split(arr, nbr)' > Split into 'nbr' equal parts.
+
+  10|> 'np.isnan(arr)': check if there is a 'not a number value' exist 
       |=> return nan arr: [False, True, Fase, ...]
   
-  10|> 'np.isinf(arr)', it checks for '+-infinity' 
-
-  11|> 'np.concatenate((arr1, arr2, ...))', Concatenates arrays into 'one array' 
+  11|> 'np.isinf(arr)', it checks for '+-infinity' 
 
   12|> 'np.array_equale(arr1, arr2)', it simply compares each element of
        'both arrays' 

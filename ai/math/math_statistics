@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/27 16:26:07 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/11 19:12:31 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/03 16:50:11 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -13,7 +13,7 @@
 #  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
 ===[ Statistics: ]============================================================== 
 * Statistics is branch of mathematics that deals with 'collecting', 'analyzing',
-  'interpreting', 'presenting' and organizing 'data'.  
+  'interpreting', 'presenting' and 'organizing' 'data'.  
   - It helps us 'make sense of large amounts of data' and 'make decisions or'
     'predictions' based on that data.
 
@@ -217,7 +217,7 @@
     'divided' into parts
 
 # NOTE:=========================================================================
-# - If the number of variables is large, the bar grpah is better than the
+# - If the number of variables is large, the bar graph is better than the
 #   pie chart graph. 
 # - Ghraphs are good for the case of categorical varibales (nominal level)
 # ==============================================================================
@@ -367,8 +367,9 @@
 
     - Less affected by outliers, good for skewed data.
 
-# NOTE:
-# - Ouliers is the value lower than Q1 - 1.5*(IQR) or higher than Q3 + 1.5*(IQR)
+# NOTE:-----------------------------------------------
+# - Outliers is the value lower than Q1 - 1.5*(IQR) or
+#   higher than Q3 + 1.5*(IQR)
 
   > [ Box Plot ]
   * 'Box plot' is a powerful way to visualize 'distribution', 'spread', and
@@ -863,8 +864,9 @@
       and biological mechanisms show this) 
 
 # INFO:[ Analogy ]=============================================================
-# - Correlation is like dancing together. Causation is like one person pushing the other.
-# NOTE:
+# - Correlation is like dancing together. Causation is like one person pushing
+#   the other.
+# NOTE:------------------------------------------------------------------------
 # - Regression analysis is effected by outliers, If it is found, You must
 #   invistigvate the value, If it is wrong => you can remove it from data set
 # - It is HARD TO PROVE CAUSATION between two variables. 

@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/02 17:13:23 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/03 01:13:15 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -326,7 +326,7 @@ Exploratory Data Analysis (EDA)
                         'DataFrame' 
     - 'df.shape': shape of the 'DataFrame (dimensions)' 
 
-===[ Index Manipulation / Label Management ]====================================
+===[ Data Manipulation: Index Manipulation / Label Management ]=================
   1|> 'df.set_index()': is used to 'change the index' of a DataFrame to one or
       more existing columns. 
 
@@ -349,7 +349,7 @@ Exploratory Data Analysis (EDA)
                      'False' > (simply define if you want to change the object
                      itself or not)
 
-===[ Filtering and Ordering: ]=================================================
+===[ Data Manipulation: Filtering and Ordering (preprocessing) ]================
  
 ===[ Filtering: ]===
   - 1|> "df[df['x'] > y]": (boolean indexing) returns all the the 'cases/'
@@ -424,7 +424,7 @@ Exploratory Data Analysis (EDA)
       'labels, not by column values'
 
 
-===[ Indexing: ]================================================================
+===[ Data Manipulation: Indexing (preprocessing) ]==============================
 * 'Index': is an object that stores all axis labels for all pandas objects 
 
   1|> "df.loc['x']": is a powerful method for 'label-based selection' in pandas  
@@ -505,6 +505,8 @@ Exploratory Data Analysis (EDA)
   'count') and then 'combine' the results into a 'new DataFrame', This process
   is known as 'the Split-Apply-Combine' strategy.
 
+  # INFO:> grouping can be classified under a 'data manipulation category' 
+  
   > [ Aggregation methods: ]
     _________________________________________________
     | Method     | Description                      |
@@ -520,6 +522,8 @@ Exploratory Data Analysis (EDA)
 
   |> 'pd.agg()': is used to apply 'one or more aggregation functions' to a
       'DataFrame or Series'
+
+    # INFO:> aggregation can be classifed under 'Data summarization/analysis' 
 
       >> [ df.agg(func, axis=0) ] <<
         
@@ -602,3 +606,123 @@ Exploratory Data Analysis (EDA)
 # - 'Boolean mask' is a 'Series or array of True/False values' used to filter 
 #   data, it's called a 'mask' because it reveals only the elements where the 
 #   condition is true
+
+===[ Data Manipulation/Transformation: combining operations ]===
+
+===[ Mergin: ]===
+* 'pandas.merge()' is used to 'combine two dataframes' based on one or more
+  'keys (columns or inidices)', similar to SQL joins
+
+  # TIP:------------------------------------------------------------------------
+  # Think of it as a way to 'merge relational tables' based on common fileds
+
+  > [ Use Cases: ]
+    . Complex joins (on multiple columns, different column names)
+    . SQL-style operations ('inner', 'outer', 'left', 'right')
+    . Merging on 'columns' or 'index + columns'
+    # CONCLUSION:> COLUMN-BASED JOINS == RELATIONAL JOINS
+
+      |-------------------[ Types of Merges: ]-------------------|
+      |                   |                  |                   |
+      |                   |                  |                   |
+[ Inner Merge ]    [ Left Merge ]     [Right Merge]      [ Outer Merge ] 
+
+  1|> [ Inner Merge: (default) ]
+      * Only rows with 'matching keys' in both DataFrames, It is an
+        'Intersection' between two DataFrames based on join key(s)
+
+      >> [ pd.merge(df1, df2, how='inner', one='key', on='x') ] <<
+
+          . how='type of mergin'
+          . one='key': mering based on key
+          . on='x': which columns to apply mering on 
+
+  2|> [ Outer Merge: ]
+      * 'All Rows' from both, NaNs where there's no match, It is an
+        'Union' between two dataFrames based on key(s)
+      
+      >> [ pd.merge(df1, df2, how='outer', one='key') ] <<
+
+  3|> [ Left Merge: ]
+      * All rows from 'left' matching rows from right,
+        . Preserve left + Intersection (inner)
+
+      >> [ pd.merge(df1, df2, how='left', one='key') ] <<
+
+  4|> [ Right Merge: ]
+      * All rows from 'right' matching rows from right
+        . Preserve Right + Intersection (inner)
+      
+      >> [ pd.merge(df1, df2, how='right', one='key') ] <<
+
+# NOTE:-------------------------------------------------------
+# - You can either use pandas.merge(df1, df2) or df1.merg(df2)
+# - There is also how='cross', read about it if you need to
+
+===[ Joining: ]===
+* '.join()' method is used to 'combine two DataFrames' based on their 'index'
+  or a key column, It is similar to SQL joins but works primarily on 'indexes'
+  by default
+
+  > [ Use Cases: ]
+    . Simple joins based on 'index'
+    . When you want to join two DataFrames quickly using their index
+    # CONCLUSION:> INDEX-BASED JOINS
+
+    >> [ DataFrame.join(other, on=None, how='left', lsuffix='',
+                                          rsuffix='', sort=False) ] <<
+
+    ________________________________________________________________
+    | Feature        | `join()`             | `merge()`            |
+    |----------------|----------------------|----------------------|
+    |-Joins on       |-Indexes (by default) |-Columns (like SQL)   |
+    |                |                      | index or both        |
+    |-Supports `on=` |-✅ Yes (for joining  |-✅ Yes               |
+    |                | on columns)          |                      |
+    |-Default `how`  |-`'left'`             |-`'inner'`            |
+    |-More flexible  |-❌ Less flexible     |-✅ More powerful and |
+    |                |                      | SQL-like             |
+    |-Best used for  |-Joining DataFrames   |-Joining on one or    |
+    |                | on index             | more columns         |
+    |-Simpler syntax |-❌ No                |-✅ yes               | 
+    |________________|______________________|______________________|
+ 
+
+===[ Concatenation: ]===
+* 'pandas.concat()' is used for Stacking DataFrames
+
+  > [ Use Cases: ]
+    . 'Combining DataFrames' along a 'particular axis' (vertically or
+      horizontally)
+    . Use when you want to 'stack' DataFrames (like np.'concatenate')
+    . Useful for adding rows or columns 'without needing keys/joins'
+    # CONCLUSION:> STACKING DATAFRAMES ()
+
+    >> [ pd.concat(objs, axis=0, join='outer', ignore_index=False) ] <<
+
+      . 'objs': list of DataFrames
+      . 'axis=': 0 stack rows (default)          |-vertical stack (like
+                                                 | np.vstack())
+                 1 adds columns (side-by-side)   |-horizontal stack
+                                                 | (like np.hstack()) 
+
+      . 'join=inner': stack/concatenate only 'intersection' columns 
+                    - 'outer (default)' concatenate all columns 
+                    ...
+
+# CONCLUSION:==================================================================
+#______________________________________________________________________________
+#| Feature  | `concat()`    | `merge()`                  | `join()`           |
+#|----------|---------------|----------------------------|--------------------|
+#|-Combines |-Based on axis |-Based on key columns/index |-Based on index (or |
+#|          | (rows or      | (like SQL)                 | column using `on`) |
+#|          | columns)      |                            |                    |
+#|-Handles  |-❌ No key     |-✅Yes (columns/index)      |✅Yes (mostly index)|
+#| keys     | matching      |                            |                    |
+#|-Best for |-Stacking      |-Relational joins           |-Index-based joins  |
+#|          | DataFrames    |                            |                    | 
+#|-Flexible |-✅ Yes        |-❌ No                      |-❌ No              |
+#| on axis  |               |                            |                    | 
+#|-SQL-style|-❌ No         |-✅ Yes                     |-❌ No              |
+#| join     |               |                            |                    |
+#|__________|_______________|____________________________|____________________|

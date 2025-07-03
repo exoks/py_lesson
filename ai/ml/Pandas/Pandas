@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/03 01:13:15 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/03 17:09:56 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -594,8 +594,7 @@ Exploratory Data Analysis (EDA)
   # - In Context of Pandas means applying a 'summary function' to groups of
   #   data to get a 'single value' per group (like 'sum', 'mean', 'min', 'max'
   #   or 'count')
-  #
-  # CONCLUSION:----------------------------------------------------------------
+  # CONCLUSION:-----------------------------------------------------------------
   # - Aggregation is a method to perform a group of statistical operations
   #   (like sum, mean, count, etc.) on a DataFrame or Series.
   # ----------------------------------------------------------------------------
@@ -609,11 +608,11 @@ Exploratory Data Analysis (EDA)
 
 ===[ Data Manipulation/Transformation: combining operations ]===
 
-===[ Mergin: ]===
+===[ Mergin: 'pandas.merge()']===
 * 'pandas.merge()' is used to 'combine two dataframes' based on one or more
-  'keys (columns or inidices)', similar to SQL joins
+  'keys (columns or indices)', similar to SQL joins
 
-  # TIP:------------------------------------------------------------------------
+  # TIP:--------------------------------------------------------------------
   # Think of it as a way to 'merge relational tables' based on common fileds
 
   > [ Use Cases: ]
@@ -625,7 +624,7 @@ Exploratory Data Analysis (EDA)
       |-------------------[ Types of Merges: ]-------------------|
       |                   |                  |                   |
       |                   |                  |                   |
-[ Inner Merge ]    [ Left Merge ]     [Right Merge]      [ Outer Merge ] 
+[ Inner Merge ]    [ Left Merge ]     [Right Merge]      [ Outer Merge ]
 
   1|> [ Inner Merge: (default) ]
       * Only rows with 'matching keys' in both DataFrames, It is an
@@ -655,11 +654,11 @@ Exploratory Data Analysis (EDA)
       
       >> [ pd.merge(df1, df2, how='right', one='key') ] <<
 
-# NOTE:-------------------------------------------------------
-# - You can either use pandas.merge(df1, df2) or df1.merg(df2)
+# NOTE:--------------------------------------------------------
+# - You can either use pandas.merge(df1, df2) or df1.merge(df2)
 # - There is also how='cross', read about it if you need to
 
-===[ Joining: ]===
+===[ Joining: 'pandas.join()']===
 * '.join()' method is used to 'combine two DataFrames' based on their 'index'
   or a key column, It is similar to SQL joins but works primarily on 'indexes'
   by default
@@ -688,7 +687,7 @@ Exploratory Data Analysis (EDA)
     |________________|______________________|______________________|
  
 
-===[ Concatenation: ]===
+===[ Concatenation: 'np.concat()' ]===
 * 'pandas.concat()' is used for Stacking DataFrames
 
   > [ Use Cases: ]
@@ -696,7 +695,7 @@ Exploratory Data Analysis (EDA)
       horizontally)
     . Use when you want to 'stack' DataFrames (like np.'concatenate')
     . Useful for adding rows or columns 'without needing keys/joins'
-    # CONCLUSION:> STACKING DATAFRAMES ()
+    # CONCLUSION:> STACKING DATAFRAMES (Vertical/Horizontal Stacking)
 
     >> [ pd.concat(objs, axis=0, join='outer', ignore_index=False) ] <<
 
@@ -710,19 +709,166 @@ Exploratory Data Analysis (EDA)
                     - 'outer (default)' concatenate all columns 
                     ...
 
-# CONCLUSION:==================================================================
-#______________________________________________________________________________
-#| Feature  | `concat()`    | `merge()`                  | `join()`           |
-#|----------|---------------|----------------------------|--------------------|
-#|-Combines |-Based on axis |-Based on key columns/index |-Based on index (or |
-#|          | (rows or      | (like SQL)                 | column using `on`) |
-#|          | columns)      |                            |                    |
-#|-Handles  |-❌ No key     |-✅Yes (columns/index)      |✅Yes (mostly index)|
-#| keys     | matching      |                            |                    |
-#|-Best for |-Stacking      |-Relational joins           |-Index-based joins  |
-#|          | DataFrames    |                            |                    | 
-#|-Flexible |-✅ Yes        |-❌ No                      |-❌ No              |
-#| on axis  |               |                            |                    | 
-#|-SQL-style|-❌ No         |-✅ Yes                     |-❌ No              |
-#| join     |               |                            |                    |
-#|__________|_______________|____________________________|____________________|
+# CONCLUSION:===================================================================
+# - `pandas.merge()`: COLUMN-BASED JOINS (RELATIONAL JOINS)
+# - `pandas.join()`: INDEX-BASED JOINS  
+# - `pandas.concat()`: DATAFRAMES STACKING 
+# ______________________________________________________________________________
+# | Feature  | `concat()`    | `merge()`                  | `join()`           |
+# |----------|---------------|----------------------------|--------------------|
+# |-Combines |-Based on axis |-Based on key columns/index |-Based on index (or |
+# |          | (rows or      | (like SQL)                 | column using `on`) |
+# |          | columns)      |                            |                    |
+# |-Handles  |-❌ No key     |-✅Yes (columns/index)      |✅Yes (mostly index)|
+# | keys     | matching      |                            |                    |
+# |-Best for |-Stacking      |-Relational joins           |-Index-based joins  |
+# |          | DataFrames    |                            |                    |
+# |-Flexible |-✅ Yes        |-❌ No                      |-❌ No              |
+# | on axis  |               |                            |                    |
+# |-SQL-style|-❌ No         |-✅ Yes                     |-❌ No              |
+# | join     |               |                            |                    |
+# |__________|_______________|____________________________|____________________|
+
+===[ Pandas Visualization: ]====================================================
+# REVISION:-------------------------------------------------------------------
+# - Graphs and plots are used in describtive statistics and data sience to
+#   summarize, describe (distribution and contral tendecy), and understand
+#   relationships or correlation between varibales. 
+# - purpose: 
+
+* Pandas ha 'built-in support for plotting', and under the hood, it uses  
+  'Matplotlib' to generate the visualizations.
+
+  > [ Integration of Matplotlib with Pandas: ] 
+    - You can call '.plot()' directly on a 'DataFrame' or 'Serie'
+    - By default, this uses 'Matplotlib' as the backend 
+    - You can 'customize' the 'plot' using 'Matplotlib functions' after plotting
+
+    >>  [ df.plot(kin='line') ] <<
+
+        . 'kind=line': (default) defines the 'plot type' 
+        . 'subplot=True': breaking up or spiltting the 'plot' into 'subplots'
+        . "title='x'": used to add a title to the plot
+        . "xlables='x'": sets the label (title) for the 'X-axis' 
+        . "ylabels='y'": sets the label (title) for the 'Y-axis'
+
+  > [ Plot Types: ] 
+    _______________________________________________
+    | `kind`      | Plot type                     |
+    |-------------|-------------------------------|
+    | `'line'`    | Line plot (default)           |
+    | `'bar'`     | Vertical bar plot             |
+    | `'barh'`    | Horizontal bar plot           |
+    | `'hist'`    | Histogram                     |
+    | `'box'`     | Box plot (for statistics)     |
+    | `'kde'`     | Kernel density estimate       |
+    | `'area'`    | Area plot                     |
+    | `'pie'`     | Pie chart                     |
+    | `'scatter'` | Scatter plot (DataFrame only) |
+    | `'hexbin'`  | Hexbin plot (DataFrame only)  |
+    |_____________|_______________________________|
+
+  > [ Line Plot: ]
+
+# QUESTION:[ What is the difference btween 'scatter plot' and 'line plot' ]=====
+#  'Line Plot': connects data points with lines, typically showing
+#   'how variable changes over time' or in response to another continuous
+#   variable. 
+#   > [ Use cases: ]  
+#     . Points are connected
+#     . Emphasizers 'trends', 'progression' or 'patterns'
+#     . Common in 'time series Data'
+# - A 'Scatter plot': displays individual data points as 'dots' on a 2D plan
+#   without connecting them, It is used to show the 'realtionship or
+#   correlation' between two varibales
+#   > [ Use Cases: ]
+#     . No lines between points.
+#     . Highlights 'distribution', 'clusters' and 'correlation'
+#     . Common in 'regression analysis' and 'pattern detection'
+# CONCLUSION:-------------------------------------------------------------------
+# |> Use a 'line plot' when you are showing data over time (e.g, temperature
+#    changes), When the data points have a 'logical or chronological order'.
+# |> Use a 'scatter plot' when you want to explore the 'relationship betwee
+#    two variables' (e.g, height vs weight) 
+# ------------------------------------------------------------------------------
+#
+  > [ Bar Plot: ]
+
+  # REVISION:------------------------------------------------------------------- 
+  # Bar Graph and Pie Chart are used to 'summarize a distibution' of categorical 
+  # variables (level of measurment <nominal>)
+
+      >> [ pandas.plot(kind='bar', stacked=False) ] <<  
+
+          . kind='bar': vertical bar graph 
+          . stacked=False: If 'True' the bars will displayed stacked
+
+  # NOTE:> fd.plot.barh() is used to display an horizontal bar
+
+  > [ Scatter Plot: ]
+
+  # REVISION:-------------------------------------------------------------------
+  # Scatter plot is used to show the relationship between two numerical/quentitive
+  # varibales.
+
+    >> [ df.plot(kind='scatter', x='independent', y='dependent', s=, c=) ]
+        . x='x': represent the 'indepent variable' 
+        . y='y': represent the 'dependet variable' 
+        . s=nbr: represent the size of the plot dots 
+        . c='color': the 'color' of the 'dots'
+
+    # NOTE:----------------------------------------------------------
+    # Histograms are really good of showing distribution of variables
+
+  > [ Histogram: ]
+
+  # REVISION:-------------------------------------------------------------------
+  # A histogram is a type of graph that shows the 'distribution of a dataset',
+  # It looks similar to a 'bar graph' but it is used for 'continuous'
+  # numerical data rather than categories.
+
+    >> [ df.plot(kind='hist', bins=10) ]
+
+        . "kind='hist'": Specifies a histogram plot
+        . 'bins=10' (default): Number of intervals to divide the data into 
+
+  > [ Box Plot: ]
+
+  # REVISION:-------------------------------------------------------------------
+  # - 'Box plot' is a powerful way to visualize 'distribution', 'spread', and
+  #   'outliers' in dataset
+  # - 'box plot' is a graphical summary of data that shows:
+  #   . 'The center' (median)
+  #   . 'The spread' (range and interquartile range) 
+  #   . 'the shape' (symmetry or skewness)
+  #   . 'Outliers' 
+
+    >> [ df.plot(kind='box') ]
+
+
+  > [ Area: ]
+    # ERROR:> READ About if you need to 
+
+  > [ Pie Chart: ]
+
+  # REVISION:-------------------------------------------------------------------
+  # - Pie Chart are used to 'summarize a distibution' of categorical 
+  #   variables (level of measurment <nominal>)
+  # - Bar Grpah is used in case of large data 
+  # > Purpose:
+  #   . Showing 'percentage'
+  #   . Highlighting difference in quantity across groups.
+  #   . When the goal is to                      
+  #   . visualize 'how a whole is'
+  #   . 'divided' into parts
+
+    >> [ df.plot(how'pie', y='y', figsize=(nbr)) ] <<
+
+        . y='y': 'y' is the input feature/column to chart 
+        . figsize=(nbr): defines chart size
+
+
+# TIP:-----------------------------------------
+# - You can style visuals (plt.sytle.available)
+# - Read About styling when you need to 
+# ---------------------------------------------

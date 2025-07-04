@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/04 01:23:25 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/04 01:40:24 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -332,7 +332,7 @@ Feature scaling & Encoding  |
   # - pd.set_option('display.max_columns', nbr/None) is used to display a nbr
   #   of columns (None to display all columns)
 
-===[ DataFrame Exploring:  ]====================================================
+===[ Data Understanding:  Quick Overview ]======================================
     - 'df.info()': used to get a 'concis summary' of a 'Pandas DataFrame', It is
       very helpful for 'understanding the structure' of your dataset quickly.
     - 'df.head(nbr=5)': used to display the 'nbr' from the 'head' of 'DataFrame' 
@@ -363,7 +363,7 @@ Feature scaling & Encoding  |
                      'False' > (simply define if you want to change the object
                      itself or not)
 
-===[ Data Manipulation: Filtering and Ordering (preprocessing) ]================
+===[ Data Manipulation: Filtering and Ordering ]================================
  
 ===[ Filtering: ]===
   - 1|> "df[df['x'] > y]": (boolean indexing) returns all the the 'cases/'
@@ -426,8 +426,6 @@ Feature scaling & Encoding  |
   #     #  TIP: convert boolean mask to positions (integers) to use it with
   #     #       iloc[]
 
-
-
 ===[ Ordering: ]===
   5|> "df.sort_values(by=['label1', ...], ascending=[True, ...])", Is used to
     'sort a DataFrame or Series by one or more columns (or by its values)'
@@ -438,7 +436,7 @@ Feature scaling & Encoding  |
       'labels, not by column values'
 
 
-===[ Data Manipulation: Indexing (preprocessing) ]==============================
+===[ Data Manipulation: Indexing ]==============================================
 * 'Index': is an object that stores all axis labels for all pandas objects 
 
   1|> "df.loc['x']": is a powerful method for 'label-based selection' in pandas  
@@ -513,7 +511,7 @@ Feature scaling & Encoding  |
 # |            | condition                         | of data                   |
 # |____________|___________________________________|___________________________|
 
-===[ Group by <groupby()> && Aggregation<agg()>: ]==============================
+===[ Data Manipulation: Grouping & Aggregation ]================================
 * 'groupby()' function in Pandas is used to 'split data' into 'groups based' on
   'one or more keys (column values)', 'apply' a function (e.g 'sum', 'mean',
   'count') and then 'combine' the results into a 'new DataFrame', This process
@@ -567,7 +565,7 @@ Feature scaling & Encoding  |
       })
 
   # INFO:[ Use cases: ]-------------------------------
-  # - Cusom summary statistics
+  # - Custom summary statistics
   # - aggregating different columns differently
   # - grouped aggregations (used with groupby() often)
 
@@ -620,7 +618,7 @@ Feature scaling & Encoding  |
 #   data, it's called a 'mask' because it reveals only the elements where the 
 #   condition is true
 
-===[ Data Manipulation/Transformation: combining operations ]===
+===[ Data Manipulation: combining operations ]===
 
 ===[ Mergin: 'pandas.merge()']===
 * 'pandas.merge()' is used to 'combine two dataframes' based on one or more
@@ -1039,5 +1037,20 @@ Feature scaling & Encoding  |
       - Custom transformations
 
 ===[ Explotary Data Analysis: ]=================================================
+* 'EDA' is a 'practical data exploration process' in 'data science' to: 
+  >> Explore you data 'understand it', 'spot patterns', 'identify problems', and
+     'form hypotheses' <<
+-  EDA uses 'tools from descriptive statistics' + visualization + your judgment.
+
+> [ Analogy: ]
+  - 'Statistics si the toolbox'
+  - 'EDA is the process' where you 'open the toolbox', 'try tools' and explore 
+    the data to 'understand what is inside'.
 
 ===[ Data Transformation: Preprocessing ]=======================================
+
+# NOTE:-------------------------------------------------------------------------
+# Feature Scaling, Feature Engineering and Encoding are very well explained in
+# the ml_model file > machine learning models theory
+
+# QUESTION:> How to to apply Data Transforamtion in pandas (Data manipulation)

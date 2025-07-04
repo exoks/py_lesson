@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/03 17:09:56 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/04 01:23:25 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -17,65 +17,79 @@
   'serveral key stages' in a pipeline, These steps are crucial for ensuring the
   model receives 'clean', 'structured', and 'meaningful data':
 
-  1|> [ Data Collection: ] 
-      * 'Gather' data from different sources: 
-        - Databases(SQL, NOSQL)
+1|> [ Data Collection ]
+    * 'Gather' raw data from various sources:
+        - Databases (SQL, NoSQL)
         - APIs
-        - CSV/Excel Files
+        - CSV/Excel files
         - Web scraping
-        - Sensors, logs, etc
+        - Sensors, logs, etc.
 
-  2|> [ Data Cleaning: ] 
-      * 'Fix or remove, corrupted, duplicate, or missing data': 
-        - Handle 'missing' values (e.g, file, drop, interpolate)
-        - Remove 'duplicates'
-        - Correct insconsistent formatting
-        - Handle 'outliers' or 'noise'
-        - 'Normalize' inconsistent units 
+2|> [ Data Cleaning ]
+    * 'Fix' or 'remove' 'corrupted', 'duplicate', or 'missing data':
+        1. 'Understand' the data (basic dataset check)
+        2. 'Remove duplicates'
+        3. Handle 'missing values' (e.g., fill, drop, interpolate)
+        4. 'Fix inconsistent formats' (e.g., capitalization, date formats)
 
-  3|> [ Data Transformation: (Preprocessing) ]
-      * 'Convert data' into a 'suitable format':
-        - 'Encoding': categorical varibales (e.g, one-hot, label encoding) 
-        - 'Feature Scaling': normalization or standardization 
-
-  4|> [ Exploratory Data Analysis (EDA) ] 
-      * Analyze and visualize data to understand its structure
+3|> [ Exploratory Data Analysis (EDA) ]
+    * 'Analyze' and 'visualize' data to uncover insights:
+        - Summary statistics (mean, median, std)
         - Histograms, boxplots, scatter plots
         - Correlation matrix
-        - Summary statistics (mean, median, std) 
-        - find patterns, trends, anomalies
-  
-  5|> [ Feature Engineering: ]
-      * 'Create' new features or 'transform' existing onces to improve model
-        performance:
-        - Polynomial features 
-        - Interaction terms
-        - Log transforms
-        - Aggregation (e.g, mean, sum per group)
+        - Identify patterns, trends, and anomalies
+        - 'Detect outliers'
 
-  6|> [ Data Splitting: ]
-      * Split data into subsets: 
+4|> [ Data Transformation (Preprocessing) ]
+    * Convert data into a suitable format for modeling:
+        - 'Encoding categorical' variables (e.g., one-hot, label encoding)
+        - 'Feature scaling' (e.g., normalization, standardization)
+        - Handle 'outliers' or reduce 'noise'
+    > [ Feature Engineering ]
+    * 'Create' new features or transform existing ones to improve model
+      performance:
+        - Polynomial features
+        - Interaction terms
+        - Log transformations
+        - Aggregated features (e.g., group-based mean, sum)
+
+5|> [ Data Splitting: ]
+    * Split data into subsets: 
         - 'Training set': to train the model
         - 'Validation set': to tune parameters (optional)
         - 'Test set': to evaluate model performance
 
+# INFO:-------------------------------------------------------------------------
+# - As you can see the boundaries between these stages are not always strict:
+# * Case: 1 
+#   Data Collection => Data Cleaning  => modeling
+# * Case: 2 
+#   Data Collection => Data Cleaning (early step) => Data Transforamtions
+#   (main stage of preprocessing EDA) => Feature engineering (advanced
+#   preprocessing) 
+# * Case: 3
+#   Data Collection => Data Cleaning => EDA => data Transformation (feature
+#   engineering is part from data Transformation) => modeling  
+# ...
+
 ===[ Summary: ]===
 
-    Raw Data 
-       ↓
-  Data Collection 
+  Data Collection              
        ↓
   Data Cleaning 
        ↓
-Preprocessing (Transformation & Encoding)
-       ↓
 Exploratory Data Analysis (EDA)
        ↓
-  Feature Engineering 
-       ↓
-  Train-Test Split 
+_____________________________
+       Data Transformation  |- main preprocessing stage
+____________________________|
+Feature scaling & Encoding  |
+       ↓                    |  
+  Feature Engineering       |  
+----------------------------|
        ↓
   Model Training
+
 ================================================================================
 
 ===[ Pandas: ]==================================================================
@@ -730,13 +744,13 @@ Exploratory Data Analysis (EDA)
 # |__________|_______________|____________________________|____________________|
 
 ===[ Pandas Visualization: ]====================================================
-# REVISION:-------------------------------------------------------------------
+# REVISION:---------------------------------------------------------------
 # - Graphs and plots are used in describtive statistics and data sience to
 #   summarize, describe (distribution and contral tendecy), and understand
 #   relationships or correlation between varibales. 
 # - purpose: 
 
-* Pandas ha 'built-in support for plotting', and under the hood, it uses  
+* Pandas has 'built-in support for plotting', and under the hood, it uses  
   'Matplotlib' to generate the visualizations.
 
   > [ Integration of Matplotlib with Pandas: ] 
@@ -845,15 +859,14 @@ Exploratory Data Analysis (EDA)
 
     >> [ df.plot(kind='box') ]
 
-
   > [ Area: ]
     # ERROR:> READ About if you need to 
 
   > [ Pie Chart: ]
 
   # REVISION:-------------------------------------------------------------------
-  # - Pie Chart are used to 'summarize a distibution' of categorical 
-  #   variables (level of measurment <nominal>)
+  # - Pie Chart are used to 'summarize a distibution' of categorical variables 
+  #   (level of measurment <nominal>)
   # - Bar Grpah is used in case of large data 
   # > Purpose:
   #   . Showing 'percentage'
@@ -862,7 +875,7 @@ Exploratory Data Analysis (EDA)
   #   . visualize 'how a whole is'
   #   . 'divided' into parts
 
-    >> [ df.plot(how'pie', y='y', figsize=(nbr)) ] <<
+    >> [ df.plot(kind='pie', y='y', figsize=(nbr)) ] <<
 
         . y='y': 'y' is the input feature/column to chart 
         . figsize=(nbr): defines chart size
@@ -872,3 +885,159 @@ Exploratory Data Analysis (EDA)
 # - You can style visuals (plt.sytle.available)
 # - Read About styling when you need to 
 # ---------------------------------------------
+
+===[ Data Cleaning: ]===========================================================
+  1|> [ Understand the data: ]
+      * Do a 'Basic data check' and use function that 'do not depend on clean'
+        'types'
+        . df.head()
+        . fd.tail()
+        . df.colomuns()
+        . df.shape
+        . df.dtype
+
+      * It will give and idea about the data that you are dealing with:
+        . Samples/observations/cases and input features/labels/variables
+        . Input Feature info (level of measurment categorical, numerical) 
+
+  2|> [ Remove Duplicates: ]
+      - Use drop_duplicates() function to remove duplicates. 
+      >> [ df.drop_duplicates() ] <<
+
+  3|> [ Handle Missings: ]
+      - Handling missings data means 'detecting', 'fixing', or 'removing'
+        'incomplete' or 'null' values in your dataset
+      'Remove' or 'Drop' useful 'columns/input features'
+      - In pandas, missing values are usually represented as:
+        . 'NaN' (Not a number)
+        . 'None'
+        . Custom strings like "N/A", "null", "?"
+      - Detecting Missing Values:
+          df.isna()         # return True for NaN
+          df.isnull()       # Same as isna()
+          df.isna().sum()   # count missing values in each column
+      - Common Ways to Handale Missing Data.
+        1. Remove missing Data 
+           * 'df.dropna()'   # Remove rows with any missing values
+           * 'df.dropna(axis=1)' # Remove columns with any missing value
+           * df[df['x'].notna()] # Removes rows where a specific column is
+                                 # missing
+        2. Fill in (Impute) missing Data
+           * df.fillna(0)
+           * fill with the mean/median/mode of the column
+           * Forward-fill (use previous row) # df.fillna(method='ffill')
+           * Backward-fill (use next row) # df.fillna(method='bfill')
+        3. Replace placeholders with NaN
+           * Sometimes missing data is represetned as strings like: "N/A",
+             "missing", etc
+              - You can convert them to a real 'NaN' 
+                df.replace(['N/A', 'null', '?'], pd.NA, inplace=True)
+              - Or directly when loading the file:
+                pd.read_csv('data.csv', na_values=['N/A', 'null', '?'])
+
+- Strategy depends on:
+    _____________________________________________________________________
+    | Situation                         | Strategy                      |
+    |-----------------------------------|-------------------------------|
+    | Data is missing at random         | Impute using mean/median/mode |
+    | Few missing rows                  | Drop rows (`dropna()`)        |
+    | Missing values mean "none" or "0" | Fill with constant            |
+    | Time series                       | Use forward/backward fill     |
+
+- Summary: 
+    ________________________________________________________
+    | Method                | Description                  |
+    |-----------------------|------------------------------|
+    | `isna()` / `isnull()` | Detect missing values        |
+    | `dropna()`            | Remove missing rows/columns  |
+    | `fillna()`            | Replace missing values       |
+    | `replace()`           | Turn placeholders into `NaN` |
+
+  4|> [ Fix Inconsistent Fromats: ]
+      - 'Inconsistent formatting' refers to when 'the same kind of data' is
+        written in 'different styles or formats' across a dataset.
+      - Correcting it is a key part of 'data cleaning', making your data
+        'uniform and standardized'
+
+      # INFO:
+      # - 'inconsistent' (adj)  غير متسق
+      #   ex: inconsistent person
+      
+      > [ Examples: ]
+        _________________________________________________________________________
+        | Problem Type   | Example                          | Corrected         |
+        |----------------|----------------------------------|-------------------|
+        |-Text case      |-`"USA"`, `"usa"`, `"Usa"`        |-`"USA"`           |
+        |-Date format    |-`"01/02/2025"` vs `"2025-02-01"` |-`"2025-02-01"`    |
+        |-Currency       |-`"$1,000"` vs `"1000"`           |-`1000.0`          |
+        |-Whitespace     |-`"New York "` vs `" New York"`   |-`"New York"`      |
+        |-Missing values |-`"N/A"`, `"null"`, `""`, `NaN`   |-`np.nan` or       |
+        |                |                                  | consistent `None` |
+        |-Column names   |-`"First Name"` vs `"first_name"` |-`"first_name"`    |
+        |                |  vs `"firstname"`                |                   |
+        |________________|__________________________________|___________________|
+
+      > [ Tasks: ]
+        ______________________________________________________________________
+        | Task              | Goal                                           |
+        |-------------------|------------------------------------------------|
+        |-Fix text case     |-`.str.lower()`, `.str.upper()`, `.str.title()` |
+        |-Strip spaces      |-`.str.strip()` (spaces and custom characters)  |
+        |-Unify date format |-`pd.to_datetime()`                             |
+        |-Rename columns    |-`df.columns = [...]` or `df.rename()`          |
+        |-Clean symbols     |-`.str.replace()` (e.g., remove `$` or `,`)     |
+        |___________________|________________________________________________|
+
+  |> 'df.str.strip()': is a 'string method' used in pandas (and python) to 'remove' 
+     'whitespace or characters from the beginning and end of strings'
+    # INFO:-----------------------------------------------------------
+    # - Stripe (noun): a strip on the surface of something that is different
+    #   colour from the surrounding surface:
+    #   . The zebra is wild African horse with baclk and white stripes.
+
+  |> 'df.str.split()': function is used to 'split strings' in a Series
+      'into lists or substrings', based on a 'delimiter (separator)' 
+
+  >> [ Series.str.split(pat=None, n=-1, expand=False) ] <<
+    
+      . 'pat=None': The delimiter to split on (space, comma, ...), Default
+        (any white space)
+      . 'n=-1': Max number of splits, default -1 => no limit
+      . 'expand', If 'True' splits into 'separate columns (DataFrames)',
+        otherwise return 'lists'.
+
+    > [ Use Cases: ]
+      - Splitting full names into first/last or address, etc
+  |> 'df.str.replace()': function is used to 'replace characters or substrings'
+     in 'string values of a Series or DataFrame column', It is useful for
+     'cleaning textual data (ing inconsistent formatting)'
+
+    >> [ df.str.replace(pat, repl, n=-1, case=None, regex=True) ] <<
+
+    . 'pat': the 'pattern (string or regex)' to replace
+    . 'repl': the replacement string
+    . 'n=-1': number of replacement to make, -1 is the default => replace all
+    . 'case=None': Whether to match case when 'regex=True', default 'None'
+      depends on regex flags
+    . 'regex=True': Whether 'pat' is regular expression (default: 'True')
+  
+  |> 'Series.apply()': function is used to 'apply a function to each element'
+      (or row/column) of 'Series or DataFrame', It is a 'powerful and flexible'
+      'tool' for transforming data. 
+
+
+      [[ Series.apply(func)                 ]]
+      [[ DataFrame.apply(func, axis=0 or 1) ]]
+      - 'func': The function to apply.
+      - 'axis': Only for DataFrames.
+          . 'axis=0': apply to columns (default)
+
+          . 'axis=1': apply to rows
+
+    > [ Use Cases: ]
+      - Cleaning or formatting text
+      - Custom transformations
+
+===[ Explotary Data Analysis: ]=================================================
+
+===[ Data Transformation: Preprocessing ]=======================================

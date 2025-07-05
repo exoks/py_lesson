@@ -5,17 +5,53 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/04 01:40:24 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/05 17:28:10 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
 #  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
 #  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
 
-# ===[ General Information: ]===================================================
+===[ Index: ]===================================================================
+1|> Data Sience Live Cycle
+    . Data Collection 
+    . Data Cleaning
+    . EDA (Exploratry Data Analysis)
+    . Data Transformation (Encoding & Feature Scaling)
+    . Feature Engineering 
+2|> Pandas General Infos 
+3|> Reading Data Files 
+4|> Data Manipulations 
+    . Label Managment/Index Manipulation  
+    . Filtering & Ordering
+      - Filtering: 'Boolean Indexing', '.isin()', '.filter()', '.str.contains()' 
+      - Ordering: '.sort_values()', '.sort_index()'
+    . Indexing ('loc[]' and 'iloc[]')
+    . Grouping & Aggregation
+      - Grouping: 'groupby()'
+      - Aggregation: (Statistics Operations) 'mean()', 'std()', 'max()', etc 
+    . Combining Operations
+      - '.merge()'  => Column-Based Joining / Relational Joins (SQL Style)
+      - '.join()'   => Index-Based Joining 
+      - '.contat()' => DataFrames Stacking
+5|> Data Visualization '.plot()'
+6|> Data Understading 
+7|> Data Cleaning
+8|> Exploratry Data Analysis (EDA)
+
+===[ Data Science Live Cycle: ]=================================================
 * In 'Data Science before training a model', The data typically goes through
   'serveral key stages' in a pipeline, These steps are crucial for ensuring the
   model receives 'clean', 'structured', and 'meaningful data':
+
+             ||==> Identify Problem => Data mining==||
+             ||                                     ||
+Data visualization          Data Sience        Data Cleaning
+             ||             Live Cycle              ||
+Predective modeling                            EDA (Data Exploration Analysis)
+             ||                                or Exploratry Data Analysis 
+             ||                                     ||
+             ||========Feature engineering <========|| 
 
 1|> [ Data Collection ]
     * 'Gather' raw data from various sources:
@@ -80,13 +116,10 @@
        ↓
 Exploratory Data Analysis (EDA)
        ↓
-_____________________________
-       Data Transformation  |- main preprocessing stage
-____________________________|
-Feature scaling & Encoding  |
-       ↓                    |  
-  Feature Engineering       |  
-----------------------------|
+  Data Transformation
+(Feature scaling & Encoding) 
+       ↓ 
+  Feature Engineering 
        ↓
   Model Training
 
@@ -202,6 +235,12 @@ Feature scaling & Encoding  |
     # values -> array([10, 20, 30]) 
     # index  -> Index(['a', 'b', c]) => Labels
 
+# CONCLUSION:-------------------------------------------------------------------
+# - A series is, in essence, a single column of a DataFrame, So you can assign
+#   row labels to the Series the same way as before, using an index parameter,
+#   However, a Series does not have a column name, it only has one overall name. 
+#
+
 ===[ DataFrame: ]===
 * A 'DataFrame' is a 'two-dimensional labeled data structure' (like a table or
   spreadsheet).
@@ -297,17 +336,34 @@ Feature scaling & Encoding  |
         +----------------+   +----------------+
 
 
-===[ Reading in file: ]=========================================================
-* As the first step made is to read a dataset from a file to dataframe
-  (.csv, .text, .json)
+===[ Reading Data Files: ]======================================================
+* Being able to create a DataFrame or Series by hand is handy. But, most of
+  the time, we won't actually be creating our own data by hand. Instead,
+  we will be working with data that alreasdy exist
+  - Data can be stored in any of a number of different forms and formats. By far
+    the most basic of these is the humbles CSV file, when you open as `CSV` file
+    you get something that looks like this: 
+
+   | Product A,Product B,Product C, |
+   | 30,21,9,                       |
+   | 35,34,1,                       |
+   | 41,11,11                       |
+   
+  - So a CSV file is a table of values separated by commas, Hence the name
+    "comma-Seprated Values", or CSV
 
   1|> "pd.read_csv(r'file_path')" this function is used to read in 'csv files' 
  
     . header=: (optional) It is used for input feature labels 
                       Ex: 'header=None' removes the labels and use index instead 
     . names=[inputfeature1, inputfeature2, ...], this function can be used also 
-    . index_col='x': you can define the index labels of samples/observations 
+    . index_col=X: you can define the index labels of samples/observations 
                      cases.
+                   - X: can be and index of column as 'integer' or
+                        'column name' as a string. 
+
+   |> [ df.to_csv('saved_file.csv', index=True) ]: is used to 'save' a DataFrame
+      as a 'CSV file'.
 
     # REVISION:----------------------------------------------------------------
     # - '\', ":",  are still special characthere until you till python to deal
@@ -318,6 +374,7 @@ Feature scaling & Encoding  |
     # - df is the standard name of the dataset red from a file
 
     . sep='separator': defines the separator between input features. 
+    . index_col='0': You can define the index col instead of [0, 1, 3, ...]
 
   2|> 'pandas.read_table(data.txt)' this function is used to read a txt files 
 
@@ -332,15 +389,7 @@ Feature scaling & Encoding  |
   # - pd.set_option('display.max_columns', nbr/None) is used to display a nbr
   #   of columns (None to display all columns)
 
-===[ Data Understanding:  Quick Overview ]======================================
-    - 'df.info()': used to get a 'concis summary' of a 'Pandas DataFrame', It is
-      very helpful for 'understanding the structure' of your dataset quickly.
-    - 'df.head(nbr=5)': used to display the 'nbr' from the 'head' of 'DataFrame' 
-    - 'df.tail(nbr=5)': used to display the 'nbr' from the 'tail (end)' of
-                        'DataFrame' 
-    - 'df.shape': shape of the 'DataFrame (dimensions)' 
-
-===[ Data Manipulation: Index Manipulation / Label Management ]=================
+===[ Data Manipulation: Index Manipulation/Label Management ]===================
   1|> 'df.set_index()': is used to 'change the index' of a DataFrame to one or
       more existing columns. 
 
@@ -746,7 +795,6 @@ Feature scaling & Encoding  |
 # - Graphs and plots are used in describtive statistics and data sience to
 #   summarize, describe (distribution and contral tendecy), and understand
 #   relationships or correlation between varibales. 
-# - purpose: 
 
 * Pandas has 'built-in support for plotting', and under the hood, it uses  
   'Matplotlib' to generate the visualizations.
@@ -884,6 +932,15 @@ Feature scaling & Encoding  |
 # - Read About styling when you need to 
 # ---------------------------------------------
 
+===[ Data Understanding:  Quick Overview ]======================================
+    - 'df.info()': used to get a 'concis summary' of a 'Pandas DataFrame', It is
+      very helpful for 'understanding the structure' of your dataset quickly.
+    - 'df.head(nbr=5)': used to display the 'nbr' from the 'head' of 'DataFrame' 
+    - 'df.tail(nbr=5)': used to display the 'nbr' from the 'tail (end)' of
+                        'DataFrame' 
+    - 'df.shape': shape of the 'DataFrame (dimensions)' 
+
+
 ===[ Data Cleaning: ]===========================================================
   1|> [ Understand the data: ]
       * Do a 'Basic data check' and use function that 'do not depend on clean'
@@ -988,7 +1045,7 @@ Feature scaling & Encoding  |
 
   |> 'df.str.strip()': is a 'string method' used in pandas (and python) to 'remove' 
      'whitespace or characters from the beginning and end of strings'
-    # INFO:-----------------------------------------------------------
+    # INFO:-----------------------------------------------------------------
     # - Stripe (noun): a strip on the surface of something that is different
     #   colour from the surrounding surface:
     #   . The zebra is wild African horse with baclk and white stripes.
@@ -1023,7 +1080,6 @@ Feature scaling & Encoding  |
       (or row/column) of 'Series or DataFrame', It is a 'powerful and flexible'
       'tool' for transforming data. 
 
-
       [[ Series.apply(func)                 ]]
       [[ DataFrame.apply(func, axis=0 or 1) ]]
       - 'func': The function to apply.
@@ -1038,16 +1094,22 @@ Feature scaling & Encoding  |
 
 ===[ Explotary Data Analysis: ]=================================================
 * 'EDA' is a 'practical data exploration process' in 'data science' to: 
-  >> Explore you data 'understand it', 'spot patterns', 'identify problems', and
-     'form hypotheses' <<
--  EDA uses 'tools from descriptive statistics' + visualization + your judgment.
+
+    >>[ Explore your data 'understand it', 'spot patterns', ]<< 
+    >>[ 'identify problems', and 'form hypotheses'          ]<<
+
+- 'EDA' = 'tools from descriptive statistics' + 'visualization' + 'Exploration' 
 
 > [ Analogy: ]
-  - 'Statistics si the toolbox'
+  - 'Statistics si the toolbox'.
   - 'EDA is the process' where you 'open the toolbox', 'try tools' and explore 
     the data to 'understand what is inside'.
+# CONCLUSION:> EDA is summarizing and analysing the data
 
-===[ Data Transformation: Preprocessing ]=======================================
+  => df.describe()
+  => df.isnull()
+
+===[ Data Transformation: (Preprocessing) ]=======================================
 
 # NOTE:-------------------------------------------------------------------------
 # Feature Scaling, Feature Engineering and Encoding are very well explained in

@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/05 17:28:10 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/05 18:54:30 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -27,6 +27,8 @@
       - Filtering: 'Boolean Indexing', '.isin()', '.filter()', '.str.contains()' 
       - Ordering: '.sort_values()', '.sort_index()'
     . Indexing ('loc[]' and 'iloc[]')
+      - loc[]: 'Label-Based Selection'
+      - iloc[]: 'Index-Based Selection'
     . Grouping & Aggregation
       - Grouping: 'groupby()'
       - Aggregation: (Statistics Operations) 'mean()', 'std()', 'max()', etc 
@@ -414,7 +416,7 @@ Exploratory Data Analysis (EDA)
 
 ===[ Data Manipulation: Filtering and Ordering ]================================
  
-===[ Filtering: ]===
+===[ Filtering: Conditional Selection ]===
   - 1|> "df[df['x'] > y]": (boolean indexing) returns all the the 'cases/'
         'samples/observations' that have an input feature 'x' greater (`>`) than
         'y'.
@@ -448,17 +450,33 @@ Exploratory Data Analysis (EDA)
         . 'items=': get a list of items (row labels or column labels)
         . 'like=': like="x", brings all labels that contains 'x' as part from
                    the names. 
+
+  5|> 'isnull()' and 'notnull()': let's you high light values which are (or are not)
+                                  empty (NaN) 
+
+      # NOTE:----------------------------------------------------------
+      # It does generate a boolean mask
+
+  # CONCLUSION:===========================================================
+  # - We can do filtering (conditional Selection) using two methods: 
+  #   1|> Boolean Indexing: Use Camparison and Logical Operators 
+  #   2|> Built-in functions: 'filter()', 'str.contains()', '.isin()'  
+  #                           'isnull()', 'notnull()', etc
+
    > [ Summary: ]
-      _____________________________________________________________________
-      | Method            | Returns | Uses     | Type of Filtering        |
-      |                   | Boolean | Boolean  |                          |
-      |                   | Mask    | Indexing |                          |
-      |-------------------|---------|----------|--------------------------|
-      | `.isin()`         | ✅ Yes  | ✅ Yes   | Value-based filtering    |
-      | `.str.contains()` | ✅ Yes  | ✅ Yes   | String pattern filtering |
-      | `.filter()`       | ❌ No   | ❌ No    | Label-based (column/row) |
-      |                   |         |          | filtering                |
-      |___________________|_________|__________|__________________________|
+      _______________________________________________________________________
+      | Method            | Returns | Uses     | Type of Filtering          |
+      |                   | Boolean | Boolean  |                            |
+      |                   | Mask    | Indexing |                            |
+      |-------------------|---------|----------|----------------------------|
+      | `.isin()`         | ✅ Yes  | ✅ Yes   | Value-based filtering      |
+      | `.str.contains()` | ✅ Yes  | ✅ Yes   | String pattern filtering   |
+      | `.isnull()`       | ✅ Yes  | ✅ Yes   | Missing value filtering    |
+      | `.notnull()`      | ✅ Yes  | ✅ Yes   | Non-missing value filtering|
+      | `.filter()`       | ❌ No   | ❌ No    | Label-based (column/row)   |
+      |                   |         |          | filtering                  |
+      |___________________|_________|__________|____________________________|
+
 
   # TIP:[ fd.loc[] & df.iloc[] as filters ]-------------------------------------
   # - fd.loc[] and df.iloc[] are indexer but they can be used as filters if you 
@@ -499,13 +517,17 @@ Exploratory Data Analysis (EDA)
 
         df.loc[start_row_lebale:end_row_label, start_col_label: end_col_label]
 
-  2|> "df.iloc[]": is used for 'position-based indexing', It lets you select rows
-                 and columns by 'integer location', just like you would with
-                 python lists
+        # NOTE:-------------------------------------- 
+        # - end_row_label/end_col_label are Inclusive
+
+  2|> "df.iloc[]": is used for 'label-based selection', It lets you select rows
+                   and columns by 'integer location', just like you would with
+                   python lists.
 
     # NOTE:------------------------------------------------------------------
-    # 'loc' and 'iloc' can be used for filtering, but only when combined with
+    # - 'loc' and 'iloc' can be used for filtering, but only when combined with
     # 'boolean indexing'.
+    # - end_row_index/end_col_index are exclusive
 
       # INFO:------------------------------
       # - loc: stands for LOCation

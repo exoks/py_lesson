@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/05 18:54:30 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/07 23:06:42 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -23,15 +23,16 @@
 3|> Reading Data Files 
 4|> Data Manipulations 
     . Label Managment/Index Manipulation  
-    . Filtering & Ordering
+    . Filtering (Conditional Selection) & Ordering
       - Filtering: 'Boolean Indexing', '.isin()', '.filter()', '.str.contains()' 
       - Ordering: '.sort_values()', '.sort_index()'
-    . Indexing ('loc[]' and 'iloc[]')
+    . Indexing: Selection ('loc[]' and 'iloc[]')
       - loc[]: 'Label-Based Selection'
       - iloc[]: 'Index-Based Selection'
     . Grouping & Aggregation
       - Grouping: 'groupby()'
       - Aggregation: (Statistics Operations) 'mean()', 'std()', 'max()', etc 
+    . Maping: '.map()', '.apply' and '.replace()'
     . Combining Operations
       - '.merge()'  => Column-Based Joining / Relational Joins (SQL Style)
       - '.join()'   => Index-Based Joining 
@@ -241,7 +242,6 @@ Exploratory Data Analysis (EDA)
 # - A series is, in essence, a single column of a DataFrame, So you can assign
 #   row labels to the Series the same way as before, using an index parameter,
 #   However, a Series does not have a column name, it only has one overall name. 
-#
 
 ===[ DataFrame: ]===
 * A 'DataFrame' is a 'two-dimensional labeled data structure' (like a table or
@@ -357,7 +357,7 @@ Exploratory Data Analysis (EDA)
   1|> "pd.read_csv(r'file_path')" this function is used to read in 'csv files' 
  
     . header=: (optional) It is used for input feature labels 
-                      Ex: 'header=None' removes the labels and use index instead 
+              > Ex: 'header=None' removes the labels and use index instead
     . names=[inputfeature1, inputfeature2, ...], this function can be used also 
     . index_col=X: you can define the index labels of samples/observations 
                      cases.
@@ -369,7 +369,7 @@ Exploratory Data Analysis (EDA)
 
     # REVISION:----------------------------------------------------------------
     # - '\', ":",  are still special characthere until you till python to deal
-    # with them as a row string
+    #   with them as a row string
     # - What makes 'DataFrame' different is having labels 
 
     # TIP:----------------------------------------------------
@@ -385,18 +385,20 @@ Exploratory Data Analysis (EDA)
   4|> 'pandas.read_excel(data.xlsx, sheet_name='')': used for excel files
 
 
-  # INFO:----------------------------------------------------------------------
+  # INFO:-----------------------------------------------------------------------
   # - pd.set_option('display.max.rows', nbr/None): is used to display a nbr of
   #   rows
   # - pd.set_option('display.max_columns', nbr/None) is used to display a nbr
   #   of columns (None to display all columns)
 
-===[ Data Manipulation: Index Manipulation/Label Management ]===================
+===[ Data Manipulation: ]=======================================================
+
+===[ Data Manipulation: Index Manipulation/Label Management ]===
   1|> 'df.set_index()': is used to 'change the index' of a DataFrame to one or
-      more existing columns. 
+      more existing columns.
 
       > Ex:
-          df.set_index('x'): 'x' is the input feature label 
+          df.set_index('x'): 'x' is the input feature label
 
   2|> 'df.reset_index()' is used to 'reset the index' of a 'DataFrame' back to
       the default (0, 1, 2, ...) 
@@ -408,15 +410,13 @@ Exploratory Data Analysis (EDA)
         >>> [ df.reset_index(level=None, drop=False, inplace=False) ] <<<
 
         . 'level': (opt) specify index level(s) to reset for 'multiIndex'
-        . 'drop': If 'True, do not insert the index' into DataFrame as a column 
+        . 'drop': If 'True, do not insert the index' into DataFrame as a column
           . Default is 'False'
         . 'inplace': If 'True', modify the DataFrame in-place. Default is
                      'False' > (simply define if you want to change the object
                      itself or not)
 
-===[ Data Manipulation: Filtering and Ordering ]================================
- 
-===[ Filtering: Conditional Selection ]===
+===[ Data Manipulation: Filtering: Conditional Selection ]===
   - 1|> "df[df['x'] > y]": (boolean indexing) returns all the the 'cases/'
         'samples/observations' that have an input feature 'x' greater (`>`) than
         'y'.
@@ -432,13 +432,13 @@ Exploratory Data Analysis (EDA)
       DataFrame or Series 'exist in a list or another set values'. It returns a
       'Boolean Mask', `True` if the element 'is in' the given list, else `False`
 
-      # NOTE:----------------------------------------------------------
+      # NOTE:--------------------------
       # It does generate a boolean mask
     
   3|> "df['x'].str.contains()": method is used to 'check if a string column'
       'contains a certain substring or pattern' (using regex by default)
 
-      # NOTE:----------------------------------------------------------
+      # NOTE:--------------------------
       # It does generate a boolean mask
 
   4|> 'df.filter()': is used to 'select specific rows or columns' based on
@@ -451,19 +451,20 @@ Exploratory Data Analysis (EDA)
         . 'like=': like="x", brings all labels that contains 'x' as part from
                    the names. 
 
-  5|> 'isnull()' and 'notnull()': let's you high light values which are (or are not)
-                                  empty (NaN) 
+  5|> 'isnull()' and 'notnull()': let's you high light values which are
+                                  (or are not) empty (NaN).
+                                  - Missing Data Selection.
 
-      # NOTE:----------------------------------------------------------
+      # NOTE:--------------------------
       # It does generate a boolean mask
 
-  # CONCLUSION:===========================================================
+  # CONCLUSION:=================================================================
   # - We can do filtering (conditional Selection) using two methods: 
   #   1|> Boolean Indexing: Use Camparison and Logical Operators 
   #   2|> Built-in functions: 'filter()', 'str.contains()', '.isin()'  
   #                           'isnull()', 'notnull()', etc
 
-   > [ Summary: ]
+  > [ Summary: ]
       _______________________________________________________________________
       | Method            | Returns | Uses     | Type of Filtering          |
       |                   | Boolean | Boolean  |                            |
@@ -487,26 +488,25 @@ Exploratory Data Analysis (EDA)
   #     # fd['x'] > y: is a boolean indexing technique that generates a boolean
   #     # mask that can be used with loc[] or iloc[]
   #
-  #     # NOTE:--------------------------------------------------------------
+  #     # NOTE:-----------------------------------------------------------------
   #     # - boolean mask tells the loc wich columns or rows to keep
   #     # - You can't use iloc directly with boolean mask. use iloc[] instead
-  #     #  TIP: convert boolean mask to positions (integers) to use it with
-  #     #       iloc[]
+  #     #  TIP: convert boolean mask to positions (integers) to use it with iloc
 
-===[ Ordering: ]===
+===[ Data Manipulation: Ordering: ]===
   5|> "df.sort_values(by=['label1', ...], ascending=[True, ...])", Is used to
     'sort a DataFrame or Series by one or more columns (or by its values)'
 
 [df.sort_values(by, axis=0, ascending=True, inplace=False, na_position='last') ]
 
-  6|> 'df.sort_index()': is used to 'sort a DataFrame or Series by its index' 
+  6|> 'df.sort_index()': is used to 'sort a DataFrame or Series by its index'
       'labels, not by column values'
 
 
-===[ Data Manipulation: Indexing ]==============================================
-* 'Index': is an object that stores all axis labels for all pandas objects 
+===[ Data Manipulation: Indexing ]===
+* 'Index': is an object that stores all axis labels for all pandas objects
 
-  1|> "df.loc['x']": is a powerful method for 'label-based selection' in pandas  
+  1|> "df.loc['x']": is a powerful method for 'label-based selection' in pandas 
                    It allows you to 'access rows and columns by their labels',
                    not by position (use iloc for that)
 
@@ -524,9 +524,9 @@ Exploratory Data Analysis (EDA)
                    and columns by 'integer location', just like you would with
                    python lists.
 
-    # NOTE:------------------------------------------------------------------
+    # NOTE:--------------------------------------------------------------------
     # - 'loc' and 'iloc' can be used for filtering, but only when combined with
-    # 'boolean indexing'.
+    #   'boolean indexing'.
     # - end_row_index/end_col_index are exclusive
 
       # INFO:------------------------------
@@ -535,7 +535,7 @@ Exploratory Data Analysis (EDA)
 
       >> [ df.iloc[start_row_idx: end_row_idx, start_col_idx: end_row_idx] ] <<
 
-  # NOTE:-------------------------------------------------------------------
+  # NOTE:----------------------------------------------------------------------
   # loc[] and iloc[] are Similar techniques to indexing and slicing in NumPy
 
   . You can pass 'integers', 'lists of integers', 'slices', or 'boolean masks'.
@@ -582,11 +582,20 @@ Exploratory Data Analysis (EDA)
 # |            | condition                         | of data                   |
 # |____________|___________________________________|___________________________|
 
-===[ Data Manipulation: Grouping & Aggregation ]================================
-* 'groupby()' function in Pandas is used to 'split data' into 'groups based' on
-  'one or more keys (column values)', 'apply' a function (e.g 'sum', 'mean',
-  'count') and then 'combine' the results into a 'new DataFrame', This process
-  is known as 'the Split-Apply-Combine' strategy.
+===[ Data Manipulation: Grouping & Aggregation ]===
+* 'groupby()' function in Pandas is used to 'split data' into 'groups based'
+  '(subgroups)' on 'one or more keys (column values)', 'apply' a function (e.g
+  'sum', 'mean', 'count') and then 'combine' the results into a 'new DataFrame',
+  This process is known as 'the Split-Apply-Combine' strategy.
+  - Instead of 'applying operations' on 'column or rows', you can 'apply' it
+    on group 'based on keys (column values)'.
+
+  - 'groupby()' return a special object 'DataFrameGroupBy', It is a
+    'Lazy object'
+
+  # NOTE:-----------------------------------------------------------------
+  # This is a personal Note, When grouping by any keys/columns, it becomes
+  # the index of the DataFrame
 
   # INFO:> grouping can be classified under a 'data manipulation category' 
   
@@ -603,13 +612,23 @@ Exploratory Data Analysis (EDA)
     | `.agg()`   | Custom or multiple aggregations  |
     |____________|__________________________________|
 
+    # INFO:-----------------------------------------------------------------
+    # - .size() in the context of aggregation returns the number of rows for 
+    # each splited group
+    # - It is like telling pandas: 
+    # [ "Hey Pandas, split my DataFrame into groups, and tell me how many" ]
+    # [ "rows are in each group."                                          ]
+    # ERROR:[ size attr & .size() are different ]===========================
+    # size: attr return the full size of DataFrame [ rows * cols ]
+    # .size(): returns the number of rows for each subgroup
+    # ----------------------------------------------------------------------
+
   |> 'pd.agg()': is used to apply 'one or more aggregation functions' to a
       'DataFrame or Series'
 
-    # INFO:> aggregation can be classifed under 'Data summarization/analysis' 
+    # INFO:> aggregation can be classifed under 'Data summarization/analysis'
 
       >> [ df.agg(func, axis=0) ] <<
-        
         . `func`: a function (or list/dict of functions) like 'mean', 'sum', etc
         . `axis=0`: (defautl) apply to 'columns'
         . `axis=1`: (defautl) apply to 'rows'
@@ -643,27 +662,27 @@ Exploratory Data Analysis (EDA)
   |> 'df.describe()': returns 'a quick overview of statistics' for numeric
      columns
 
-  >> [ df.describe(include=None, exclude=None, percentiles=None) ] <<
-    . include='all': include non-numeric columns
-    . exclude='number': exclude numeric
-    . percentiles: specify percentiles to show (e.g. [.25, .5, .75])
+    >> [ df.describe(include=None, exclude=None, percentiles=None) ] <<
+      . include='all': include non-numeric columns
+      . exclude='number': exclude numeric
+      . percentiles: specify percentiles to show (e.g. [.25, .5, .75])
 
-  > [ Exmaple ]
-    # describing the distribution (center tendency (mode, median, mean),
-    # dispersion <range, IQR, std variance, etc)
-    df.describe()
+    > [ Exmaple ]
+      # describing the distribution (center tendency (mode, median, mean),
+      # dispersion <range, IQR, std variance, etc)
+      df.describe()
 
-    # return example
-    #         | A    | B    |
-    # |-------|------|------|
-    # | count | 4.0  | 4.0  |
-    # | mean  | 2.5  | 6.5  |
-    # | std   | 1.29 | 1.29 |
-    # | min   | 1.0  | 5.0  |
-    # | 25%   | 1.75 | 5.75 |
-    # | 50%   | 2.5  | 6.5  |
-    # | 75%   | 3.25 | 7.25 |
-    # | max   | 4.0  | 8.0  |
+      # return example
+      #         | A    | B    |
+      # |-------|------|------|
+      # | count | 4.0  | 4.0  |
+      # | mean  | 2.5  | 6.5  |
+      # | std   | 1.29 | 1.29 |
+      # | min   | 1.0  | 5.0  |
+      # | 25%   | 1.75 | 5.75 |
+      # | 50%   | 2.5  | 6.5  |
+      # | 75%   | 3.25 | 7.25 |
+      # | max   | 4.0  | 8.0  |
 
   # INFO:[ Use cases: ]-------------------------------
   # - Quick look at data distributions 
@@ -689,7 +708,78 @@ Exploratory Data Analysis (EDA)
 #   data, it's called a 'mask' because it reveals only the elements where the 
 #   condition is true
 
-===[ Data Manipulation: combining operations ]===
+===[ Data Manipulation: Maping ]===
+* A 'map' is a term, borrowed from mathematics for a 'function' that
+  'takes on set' of values and 'maps' them to 'another set' of values, In data
+  science we often have a need for creating a new representations from an
+  (feature engineering) existing data, or make 'feature scaling', 'Maps' are
+  what handle this work. 
+
+  1|> 'df[x].map(func)': Apply a function or mapping to 'each element' in a
+      'Series' (Usually one column)
+
+      . 'func': is function that accept one element
+
+    # NOTE:-------------------------------------------------
+    '.map()': - Element-wise transformation on series 
+
+    > Examples:
+      df['gender'] = df['gender'].map({'M': 'Male', 'F': 'Female'})
+      df['score'] = df['score'].map(lambda x: x**2)
+
+  2|> 'DataFrame/Serie.apply(func, axis=)': Apply a custom function 'along a'
+      'row or column' of a 'DataFrame' or 'Series'. 
+
+      . 'func': accept 'rows or column' based on 'axis value'
+      . 'axis=0': apply 'func' on 'columns' 
+      . 'axis=1': apply 'func' on 'rows'
+
+
+    # NOTE:-------------------------------------------------
+    '.apply()': - Flexible row/column-size operation 
+
+    > Example:
+      # On Series
+      [ df['tax'] = df['income'].apply(lambda x: x * 0.2) ]
+      # On DataFrame
+      df['total'] = df.apply(lambda row: row['price'] * row['quantity'], axis=1)
+
+    # INFO:---------------------------------------------------------------------
+    # - .map() and .apply() return a new transformed DataFrame Or Serie, They
+    #   modify the original one.
+
+  3|> 'DataFrame/Serie.Replace()': 'Replace specific values' with others in
+      'Series' or 'DataFrame'. 
+
+    > Examples:  
+      [ df['status'] = df['status'].replace({'P': 'Pending', 'C': 'Complete'}) ]
+
+    # NOTE:---------------------------------------------------
+    '.replace()': - Value substituation in Series or DataFrame
+
+  4|> 'df.fillna()': is used to map only `NaN` values. int the context of
+                     handle/maping missing data
+
+# TIP:==========================================================================
+# |> Use .map() when you’re dealing with a 'single column' and want
+#   'element-wise transformation'
+# |> Use .apply() when you need 'row-level logic' or more 'flexibility'.
+# |> Use .replace() for straightforward 'substitution' (like correcting
+#    categorical values).
+
+> [ Summary: ]
+________________________________________________________________________________
+| Method       | Scope            | Function Type   | Use Case Example         |
+|--------------|------------------|-----------------|--------------------------|
+| `.map()`     | Series only      | Element-wise    |-Mapping codes to labels, |
+|              |                  |                 | simple transformations   |
+| `.apply()`   | Series/DataFrame | Row/col-wise or |-Custom functions across  |
+|              |                  | element-wise    | columns/rows             |
+| `.replace()` | Series/DataFrame | Value           |-Replace values for       |
+|              |                  | substitution    | cleaning or relabeling   |
+|______________|__________________|_________________|__________________________|
+
+===[ Data Manipulation: Combining Operations ]===
 
 ===[ Mergin: 'pandas.merge()']===
 * 'pandas.merge()' is used to 'combine two dataframes' based on one or more
@@ -876,8 +966,8 @@ Exploratory Data Analysis (EDA)
 #
   > [ Bar Plot: ]
 
-  # REVISION:------------------------------------------------------------------- 
-  # Bar Graph and Pie Chart are used to 'summarize a distibution' of categorical 
+  # REVISION:-------------------------------------------------------------------
+  # Bar Graph and Pie Chart are used to 'summarize a distibution' of categorical
   # variables (level of measurment <nominal>)
 
       >> [ pandas.plot(kind='bar', stacked=False) ] <<  
@@ -890,8 +980,8 @@ Exploratory Data Analysis (EDA)
   > [ Scatter Plot: ]
 
   # REVISION:-------------------------------------------------------------------
-  # Scatter plot is used to show the relationship between two numerical/quentitive
-  # varibales.
+  # Scatter plot is used to show the relationship between two
+  # numerical/quentitive varibales.
 
     >> [ df.plot(kind='scatter', x='independent', y='dependent', s=, c=) ]
         . x='x': represent the 'indepent variable' 
@@ -955,13 +1045,32 @@ Exploratory Data Analysis (EDA)
 # ---------------------------------------------
 
 ===[ Data Understanding:  Quick Overview ]======================================
-    - 'df.info()': used to get a 'concis summary' of a 'Pandas DataFrame', It is
-      very helpful for 'understanding the structure' of your dataset quickly.
+    - 'df.info()': used to get a 'concist summary' of a 'Pandas DataFrame', It
+      is very helpful for 'understanding the structure' of your dataset quickly.
     - 'df.head(nbr=5)': used to display the 'nbr' from the 'head' of 'DataFrame' 
     - 'df.tail(nbr=5)': used to display the 'nbr' from the 'tail (end)' of
                         'DataFrame' 
     - 'df.shape': shape of the 'DataFrame (dimensions)' 
+    - 'df.describe()': This function generates a 'high-level' summary of the
+      attributes of the given column, It is 'type-aware', meaning that its
+      output changes based on the data type of the input. The output above
+      only makes sense for 'numerical data' for string data here's what we get: 
 
+      >>[ df.'x_column'.describe() ]<<
+
+    > Example Output:
+
+      count:    10000
+      unique:   20
+      top:      'oussama'
+      freq:     3003
+    - "df.tester_name.unique()": gives a list of unique values
+
+    - 'df.x.value_counts()': This function gives a count of unique values 
+
+    # NOTE:=====================================================================
+    # We can name these functions by Summary Functions (is not an official name)
+    # ==========================================================================
 
 ===[ Data Cleaning: ]===========================================================
   1|> [ Understand the data: ]
@@ -1020,6 +1129,7 @@ Exploratory Data Analysis (EDA)
     | Few missing rows                  | Drop rows (`dropna()`)        |
     | Missing values mean "none" or "0" | Fill with constant            |
     | Time series                       | Use forward/backward fill     |
+    |___________________________________|_______________________________|
 
 - Summary: 
     ________________________________________________________
@@ -1029,6 +1139,7 @@ Exploratory Data Analysis (EDA)
     | `dropna()`            | Remove missing rows/columns  |
     | `fillna()`            | Replace missing values       |
     | `replace()`           | Turn placeholders into `NaN` |
+    |_______________________|______________________________|
 
   4|> [ Fix Inconsistent Fromats: ]
       - 'Inconsistent formatting' refers to when 'the same kind of data' is
@@ -1041,18 +1152,18 @@ Exploratory Data Analysis (EDA)
       #   ex: inconsistent person
       
       > [ Examples: ]
-        _________________________________________________________________________
-        | Problem Type   | Example                          | Corrected         |
-        |----------------|----------------------------------|-------------------|
-        |-Text case      |-`"USA"`, `"usa"`, `"Usa"`        |-`"USA"`           |
-        |-Date format    |-`"01/02/2025"` vs `"2025-02-01"` |-`"2025-02-01"`    |
-        |-Currency       |-`"$1,000"` vs `"1000"`           |-`1000.0`          |
-        |-Whitespace     |-`"New York "` vs `" New York"`   |-`"New York"`      |
-        |-Missing values |-`"N/A"`, `"null"`, `""`, `NaN`   |-`np.nan` or       |
-        |                |                                  | consistent `None` |
-        |-Column names   |-`"First Name"` vs `"first_name"` |-`"first_name"`    |
-        |                |  vs `"firstname"`                |                   |
-        |________________|__________________________________|___________________|
+       _________________________________________________________________________
+       | Problem Type   | Example                          | Corrected         |
+       |----------------|----------------------------------|-------------------|
+       |-Text case      |-`"USA"`, `"usa"`, `"Usa"`        |-`"USA"`           |
+       |-Date format    |-`"01/02/2025"` vs `"2025-02-01"` |-`"2025-02-01"`    |
+       |-Currency       |-`"$1,000"` vs `"1000"`           |-`1000.0`          |
+       |-Whitespace     |-`"New York "` vs `" New York"`   |-`"New York"`      |
+       |-Missing values |-`"N/A"`, `"null"`, `""`, `NaN`   |-`np.nan` or       |
+       |                |                                  | consistent `None` |
+       |-Column names   |-`"First Name"` vs `"first_name"` |-`"first_name"`    |
+       |                |  vs `"firstname"`                |                   |
+       |________________|__________________________________|___________________|
 
       > [ Tasks: ]
         ______________________________________________________________________
@@ -1065,17 +1176,18 @@ Exploratory Data Analysis (EDA)
         |-Clean symbols     |-`.str.replace()` (e.g., remove `$` or `,`)     |
         |___________________|________________________________________________|
 
-  |> 'df.str.strip()': is a 'string method' used in pandas (and python) to 'remove' 
-     'whitespace or characters from the beginning and end of strings'
-    # INFO:-----------------------------------------------------------------
+  |> 'df.str.strip()': is a 'string method' used in pandas (and python) to
+     'remove whitespace or characters from the beginning and end of strings'
+
+    # INFO:---------------------------------------------------------------------
     # - Stripe (noun): a strip on the surface of something that is different
     #   colour from the surrounding surface:
-    #   . The zebra is wild African horse with baclk and white stripes.
+    #   . The zebra is wild African horse with black and white stripes.
 
   |> 'df.str.split()': function is used to 'split strings' in a Series
       'into lists or substrings', based on a 'delimiter (separator)' 
 
-  >> [ Series.str.split(pat=None, n=-1, expand=False) ] <<
+    >> [ Series.str.split(pat=None, n=-1, expand=False) ] <<
     
       . 'pat=None': The delimiter to split on (space, comma, ...), Default
         (any white space)
@@ -1123,15 +1235,12 @@ Exploratory Data Analysis (EDA)
 - 'EDA' = 'tools from descriptive statistics' + 'visualization' + 'Exploration' 
 
 > [ Analogy: ]
-  - 'Statistics si the toolbox'.
+  - 'Statistics is the toolbox'.
   - 'EDA is the process' where you 'open the toolbox', 'try tools' and explore 
     the data to 'understand what is inside'.
 # CONCLUSION:> EDA is summarizing and analysing the data
 
-  => df.describe()
-  => df.isnull()
-
-===[ Data Transformation: (Preprocessing) ]=======================================
+===[ Data Transformation: (Preprocessing) ]=====================================
 
 # NOTE:-------------------------------------------------------------------------
 # Feature Scaling, Feature Engineering and Encoding are very well explained in

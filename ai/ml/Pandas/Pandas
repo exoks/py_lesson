@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/07 23:06:42 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/08 00:59:08 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -37,8 +37,8 @@
       - '.merge()'  => Column-Based Joining / Relational Joins (SQL Style)
       - '.join()'   => Index-Based Joining 
       - '.contat()' => DataFrames Stacking
-5|> Data Visualization '.plot()'
 6|> Data Understading 
+5|> Data Visualization '.plot()'
 7|> Data Cleaning
 8|> Exploratry Data Analysis (EDA)
 
@@ -416,6 +416,34 @@ Exploratory Data Analysis (EDA)
                      'False' > (simply define if you want to change the object
                      itself or not)
 
+  3|> 'Df/Se.rename()' function in 'Pandas' is used to 'change labels' of rows
+      or columns in a 'DataFrame' or 'Serie', It is commonly used when you
+      want to:
+        . Rename one or more 'column names'
+        . Rename one or more 'row indices'
+      - Oftentimes data will come to us with 'column names', 'index names'
+        that we not 'satisfied with', In that case we will have to rename
+        'columns and indices'
+
+    [ DataFrame.rename(index=None, columns=None, axis=None, inplace=False) ]
+
+    > [ Examples: ]
+      # 1. Rename column
+      reviews.rename(columns={'old_col': 'new_col'})
+
+      # 2. Rename index 
+      reviews.rename(columns={0:'first', 1:'second'})
+
+  # NOTE:-----------------------------------------------------------------------
+  # - You will probably rename columns very often, but rename index values very
+  #   rarely, 'set_index' is usually more convenient.
+
+  4|> 'rename_axis()' function in 'Pandas' is used to rename the 'name of the'
+      'index or columns axis labels'. 
+      - It does not 'change the data', only the name of the index or columns.
+
+      [ df.rename_axis(name, axis='rows or columns') ]
+
 ===[ Data Manipulation: Filtering: Conditional Selection ]===
   - 1|> "df[df['x'] > y]": (boolean indexing) returns all the the 'cases/'
         'samples/observations' that have an input feature 'x' greater (`>`) than
@@ -734,7 +762,6 @@ Exploratory Data Analysis (EDA)
       . 'axis=0': apply 'func' on 'columns' 
       . 'axis=1': apply 'func' on 'rows'
 
-
     # NOTE:-------------------------------------------------
     '.apply()': - Flexible row/column-size operation 
 
@@ -843,6 +870,12 @@ ________________________________________________________________________________
 
     >> [ DataFrame.join(other, on=None, how='left', lsuffix='',
                                           rsuffix='', sort=False) ] <<
+
+      . lsuffix='str': the 'left string suffix' to add to column name in case
+                       'of overlaped columns'.
+
+      . rsuffix='str': the 'right string suffix' to add to column name in case
+                      'of overlaped columns'.
 
     ________________________________________________________________
     | Feature        | `join()`             | `merge()`            |

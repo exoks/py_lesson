@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/08 00:59:08 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/08 19:37:50 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -37,10 +37,10 @@
       - '.merge()'  => Column-Based Joining / Relational Joins (SQL Style)
       - '.join()'   => Index-Based Joining 
       - '.contat()' => DataFrames Stacking
-6|> Data Understading 
-5|> Data Visualization '.plot()'
-7|> Data Cleaning
-8|> Exploratry Data Analysis (EDA)
+5|> Data Understading: Summary functions 'info()', 'describe()', 'head()', ... 
+6|> Data Cleaning:  
+7|> Exploratry Data Analysis ('EDA')
+8|> Data Visualization '.plot()'
 
 ===[ Data Science Live Cycle: ]=================================================
 * In 'Data Science before training a model', The data typically goes through
@@ -1106,47 +1106,75 @@ ________________________________________________________________________________
     # ==========================================================================
 
 ===[ Data Cleaning: ]===========================================================
-  1|> [ Understand the data: ]
+  1|> ===[ Understand the data: ]===
       * Do a 'Basic data check' and use function that 'do not depend on clean'
         'types'
         . df.head()
         . fd.tail()
-        . df.colomuns()
+        . df.columns()
         . df.shape
         . df.dtype
 
-      * It will give and idea about the data that you are dealing with:
+      * It will give you and idea about the data that you are dealing with:
         . Samples/observations/cases and input features/labels/variables
-        . Input Feature info (level of measurment categorical, numerical) 
+        . Input Feature infos (level of measurment categorical, numerical)
 
-  2|> [ Remove Duplicates: ]
+  2|> ===[ Remove Duplicates: ]===
       - Use drop_duplicates() function to remove duplicates. 
       >> [ df.drop_duplicates() ] <<
 
-  3|> [ Handle Missings: ]
+  3|> ===[ Handle Missings: ]===
       - Handling missings data means 'detecting', 'fixing', or 'removing'
         'incomplete' or 'null' values in your dataset
-      'Remove' or 'Drop' useful 'columns/input features'
+        'Remove' or 'Drop' useful 'columns/input features'
       - In pandas, missing values are usually represented as:
         . 'NaN' (Not a number)
         . 'None'
         . Custom strings like "N/A", "null", "?"
       - Detecting Missing Values:
-          df.isna()         # return True for NaN
-          df.isnull()       # Same as isna()
-          df.isna().sum()   # count missing values in each column
-      - Common Ways to Handale Missing Data.
-        1. Remove missing Data 
-           * 'df.dropna()'   # Remove rows with any missing values
-           * 'df.dropna(axis=1)' # Remove columns with any missing value
-           * df[df['x'].notna()] # Removes rows where a specific column is
-                                 # missing
-        2. Fill in (Impute) missing Data
-           * df.fillna(0)
-           * fill with the mean/median/mode of the column
-           * Forward-fill (use previous row) # df.fillna(method='ffill')
-           * Backward-fill (use next row) # df.fillna(method='bfill')
-        3. Replace placeholders with NaN
+          df.isna()   # return True for NaN
+          df.isnull() # Same as isna()
+          df.isna()   # count missing values in each column
+
+  # QUESTION:[ Why is there a Data Missing in my dataset ?]=====================
+  # - This the point at whcih we get into the part of data science that I like
+  #   to call 'data intution'
+  # - When Dealing with missing values, you need to use your intution to figure
+  #   out why the value is missing, One of the most important questions you can
+  #   ask yourself to help figure this out is this:
+  # "Is this value missing because it was not revorded or because it doesn't 
+  #  exist?"
+  # --> If a value is missing becasue it does nto exist (like the height of the
+  #     oldest child of someone who doesnot have any children), Then it doesn't 
+  #     make sense to try and guess what it might be. these values you probably
+  #     do want to keep as 'NaN'.
+  # --> It a value is missing because it wasn't recorded, then you can try to
+  #     guess what it might have been based on the other values in that columns
+  #     , This is called 'imputation'.
+  # INFO:-----------------------------------------------------------------------
+  # - inituition: (noun) the feeling tha tyou know something without being able
+  #   to explain why.
+  # ----------------------------------------------------------------------------
+
+    |---------------[ Common Ways to Handale Missing Data ]---------------|
+    |                                                                     |
+[ Drop Missing Values ]                  [ Fill in Missing Data ('imputation') ]
+- 'df.dropna()': Remove rows             - 'df.fillna(0)': replace  
+  with any missing values.                 `NaN` by 0
+  'df.dropna(axis=1)':                   - fill with 'the mean/median'
+  Remove columns with any                  '/mode' of the 'column'.
+  missing value.                         - 'Forward-fill' (use previous row) 
+  Removes rows where a               [df.fillna(method='bfill', axis=0).fill(0)]
+  specific column is                       # replace all NAN's the value that  
+                                           # comes directly after it in the same 
+                                           # column, the replace all the remaining 
+                                           # NaN's with 0
+                                         - 'Backward-fill' (use next row)
+                                           > Ex:
+                                            [ df.fillna(method'bfill') ]
+
+    ====================[ This part must be integrated properly ]=============
+        3. Replace placeholders with 'NaN'
            * Sometimes missing data is represetned as strings like: "N/A",
              "missing", etc
               - You can convert them to a real 'NaN' 
@@ -1173,14 +1201,15 @@ ________________________________________________________________________________
     | `fillna()`            | Replace missing values       |
     | `replace()`           | Turn placeholders into `NaN` |
     |_______________________|______________________________|
+    ====================[ This part must be integrated properly ]=============
 
-  4|> [ Fix Inconsistent Fromats: ]
+  4|> ===[ Fix Inconsistent Fromats: ]===
       - 'Inconsistent formatting' refers to when 'the same kind of data' is
         written in 'different styles or formats' across a dataset.
       - Correcting it is a key part of 'data cleaning', making your data
         'uniform and standardized'
 
-      # INFO:
+      # INFO:---------------------------
       # - 'inconsistent' (adj)  غير متسق
       #   ex: inconsistent person
       
@@ -1229,7 +1258,8 @@ ________________________________________________________________________________
         otherwise return 'lists'.
 
     > [ Use Cases: ]
-      - Splitting full names into first/last or address, etc
+      - Splitting full names into first/last or address, etc.
+
   |> 'df.str.replace()': function is used to 'replace characters or substrings'
      in 'string values of a Series or DataFrame column', It is useful for
      'cleaning textual data (ing inconsistent formatting)'
@@ -1252,7 +1282,6 @@ ________________________________________________________________________________
       - 'func': The function to apply.
       - 'axis': Only for DataFrames.
           . 'axis=0': apply to columns (default)
-
           . 'axis=1': apply to rows
 
     > [ Use Cases: ]

@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/08 19:37:50 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/09 00:19:44 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -15,9 +15,9 @@
 ===[ Index: ]===================================================================
 1|> Data Sience Live Cycle
     . Data Collection 
-    . Data Cleaning
-    . EDA (Exploratry Data Analysis)
+    . Data Cleaning (remove duplicates, Hanlde Missing, Inconsistent Formats)
     . Data Transformation (Encoding & Feature Scaling)
+    . EDA (Exploratry Data Analysis)
     . Feature Engineering 
 2|> Pandas General Infos 
 3|> Reading Data Files 
@@ -38,9 +38,13 @@
       - '.join()'   => Index-Based Joining 
       - '.contat()' => DataFrames Stacking
 5|> Data Understading: Summary functions 'info()', 'describe()', 'head()', ... 
-6|> Data Cleaning:  
-7|> Exploratry Data Analysis ('EDA')
-8|> Data Visualization '.plot()'
+6|> Data Cleaning 
+    - Remove duplicates: 'drop_duplicates()'
+    - Handle Missing: (Drop Missing values && Fill in Missing Data) 
+    - Correct Inconsisting Formats: (.str.lower()/strip()/replace, etc)
+7|> Data Transformation: categorical Eencoding && Feature scaling 
+8|> Exploratry Data Analysis ('EDA') - Deep Understaing & Data visualization
+9|> Data Transformation: Feature Engineering
 
 ===[ Data Science Live Cycle: ]=================================================
 * In 'Data Science before training a model', The data typically goes through
@@ -1106,35 +1110,23 @@ ________________________________________________________________________________
     # ==========================================================================
 
 ===[ Data Cleaning: ]===========================================================
-  1|> ===[ Understand the data: ]===
-      * Do a 'Basic data check' and use function that 'do not depend on clean'
-        'types'
-        . df.head()
-        . fd.tail()
-        . df.columns()
-        . df.shape
-        . df.dtype
 
-      * It will give you and idea about the data that you are dealing with:
-        . Samples/observations/cases and input features/labels/variables
-        . Input Feature infos (level of measurment categorical, numerical)
+1|> ===[ Remove Duplicates: ]===
+    - Use drop_duplicates() function to remove duplicates. 
+    >> [ df.drop_duplicates() ] <<
 
-  2|> ===[ Remove Duplicates: ]===
-      - Use drop_duplicates() function to remove duplicates. 
-      >> [ df.drop_duplicates() ] <<
-
-  3|> ===[ Handle Missings: ]===
-      - Handling missings data means 'detecting', 'fixing', or 'removing'
-        'incomplete' or 'null' values in your dataset
-        'Remove' or 'Drop' useful 'columns/input features'
-      - In pandas, missing values are usually represented as:
-        . 'NaN' (Not a number)
-        . 'None'
-        . Custom strings like "N/A", "null", "?"
-      - Detecting Missing Values:
-          df.isna()   # return True for NaN
-          df.isnull() # Same as isna()
-          df.isna()   # count missing values in each column
+2|> ===[ Handle Missings: ]===
+    - Handling missings data means 'detecting', 'fixing', or 'removing'
+      'incomplete' or 'null' values in your dataset
+      'Remove' or 'Drop' useful 'columns/input features'
+    - In pandas, missing values are usually represented as:
+      . 'NaN' (Not a number)
+      . 'None'
+      . Custom strings like "N/A", "null", "?"
+    - Detecting Missing Values:
+        df.isna()   # return True for NaN
+        df.isnull() # Same as isna()
+        df.isna()   # count missing values in each column
 
   # QUESTION:[ Why is there a Data Missing in my dataset ?]=====================
   # - This the point at whcih we get into the part of data science that I like
@@ -1156,8 +1148,8 @@ ________________________________________________________________________________
   #   to explain why.
   # ----------------------------------------------------------------------------
 
-    |---------------[ Common Ways to Handale Missing Data ]---------------|
-    |                                                                     |
+      |---------------[ Common Ways to Handale Missing Data ]---------------|
+      |                                                                     |
 [ Drop Missing Values ]                  [ Fill in Missing Data ('imputation') ]
 - 'df.dropna()': Remove rows             - 'df.fillna(0)': replace  
   with any missing values.                 `NaN` by 0
@@ -1173,96 +1165,46 @@ ________________________________________________________________________________
                                            > Ex:
                                             [ df.fillna(method'bfill') ]
 
-    ====================[ This part must be integrated properly ]=============
-        3. Replace placeholders with 'NaN'
-           * Sometimes missing data is represetned as strings like: "N/A",
-             "missing", etc
-              - You can convert them to a real 'NaN' 
-                df.replace(['N/A', 'null', '?'], pd.NA, inplace=True)
-              - Or directly when loading the file:
-                pd.read_csv('data.csv', na_values=['N/A', 'null', '?'])
+3|> ===[ Fix Inconsistent Fromats: ]===
+    - 'Inconsistent formatting' refers to when 'the same kind of data' is
+      written in 'different styles or formats' across a dataset.
+    - Correcting it is a key part of 'data cleaning', making your data
+      'uniform and standardized'
 
-- Strategy depends on:
-    _____________________________________________________________________
-    | Situation                         | Strategy                      |
-    |-----------------------------------|-------------------------------|
-    | Data is missing at random         | Impute using mean/median/mode |
-    | Few missing rows                  | Drop rows (`dropna()`)        |
-    | Missing values mean "none" or "0" | Fill with constant            |
-    | Time series                       | Use forward/backward fill     |
-    |___________________________________|_______________________________|
-
-- Summary: 
-    ________________________________________________________
-    | Method                | Description                  |
-    |-----------------------|------------------------------|
-    | `isna()` / `isnull()` | Detect missing values        |
-    | `dropna()`            | Remove missing rows/columns  |
-    | `fillna()`            | Replace missing values       |
-    | `replace()`           | Turn placeholders into `NaN` |
-    |_______________________|______________________________|
-    ====================[ This part must be integrated properly ]=============
-
-  4|> ===[ Fix Inconsistent Fromats: ]===
-      - 'Inconsistent formatting' refers to when 'the same kind of data' is
-        written in 'different styles or formats' across a dataset.
-      - Correcting it is a key part of 'data cleaning', making your data
-        'uniform and standardized'
-
-      # INFO:---------------------------
-      # - 'inconsistent' (adj)  غير متسق
-      #   ex: inconsistent person
+    # INFO:---------------------------
+    # - 'inconsistent' (adj)  غير متسق
+    #   ex: inconsistent person
       
-      > [ Examples: ]
-       _________________________________________________________________________
-       | Problem Type   | Example                          | Corrected         |
-       |----------------|----------------------------------|-------------------|
-       |-Text case      |-`"USA"`, `"usa"`, `"Usa"`        |-`"USA"`           |
-       |-Date format    |-`"01/02/2025"` vs `"2025-02-01"` |-`"2025-02-01"`    |
-       |-Currency       |-`"$1,000"` vs `"1000"`           |-`1000.0`          |
-       |-Whitespace     |-`"New York "` vs `" New York"`   |-`"New York"`      |
-       |-Missing values |-`"N/A"`, `"null"`, `""`, `NaN`   |-`np.nan` or       |
-       |                |                                  | consistent `None` |
-       |-Column names   |-`"First Name"` vs `"first_name"` |-`"first_name"`    |
-       |                |  vs `"firstname"`                |                   |
-       |________________|__________________________________|___________________|
+    > [ Examples: ]
+      _________________________________________________________________________
+      | Problem Type   | Example                          | Corrected         |
+      |----------------|----------------------------------|-------------------|
+      |-Text case      |-`"USA"`, `"usa"`, `"Usa"`        |-`"USA"`           |
+      |-Date format    |-`"01/02/2025"` vs `"2025-02-01"` |-`"2025-02-01"`    |
+      |-Currency       |-`"$1,000"` vs `"1000"`           |-`1000.0`          |
+      |-Whitespace     |-`"New York "` vs `" New York"`   |-`"New York"`      |
+      |-Missing values |-`"N/A"`, `"null"`, `""`, `NaN`   |-`np.nan` or       |
+      |                |                                  | consistent `None` |
+      |-Column names   |-`"First Name"` vs `"first_name"` |-`"first_name"`    |
+      |                |  vs `"firstname"`                |                   |
+      |________________|__________________________________|___________________|
 
-      > [ Tasks: ]
-        ______________________________________________________________________
-        | Task              | Goal                                           |
-        |-------------------|------------------------------------------------|
-        |-Fix text case     |-`.str.lower()`, `.str.upper()`, `.str.title()` |
-        |-Strip spaces      |-`.str.strip()` (spaces and custom characters)  |
-        |-Unify date format |-`pd.to_datetime()`                             |
-        |-Rename columns    |-`df.columns = [...]` or `df.rename()`          |
-        |-Clean symbols     |-`.str.replace()` (e.g., remove `$` or `,`)     |
-        |___________________|________________________________________________|
+  1|> 'df.str.lower()': is a 'string method' used in pandas to 'lowercase' the
+      string. 
 
-  |> 'df.str.strip()': is a 'string method' used in pandas (and python) to
-     'remove whitespace or characters from the beginning and end of strings'
+  2|> 'df.str.strip()': is a 'string method' used in pandas (and python) to
+      'remove whitespace or characters from the beginning and end of strings'
 
     # INFO:---------------------------------------------------------------------
     # - Stripe (noun): a strip on the surface of something that is different
     #   colour from the surrounding surface:
     #   . The zebra is wild African horse with black and white stripes.
+    # NOTE:> lower() + strip() is very common method that fix a over 80% of the
+    # inconsistent entry 
 
-  |> 'df.str.split()': function is used to 'split strings' in a Series
-      'into lists or substrings', based on a 'delimiter (separator)' 
-
-    >> [ Series.str.split(pat=None, n=-1, expand=False) ] <<
-    
-      . 'pat=None': The delimiter to split on (space, comma, ...), Default
-        (any white space)
-      . 'n=-1': Max number of splits, default -1 => no limit
-      . 'expand', If 'True' splits into 'separate columns (DataFrames)',
-        otherwise return 'lists'.
-
-    > [ Use Cases: ]
-      - Splitting full names into first/last or address, etc.
-
-  |> 'df.str.replace()': function is used to 'replace characters or substrings'
-     in 'string values of a Series or DataFrame column', It is useful for
-     'cleaning textual data (ing inconsistent formatting)'
+  3|> 'df.str.replace()': function is used to 'replace characters or substrings'
+      in 'string values of a Series or DataFrame column', It is useful for
+      'cleaning textual data (ing inconsistent formatting)'
 
     >> [ df.str.replace(pat, repl, n=-1, case=None, regex=True) ] <<
 
@@ -1272,40 +1214,72 @@ ________________________________________________________________________________
     . 'case=None': Whether to match case when 'regex=True', default 'None'
       depends on regex flags
     . 'regex=True': Whether 'pat' is regular expression (default: 'True')
-  
-  |> 'Series.apply()': function is used to 'apply a function to each element'
-      (or row/column) of 'Series or DataFrame', It is a 'powerful and flexible'
-      'tool' for transforming data. 
+ 
+ # NOTE:-------------------------------------------------------
+ # There is a .str.split() function, read about it you neet to.
+ # ------------------------------------------------------------
 
-      [[ Series.apply(func)                 ]]
-      [[ DataFrame.apply(func, axis=0 or 1) ]]
-      - 'func': The function to apply.
-      - 'axis': Only for DataFrames.
-          . 'axis=0': apply to columns (default)
-          . 'axis=1': apply to rows
+  > [ Parsing Date: ]
 
-    > [ Use Cases: ]
-      - Cleaning or formatting text
-      - Custom transformations
+===[ Data Transformation: Categorical Encoding & Feature Scaling ]==============
 
-===[ Explotary Data Analysis: ]=================================================
-* 'EDA' is a 'practical data exploration process' in 'data science' to: 
+===[ Categorical Encoding: ]===
 
-    >>[ Explore your data 'understand it', 'spot patterns', ]<< 
-    >>[ 'identify problems', and 'form hypotheses'          ]<<
+===[ Feature Scaling: ]===
 
-- 'EDA' = 'tools from descriptive statistics' + 'visualization' + 'Exploration' 
 
-> [ Analogy: ]
-  - 'Statistics is the toolbox'.
-  - 'EDA is the process' where you 'open the toolbox', 'try tools' and explore 
-    the data to 'understand what is inside'.
-# CONCLUSION:> EDA is summarizing and analysing the data
 
-===[ Data Transformation: (Preprocessing) ]=====================================
 
-# NOTE:-------------------------------------------------------------------------
-# Feature Scaling, Feature Engineering and Encoding are very well explained in
-# the ml_model file > machine learning models theory
 
-# QUESTION:> How to to apply Data Transforamtion in pandas (Data manipulation)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ===[ Explotary Data Analysis: EDA ]=============================================
+# * 'EDA' is a 'practical data exploration process' in 'data science' to: 
+#
+#     >>[ Explore your data 'understand it', 'spot patterns', ]<< 
+#     >>[ 'identify problems', and 'form hypotheses'          ]<<
+#
+# - 'EDA' = 'tools from descriptive statistics' + 'visualization' + 'Exploration' 
+#
+# > [ Analogy: ]
+#   - 'Statistics is the toolbox'.
+#   - 'EDA is the process' where you 'open the toolbox', 'try tools' and explore 
+#     the data to 'understand what is inside'.
+# # CONCLUSION:> EDA is summarizing and analysing the data
+#
+# ===[ Data Transformation: Feature Engineering ]=================================
+#
+# # NOTE:-------------------------------------------------------------------------
+# # Feature Scaling, Feature Engineering and Encoding are very well explained in
+# # the ml_model file > machine learning models theory
+#
+# # QUESTION:> How to to apply Data Transforamtion in pandas (Data manipulation)

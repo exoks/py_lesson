@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/09 00:19:44 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/09 18:55:55 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -448,7 +448,7 @@ Exploratory Data Analysis (EDA)
 
       [ df.rename_axis(name, axis='rows or columns') ]
 
-===[ Data Manipulation: Filtering: Conditional Selection ]===
+===[ Data Manipulation: Filtering: (Conditional Selection) ]===
   - 1|> "df[df['x'] > y]": (boolean indexing) returns all the the 'cases/'
         'samples/observations' that have an input feature 'x' greater (`>`) than
         'y'.
@@ -535,7 +535,7 @@ Exploratory Data Analysis (EDA)
       'labels, not by column values'
 
 
-===[ Data Manipulation: Indexing ]===
+===[ Data Manipulation: Indexing (Selection) ]===
 * 'Index': is an object that stores all axis labels for all pandas objects
 
   1|> "df.loc['x']": is a powerful method for 'label-based selection' in pandas 
@@ -939,148 +939,6 @@ ________________________________________________________________________________
 # | join     |               |                            |                    |
 # |__________|_______________|____________________________|____________________|
 
-===[ Pandas Visualization: ]====================================================
-# REVISION:---------------------------------------------------------------
-# - Graphs and plots are used in describtive statistics and data sience to
-#   summarize, describe (distribution and contral tendecy), and understand
-#   relationships or correlation between varibales. 
-
-* Pandas has 'built-in support for plotting', and under the hood, it uses  
-  'Matplotlib' to generate the visualizations.
-
-  > [ Integration of Matplotlib with Pandas: ] 
-    - You can call '.plot()' directly on a 'DataFrame' or 'Serie'
-    - By default, this uses 'Matplotlib' as the backend 
-    - You can 'customize' the 'plot' using 'Matplotlib functions' after plotting
-
-    >>  [ df.plot(kin='line') ] <<
-
-        . 'kind=line': (default) defines the 'plot type' 
-        . 'subplot=True': breaking up or spiltting the 'plot' into 'subplots'
-        . "title='x'": used to add a title to the plot
-        . "xlables='x'": sets the label (title) for the 'X-axis' 
-        . "ylabels='y'": sets the label (title) for the 'Y-axis'
-
-  > [ Plot Types: ] 
-    _______________________________________________
-    | `kind`      | Plot type                     |
-    |-------------|-------------------------------|
-    | `'line'`    | Line plot (default)           |
-    | `'bar'`     | Vertical bar plot             |
-    | `'barh'`    | Horizontal bar plot           |
-    | `'hist'`    | Histogram                     |
-    | `'box'`     | Box plot (for statistics)     |
-    | `'kde'`     | Kernel density estimate       |
-    | `'area'`    | Area plot                     |
-    | `'pie'`     | Pie chart                     |
-    | `'scatter'` | Scatter plot (DataFrame only) |
-    | `'hexbin'`  | Hexbin plot (DataFrame only)  |
-    |_____________|_______________________________|
-
-  > [ Line Plot: ]
-
-# QUESTION:[ What is the difference btween 'scatter plot' and 'line plot' ]=====
-#  'Line Plot': connects data points with lines, typically showing
-#   'how variable changes over time' or in response to another continuous
-#   variable. 
-#   > [ Use cases: ]  
-#     . Points are connected
-#     . Emphasizers 'trends', 'progression' or 'patterns'
-#     . Common in 'time series Data'
-# - A 'Scatter plot': displays individual data points as 'dots' on a 2D plan
-#   without connecting them, It is used to show the 'realtionship or
-#   correlation' between two varibales
-#   > [ Use Cases: ]
-#     . No lines between points.
-#     . Highlights 'distribution', 'clusters' and 'correlation'
-#     . Common in 'regression analysis' and 'pattern detection'
-# CONCLUSION:-------------------------------------------------------------------
-# |> Use a 'line plot' when you are showing data over time (e.g, temperature
-#    changes), When the data points have a 'logical or chronological order'.
-# |> Use a 'scatter plot' when you want to explore the 'relationship betwee
-#    two variables' (e.g, height vs weight) 
-# ------------------------------------------------------------------------------
-#
-  > [ Bar Plot: ]
-
-  # REVISION:-------------------------------------------------------------------
-  # Bar Graph and Pie Chart are used to 'summarize a distibution' of categorical
-  # variables (level of measurment <nominal>)
-
-      >> [ pandas.plot(kind='bar', stacked=False) ] <<  
-
-          . kind='bar': vertical bar graph 
-          . stacked=False: If 'True' the bars will displayed stacked
-
-  # NOTE:> fd.plot.barh() is used to display an horizontal bar
-
-  > [ Scatter Plot: ]
-
-  # REVISION:-------------------------------------------------------------------
-  # Scatter plot is used to show the relationship between two
-  # numerical/quentitive varibales.
-
-    >> [ df.plot(kind='scatter', x='independent', y='dependent', s=, c=) ]
-        . x='x': represent the 'indepent variable' 
-        . y='y': represent the 'dependet variable' 
-        . s=nbr: represent the size of the plot dots 
-        . c='color': the 'color' of the 'dots'
-
-    # NOTE:----------------------------------------------------------
-    # Histograms are really good of showing distribution of variables
-
-  > [ Histogram: ]
-
-  # REVISION:-------------------------------------------------------------------
-  # A histogram is a type of graph that shows the 'distribution of a dataset',
-  # It looks similar to a 'bar graph' but it is used for 'continuous'
-  # numerical data rather than categories.
-
-    >> [ df.plot(kind='hist', bins=10) ]
-
-        . "kind='hist'": Specifies a histogram plot
-        . 'bins=10' (default): Number of intervals to divide the data into 
-
-  > [ Box Plot: ]
-
-  # REVISION:-------------------------------------------------------------------
-  # - 'Box plot' is a powerful way to visualize 'distribution', 'spread', and
-  #   'outliers' in dataset
-  # - 'box plot' is a graphical summary of data that shows:
-  #   . 'The center' (median)
-  #   . 'The spread' (range and interquartile range) 
-  #   . 'the shape' (symmetry or skewness)
-  #   . 'Outliers' 
-
-    >> [ df.plot(kind='box') ]
-
-  > [ Area: ]
-    # ERROR:> READ About if you need to 
-
-  > [ Pie Chart: ]
-
-  # REVISION:-------------------------------------------------------------------
-  # - Pie Chart are used to 'summarize a distibution' of categorical variables 
-  #   (level of measurment <nominal>)
-  # - Bar Grpah is used in case of large data 
-  # > Purpose:
-  #   . Showing 'percentage'
-  #   . Highlighting difference in quantity across groups.
-  #   . When the goal is to                      
-  #   . visualize 'how a whole is'
-  #   . 'divided' into parts
-
-    >> [ df.plot(kind='pie', y='y', figsize=(nbr)) ] <<
-
-        . y='y': 'y' is the input feature/column to chart 
-        . figsize=(nbr): defines chart size
-
-
-# TIP:-----------------------------------------
-# - You can style visuals (plt.sytle.available)
-# - Read About styling when you need to 
-# ---------------------------------------------
-
 ===[ Data Understanding:  Quick Overview ]======================================
     - 'df.info()': used to get a 'concist summary' of a 'Pandas DataFrame', It
       is very helpful for 'understanding the structure' of your dataset quickly.
@@ -1112,7 +970,7 @@ ________________________________________________________________________________
 ===[ Data Cleaning: ]===========================================================
 
 1|> ===[ Remove Duplicates: ]===
-    - Use drop_duplicates() function to remove duplicates. 
+    - Use 'drop_duplicates()' function to remove duplicates. 
     >> [ df.drop_duplicates() ] <<
 
 2|> ===[ Handle Missings: ]===
@@ -1129,7 +987,7 @@ ________________________________________________________________________________
         df.isna()   # count missing values in each column
 
   # QUESTION:[ Why is there a Data Missing in my dataset ?]=====================
-  # - This the point at whcih we get into the part of data science that I like
+  # - This the point at which we get into the part of data science that I like
   #   to call 'data intution'
   # - When Dealing with missing values, you need to use your intution to figure
   #   out why the value is missing, One of the most important questions you can
@@ -1194,6 +1052,7 @@ ________________________________________________________________________________
 
   2|> 'df.str.strip()': is a 'string method' used in pandas (and python) to
       'remove whitespace or characters from the beginning and end of strings'
+      # NOTE:> strip() is similar to trim() function in (C/C++)
 
     # INFO:---------------------------------------------------------------------
     # - Stripe (noun): a strip on the surface of something that is different
@@ -1220,45 +1079,189 @@ ________________________________________________________________________________
  # ------------------------------------------------------------
 
   > [ Parsing Date: ]
+    * 'Date': must be recognized by python, which means must not be stored in
+    an 'object type', It must have 'datetime64' dtype instead.  
+    * 'Parsing Dates': means convert dates from the standar based-string form
+      to new data structure object 'datetime64' 
+      
+      [ pd.'to_datetime(arg, format=None, error='raise', dayfirst=False, .. )' ]
+
+      . 'arg': The data you want to convert (like a string, list, Series) 
+      . 'format': (Optional). A string representing the data format
+        (e.g '%Y-%m-%d') 
+      . 'error': 'raise', 'coerce', or 'ignore'
+      . 'dayfirst': Set `True` if your dates are in `day/month/year` format 
+
+    > [ Using 'datetime64' object ]
+      - 'dateObject.dt.day': to select a day from the date object
+
+    # INFO:---------------------------------------------------------------------
+    # - Pandas uses the 'object' dtype for storuing various types of data types
+    #   , but most often when you seee a column with the dtype 'object' it will
+    #   have strings in it.
 
 ===[ Data Transformation: Categorical Encoding & Feature Scaling ]==============
 
 ===[ Categorical Encoding: ]===
+* It is about 'UTF-8' and those bullsheet, read about when you need to. 
 
 ===[ Feature Scaling: ]===
+# REVISION:[ Normalization in Math ]
+# - Normalization means transforming data or mathematical objects so they
+#   follow a standard or 'normal' form.
+# - Feature Scaling means rescaling the range of column, to make them
+#   close to each other, no one would dominate the distribution.
 
 
+                        [ Feature Scaling methods ]
+                                     |
+   |---------------------------------|----------------------------|
+[ Min-Max Normalization (range)]                    [Z-score Normalization] 
+- This method rescale the                     - It does normalize distribution 
+  distribution to range 0|->1                   around the mean with std=1 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# ===[ Pandas Visualization: ]====================================================
+# # REVISION:---------------------------------------------------------------
+# # - Graphs and plots are used in describtive statistics and data sience to
+# #   summarize, describe (distribution and contral tendecy), and understand
+# #   relationships or correlation between varibales. 
+#
+# * Pandas has 'built-in support for plotting', and under the hood, it uses  
+#   'Matplotlib' to generate the visualizations.
+#
+#   > [ Integration of Matplotlib with Pandas: ] 
+#     - You can call '.plot()' directly on a 'DataFrame' or 'Serie'
+#     - By default, this uses 'Matplotlib' as the backend 
+#     - You can 'customize' the 'plot' using 'Matplotlib functions' after plotting
+#
+#     >>  [ df.plot(kin='line') ] <<
+#
+#         . 'kind=line': (default) defines the 'plot type' 
+#         . 'subplot=True': breaking up or spiltting the 'plot' into 'subplots'
+#         . "title='x'": used to add a title to the plot
+#         . "xlables='x'": sets the label (title) for the 'X-axis' 
+#         . "ylabels='y'": sets the label (title) for the 'Y-axis'
+#
+#   > [ Plot Types: ] 
+#     _______________________________________________
+#     | `kind`      | Plot type                     |
+#     |-------------|-------------------------------|
+#     | `'line'`    | Line plot (default)           |
+#     | `'bar'`     | Vertical bar plot             |
+#     | `'barh'`    | Horizontal bar plot           |
+#     | `'hist'`    | Histogram                     |
+#     | `'box'`     | Box plot (for statistics)     |
+#     | `'kde'`     | Kernel density estimate       |
+#     | `'area'`    | Area plot                     |
+#     | `'pie'`     | Pie chart                     |
+#     | `'scatter'` | Scatter plot (DataFrame only) |
+#     | `'hexbin'`  | Hexbin plot (DataFrame only)  |
+#     |_____________|_______________________________|
+#
+#   > [ Line Plot: ]
+#
+# # QUESTION:[ What is the difference btween 'scatter plot' and 'line plot' ]=====
+# #  'Line Plot': connects data points with lines, typically showing
+# #   'how variable changes over time' or in response to another continuous
+# #   variable. 
+# #   > [ Use cases: ]  
+# #     . Points are connected
+# #     . Emphasizers 'trends', 'progression' or 'patterns'
+# #     . Common in 'time series Data'
+# # - A 'Scatter plot': displays individual data points as 'dots' on a 2D plan
+# #   without connecting them, It is used to show the 'realtionship or
+# #   correlation' between two varibales
+# #   > [ Use Cases: ]
+# #     . No lines between points.
+# #     . Highlights 'distribution', 'clusters' and 'correlation'
+# #     . Common in 'regression analysis' and 'pattern detection'
+# # CONCLUSION:-------------------------------------------------------------------
+# # |> Use a 'line plot' when you are showing data over time (e.g, temperature
+# #    changes), When the data points have a 'logical or chronological order'.
+# # |> Use a 'scatter plot' when you want to explore the 'relationship betwee
+# #    two variables' (e.g, height vs weight) 
+# # ------------------------------------------------------------------------------
+# #
+#   > [ Bar Plot: ]
+#
+#   # REVISION:-------------------------------------------------------------------
+#   # Bar Graph and Pie Chart are used to 'summarize a distibution' of categorical
+#   # variables (level of measurment <nominal>)
+#
+#       >> [ pandas.plot(kind='bar', stacked=False) ] <<  
+#
+#           . kind='bar': vertical bar graph 
+#           . stacked=False: If 'True' the bars will displayed stacked
+#
+#   # NOTE:> fd.plot.barh() is used to display an horizontal bar
+#
+#   > [ Scatter Plot: ]
+#
+#   # REVISION:-------------------------------------------------------------------
+#   # Scatter plot is used to show the relationship between two
+#   # numerical/quentitive varibales.
+#
+#     >> [ df.plot(kind='scatter', x='independent', y='dependent', s=, c=) ]
+#         . x='x': represent the 'indepent variable' 
+#         . y='y': represent the 'dependet variable' 
+#         . s=nbr: represent the size of the plot dots 
+#         . c='color': the 'color' of the 'dots'
+#
+#     # NOTE:----------------------------------------------------------
+#     # Histograms are really good of showing distribution of variables
+#
+#   > [ Histogram: ]
+#
+#   # REVISION:-------------------------------------------------------------------
+#   # A histogram is a type of graph that shows the 'distribution of a dataset',
+#   # It looks similar to a 'bar graph' but it is used for 'continuous'
+#   # numerical data rather than categories.
+#
+#     >> [ df.plot(kind='hist', bins=10) ]
+#
+#         . "kind='hist'": Specifies a histogram plot
+#         . 'bins=10' (default): Number of intervals to divide the data into 
+#
+#   > [ Box Plot: ]
+#
+#   # REVISION:-------------------------------------------------------------------
+#   # - 'Box plot' is a powerful way to visualize 'distribution', 'spread', and
+#   #   'outliers' in dataset
+#   # - 'box plot' is a graphical summary of data that shows:
+#   #   . 'The center' (median)
+#   #   . 'The spread' (range and interquartile range) 
+#   #   . 'the shape' (symmetry or skewness)
+#   #   . 'Outliers' 
+#
+#     >> [ df.plot(kind='box') ]
+#
+#   > [ Area: ]
+#     # ERROR:> READ About if you need to 
+#
+#   > [ Pie Chart: ]
+#
+#   # REVISION:-------------------------------------------------------------------
+#   # - Pie Chart are used to 'summarize a distibution' of categorical variables 
+#   #   (level of measurment <nominal>)
+#   # - Bar Grpah is used in case of large data 
+#   # > Purpose:
+#   #   . Showing 'percentage'
+#   #   . Highlighting difference in quantity across groups.
+#   #   . When the goal is to                      
+#   #   . visualize 'how a whole is'
+#   #   . 'divided' into parts
+#
+#     >> [ df.plot(kind='pie', y='y', figsize=(nbr)) ] <<
+#
+#         . y='y': 'y' is the input feature/column to chart 
+#         . figsize=(nbr): defines chart size
+#
+#
+# # TIP:-----------------------------------------
+# # - You can style visuals (plt.sytle.available)
+# # - Read About styling when you need to 
+# # ---------------------------------------------
 
 
 

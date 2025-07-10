@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/09 18:55:55 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/10 15:36:49 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -22,18 +22,19 @@
 2|> Pandas General Infos 
 3|> Reading Data Files 
 4|> Data Manipulations 
-    . Label Managment/Index Manipulation  
-    . Filtering (Conditional Selection) & Ordering
-      - Filtering: 'Boolean Indexing', '.isin()', '.filter()', '.str.contains()' 
-      - Ordering: '.sort_values()', '.sort_index()'
-    . Indexing: Selection ('loc[]' and 'iloc[]')
-      - loc[]: 'Label-Based Selection'
-      - iloc[]: 'Index-Based Selection'
-    . Grouping & Aggregation
+    1 Label Managment/Index Manipulation  
+    2 Selection
+      - Filtering: Conditional Selection
+        . Filtering: 'Boolean Indexing', '.isin()', '.filter()', '.str.contains()' 
+      - Indexing: Direct Selection 
+        . loc[]: 'Label-Based Selection'
+        . iloc[]: 'Index-Based Selection'
+    3 Ordering: '.sort_values()', '.sort_index()'
+    4 Grouping & Aggregation
       - Grouping: 'groupby()'
       - Aggregation: (Statistics Operations) 'mean()', 'std()', 'max()', etc 
-    . Maping: '.map()', '.apply' and '.replace()'
-    . Combining Operations
+    5 Maping: '.map()', '.apply' and '.replace()'
+    6 Combining Operations
       - '.merge()'  => Column-Based Joining / Relational Joins (SQL Style)
       - '.join()'   => Index-Based Joining 
       - '.contat()' => DataFrames Stacking
@@ -448,7 +449,10 @@ Exploratory Data Analysis (EDA)
 
       [ df.rename_axis(name, axis='rows or columns') ]
 
-===[ Data Manipulation: Filtering: (Conditional Selection) ]===
+===[ Data Manipulation: Selection (Direct & Conditional)]===
+
+|> [ Feltering: (conditional selection) ]
+
   - 1|> "df[df['x'] > y]": (boolean indexing) returns all the the 'cases/'
         'samples/observations' that have an input feature 'x' greater (`>`) than
         'y'.
@@ -525,17 +529,8 @@ Exploratory Data Analysis (EDA)
   #     # - You can't use iloc directly with boolean mask. use iloc[] instead
   #     #  TIP: convert boolean mask to positions (integers) to use it with iloc
 
-===[ Data Manipulation: Ordering: ]===
-  5|> "df.sort_values(by=['label1', ...], ascending=[True, ...])", Is used to
-    'sort a DataFrame or Series by one or more columns (or by its values)'
+|> [ Indexing: (Direct Selection) ]
 
-[df.sort_values(by, axis=0, ascending=True, inplace=False, na_position='last') ]
-
-  6|> 'df.sort_index()': is used to 'sort a DataFrame or Series by its index'
-      'labels, not by column values'
-
-
-===[ Data Manipulation: Indexing (Selection) ]===
 * 'Index': is an object that stores all axis labels for all pandas objects
 
   1|> "df.loc['x']": is a powerful method for 'label-based selection' in pandas 
@@ -613,6 +608,15 @@ Exploratory Data Analysis (EDA)
 # | Purpose    | Keep only rows that match         | Access specific part(s)   |
 # |            | condition                         | of data                   |
 # |____________|___________________________________|___________________________|
+
+===[ Data Manipulation: Ordering: ]===
+  1|> "df.sort_values(by=['label1', ...], ascending=[True, ...])", Is used to
+    'sort a DataFrame or Series by one or more columns (or by its values)'
+
+[df.sort_values(by, axis=0, ascending=True, inplace=False, na_position='last') ]
+
+  2|> 'df.sort_index()': is used to 'sort a DataFrame or Series by its index'
+      'labels, not by column values'
 
 ===[ Data Manipulation: Grouping & Aggregation ]===
 * 'groupby()' function in Pandas is used to 'split data' into 'groups based'

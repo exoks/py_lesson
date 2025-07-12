@@ -5,14 +5,14 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/10 15:41:04 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/10 16:03:40 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/12 16:35:14 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
 #  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
 #  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
 
-===[ Matplotlib: General Informations ]=========================================
+===[ Matplotlib: Introduction ]=================================================
 * 'MatPlotlib' is one of the most powerful and widely used libraries for
   'data visualization' in python, It is a '2D plotting' library.
 
@@ -24,5 +24,119 @@
   plt.show() # visualize the the plot
 
   - 'matplotlib.pyplot': is 'high-level stateful interface' to Matplotlib, it is
-    a 'Module'
+    a 'Module'.
 
+===[ Figure & Axes ]============================================================
+* A 'Figure' is 'top-level container' that holds all plot elements, It is the
+  'entire canvas' on which everything is drawn.
+  - Think of it as the 'page' or 'window' that contains your visualizations.
+    Here is a detailed breakdown ot its 'role', 'structure', and 'relation to'
+    'subplots and axes'.
+
+--> [ Role of A Figure: ]
+    - A 'Figure' represents 'the whole image' or 'plotting area', including
+      'subplots', 'titles', 'legneds', and 'other decorations'.
+    - It serves as the 'container' for one or more 'Axes' objects.
+    - It defines the 'output size' and manages 'layout resolution (DPI)', and
+      'saving to file' (e.g, via 'savefig()').
+
+--> [ Structure Of A Figure: ]
+    * A 'Figure' is made up of:
+      - 'Axes': The actual plotting area(s) where data is visualized. 
+      - 'Subplots': A grid of Axes created via 'plot.subplot()' or
+                    'plot.subplots()'
+      - 'Figure-level elements': Titles ('fig.suptitle()'), legends(shared),
+                                 colorbars, etc.
+      - 'Metadata': DPI, size, background color.
+
+
+  Figure
+  ├── Subplot(s) (organized via subplot() or subplots()) 
+  │   └── Axes (1 or more per subplot)
+  │       ├── XAxis
+  │       │   ├── Ticks
+  │       │   ├── Tick Labels
+  │       │   └── Axis Label (e.g., "Time")
+  │       ├── YAxis
+  │       │   ├── Ticks
+  │       │   ├── Tick Labels
+  │       │   └── Axis Label (e.g., "Value")
+  │       ├── Title (of that specific Axes)
+  │       ├── Plot Elements
+  │       │   ├── Line2D (e.g., from `plot()`)
+  │       │   ├── Patch (Bar, Pie, Rectangle, etc.)
+  │       │   ├── Collection (e.g., Scatter plots)
+  │       │   └── Images (from `imshow()`, etc.)
+  │       ├── Legend
+  │       ├── Grid
+  │       ├── Spines (Borders)
+  │       │   ├── Top
+  │       │   ├── Bottom
+  │       │   ├── Left
+  │       │   └── Right
+  │       └── Background (Facecolor of Axes)
+  ├── Figure-level Title (`fig.suptitle()`)
+  ├── Shared Colorbar(s) or Legend(s) (if added)
+  ├── Layout Manager
+  │   ├── `tight_layout()`
+  │   └── `constrained_layout`
+  ├── Figure Background (Facecolor)
+  ├── DPI (Resolution: dots per inch)
+  └── Save functionality (`savefig()`)
+
+# NOTE:-------------------------------------------------------------------------
+# - In Matplotlib, there is 'no separate object type called' `Subplot` in most
+#   common usage:
+#   . When we say 'subplot', we are referring to an 'Axes Object' that was
+#     created using a grid layout like plt.subplots() or pltsubplots()
+# CONCLUSION: So the term 'subplot' just means an Axes arranged in a grid
+
+
+===[ Figure: ]===
+* 'Figure Object' is just a container for Axes Objects (subplots). 
+
+    |---------------------[ Figure Object Creation: ]--------------------|
+    |                                 |                                  |
+[ plot.figure() ]              [ plot.subplots() ]            [ plot.subplot() ]
+- This is the 'basic'         - This is the 'preferred'     - This is an 'older'
+  'low-level' way to            'way' to create a Figure      'way' to create 
+  create a Figure Obj           'wint one or more Axes'       'one subplot'
+[ plot.figure(figsize=()) ]     '(subplots)' in a grid:       '(Axes) at a time'
+. Creates and 'empty Figure'  [fig, ax = plt.subplots() ]     inside a figure:
+. You must 'manually add'     . Returns a 'Figure' and an   [plot.subplot(...) ]
+  'Axes' (`with add_axes()`     'Axes' object (or array       . rows: 
+  or `add_subplot()`)           or Axes)                      . cols:
+                                                              . nbr of splots 
+                                                            - This creates the 
+                                                            `Figure` implicitly
+                                                            - Useful for simple
+                                                              quick plots.
+
+===[ Axes: ]===
+
+    |---------------------[ Axes Object Creation: ]--------------------|
+    |                                 |                                |
+[ plot.subplots() ]           [ fig.add_subplot() ]        [ fig.add_axes()  ]
+- This creates a Figure     - Add one 'Axes' as a       - Create an 'Axes' by 
+  'and' one or more           'subplot' inside an         specifying its exact
+  'Axes' arranged in a        'existing Figure'.          position on the figure
+  grid.                     [fig.add_subplot(1,1,1)]      (coordinates 0|--> 1)
+> Ex:                       # 1 row, 1 col, subplot 1  #left,bottom,width,height 
+[fig, ax = plt.subplot()]   - returns an Axes/subplot  [ fig.add_axes(l,b,w,h) ]
+  ax.plot([...], [...])
+  plt.show()
+- Recommended & easiest
+
+> [ Summary: ]
+    __________________________________________________________________
+    | Method              | What it does          | Use When         |
+    |---------------------|-----------------------|------------------|
+    | `plt.subplots()`    | Creates Figure + grid | Most common,     | 
+    |                     | of Axes               | easiest layout   |
+    |---------------------|-----------------------|------------------|
+    | `fig.add_subplot()` | Adds Axes as subplot  | You want manual  |
+    |                     | to existing Fig       | subplot control  |
+    |---------------------|-----------------------|------------------|
+    | `fig.add_axes()`    | Adds Axes at exact    | You want precise |
+    |                     | position              | placement        |
+    |_____________________|_______________________|__________________|

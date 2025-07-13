@@ -5,12 +5,16 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/10 15:41:04 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/12 16:35:14 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/13 01:09:25 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
 #  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
 #  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+===[ Index: ]===================================================================
+1|> Matplotlib Introduction
+2|> Figure & GridSpec (Grid Layout)
+3|> Axes (Subplots)
 
 ===[ Matplotlib: Introduction ]=================================================
 * 'MatPlotlib' is one of the most powerful and widely used libraries for
@@ -26,7 +30,7 @@
   - 'matplotlib.pyplot': is 'high-level stateful interface' to Matplotlib, it is
     a 'Module'.
 
-===[ Figure & Axes ]============================================================
+===[ Figure & GridSpec ]========================================================
 * A 'Figure' is 'top-level container' that holds all plot elements, It is the
   'entire canvas' on which everything is drawn.
   - Think of it as the 'page' or 'window' that contains your visualizations.
@@ -34,8 +38,8 @@
     'subplots and axes'.
 
 --> [ Role of A Figure: ]
-    - A 'Figure' represents 'the whole image' or 'plotting area', including
-      'subplots', 'titles', 'legneds', and 'other decorations'.
+    - A 'Figure' represents 'the whole image (canvas)' or 'plotting area',
+      including 'subplots', 'titles', 'legends', and 'other decorations'.
     - It serves as the 'container' for one or more 'Axes' objects.
     - It defines the 'output size' and manages 'layout resolution (DPI)', and
       'saving to file' (e.g, via 'savefig()').
@@ -48,95 +52,142 @@
       - 'Figure-level elements': Titles ('fig.suptitle()'), legends(shared),
                                  colorbars, etc.
       - 'Metadata': DPI, size, background color.
+    _____________________________
+    | Grid Layout 'GridSpec'    |
+    | _________________________ |
+    | | Figure                | |
+    | | _____________________ | |
+    | | | Axes (Subplots)   | | |
+    | | |                   | | |
+    | | |                   | | |
+    | | |                   | | |
+    | | |                   | | |
+    | | |___________________| | |
+    | |_______________________| |
+    |___________________________|
 
+--> [ Example: ][IT'S A VERY IMPORTANT EXAMPLE ]===
+    from matplotlib.gridspec import GridSpec
+    import matplotlib.pyplot as plt
 
-  Figure
-  ├── Subplot(s) (organized via subplot() or subplots()) 
-  │   └── Axes (1 or more per subplot)
-  │       ├── XAxis
-  │       │   ├── Ticks
-  │       │   ├── Tick Labels
-  │       │   └── Axis Label (e.g., "Time")
-  │       ├── YAxis
-  │       │   ├── Ticks
-  │       │   ├── Tick Labels
-  │       │   └── Axis Label (e.g., "Value")
-  │       ├── Title (of that specific Axes)
-  │       ├── Plot Elements
-  │       │   ├── Line2D (e.g., from `plot()`)
-  │       │   ├── Patch (Bar, Pie, Rectangle, etc.)
-  │       │   ├── Collection (e.g., Scatter plots)
-  │       │   └── Images (from `imshow()`, etc.)
-  │       ├── Legend
-  │       ├── Grid
-  │       ├── Spines (Borders)
-  │       │   ├── Top
-  │       │   ├── Bottom
-  │       │   ├── Left
-  │       │   └── Right
-  │       └── Background (Facecolor of Axes)
-  ├── Figure-level Title (`fig.suptitle()`)
-  ├── Shared Colorbar(s) or Legend(s) (if added)
-  ├── Layout Manager
-  │   ├── `tight_layout()`
-  │   └── `constrained_layout`
-  ├── Figure Background (Facecolor)
-  ├── DPI (Resolution: dots per inch)
-  └── Save functionality (`savefig()`)
+    # Create An Empy Figure object with size of 3 rows and 3 cols
+    fig = plt.figure(figuresize=(3, 3))
+    # Create A GridSpec Layout that contains 2 cells (Specifications)
+    # as helper for fig object
+    grid_spec = GridSpec(1, 2, figure=fig) 
+    # Extract a specific cell/SubPlotSpec: Whiches the second cell
+    spec = grid_spec[0, 1] 
+    # pass cell/SubPlotSpec to the Figure, Figure uses it to position the Axes. 
+    ax = fig.subplot(spec) 
+    # Axes Draws a plot 
+    ax.plot([1, 2, 3])
 
+# INFO:[ VERY IMPORTANT ]-------------------------------------------------------
+# - GridSpec is only a layout helper.
+# - It’s not a container. It doesn’t draw anything.
+# - It just tells the Figure:
+#   “Here’s how to divide yourself into a grid.”
+# - It guides the Figure on how to divide its space into a grid of cells.
+# - Besides GridSpec, Matplotlib offers a few other helpers and layout tools
+#   to organize subplots within a Figure (constrained_layout, tight_layout, etc)
 # NOTE:-------------------------------------------------------------------------
 # - In Matplotlib, there is 'no separate object type called' `Subplot` in most
 #   common usage:
 #   . When we say 'subplot', we are referring to an 'Axes Object' that was
-#     created using a grid layout like plt.subplots() or pltsubplots()
-# CONCLUSION: So the term 'subplot' just means an Axes arranged in a grid
+#     created using a grid layout like plt.subplot() or plt.subplots()
+# - 'GridSpec' class is just a helper class to 'calculate layout geometry'
+#   (rows/cols/sizes), 'GridSpec' has no 'drawing power'
+# CONCLUSION:> So the term 'subplot' just means an Axes arranged in a grid
 
-
-===[ Figure: ]===
+===[ Figure Creation: ]===
 * 'Figure Object' is just a container for Axes Objects (subplots). 
+
+  1|> 'plt.figure()': This is the basic 'Low-level' way to create a Figure Obj.
+      - It Creates an 'Empty Figure', You must 'manually add Axes' (add_axes(),
+        add_subplot()), and 'GridSpec' Grid Layout Helper class.
+
+      [ plt.figure(figsize=()) ]
+
+        . figsize=(rows, cols), defines the 'fig' size 
+
+  2|> 'plt.subplot()': This is an 'older way' to create 'one subplot', It  
+      creates/add and return 'a single Axes Object' in 'specific position of a'
+      'grid' inside the current 'Figure'.
+
+      [ plt.subplot(nrwos, ncols, index) ]
+
+        . 'nrows': Total number of rows in the grid
+        . 'ncols': Total number of columns in the grid
+        . 'index': index of subplot (row-major, 1-based indexing)
+        # QUESTION:[ What is row-major and 1-based indexing ?]---|
+        # - row-major: means you fill the grid 'row by row',     | 
+        #   left -> right                                        | 
+        # - 1-based indexing: countring/indexing starts at 1,    |
+        #   not 0, So the first subplot at index 1               |
+        # - row-major, 1-based indexing: first 1, second 2, ...  |
+        # - This technique does not use index as (row, col),     |
+        #   It does use one single integer instead               |
+        #   > Exmaple 2x2 grid                                   |
+        #     index 1: is the first element > top-left           |
+        #     index 2: is the second element > top-right         | 
+        #     index 3: is the third element > buttom-left        | 
+        #     index 4: is the fouth element > buttom-right       | 
+        # --------------------------------------------------------
+
+    # NOTE:[ VERY IMPORTANT NOTE ]============================================== 
+    # - plt.subplot() uses an INTERNAL VERSION OF 'GridSpec' to define the layout
+
+  3|> 'plt.subplots()': This the 'most prefered' way to 'create' a Figure with
+      'one or Axes(subplots)' all at once in a grid. 
+      - Returns 'two things':
+        1. The `Figure` object
+        2. An array (or single) of 'Axes' objects
+
+      [ fig, axs = plt.subplots(nrows=, ncols=) ]
+
+        . 'fig': the main figure container 
+        . 'axs': is 1D/2D NumPy array of 'Axes' objects 
+                 indexed like 'axs[row, col]' starting at 0
+
+    # NOTE:[ VERY IMPORTANT NOTE ]============================================== 
+    # - plt.subplot() uses an INTERNAL VERSION OF 'GridSpec' to define the layout
+
+> [ Summary: ]
 
     |---------------------[ Figure Object Creation: ]--------------------|
     |                                 |                                  |
-[ plot.figure() ]              [ plot.subplots() ]            [ plot.subplot() ]
-- This is the 'basic'         - This is the 'preferred'     - This is an 'older'
-  'low-level' way to            'way' to create a Figure      'way' to create 
-  create a Figure Obj           'wint one or more Axes'       'one subplot'
-[ plot.figure(figsize=()) ]     '(subplots)' in a grid:       '(Axes) at a time'
-. Creates and 'empty Figure'  [fig, ax = plt.subplots() ]     inside a figure:
-. You must 'manually add'     . Returns a 'Figure' and an   [plot.subplot(...) ]
-  'Axes' (`with add_axes()`     'Axes' object (or array       . rows: 
-  or `add_subplot()`)           or Axes)                      . cols:
-                                                              . nbr of splots 
-                                                            - This creates the 
-                                                            `Figure` implicitly
-                                                            - Useful for simple
-                                                              quick plots.
+[ plot.figure() ]              [ plot.subplot() ]            [ plot.subplots() ]
+- low-level one               - Create/Add subplot          - Create a Figure
+- creates an empy Figure        axes at specific              and one or more
+- Does not create 'GridSpec'    position                      subplots all at 
+                              - Creates 'GridSpec'            onces
+                                                            - Creates 'GridSpec'
 
-===[ Axes: ]===
-
-    |---------------------[ Axes Object Creation: ]--------------------|
-    |                                 |                                |
-[ plot.subplots() ]           [ fig.add_subplot() ]        [ fig.add_axes()  ]
-- This creates a Figure     - Add one 'Axes' as a       - Create an 'Axes' by 
-  'and' one or more           'subplot' inside an         specifying its exact
-  'Axes' arranged in a        'existing Figure'.          position on the figure
-  grid.                     [fig.add_subplot(1,1,1)]      (coordinates 0|--> 1)
-> Ex:                       # 1 row, 1 col, subplot 1  #left,bottom,width,height 
-[fig, ax = plt.subplot()]   - returns an Axes/subplot  [ fig.add_axes(l,b,w,h) ]
-  ax.plot([...], [...])
-  plt.show()
-- Recommended & easiest
-
-> [ Summary: ]
-    __________________________________________________________________
-    | Method              | What it does          | Use When         |
-    |---------------------|-----------------------|------------------|
-    | `plt.subplots()`    | Creates Figure + grid | Most common,     | 
-    |                     | of Axes               | easiest layout   |
-    |---------------------|-----------------------|------------------|
-    | `fig.add_subplot()` | Adds Axes as subplot  | You want manual  |
-    |                     | to existing Fig       | subplot control  |
-    |---------------------|-----------------------|------------------|
-    | `fig.add_axes()`    | Adds Axes at exact    | You want precise |
-    |                     | position              | placement        |
-    |_____________________|_______________________|__________________|
+# ===[ Axes: ]===
+#
+#     |---------------------[ Axes Object Creation: ]--------------------|
+#     |                                 |                                |
+# [ plot.subplots() ]           [ fig.add_subplot() ]        [ fig.add_axes()  ]
+# - This creates a Figure     - Add one 'Axes' as a       - Create an 'Axes' by 
+#   'and' one or more           'subplot' inside an         specifying its exact
+#   'Axes' arranged in a        'existing Figure'.          position on the figure
+#   grid.                     [fig.add_subplot(1,1,1)]      (coordinates 0|--> 1)
+# > Ex:                       # 1 row, 1 col, subplot 1  #left,bottom,width,height 
+# [fig, ax = plt.subplot()]   - returns an Axes/subplot  [ fig.add_axes(l,b,w,h) ]
+#   ax.plot([...], [...])
+#   plt.show()
+# - Recommended & easiest
+#
+# > [ Summary: ]
+#     __________________________________________________________________
+#     | Method              | What it does          | Use When         |
+#     |---------------------|-----------------------|------------------|
+#     | `plt.subplots()`    | Creates Figure + grid | Most common,     | 
+#     |                     | of Axes               | easiest layout   |
+#     |---------------------|-----------------------|------------------|
+#     | `fig.add_subplot()` | Adds Axes as subplot  | You want manual  |
+#     |                     | to existing Fig       | subplot control  |
+#     |---------------------|-----------------------|------------------|
+#     | `fig.add_axes()`    | Adds Axes at exact    | You want precise |
+#     |                     | position              | placement        |
+#     |_____________________|_______________________|__________________|

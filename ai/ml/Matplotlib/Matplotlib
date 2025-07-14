@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/10 15:41:04 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/14 15:08:21 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/14 20:40:04 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -18,7 +18,7 @@
 3|> Axes (Subplots)
     - 'Axes Creation' (`add_axes()` and `add_subplots()`)
     - 'Axes Properties' (`title`, `xlablel`, `ylabel`, `ylim`, etc)
-4|> 
+4|> Axes Methods for plotting (Plotting methods) 
 
 ===[ Matplotlib: Introduction ]=================================================
 * 'MatPlotlib' is one of the most powerful and widely used libraries for
@@ -244,6 +244,11 @@
         > It is useful when you have multiple plots on the same Axes.
         [ ax.legend(): show legend ]
 
+          .'loc=': defines the location of the legend box (e.g 'center') 
+          . 'numpoints': defines the number dots, marks in the legend box 
+
+
+
   2|> Plot Elements (lines, Scatter, etc)
       * Adding plot object to axes like (Line2D, ...)
         
@@ -253,11 +258,85 @@
       --> 'plot linewidth': scatter.set_linewidth(2)
       --> 'linestype'     : scatter.set_linestyple("--")
       --> 'marker'        : scatter.set_marker("o") or '*'
+      --> 'alpha'         : scatter.set_alpha(0.8) # transperancy 0|->1
 
   # NOTE:--------------------------------------------------------------------
   # > different plots (line plot, scatter, etc) can share one 'Axes object' |
   #   , It can be drawn in the same <X-axis and Y-axis>.                    |
   # -------------------------------------------------------------------------
+
+# INFO:[ Summary: ]=============================================================
+# * There are two types to set or change the property:
+#   - Property-based configuration (e.g. plot(..., color='red'))
+#   - Setter-based configuration (e.g. line.set_color('red'))
+# ==============================================================================
+
+===[ Axes Ploting Methods: ]====================================================
+* Axes-level ploting methods return an 'artist objects', 'Artist' class is the
+  core 'rendering interface'.
+  - 'Artist' in matplotlib 'is anything that can be drawn on a Figure'.
+  
+  # NOTE:> Every visible thing: lines, text, ticks, axes, legends is an 'artist'
+      
+      |------------[ matplolib.artist.Artist ]------------|         | Super 
+      |          |             |              |           |
+[ Line2D ]     [ Patch ]   [ Collection ]   [ Text ]      [ Image ] | Derived
+For lines   | For shapes |  scatterplots  | for labels | for raster
+            |  like      |  , many patches| titles     | data
+            | rectangles |                |            |
+            | , circles  |                |            |
+
+===[ Plot: Scatter (Path Collection) ]===
+# REVISION:------------------------------------------------
+# Scatter plot is used to show the relationship between two
+# numerical/quentitive varibales.
+
+  > [ Syntax: ]
+      
+      >>[ ax.scatter(x, y, **kwargs) ]<<
+      
+      . `x`, `y`: are numpy arrays coordinates of points 
+      . `c`     : Color of points (single color or array of values)
+      . `s`     : Size of points
+      . `marker`: Shape of points (`'o'`, `'x'`, `'^'`, `'s'`, etc.)
+      . `alpha` : Transparency (0.0 to 1.0)
+      . `label` : Label for use in legend
+      . `edgecolors`: Color of marker border
+      . `cmap`: 'Colormap' for mapping numerical 'c' values, (katlawen  
+                kol dot bi chi color based 3la chi pattern, gradient, etc) 
+
+    # NOTE:---------------------------------------------------------------------
+    # - You can directly pass a property value to scatter function
+    #   (property-based configuration) or set property using setter function
+    #   (setter-based configuration)
+    # --------------------------------------------------------------------------
+
+===[ Plot: line (Line2D) ]===
+
+# QUESTION:[ What is the difference btween 'scatter plot' and 'line plot' ]=====
+#  'Line Plot': connects data points with lines, typically showing
+#   'how variable changes over time' or in response to another continuous
+#   variable. 
+#   > [ Use cases: ]  
+#     . Points are connected
+#     . Emphasizers 'trends', 'progression' or 'patterns'
+#     . Common in 'time series Data'
+# - A 'Scatter plot': displays individual data points as 'dots' on a 2D plan
+#   without connecting them, It is used to show the 'relationship or
+#   correlation' between two varibales
+#   > [ Use Cases: ]
+#     . No lines between points.
+#     . Highlights 'distribution', 'clusters' and 'correlation'
+#     . Common in 'regression analysis' and 'pattern detection'
+# CONCLUSION:-------------------------------------------------------------------
+# |> Use a 'line plot' when you are showing data over time (e.g, temperature
+#    changes), When the data points have a 'logical or chronological order'.
+# |> Use a 'scatter plot' when you want to explore the 'relationship betwee
+#    two variables' (e.g, height vs weight) 
+# ------------------------------------------------------------------------------
+
+
+
 
 # Hello everyone,
 #

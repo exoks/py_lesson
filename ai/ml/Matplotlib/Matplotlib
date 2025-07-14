@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/10 15:41:04 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/14 13:30:41 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/14 15:08:21 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -14,7 +14,11 @@
 ===[ Index: ]===================================================================
 1|> Matplotlib Introduction
 2|> Figure & GridSpec (Grid Layout)
+    - 'Figure Creation' (`figure()`, `subplot()` and `subplots()`)
 3|> Axes (Subplots)
+    - 'Axes Creation' (`add_axes()` and `add_subplots()`)
+    - 'Axes Properties' (`title`, `xlablel`, `ylabel`, `ylim`, etc)
+4|> 
 
 ===[ Matplotlib: Introduction ]=================================================
 * 'MatPlotlib' is one of the most powerful and widely used libraries for
@@ -221,41 +225,38 @@
     |_____________________|_______________________|__________________|
 
 ===[ Axes Properties: ]===
-* Key Axes properties (grouped by purpose)
+* Key Axes properties (grouped by Object Type)
 
-  1|> Appearance & style
-      . 'title': Title text of the plot (use `ax.set_title()`)
+  1|> Axes 
+      > [ Styling: ]
       . 'linewidth': Width of axes border
-
-  2|> Axes Limits & Scaling
-      . 'xlim': 'min' and 'max' values of 'X', use `x.set_xlim()` to change it 
-      . 'ylim': 'min' and 'max' values of 'Y', use `x.set_ylim()` to change it 
-
-  3|> Labels
+      > [ labels: ]
+      . 'title': Title text of the plot (use `ax.set_title()`)
       . 'X-axis label', set title of x-axis label (use ax.set_xlabel('X label'))
       . 'Y-axis label', set title label of y-axis (use ax.set_ylabel('y-label'))
-
-  4|> Plot Elements (lines, Scatter, etc)
-      * Adding plot object to axes like (Line2D, ...)
-        
-        [ scatter = ax.scatter([...], [...]) ]
-
-      > scatter.set_color("color")
-      > scatter.set_linewidth(2)
-      > scatter.set_linestyple("--")
-      > scatter.set_marker("o") or '*'
-
-  5|> Legends
+      >  [ Axes Limits & Scaling ]
+      . 'xlim': 'min' and 'max' values of 'X', use `x.set_xlim()` to change it 
+      . 'ylim': 'min' and 'max' values of 'Y', use `x.set_ylim()` to change it 
+      > [ Legends ]
       * A 'legend' in matplotlib is small box placed in a plot that 'explain'
         'what each line, marker, or color represents', Legends contains
         'plot labels'. 
-        . It is useful when you have multiple plots on the same Axes.
-
+        > It is useful when you have multiple plots on the same Axes.
         [ ax.legend(): show legend ]
+
+  2|> Plot Elements (lines, Scatter, etc)
+      * Adding plot object to axes like (Line2D, ...)
+        
+      [ scatter = ax.scatter([...], [...]) ]
+
+      --> 'plot color'    : scatter.set_color("color")
+      --> 'plot linewidth': scatter.set_linewidth(2)
+      --> 'linestype'     : scatter.set_linestyple("--")
+      --> 'marker'        : scatter.set_marker("o") or '*'
 
   # NOTE:--------------------------------------------------------------------
   # > different plots (line plot, scatter, etc) can share one 'Axes object' |
-  #   , It can drawed in the same <X-axis and Y-axis>.                      |
+  #   , It can be drawn in the same <X-axis and Y-axis>.                    |
   # -------------------------------------------------------------------------
 
 # Hello everyone,

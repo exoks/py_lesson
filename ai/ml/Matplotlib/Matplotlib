@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/10 15:41:04 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/13 01:09:25 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/14 13:30:41 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -31,8 +31,8 @@
     a 'Module'.
 
 ===[ Figure & GridSpec ]========================================================
-* A 'Figure' is 'top-level container' that holds all plot elements, It is the
-  'entire canvas' on which everything is drawn.
+* A 'Figure' is 'top-level container (canvas)' that holds all plot elements,
+  It is the 'entire canvas' on which everything is drawn.
   - Think of it as the 'page' or 'window' that contains your visualizations.
     Here is a detailed breakdown ot its 'role', 'structure', and 'relation to'
     'subplots and axes'.
@@ -57,10 +57,10 @@
     | _________________________ |
     | | Figure                | |
     | | _____________________ | |
-    | | | Axes (Subplots)   | | |
+    | | | Axes (Subplot) 1  | | |
     | | |                   | | |
-    | | |                   | | |
-    | | |                   | | |
+    | | |___________________| | |
+    | | | Axes (Subplot) 2  | | |
     | | |                   | | |
     | | |___________________| | |
     | |_______________________| |
@@ -135,7 +135,7 @@
         # --------------------------------------------------------
 
     # NOTE:[ VERY IMPORTANT NOTE ]============================================== 
-    # - plt.subplot() uses an INTERNAL VERSION OF 'GridSpec' to define the layout
+    #- plt.subplot() uses an INTERNAL VERSION OF 'GridSpec' to define the layout
 
   3|> 'plt.subplots()': This the 'most prefered' way to 'create' a Figure with
       'one or Axes(subplots)' all at once in a grid. 
@@ -150,7 +150,7 @@
                  indexed like 'axs[row, col]' starting at 0
 
     # NOTE:[ VERY IMPORTANT NOTE ]============================================== 
-    # - plt.subplot() uses an INTERNAL VERSION OF 'GridSpec' to define the layout
+    #- plt.subplot() uses an INTERNAL VERSION OF 'GridSpec' to define the layout
 
 > [ Summary: ]
 
@@ -163,31 +163,109 @@
                               - Creates 'GridSpec'            onces
                                                             - Creates 'GridSpec'
 
-# ===[ Axes: ]===
+===[ Axes: (Subplot) ]==========================================================
+* 'Axes/Subplot' represents a 'ploting area, plot or graph' inside a 'figure'. 
+  - 'Axes' is 'container' for elements like: actual data curves, X and Y axes,
+    Ticks, lables, titles and grid lines. This way people often call a 'subplot'
+
+    # NOTE:---------------------------------------------------------------------
+    # - One Figure can Contain multiple Axes (multiple plots)
+    # - A subplot is simply 'one axes' in a grid layout.
+
+  > [ Analogy: ] 
+    * Think of:
+      > 'Figure' -> a sheet of paper 
+      > 'Axes(subplot)' -> 'frames' or 'boxes' drawn on the paper.
+      > You can draw a 'different picture' inside each frame
+ 
+
+===[ Axes (subplot) Object Creation: ]===
+
+        |---------------------[ Axes Object Creation: ]--------------------|
+        |                                 |                                |
+    [ plot.subplots() ]           [ fig.add_subplot() ]       [ fig.add_axes() ]
+
+    1|> 'fig.add_subplot()': add one 'Axes' as a 'subplot' inside an 'existing'
+                             'figure'.
+        [ fig.add_subplot(nrows, ncols, index) ]
+          or
+        [ fig.add_subplot(SubplotSpec) ]
+
+        - This divides the figure into 'nrows x ncols' grid and 'places' the
+          subplot in 'index' cell position.
+        - add_subplot() can take a 'SubplotSpec' object to create an Axes
+          object at that specific 'subplotspec/spec/grid cell'.
+
+    2|> 'fig.add_axes()': Create an 'Axes' by specifying its 'exact position' on 
+                          the figure 
+        [ fig.add_axes(left, bottom, width, height) ]
+        - It gives a 'full control' over layout (not restricted to a grid)
+
+# NOTE:=========================================================================
+# - You could also use plt.subplot() and plt.subplots() to create figure and
+#   axes all at once.
+# ==============================================================================
+
+  > [ Summary: ]
+    __________________________________________________________________
+    | Method              | What it does          | Use When         |
+    |---------------------|-----------------------|------------------|
+    | `plt.subplots()`    | Creates Figure + grid | Most common,     | 
+    |                     | of Axes               | easiest layout   |
+    |---------------------|-----------------------|------------------|
+    | `fig.add_subplot()` | Adds Axes as subplot  | You want manual  |
+    |                     | to existing Fig       | subplot control  |
+    |---------------------|-----------------------|------------------|
+    | `fig.add_axes()`    | Adds Axes at exact    | You want precise |
+    |                     | position              | placement        |
+    |_____________________|_______________________|__________________|
+
+===[ Axes Properties: ]===
+* Key Axes properties (grouped by purpose)
+
+  1|> Appearance & style
+      . 'title': Title text of the plot (use `ax.set_title()`)
+      . 'linewidth': Width of axes border
+
+  2|> Axes Limits & Scaling
+      . 'xlim': 'min' and 'max' values of 'X', use `x.set_xlim()` to change it 
+      . 'ylim': 'min' and 'max' values of 'Y', use `x.set_ylim()` to change it 
+
+  3|> Labels
+      . 'X-axis label', set title of x-axis label (use ax.set_xlabel('X label'))
+      . 'Y-axis label', set title label of y-axis (use ax.set_ylabel('y-label'))
+
+  4|> Plot Elements (lines, Scatter, etc)
+      * Adding plot object to axes like (Line2D, ...)
+        
+        [ scatter = ax.scatter([...], [...]) ]
+
+      > scatter.set_color("color")
+      > scatter.set_linewidth(2)
+      > scatter.set_linestyple("--")
+      > scatter.set_marker("o") or '*'
+
+  5|> Legends
+      * A 'legend' in matplotlib is small box placed in a plot that 'explain'
+        'what each line, marker, or color represents', Legends contains
+        'plot labels'. 
+        . It is useful when you have multiple plots on the same Axes.
+
+        [ ax.legend(): show legend ]
+
+  # NOTE:--------------------------------------------------------------------
+  # > different plots (line plot, scatter, etc) can share one 'Axes object' |
+  #   , It can drawed in the same <X-axis and Y-axis>.                      |
+  # -------------------------------------------------------------------------
+
+# Hello everyone,
 #
-#     |---------------------[ Axes Object Creation: ]--------------------|
-#     |                                 |                                |
-# [ plot.subplots() ]           [ fig.add_subplot() ]        [ fig.add_axes()  ]
-# - This creates a Figure     - Add one 'Axes' as a       - Create an 'Axes' by 
-#   'and' one or more           'subplot' inside an         specifying its exact
-#   'Axes' arranged in a        'existing Figure'.          position on the figure
-#   grid.                     [fig.add_subplot(1,1,1)]      (coordinates 0|--> 1)
-# > Ex:                       # 1 row, 1 col, subplot 1  #left,bottom,width,height 
-# [fig, ax = plt.subplot()]   - returns an Axes/subplot  [ fig.add_axes(l,b,w,h) ]
-#   ax.plot([...], [...])
-#   plt.show()
-# - Recommended & easiest
+# I'm Imane Lamine, a Business Development Manager at UM6P Canada. I’d like to briefly clarify the roles to help you focus on the technical aspects:
 #
-# > [ Summary: ]
-#     __________________________________________________________________
-#     | Method              | What it does          | Use When         |
-#     |---------------------|-----------------------|------------------|
-#     | `plt.subplots()`    | Creates Figure + grid | Most common,     | 
-#     |                     | of Axes               | easiest layout   |
-#     |---------------------|-----------------------|------------------|
-#     | `fig.add_subplot()` | Adds Axes as subplot  | You want manual  |
-#     |                     | to existing Fig       | subplot control  |
-#     |---------------------|-----------------------|------------------|
-#     | `fig.add_axes()`    | Adds Axes at exact    | You want precise |
-#     |                     | position              | placement        |
-#     |_____________________|_______________________|__________________|
+#     Coding School 1337 will be handling the whole recruitment process and the call for applications. 
+#
+#     UM6P Canada is serving as a liaison between Coding School 1337 and FlexGroups based in Canada. 
+#
+#     FlexGroups will be responsible for hiring and issuing your contracts and answering your technical questions.
+#
+# You can still send us your questions via 1337 Team.

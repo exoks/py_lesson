@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/18 09:48:50 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/03 00:48:24 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/16 16:44:59 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -232,6 +232,23 @@
   1|> 'np.reshape(arr, shape=(rows, cols))' it will reshapes the 'arr' to new
       'shape=' or 'arr.reshape(rows, cols)' 
   # WARNING:> if the new shape does not fit the array, A 'Value error' raise up
+
+  1.5|> 'x.flat' attribute returns a '1D iterator' over all elements of a NumPy
+      array, 'regardless of its original shape'. 
+      > [ Exmaple: ]
+      # Creating A 2D array / Matrix
+      matrix = np.array([[1, 2], [3, 4]]) 
+
+      # Using a 1D (C-style) 
+      iter = matrix.flat
+      # loop over 2D array elements as 1D Array
+      for elem in iter:
+          print(elem) # 1, 2, 3, 4 
+        
+      # NOTE:------------------------------------------------------------------- 
+      # - It is a very IMPORTANT attribute to use, It gives you a 1D iterator
+      #   over the array's elements, following 'row-major (C-style)' order. 
+      # - flat has the type 'numpy.flatiter'
 
   2|> 'x.T', It does 'Transpose' the array, It 'switches' 'columns by rows' and
       'vice versa'.

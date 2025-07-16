@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/10 15:41:04 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/14 20:40:04 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/16 17:15:24 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -19,6 +19,12 @@
     - 'Axes Creation' (`add_axes()` and `add_subplots()`)
     - 'Axes Properties' (`title`, `xlablel`, `ylabel`, `ylim`, etc)
 4|> Axes Methods for plotting (Plotting methods) 
+    1. scatter plot
+    2. line plot
+    3. contour plot
+    4. image show plot 
+    5. histogram plot
+    6. visualizing errors:
 
 ===[ Matplotlib: Introduction ]=================================================
 * 'MatPlotlib' is one of the most powerful and widely used libraries for
@@ -187,7 +193,8 @@
 
         |---------------------[ Axes Object Creation: ]--------------------|
         |                                 |                                |
-    [ plot.subplots() ]           [ fig.add_subplot() ]       [ fig.add_axes() ]
+    [ plt.subplots() ]           [ fig.add_subplot() ]       [ fig.add_axes() ]
+                                    or plt.subplot()            or plt.axes()
 
     1|> 'fig.add_subplot()': add one 'Axes' as a 'subplot' inside an 'existing'
                              'figure'.
@@ -335,8 +342,87 @@ For lines   | For shapes |  scatterplots  | for labels | for raster
 #    two variables' (e.g, height vs weight) 
 # ------------------------------------------------------------------------------
 
+===[ Plot: Contour ]===
+* A 'contour plot' is a greate way to visualize 3D data (with two independent
+  variables <x,y> and one dependent variable <z> on a 2D plane using
+  'contour lines', like a 'topographic map'.
+  - A 'contour plot' shows 'lines of constant value' (called 'contours') of a
+    function 'z = f(x, y)' over a 2D grid.
 
+    1|> 'plt.contour()' 
 
+      [ ax.contour(X, Y, Z, levels=, camp=) ]
+
+      . `X`, `Y`: 2D arrays of grid coordinates
+      . `Z`     : 2D array of values at each `(X, Y)` point (Z = f(x, y))
+      . `levels`: Number (or list) of contour levels to draw
+      . `colors`: change contours color
+      . `cmap`  : Colormap to color the contours
+
+    2|> 'plt.contourf()'
+        * It is used to show/draw filled contour regions
+        # NOTE: contourf: stands for contour filled
+
+    # INFO:[ `.contour()` VS `contourf()` ]=================================
+    # ________________________________________________________________________
+    # | Function     | Returns          | Use                                |
+    # |--------------|------------------|------------------------------------|
+    # | `contour()`  | `QuadContourSet` | Represents the drawn contour lines |
+    # | `contourf()` | `QuadContourSet` | But filled areas instead of lines  |
+    # |______________|__________________|____________________________________|
+    
+    |> 'plt.clabel()': add 'labels' to 'contour lines'.
+    
+      [ plt.clabel(contours, inline=True, fontsize=) ]
+
+    |> 'plt.colorbar()': It addes a color scale legend, It can be used with
+        'different plots' not only 'contour'. 
+
+===[ Plot: Histogram ]===
+# REVISION:-----------------------------------------------------------------
+# A histogram is a type of graph that shows the 'distribution of a dataset',
+# It looks similar to a 'bar graph' but it is used for 'continuous'
+# numerical data rather than categories.
+
+  [ ax.hist(x, bins=None) ]
+  . 'x': The input data (list, NumPy array, etc)
+  . 'bins': Number of bins or a sequence of bin edges 
+  . 'edgecolor': to define the bars edge color
+  . 'histtype=': change the hist type
+
+  # NOTE:----------------------------------------------------------
+  # - You can add other common plot elements like title, color, etc
+  #   You can use historgram in 2D, read about if you need to.
+
+===[ Plot: image show ]===
+* 'imshow()' is one of the core plotting functions in matplotlib specifically
+  used for displaying 'image-like data'.
+  - It displays a '2D array (like an image or matrix)' as a colored image on
+    a grid (each element of the array is mapped to a pixel with color based on
+    a colormap) 
+
+      [ ax.imshow(X) ] # Basic Syntax
+
+        . 'X': (array-like), The 2D data (image or matrix) to display. 
+
+===[ Visualizing Error: ]===
+* 'visualizing errors' is an essential 'technique' when you are working with
+  uncertainy, 'confidence intervals' or 'measurment variability' in your data.
+  - This errors is important to visualize it using:
+    . 'Error bars' (for exact uncertainty)
+    . 'Shaded areas' (for confidence intervals or ranges)
+    . 'mulitple samples' (for variability in distributions)
+
+  > [ Most Common Tools ]
+    ______________________________________________________________
+    | Method               | Use Case                            |
+    |----------------------|-------------------------------------|
+    | `errorbar()`         | Add individual error bars to points |
+    | `fill_between()`     | Show uncertainty as shaded region   |
+    | `bar(..., yerr=...)` | Add error bars to bar plots         |
+    |______________________|_____________________________________|
+
+# NOTE:> read about it when you need to. 
 
 # Hello everyone,
 #

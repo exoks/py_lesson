@@ -1,16 +1,27 @@
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                 𓐓  Seaborn 𓐔           
 #  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
-#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀       Dev: oezzaou </var/spool/mail/oezzaou> 
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀       Dev: oezzaou <oussama.ezzaou@gmail.com> 
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/16 17:39:05 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/16 18:25:49 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/18 13:10:42 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
 #  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
 #  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ Index: ]===================================================================
+1|> Seaborn: Introduction
+2|> Built-in Datasets
+3|> Distribution Plots 
+    1. sns.distplot(): visualize single variable distribution
+    2. sns.jointplot(): compare & visualize two variable distributions
+    3. sns.kdeplot(): visualize 1 or 2 variables using KDE instead of histograms
+    4. sns.pairplot(): visualize all paires of a dataset in a form of grid 
+    5. sns.rugplot(): just a complement plot, to visualize a single distribution
+4|> Styling
 
 ===[ Seaborn: Introduction ]====================================================
 * 'Seaborn is high-level' python 'data visualization library' built 'on top of'
@@ -18,7 +29,7 @@
   easier and more attractive with 'minimal code'. 
 
 ===[ Motivation/Purpose Behind Seaborn: ]===
-- The 'key here' is 'label data', as I am noticed that matplitlib, deal with
+- The 'key here' is 'label data', as I am noticed that matplotlib, deal with
   'unlabled data (numpy.ndarray)', The same story repeats itself again
   (Numpy & Pandas). 
 
@@ -28,30 +39,30 @@
 
   # NOTE:---------------------------------------------------------------
   # - DO NOT FORGET that <real-datasets> are <Labeled>, That way we need 
-  #   Labled data structure to use (DataFrames & Series) 
+  #   Labled data structure to use (DataFrames & Series)
 
 ===[ Matplotlib VS Seaborn ]===
 ________________________________________________________________________________
 | Feature / Aspect | Matplotlib                         | Seaborn              |
 |------------------|------------------------------------|----------------------|
 | Level            | Low-level (core plotting library)  | High-level (built on |
-|                  |                                    | top of Matplotlib)   | 
+|                  |                                    | top of Matplotlib)   |
 |------------------|------------------------------------|----------------------|
-| Data Input Type  | Primarily `NumPy` arrays or plain  |`pandas` DataFrames & | 
+| Data Input Type  | Primarily `NumPy` arrays or plain  |`pandas` DataFrames & |
 |                  | lists                              | Series (labeled data)|
 |------------------|------------------------------------|----------------------|
 | Pandas           | Not native, needs manual column    | Native works directly|
 | Integration      | extraction                         | with column names    |
-|------------------|------------------------------------|----------------------| 
+|------------------|------------------------------------|----------------------|
 | Customization    | Very flexible — full control       | Somewhat limited (but|
-|                  |                                    | you can still access | 
+|                  |                                    | you can still access |
 |                  |                                    | Matplotlib if needed)|
 |------------------|------------------------------------|----------------------|
 | Complex Plot     | Subplots via `plt.subplot()`       | Built-in functions   |
-| Grids            | or `GridSpec`                      | like `FacetGrid`,    | 
+| Grids            | or `GridSpec`                      | like `FacetGrid`,    |
 |                  |                                    | `PairGrid`, `catplot`|
 |------------------|------------------------------------|----------------------|
-| Learning Curve   | Steeper for complex plots          | Easier for statistical 
+| Learning Curve   | Steeper for complex plots          | Easier for statistical
 |                  |                                    | visualizations       |
 |------------------|------------------------------------|----------------------|
 | 3D Plotting      | Supported via`mpl_toolkits.mplot3d`| ❌ Not supported     |
@@ -65,13 +76,109 @@ ________________________________________________________________________________
 
 # QUESTION:[ Why is called Seaborn ? ]------------------------------------------
 # - the library was created by 'Michael Waskom'
-# - The name is a ply on the word 'Seaborn' meaning 'born from the sea', The
-#   name 'brings new life (beautiful, elegant visualization from vast 'sea'
-#   of raw data)'
+# - The name is a fly on the word 'Seaborn' meaning 'born from the sea', The
+#   name 'brings new life (beautiful, elegant visualization from vast 'sea' of
+#   raw data)'.
 # - So The name is metaphorical, 'Seaborn' emerges to help you navigate and
-#   visualize the vast sea of data with ease and beauty
+#   visualize the vast sea of data with ease and beauty.
+# NOTE:> vast: (adject) very big |----------------------------------------------
 
 # INFO:[ Summary: ]=============================================================
 # - 'Seaborn' is built to handle labeled data — in other words, to work directly
 #   with 'pandas DataFrames and Series'.
 # ==============================================================================
+
+===[ Seaborn: Built-in Datasest ]===============================================
+* Seaborn library contains a set of built-in datasets.
+
+  1|> 'seaborn.get_dataset_name()'
+      * Used to 'list all available built-in datasets' that can be loaded using
+        'seaborn.lead_dataset()'
+
+        [ sns.get_datasets_names() ]
+        . Returns a list of datasets names 
+
+  2|> 'seaborn.load_dataset()'
+      * Is used to 'load built-in datasets' provided by Seaborn into a
+      'Pandas DataFrame'.
+
+      [ sns.load_dataset(name) ]
+      . 'name': The name of the dataset to load  
+      # NOTE:---------------------------------------------------------
+      # - `name` must be ones of those returned by get_dataset_names()
+      # - You must be connected to the internet the 'first time', so
+      #   Seaborn can fetch the list from the online repository.
+
+===[ Distribution Plots: ]======================================================
+* A 'distribution plot' visualizes how a datset is spread over a range of
+  values, the 'probability distribution' of a single variable (univariate) or
+  joint distribution of two variables (bivariate)
+  - In Seaborn these plots help inderstanding:
+    > The 'shape' of the data (normal, skewed, etc)
+    > The 'spread (dispersion)' (range, standard deviation)
+    > The 'central tendency' (mean, median)
+    > Presence of 'outliers' or 'multiple modes'
+
+===[ sns.distplot(): univariate plot ]===
+* It is used as 'Histogram' with optional KDE and frequency/percent display
+  - Good for basic distributin shape, binning frequency
+
+    [ sns.distplot(data, x=None, kde=False, bins=10) ]
+    . 'data'/'x': Dataset or Series
+    . 'kde': Adds kernel density estimation curve
+    . 'bins': number of histogram bins
+
+  > [ Return values: ]
+    - 'sns.histplot()' returns an 'Axes object' (matplot.lib.Figure.Axes)
+
+===[ sns.jointplot(): bivariate plot ]===
+* It is 'Multivariate plot' that combines scatter + hist/KDE for 2 variables
+  - It is used to 'compare two distribution', and show the relationship between
+    'two variables' 
+
+    [ sns.jointplot(data=df, x='feature1', y='feature2', kind='scatter') ]
+    . 'data': DataFrame containing the data
+    . 'x', 'y': column names for 'x' and 'y' axes 
+    . 'kind': Type of bivariate plot: 'scatter', 'kde', 'hist', 'hex', 'reg'
+
+
+===[ sns.kdeplot(): both(univariate, bivariate) ]===
+* Is it used to 'estimate and visulaize the probability density function (PDF)'
+  of a 'continuous variable' using a technique called 'kernel Density Estimation'
+  (KDE)
+  - Think of as a 'smoothed version of a histogram' that provides a continuous
+    curve rather than discrete bars.
+
+    [ sns.kdeplot(data=df, x="feature") ]
+    . 'data', 'x', 'y': Input dat (1D or 2D)
+
+# QUESTION:[ Why using KDE instead of a Historgram? ]---------------------------
+# - No bins
+# - Smooth shape: reveals the underlying distribution bettter
+# - More interpretable: good for detecting 'modality' (number of peas),
+#   'skewness' or 'outliers'.
+
+===[ sns.pairplot(): (multivariate) ]===
+* 'sns.pairplot()' creats a 'grid of plots' showing 'pairwise relationship'
+  between 'numeric variables' in a DataFrame
+  - It helps in:
+    > Visualizing 'correlation' and 'distributions'
+    > Performing quick 'exploratory data analysis (EDA)'.
+
+  [ sns.pairplot(data=df) ]
+  . 'data': The dataFrame to visualize
+  . 'hue': Categorical variable to color-code groups
+
+===[ sns.rugplot(): (univariate) ]===
+* A 'rug plot' is very simple plot that shows 'individual data points' along an
+  axis as small 'tick marks'.
+  - It is often used to 'complement' other plots (like KDEs or histograms)
+    by showing the 'actual raw data values'
+  - It does look like:
+    > Each observation/case is shown as 'short-vertical or (horizontal) line'
+      along the axis.
+    > It looks like a 'rug' placed along the base of a plot
+    # INFO:---------------------------------------------------------------------
+    # Rug: (noun): a soft piece of material used to cover the floor (سَجّادة)
+
+===[ Styling: ]===

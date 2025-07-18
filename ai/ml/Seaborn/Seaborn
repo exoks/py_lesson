@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/16 17:39:05 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/18 13:10:42 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/18 18:57:27 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -15,13 +15,18 @@
 ===[ Index: ]===================================================================
 1|> Seaborn: Introduction
 2|> Built-in Datasets
-3|> Distribution Plots 
+3|> Distribution Plots (for quentitive/numerical variables) 
     1. sns.distplot(): visualize single variable distribution
     2. sns.jointplot(): compare & visualize two variable distributions
     3. sns.kdeplot(): visualize 1 or 2 variables using KDE instead of histograms
     4. sns.pairplot(): visualize all paires of a dataset in a form of grid 
     5. sns.rugplot(): just a complement plot, to visualize a single distribution
-4|> Styling
+4|> Categorical Plots (for categorical variables) 
+    1. sns.barplot(): visualize categorical based on estimator
+    2. sns.countplot(): visualize categorical based on observation count 
+    3. sns.boxplot(): 
+    4. violinplot():
+
 
 ===[ Seaborn: Introduction ]====================================================
 * 'Seaborn is high-level' python 'data visualization library' built 'on top of'
@@ -137,6 +142,7 @@ ________________________________________________________________________________
     'two variables' 
 
     [ sns.jointplot(data=df, x='feature1', y='feature2', kind='scatter') ]
+
     . 'data': DataFrame containing the data
     . 'x', 'y': column names for 'x' and 'y' axes 
     . 'kind': Type of bivariate plot: 'scatter', 'kde', 'hist', 'hex', 'reg'
@@ -181,4 +187,79 @@ ________________________________________________________________________________
     # INFO:---------------------------------------------------------------------
     # Rug: (noun): a soft piece of material used to cover the floor (سَجّادة)
 
-===[ Styling: ]===
+===[ Categorical Plots: ]=======================================================
+* Categorical plots are used to 'visualize relationships involving categorical'
+  'variables'.
+  - These plots are useful when: 
+    > You want to 'compare' values 'accross categories' 
+    > You are analyzing 'distribution', 'central tendency', and 'spread' across
+      different groups.
+  # NOTE:> Categorical plots focus on distributions using categorical data
+
+===[ sns.barplot() ]===
+* 'seaborn.baplot()': is used to 'display the mean (or another estimator)'
+  'of a quantitative variable for each category'.
+  unlike 'boxplot()', which shows distribution, 'barplot()' shows 'aggregated'
+  'values' (like the mean or median), often with 'confidence intervals'.
+
+  [ sns.barplot(x='category', y='value', data=df, estimator='mean') ]
+
+    . 'x', 'y': Are the input feature 
+    . 'data': pandas DataFrame 
+    . 'estimator': tells Seaborn 'how to summarize the data for each category'
+                   when plotting 
+                   - 'mean'   | np.mean
+                   - 'median' | np.median 
+                   - 'max'    | np.max
+                   - 'min'    | np.min
+                   - 'std'    | np.std 
+                   -          | np.var
+                   -          | np.cov
+                   - ...      | etc
+
+    # NOTE:> Aggregate data means summarize it in one quentity like mean.
+
+
+===[ sns.countplot() ]===
+* 'countplot()' is 'bar plot that displays the count (frequency) of'
+  'observation/case' in each category of a categorical variable, Unlike
+  'barplot()' which 'aggregates numeric data using an estimator (like mean)'
+  - 'barplot()': bar height shows summary statistic (like mean, median, etc)  
+  - 'countplot()': bar height show the 'count' of observation in a category 
+  [ sns.countplot(x='category1', y='category2', dat=df) ]
+  . 'x', 'y': The input features (categorical variables)
+  . 'data': pandas dataFrame
+
+===[ sns.boxplot() ]===
+* 'seaborn.boxplot()' creates a 'box-and-whisker plot', which is a 'statistical'
+  'summary plot' used to visualize the 'distribution', 'central tendency' and
+  spread of a dataset, (especially across different categories).  
+
+  [ sns.boxplot(x='x-axis', y='y-axis', data=df, hue=) ]
+
+    . 'x', 'y': input features 
+    . 'data': The pandas dataFrame                   
+    . 'hue': (optional) categorical variables to split the bar 
+
+
+===[ sns. violinplot() ]===
+* A 'violin plot' combines features of:
+  - 'boxplot'
+  - 'kdeplot': showing the full distribution of the data 
+  > So 'violin plot' is used to 'visualize the distribution and probability'
+  'density' of a numeric varibale across one or more categories 
+
+  # QUESTION:[ When to use it? ]================================================
+  # > When you want to see both 'summary statistics' and 'distribution shape'.
+
+  [ sns.violinplot(x='category', y='value', data=df) ]
+
+    . 'x', 'y': input features 
+    . 'data': The pandas dataFrame                   
+    . 'hue': (optional) categorical variables to split the bar 
+
+
+
+
+
+===[ Styling: ]=================================================================

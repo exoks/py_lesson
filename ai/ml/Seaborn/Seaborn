@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/16 17:39:05 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/18 18:57:27 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/19 00:07:19 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -24,8 +24,11 @@
 4|> Categorical Plots (for categorical variables) 
     1. sns.barplot(): visualize categorical based on estimator
     2. sns.countplot(): visualize categorical based on observation count 
-    3. sns.boxplot(): 
+    3. sns.boxplot():  
     4. violinplot():
+    5. stripplot():
+    6. swarmplot():
+5|> Matrix Plots
 
 
 ===[ Seaborn: Introduction ]====================================================
@@ -258,8 +261,50 @@ ________________________________________________________________________________
     . 'data': The pandas dataFrame                   
     . 'hue': (optional) categorical variables to split the bar 
 
+    # INFO:---------------------------------------------------------------------
+    # - violin: (noun) a wooden musical instrument that you hold against your
+    #   neck and play by moving a stick across strings (arabic: kamman) 
+
+===[ stripplot() ]===
+* 'stripplot()' draws a 'scatter plot' where one variable is 'categorical' and
+  the other is 'numeric'. 
+  - it 'plots all individual data points', not summaries like in 'boxplot' or
+    'violinplot' allowing you to:
+      > see the 'raw data'
+      > identify 'clusters', 'density', or 'outliers'
+      > Ovserve 'overlapping of values' 
+
+  > [ Why Use it ]
+    - To 'visualize individual ovservations' instead of aggregates
+    - To get a sense of how many data points there are in each category.
+
+  [ sns.stripplot(x='category', y='value', data=df) ]
+    . 'x', 'y': input features 
+    . 'data': The pandas dataFrame                   
+    . 'hue': (optional) categorical variables to split the bar 
 
 
+===[ swarmplot() ]
+* A 'swarmplot()' is a categorical scatter plot, like 'stripplot()' but it uses
+  an algorithm to 'arrange the points so that they do not overlap' even if the
+  data values are the same.
+  - You get 'individual data points'
+  - Spread out 'automatically'
+  - Still grouped by category.
+
+  # INFO:-----------------------------------------------------------------------
+  # swarm: (noun) a large group of people all moving together
+
+  [ sns.swarmplot(x='category', y='value', data=df) ]
+    . 'x', 'y': input features 
+    . 'data': The pandas dataFrame                   
+    . 'hue': (optional) categorical variables to split the bar 
+
+  # NOTE:> swarmplot() = stripplot() + no overlaping between dots  
+
+===[ Matrix plots: ]============================================================
 
 
 ===[ Styling: ]=================================================================
+styling => 13:05 
+Paletts => 28:07

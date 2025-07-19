@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/10 15:38:25 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/19 16:40:21 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -22,7 +22,7 @@
 2|> Pandas General Infos 
 3|> Reading Data Files 
 4|> Data Manipulations 
-    1 Label Managment/Index Manipulation  
+    1 Label Managment/Index Manipulation 
     2 Selection
       - Filtering: Conditional Selection
         . Filtering: 'Boolean Indexing', '.isin()', '.filter()', '.str.contains()' 
@@ -966,10 +966,15 @@ ________________________________________________________________________________
     - "df.tester_name.unique()": gives a list of unique values
 
     - 'df.x.value_counts()': This function gives a count of unique values 
+    - 'df.corr()': is used to show the correlation between columns (variables)  
+      >>> (Default: Pearson)
+      # NOTE:> columns must be a numerical variables
+    - 'df.crosstab()': show the relationship between 'categorical variables'. 
 
     # NOTE:=====================================================================
     # We can name these functions by Summary Functions (is not an official name)
     # ==========================================================================
+
 
 ===[ Data Cleaning: ]===========================================================
 
@@ -1202,9 +1207,6 @@ ________________________________________________________________________________
 #
 #   > [ Scatter Plot: ]
 #
-#   # REVISION:-------------------------------------------------------------------
-#   # Scatter plot is used to show the relationship between two
-#   # numerical/quentitive varibales.
 #
 #     >> [ df.plot(kind='scatter', x='independent', y='dependent', s=, c=) ]
 #         . x='x': represent the 'indepent variable' 

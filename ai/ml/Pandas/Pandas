@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/19 16:40:21 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/19 17:02:03 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -970,6 +970,23 @@ ________________________________________________________________________________
       >>> (Default: Pearson)
       # NOTE:> columns must be a numerical variables
     - 'df.crosstab()': show the relationship between 'categorical variables'. 
+
+    - 'df.pivote_table()' it is a powerfull 'data summarization' tool used to:
+      > Group Data
+      > Aggregate values
+      > Reshape a DataFrame into 'spreadsheet-style table' (similar to Excel
+        pivot tables)
+      - It is like an advaced version of `groupby()` with more flexibility
+        in layout
+      # INFO:-------------------------------------------------------------------
+      # 'Pivot' means rotating the data around a point (usually the index and
+      # columns) to reorganize it.
+
+        [ pd.pivot_table(data, values=None, index=None, columns=None) ]
+        . 'data': DataFrame you want to pivot
+        . 'values': column(s) to aggregate (e.g, 'sales')
+        . 'index': column(s) to use as new 'row index'
+        . 'columns': column(s) to use as new 'columns' 
 
     # NOTE:=====================================================================
     # We can name these functions by Summary Functions (is not an official name)

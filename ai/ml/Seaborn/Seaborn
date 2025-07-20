@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/16 17:39:05 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/20 17:21:52 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/20 21:38:48 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -15,28 +15,33 @@
 ===[ Index: ]===================================================================
 1|> Seaborn: Introduction
 2|> Built-in Datasets
+
 3|> Distribution Plots (for quentitive/numerical variables) 
     1. sns.distplot(): visualize single variable distribution
     2. sns.jointplot(): compare & visualize two variable distributions
     3. sns.kdeplot(): visualize 1 or 2 variables using KDE instead of histograms
     4. sns.pairplot(): visualize all paires of a dataset in a form of grid 
     5. sns.rugplot(): just a complement plot, to visualize a single distribution
-4|> Categorical Plots (for categorical variables) 
+
+4|> Categorical Plots (for categorical variables)
     1. sns.barplot(): visualize categorical based on estimator
     2. sns.countplot(): visualize categorical based on observation count 
     3. sns.boxplot(): visualizing distribution using (boxplot) across categories 
     4. violinplot(): boxplot() + kdplot() visualize statistical summary + shape
     5. stripplot(): visualize numerical and categorical data in a scatter plot 
     6. swarmplot(): stripplot() + no overlap between dots
+
 5|> Matrix Plots
     1. heatmap(): visualize matrix data (correlation, etc), using color gradient
     2. clustermap(): visualize cluster or groups across data 
     3. PairGrid: (class) more customization of sns.pairplot() / Visualizing  
                   all dataset pairs of type numerical variables 
-    4. FacedGrid: (class) split datasets based on categorical vars and visualize 
-                  each one.
+    4. FacetGrid: (class) split data set into subsets and visualize them 
+                  a cross categories 
 
 6|> Regression Plots
+    1. regplot(): scatter + regression: relationship + regression 
+    2. lmplot(): facetGrid + regplot(): regression plot across categories
 
 ===[ Seaborn: Introduction ]====================================================
 * 'Seaborn is high-level' python 'data visualization library' built 'on top of'
@@ -472,6 +477,80 @@ ________________________________________________________________________________
     |__________________|_________________________|_____________________________|
 
 ===[ Regression Plots: ]========================================================
+* 'regression plots' are a type of statistial visualization used to display and
+  analyze the 'relationship between two continuous variables' along with
+  'fitted regression model' (typically a linear regression line). 
+  - Purpose of regression plots:
+    . 'Visualize relationships': between a dependent variable and independent
+      variable.
+    . 'fit and display a regression model'
+    . Aid in 'diagnostic analysis' and 'exploratory Data Analysis (EDA)'
+  - Regression Plots combine:
+    1. A 'scatter plot' of the raw data points
+    2. A 'regression line' representing the best fit model
+    3. A 'confidence interval': shaded around the regression line
+
+# INFO:[ Summary: ]=============================================================
+# - Regression plots in Seabrn are powerfull tools for 'visual storytelling of'
+#   'statistical relationships', offering both 'visual and analytical insight'
+#   into how variables interact.
+
+===[ seaborn.regplot() ]===
+* 'seaborn.regplot()': is used to 'plot a scatterplot with a regression line' 
+  - It is a 'basic function' to plot data (scatter plot) + regression line model
+  - It gives a 'full control' over 'Axes'. 
+
+  [   sns.regplot(x=None,
+                  y=None,
+                  data=None,
+                  fit_reg=True
+                  scatter=True
+                  ...)            ]
+
+    . 'x', 'y': variables to plot
+    . 'data': Dataset (like a DataFrame)
+    . 'fet_reg': If 'True', fits and plots regression line.
+    . 'scatter': If 'True', plots scatter points.
+
+===[ seaborn.lmplot() ]===
+* 'seaborn.lmplot()': is 'high-level interface' for drawing 'regression plots'
+  built on top of 'FaceGrid' which means it creates a 'figure-level' plot
+  (not a single Axes object)
+  - While it performs a similar function as 'regplot()' (drawing scatter plots
+    with regression lines), 'lmplot()' does:
+      . Group data by categories
+      . Create 'Multiple regression plots' in a single figure
+      . Automatically handle 'subplot layout'.
+  > [ Purpose: ]
+    - Plot a 'linear regression model' for one or more subsets of your dataset
+
+  # NOTE:> lmplot() stands for 'linear model plot'.
+
+  [ seaborn.lmplot(x=None
+                   y=None
+                   data=None
+                   col=None
+                   row=None
+                   hue=None
+                   paletter=None
+                   ...            )]
+
+  - 'lmplot()': is perfect when you to 'compare relationships across'
+    'categories'.  
+  - It supports 'automatic subplot arrangment' and makes it easy to draw
+    multiple regression plots in one figure.
+  - Under the hood, it uses 'regplot()' for each individual plot.
+
+# INFO:[ regplot() VS lmplot() ]------------------------------------------------
+  ____________________________________________________________________________
+  | Feature          | `regplot()`            | `lmplot()`                   |
+  |------------------|------------------------|------------------------------|
+  | Returns          | `matplotlib.axes.Axes` | `FacetGrid`                  |
+  | Faceting Support | ❌ Not supported       | ✅ Yes (`col`, `row`, `hue`) |
+  | Customization    | More low-level control | More layout automation       |
+  | Ideal Use Case   |-Single plot, detailed  |-Multiple plots,              |
+  |                  | control                | category-based               |
+  |__________________|________________________|______________________________|
 
 ===[ Styling: ]=================================================================
 styling => 13:05 

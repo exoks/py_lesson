@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/16 17:39:05 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/20 21:38:48 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/20 23:51:21 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -500,12 +500,12 @@ ________________________________________________________________________________
   - It is a 'basic function' to plot data (scatter plot) + regression line model
   - It gives a 'full control' over 'Axes'. 
 
-  [   sns.regplot(x=None,
-                  y=None,
-                  data=None,
-                  fit_reg=True
-                  scatter=True
-                  ...)            ]
+    [   sns.regplot(x=None,
+                    y=None,
+                    data=None,
+                    fit_reg=True
+                    scatter=True
+                    ...)            ]
 
     . 'x', 'y': variables to plot
     . 'data': Dataset (like a DataFrame)
@@ -526,14 +526,14 @@ ________________________________________________________________________________
 
   # NOTE:> lmplot() stands for 'linear model plot'.
 
-  [ seaborn.lmplot(x=None
-                   y=None
-                   data=None
-                   col=None
-                   row=None
-                   hue=None
-                   paletter=None
-                   ...            )]
+    [ seaborn.lmplot(x=None
+                     y=None
+                     data=None
+                     col=None
+                     row=None
+                     hue=None
+                     paletter=None
+                     ...)             ]
 
   - 'lmplot()': is perfect when you to 'compare relationships across'
     'categories'.  

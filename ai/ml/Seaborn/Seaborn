@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/16 17:39:05 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/19 00:07:19 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/20 17:21:52 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -24,12 +24,19 @@
 4|> Categorical Plots (for categorical variables) 
     1. sns.barplot(): visualize categorical based on estimator
     2. sns.countplot(): visualize categorical based on observation count 
-    3. sns.boxplot():  
-    4. violinplot():
-    5. stripplot():
-    6. swarmplot():
+    3. sns.boxplot(): visualizing distribution using (boxplot) across categories 
+    4. violinplot(): boxplot() + kdplot() visualize statistical summary + shape
+    5. stripplot(): visualize numerical and categorical data in a scatter plot 
+    6. swarmplot(): stripplot() + no overlap between dots
 5|> Matrix Plots
+    1. heatmap(): visualize matrix data (correlation, etc), using color gradient
+    2. clustermap(): visualize cluster or groups across data 
+    3. PairGrid: (class) more customization of sns.pairplot() / Visualizing  
+                  all dataset pairs of type numerical variables 
+    4. FacedGrid: (class) split datasets based on categorical vars and visualize 
+                  each one.
 
+6|> Regression Plots
 
 ===[ Seaborn: Introduction ]====================================================
 * 'Seaborn is high-level' python 'data visualization library' built 'on top of'
@@ -37,7 +44,7 @@
   easier and more attractive with 'minimal code'. 
 
 ===[ Motivation/Purpose Behind Seaborn: ]===
-- The 'key here' is 'label data', as I am noticed that matplotlib, deal with
+- The 'key here' is 'labled data', as I am noticed that matplotlib, deal with
   'unlabled data (numpy.ndarray)', The same story repeats itself again
   (Numpy & Pandas). 
 
@@ -45,9 +52,9 @@
   " To Make 'working with labeled', 'structured data', 'easier and more' "
   " 'intuitive' than using raw 'Numpy arrays' "
 
-  # NOTE:---------------------------------------------------------------
-  # - DO NOT FORGET that <real-datasets> are <Labeled>, That way we need 
-  #   Labled data structure to use (DataFrames & Series)
+  # NOTE:------------------------------------------------------------------
+  # - DO NOT FORGET that <real-datasets> are <Labeled>, That is way we need 
+  #   Labeled data structure to use (DataFrames & Series)
 
 ===[ Matplotlib VS Seaborn ]===
 ________________________________________________________________________________
@@ -99,7 +106,7 @@ ________________________________________________________________________________
 ===[ Seaborn: Built-in Datasest ]===============================================
 * Seaborn library contains a set of built-in datasets.
 
-  1|> 'seaborn.get_dataset_name()'
+  1|> 'seaborn.get_dataset_names()'
       * Used to 'list all available built-in datasets' that can be loaded using
         'seaborn.lead_dataset()'
 
@@ -118,7 +125,7 @@ ________________________________________________________________________________
       #   Seaborn can fetch the list from the online repository.
 
 ===[ Distribution Plots: ]======================================================
-* A 'distribution plot' visualizes how a datset is spread over a range of
+* A 'distribution plot' visualizes how a dataset is spread over a range of
   values, the 'probability distribution' of a single variable (univariate) or
   joint distribution of two variables (bivariate)
   - In Seaborn these plots help inderstanding:
@@ -220,7 +227,7 @@ ________________________________________________________________________________
                    -          | np.cov
                    - ...      | etc
 
-    # NOTE:> Aggregate data means summarize it in one quentity like mean.
+    # NOTE:> Aggregate data means summarize it in one quentity (like mean).
 
 
 ===[ sns.countplot() ]===
@@ -303,7 +310,168 @@ ________________________________________________________________________________
   # NOTE:> swarmplot() = stripplot() + no overlaping between dots  
 
 ===[ Matrix plots: ]============================================================
+* In 'Seaborn', 'matrix plots' are used to display data structured in a
+  '2D matrix form', often involving 'relationships' between 'pairs of variables' 
+  or showing 'values' across a 'grid of coordinates'.
+  - The are useful to visualizing 'correlations', 'similarities', or
+    'distance-based relationships' in tabular or array-like data
 
+  # REVISION:------------------------------------------------------------------
+  # These kinds of plots remember me by 'contigency table/cross tabs' in
+  # statistics, where we use it to understand the correlation between
+  # categorical variables (using frequnecy or count).
+
+# CONCLUSION:-------------------------------------------------------------------
+# matrix plots are based on matrix-style table (a 2D representations like
+# DataFrames or 2D arrays)
+
+===[ sns.heatmap() ]===
+* It is used to 'visualize' a 'matrix of values' using a 'color gradient', Each
+  'cell' in the matrix is 'color-coded based' on its numeric value, making it
+  easy to 'spot', 'patterns', 'trends', or 'anomalies'.
+  - These values are (correlation, confusion, missing data)
+
+  [ sns.heatmap(data=df.corr(), annot=True, cmpa='collwarm') ]
+
+  . 'annot=True': shows the numeric values in each cell
+  . "cmap='colorwarm'": defines the color scheme
+
+  # INFO:-----------------------------------------------------------------------
+  # - annotation: (noun) a short explanation or note added to a text or image, 
+  #   or the act of adding shor explanations or notes.
+  # - in the context of computing means adding a description or peice of
+  #   information added to data. 
+
+
+===[ sns.clustermap() ]===
+* 'sns.clustermap()': is a powerfull visualization tool that combines 
+  'heatmaps' with 'hierarchical clustering'.
+  - 'clustermap()' deos 3 things: 
+    1|> 'Reorder the table' (rows and columns) so that similar things are close
+       to each other
+    2|> 'Draws a heatmap' (colored table) to show the values 
+    3|> 'Adds dendrograms' (tree diagrams) to show how the groups were formed 
+
+      [ sns.clustermap(data, 
+                       method='average', 
+                       metric='euclidean', 
+                       z_score=None, 
+                       standard_scale=None,
+                       cmap='viridis')        ]
+
+        . 'data': 2D matrix (DataFrame)
+        . 'method': clustering algorithm (single, complete, average, ward)
+        . 'metric': Distance metric ('euclidean', 'correlation')
+        . 'z_score': Normalize rows (0) or columns (1) using z-score 
+        . 'standard_scale': Normalize rows or columns to [0, 1]
+        . 'cmap': colormap for heatmap 
+
+  # QUESTION:[ Why use it and When to use it ? ]================================
+  # - Because raw tables are messy. 'clustermap()' helps you
+  #   'see hidden patterns' like:
+  #   - let's take a dataset of student in their score in different subjects 
+  #   . 'these students have similar scores'
+  #   . 'these subjets behave the same way across students'
+  # > [ When to use it? ]
+  #   - You have a DataFrame with many rows/columns of numeric data
+  #   - You want to 'find structure or clusters'
+  #   - You want a 'better visual' than just a raw table or simple heatmap
+
+===[ PairGrid: Class ]===
+* Is a 'grid-based plot framework' that allows you to 'create a matrix'
+  'of plots', where: 
+  > Each 'row and column' in the grid represents a variable (numeric)
+  > You can map 'different kinds of plots' to:
+    - The 'diagonal' (e.g. histograms)
+    - the 'upper triangle' (e.g scatterplots)
+    - and the 'lower triangle' (e.g. KDE plots) 
+  - It gives you full control over how the grid looks and behaves, It is like
+    a more customizable version of 'sns.pairplot()' 
+
+      
+      [ PairGridObj = sns.PairGrid(data, 
+                                   vars=None, 
+                                   hue=None, 
+                                   palette=None, 
+                                   corner=False) ]
+
+
+        . 'PairGridObj': is an empty grid system
+      
+      > [ Common Methods: ]
+        * 'PairGridObj.map(plot)': apply 'plot' same function everywhere 
+        * 'PairGridObj.map_diag(plot)': apply 'plot' for diagonal (e.g,
+          historgrams, etc)
+        * 'PairGridObj.map_upper(plot)': apply 'plot' upper diagonal
+        * 'PairGridObj.map_lower(plot)': lower triangle 
+        * 'PairGridObj.map_offdiag(plot)': remove 'plot' from diagonal 
+        * 'PairGridObj.add_legend()': add legend to the grid.
+
+  # NOTE:-----------------------------------------------------------------------
+  # - You can use either matplotlib plots (e.g. plt.scatter) or seaborn plots
+  #   (e.g. sns.kdeplot)
+
+> [ Summary: ]
+  - PairGrid: had grid system kaypairi liya all different numerical variables o
+    kay3tini more control 3la lgrid dyal 3la 3akss pairplot()  
+
+===[ FacetGrid: class ]===
+* 'FacetGrid' is used to create a 'grid of plots based on one or more'
+  'categorical variables'.
+  - It 'splits your dataset into subsets' according to the value of categorical
+    variables(s). 
+  - It then draws the 'same kind of plot' (e.g, scatterplot, ...) for each
+    subset. 
+  - You get a 'matrix (grid) of plots', where each plot corresponds to one
+    subset of data. 
+
+  > Hadchi 'tayqassem/split' liya data dyali l 'groups' based 3la categorical  
+    data, ex (ila can taqssim 3la hassab sex dyal person o wach taykmi) 
+    ghadi yqassem liya dataset 3la 4 (male + keykmi, male + makykmich) 
+    and (female + katkmi, female + maketkmich) o bi hadchi ghadi nkoun qader
+    nchouf/visualize each groups bohdo kifach (kay3ti tip) o l bill li kay3it 
+    ka mital || o had lgroups taykono hda ba3diyathon in a form of grid
+
+    # INFO:-----------------------------------------------------------------
+    # facet: (noun) of part of a subject, situation, etc that has many parts
+    #   > Ex: She has to many 'facets' to her personality 
+
+    [ g = sns.FacetGrid(data,
+                        col=None,
+                        row=None,
+                        hue=None,
+                        palette=None) ]
+
+      . 'col': categorical variables to create columns
+      . 'row': categorical variables to create rows
+      . 'hue': categorical variable to color plot element withing each facet
+
+      > [ Common Methods: ]
+        * 'PairGridObj.map(plot, **kwargs)': apply 'plot' same function
+          on each group (do not forget to add args for any plot that you used) 
+
+  > [ When to Use: ]
+    - Compare the 'distribution or relationship' of variable 'across categories'
+    - Visualize how a pattern changes across groups.
+    - Plot many small plots in a grid for easy comparison. 
+
+# INFO:[ FacetGrid VS PairGrid ]-------------------------------------------------
+    ____________________________________________________________________________
+    | Feature          | `FacetGrid`             | `PairGrid`                  |
+    |------------------|-------------------------|-----------------------------|
+    |-Data split by    |-Categorical variable(s) |-Numeric variables           |
+    |                  |                         | (pairwise)                  |
+    |-Purpose          |-Plot same plot type by  |-Plot pairwise relationships |
+    |                  | groups                  |                             |
+    |-Plot types       |-Histograms, scatterplots|-Scatter, KDE, histograms etc|
+    |                  | etc.                    |                             |
+    |-Grid dimension   |-1D or 2D (rows, columns)|-Square matrix (variables x  |
+    |                  |                         | variables)                  |
+    |-Example use case |-Distribution by         |-Relationship between        |
+    |                  | categories              | variables                   |
+    |__________________|_________________________|_____________________________|
+
+===[ Regression Plots: ]========================================================
 
 ===[ Styling: ]=================================================================
 styling => 13:05 

@@ -1,0 +1,121 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀               𓐓  questions 𓐔           
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀       Dev: oezzaou </var/spool/mail/oezzaou> 
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/12 23:05:23 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/12 23:12:03 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+but why they have to use Figure , they can use Gride Layout that takes Axes directly ?
+
+ChatGPT said:
+
+You're asking an excellent architectural question — this goes to the heart of how Matplotlib's object model is designed.
+❓ Why do we have to create a Figure and then assign Axes to it using a GridSpec?
+
+Why can’t we just:
+
+    “Let GridSpec manage Axes directly without going through Figure?”
+
+🧱 Short Answer:
+
+    Because the Figure is the master container — everything must live inside it: axes, titles, layout, legends, and even the canvas itself.
+
+🧠 GridSpec is only a layout helper.
+
+It’s not a container. It doesn’t draw anything.
+It just tells the Figure:
+
+    “Here’s how to divide yourself into a grid.”
+
+⚙️ Longer Answer: The Design Philosophy
+
+| Component  | Role                                                                          |
+| ---------- | ----------------------------------------------------------------------------- |
+| `Figure`   | The full canvas that is eventually saved/shown. Contains everything.          |
+| `Axes`     | The actual plotting area (like a subplot). Draws data (lines, scatter, etc.). |
+| `GridSpec` | A helper class to **calculate layout geometry** (rows/cols/sizes).            |
+
+So the relationship is:
+
+    GridSpec → defines layout → used by Figure → which places Axes accordingly
+
+🔄 Analogy: Think of it like a newspaper layout
+
+    Figure = The page
+
+    GridSpec = The blueprint for columns/boxes on that page
+
+    Axes = Actual content boxes (articles, images) that are placed on the page using the layout
+
+You can’t put content just in the layout — you put it in a page (Figure) using the layout (GridSpec) as a guide.
+🛠️ What If It Were Allowed?
+
+If GridSpec were allowed to own Axes directly, you'd lose:
+
+    The context of the full page (Figure)
+
+    Control over DPI, rendering canvas, saving, layout compression, etc.
+
+That’s why Matplotlib strictly separates:
+
+    Structure (Figure)
+
+    Layout guidance (GridSpec)
+
+    Plotting logic (Axes)
+
+    Drawing primitives (Line2D, PathCollection, etc.)
+
+✅ Final Summary
+You might think	But actually
+
+| You might think             | But actually                                                    |
+| --------------------------- | --------------------------------------------------------------- |
+| "`GridSpec` is a container" | ❌ No, it's just layout metadata                                 |
+| "`Axes` go into GridSpec"   | ❌ No, `Figure` owns `Axes`, GridSpec only helps decide where    |
+| "`Figure` is optional"      | ❌ `Figure` is always required – it's the top-level drawing unit |
+| "`GridSpec` could draw"     | ❌ It doesn't draw or store data, just tells where to put things |
+
+
+=============================================================
+  Figure
+  ├── Subplot(s) (organized via subplot() or subplots()) 
+  │   └── Axes (1 or more per subplot)
+  │       ├── XAxis
+  │       │   ├── Ticks
+  │       │   ├── Tick Labels
+  │       │   └── Axis Label (e.g., "Time")
+  │       ├── YAxis
+  │       │   ├── Ticks
+  │       │   ├── Tick Labels
+  │       │   └── Axis Label (e.g., "Value")
+  │       ├── Title (of that specific Axes)
+  │       ├── Plot Elements
+  │       │   ├── Line2D (e.g., from `plot()`)
+  │       │   ├── Patch (Bar, Pie, Rectangle, etc.)
+  │       │   ├── Collection (e.g., Scatter plots)
+  │       │   └── Images (from `imshow()`, etc.)
+  │       ├── Legend
+  │       ├── Grid
+  │       ├── Spines (Borders)
+  │       │   ├── Top
+  │       │   ├── Bottom
+  │       │   ├── Left
+  │       │   └── Right
+  │       └── Background (Facecolor of Axes)
+  ├── Figure-level Title (`fig.suptitle()`)
+  ├── Shared Colorbar(s) or Legend(s) (if added)
+  ├── Layout Manager
+  │   ├── `tight_layout()`
+  │   └── `constrained_layout`
+  ├── Figure Background (Facecolor)
+  ├── DPI (Resolution: dots per inch)
+  └── Save functionality (`savefig()`)
+

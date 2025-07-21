@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/10 15:41:04 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/16 17:15:24 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/21 17:00:43 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -244,6 +244,19 @@
       >  [ Axes Limits & Scaling ]
       . 'xlim': 'min' and 'max' values of 'X', use `x.set_xlim()` to change it 
       . 'ylim': 'min' and 'max' values of 'Y', use `x.set_ylim()` to change it 
+        # INFO:-----------------------------------------------------------------
+        # - set_ylim() sets the 'range of values' displayed on the 'y-axis' ()
+        #   |=> (numerical values)
+        # - set_yticklabels(): sets 'custom labels' for y-ticks
+        #   |=> (categorical values)
+        'ytick': are the small marks on the 'y-axis' > set_yticks([t1, t2, ])
+        'xtick': are the small marks on the 'x-axis' > set_xticks([t1, t2, ])
+        # NOTE:> t(1...n) are a numerical values
+        # CONCLUSION:--------------------------------------------------------
+        # - set_x/ylim(range)
+        # - set_x/ytick(list of numerical values)
+        # _ set_x/yticklabels(list of labels)
+      
       > [ Legends ]
       * A 'legend' in matplotlib is small box placed in a plot that 'explain'
         'what each line, marker, or color represents', Legends contains
@@ -252,7 +265,7 @@
         [ ax.legend(): show legend ]
 
           .'loc=': defines the location of the legend box (e.g 'center') 
-          . 'numpoints': defines the number dots, marks in the legend box 
+          . 'numpoints': defines the number dots, marks in the legend box
 
 
 

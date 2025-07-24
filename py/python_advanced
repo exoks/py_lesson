@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/03/24 16:45:18 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/04/05 17:02:42 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/24 21:55:46 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -537,5 +537,112 @@ ex:
 | - Returns a single value	       | - Returns a generator                 |
 | - Used in regular functions      | - Used to create generators           |
 ----------------------------------------------------------------------------
+
+===[ Logger: logging module ]===================================================
+* 'logging' module is built-in module that let's you "record messages" 
+  (e.g, info, warning, errors) during your program's execution
+
+  > [ Basic Usage: ]
+    # configure the logger (only once)
+    [ logging.basicConfig(level=logging.INFO) ]
+
+    # Use it 
+    logging.debug("debug details")
+    logging.info("Processing file ...")
+    logging.warning("Missing values found")
+    logging.error("Failed to load file")
+    logging.critical("System crash!")
+
+    # INFO:[ Logging Levels: ]------------------------------
+    # . `DEBUG`   : Detailed info (for developers)
+    # . `INFO`    : General info (normal flow)
+    # . `WARNING` : Something unexpected
+    # . `ERROR`   : A serious issue (not crashing)
+    # . `CRITICAL`: Fatal error
+    # NOTE:> Logging levels are HIERARCHY in the same order 
+
+===[ Core Design of Python's Logging Module: ]===
+    ___________________________________________________________________
+    | Level Name | Value | Description                                |
+    |------------|-------|--------------------------------------------|
+    | `NOTSET`   | 0     | Lowest level (used internally)             |
+    | `DEBUG`    | 10    | Detailed diagnostic/debugging information  |
+    | `INFO`     | 20    | General information about program state    |
+    | `WARNING`  | 30    | Something unexpected, but not fatal        |
+    | `ERROR`    | 40    | A major problem that occurred              |
+    | `CRITICAL` | 50    | Serious error that may stop the program    |
+    |____________|_______|____________________________________________|
+
+    # INFO:---------------------------------------------------------------------
+    # > When you configure the logger with a specific 'level', it will show 
+    #   'only messages at that level and above'.
+    # NOTE:[ VERY IMPORTANT NOTE ]==============================================
+    # If you guys remember 'M01/EX06/Harl.cpp' subject from 1337 coding school |
+    # That subject is inspired from 'Python Hierarchy Logging Levels'.         |
+    # ==========================================================================
+
+  > [ The Core Motivation behind the This Design ]
+    * The 'hierarchy of logging levels' in python is 'specifically designed' to 
+      help you control what kinds of log messages are shown at different 
+      "stages of your software's lifecycle" (filtering the logging messages)
+
+      > Example 
+        - Development Stage: Debug, Info, Error, Warning (Everthing) 
+        - Testing          : Info, Error, Warning
+        - Production       : Error, Warning 
+
+    # NOTE:> It is RECOMMENDED to show everthing in Development Stage
+
+===[ Logging to a file ]===
+* In addition to `stdout` you can log into a 'file'.
+
+  logging.basicConfig(
+    level = "DEBUG"         # logging level (info, warning, error, critical)
+    filename='path/app.log' # log file path 
+    filemode='w'            # 'w' override the app.log instead of appending logs 
+  )
+
+===[ Logging: Message Formatting ]===
+  logging.basicConfig(
+    level = "DEBUG"         # logging level (info, warning, error, critical)
+    filename='path/app.log' # log file path 
+    filemode='w'            # file mode/permissions
+    format="%(asctime)s - %(levelname)s - %(message)s" # standard formatting
+  )
+ 
+  # NOTE:> There tons of options for message formating in python documentation
+
+  > It will display the message in this form:
+    'TIME - LEVEL NAME - MESSAGE'
+
+===[ Custom loggers: ]===
+* A 'custom logger' is an instance of the 'logging.Logger' class that you create
+  and name yourself, rather than using the default 'root logger'. 
+  - It does really help in 'large project' where you have to create a logger for
+    'each app' using different 'names'.
+ 
+  1|> [ Custom Logger Creation: ] 
+      - Creating a custom logging Instance 
+        logger = logging.getLogger("my_app_name")
+          Or
+        # Using name to create a logger for each module 
+        logger = logging.getLogger(__name__)
+
+  2|> [ Logger: Creating a Handler: ] 
+      - A 'handler' defines how 'logs' is getting 'logged (handled)'
+
+        handler = logging.FileHandler('path/app.log')
+
+  3|> [ Logger: Creating a Formatter ]
+      _ A 'formatter' defines how logs should be displayed.
+        
+        formatter = logging.Formatter(
+                                  "%(asctime)s - %(levelname)s - %(message)s") 
+
+  4|> [ Set Formatter to Handler & Handler to Logger ] 
+      # set/add formatter to our handler to use it for logs text format
+      handler.setFormatter(formatter) 
+      # Add handler to logger 
+      logger.addHandler(handler)
 
 ================================================================================

@@ -1,17 +1,16 @@
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
-#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀              𓐓  ML_roadmap 𓐔           
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀              𓐓  ml_roadmap 𓐔           
 #  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
 #  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀        Dev: oezzaou  oussama.ezzaou@gmail.com 
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/21 17:13:59 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/20 21:43:01 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/24 13:14:24 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
 #  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
 #  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
-
 
 ===[ ML-Engineer Skills: Data Scientist + Software Engineer ]===================
 _______________________________________________________________________________
@@ -42,7 +41,23 @@ _______________________________________________________________________________
  |__________________________|________________________|_________________________|
 
 ===[ ML: RoadMap ]==============================================================
-1|> Fundamentals (1–2 weeks)
+1|> Math Foundations for ML
+    * Goal: Build a strong mathematical foundation for understanding ML algorithms.
+    > Topics:
+      - Linear Algebra                                                 | Done
+      - Calculus
+        . derivatives                                                  | Done
+        . partial derivatives                                          | Done
+        . Integrals                                                    | ...
+      - Probability & Statistics:
+        . Descriptive statistics                                       | Done
+        . Inferential Statistics                                       | ... 
+
+2|> Machine Learning Theory
+    * Goal: Understand the theoretical principles behind machine learning models
+    > Topics:
+
+3|> ML - Fundamentals (tools and workflow)
     * Goal: Understand basic AI/ML workflow and core tools.
     > Topics:
       - NumPy & Pandas (data preprocessing/handling) 
@@ -60,7 +75,7 @@ _______________________________________________________________________________
       - Scikit-learn tutorials
         |=> 'https://scikit-learn.org/stable/tutorial/index.html'
 
-|> Practical Machine Learning (2 weeks)
+4|> Practical Machine Learning
     * Goal: Learn the ML process — preprocessing, training, evaluation.
     > Topics:
       - Supervised learning (classification, regression)                | Done
@@ -74,7 +89,7 @@ _______________________________________________________________________________
       - ML Crash Course by Google
         |=> "https://developers.google.com/machine-learning/crash-course"
 
-3|> Deep Learning Foundations (2–3 weeks)
+5|> Deep Learning Foundations
     * Goal: Build neural networks and understand how deep models work.
     > Topics:
       - Neural networks, backpropagation                                |
@@ -87,7 +102,7 @@ _______________________________________________________________________________
       - Fast.ai course (Highly practical)
         |=> 'https://course.fast.ai/' 
 
-4|> Specialization: Computer Vision & YOLO (2–3 weeks)
+6|> Specialization: Computer Vision & YOLO
     * Goal: Apply AI to real-world images using YOLO.
     > Topics:
       - CNNs, image preprocessing                                       |
@@ -99,7 +114,7 @@ _______________________________________________________________________________
       - Roboflow: Annotate + Train YOLO
         |=> 'https://blog.roboflow.com/how-to-train-yolov5-on-a-custom-dataset/' 
 
-|> Build Projects (Ongoing)
+7|> Build Projects
     * Goal: Apply everything you learned.
     > Ideas:
       - Object detection with YOLO on custom images                     |

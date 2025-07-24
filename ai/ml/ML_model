@@ -5,12 +5,31 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/06/18 00:50:59 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/24 13:07:42 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
 #  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
 #  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ Index: ]===================================================================
+1|> Linear Regression
+    - cost function (Squared Error Cost function)
+    - Gradient Descent 
+2|> Multiple Linear Regression
+    - Feature Scaling (range (min_max), z-score, robust)
+    - checking gradient descent for convertions (learning curve & learning rate)
+3|> Plynomial Regression 
+    - Feature Engineering
+4|> Regression VS Classification
+5|> Logistic Regression
+    - Decision Boundary 
+    - Cost function 
+6|> Overfitting & Underfitting
+    - overfitting
+      . Regularization 
+      . Cost function with regularization
+      . Gradient Descent with regularization
 
 ===[ Model: Linear Regression ]=================================================
 * Linear regression: (easy) is used to 'model the relationship' between: 
@@ -68,14 +87,14 @@
 #   suitable one ? (cost function).                                            | 
 # ==============================================================================
 
-  > [ Cost Function: Squared error cost function ]
+===[ Cost Function: Squared error cost function ]===
   - In machine learning a cost function is 'mathematical formula' that measures
     how wrong model's prediction are. It simply tells the model how 'far off'
     from the true value (it measures the quality of fiting).
       * Low Cost: good predictions
       * High Cost: bad predictions
 
-      (MSQ): stands for Mean Squared Error
+      (MSE): stands for Mean Squared Error
                |-----------------------------------------------------|
       Formula: | J(a, b) = 1 / 2n * sum (i -> n) (Ypi - Yai)^2       |
                |-----------------------------------------------------|
@@ -102,7 +121,7 @@
 # - 1/2 → Simplifies the math when taking derivatives.                         |
 # ==============================================================================
 
-===[ Descent Gradient: ]===
+===[ Gradient Descent: ]===
 * This algorithm is used to find the lowest point in the function. There are
   a lot of algorithms used to find the lowest point.
 
@@ -191,7 +210,7 @@
 # - But you can still use Pearson's r cofficient in the case of simple linear 
 #   regression to find the equation of the best line that fits the data.
 
-===[ ML: Multiple linear regression ]===========================================
+===[ Model: Multiple linear regression ]========================================
 * This model is used to model the relationship between one 'dependent' variable
   and 'two or more independent variables'|also called 'predictors' or 'features'
 
@@ -221,7 +240,7 @@
   # - what i have said is not true at all 
   # - row vector is not a ghraphical vector, i guess no projection is here. 
 
-  > [ Feature Scaling: ]
+===[ Feature Scaling: ]===
     * Feature scaling is 'preprocessing technique' used to 'normalize' the 
       range of independent variables (features) in a dataset
 
@@ -237,8 +256,8 @@
     #   Normalization (max, mean ...), Standardization (Z-score ...), ... 
 
   # INFO:
-   - The Z-score normalization or standardization is the most method famous 
-   method to make 'feature scaling'.
+   - The Z-score normalization or standardization is the most method famous
+     method to make 'feature scaling'.
 
   > [ Feature Transformation methods: ]
 
@@ -290,7 +309,7 @@
 # - We keep iterating (making steps) until conversion where A = Cste & B = Cste
 # ==============================================================================
 
-- 'Based on the revesion', we know that the 'cost function' changes at each 
+- 'Based on the revision', we know that the 'cost function' changes at each 
   'iteration (step)' made using gradient descent algorithm, So let's represent 
   'the changing of cost by number of iterations' in scatter plot
 
@@ -345,20 +364,20 @@ J(a->, b)                                J(a->, b)
   #   it is working properly. 
   # ============================================================================
 
-===[ How to find the best Learning Rate: ]===
-* Keep changing the 'learning rate' and visualize the 'learning curve'    
+  >  [ How to find the best Learning Rate: ]===
+     * Keep changing the 'learning rate' and visualize the 'learning curve'    
 
-  - It is globaly known to start by: 
+     - It is globaly known to start by: 
 
-    Learning Rate = 0.001     | 
-    Learing Rate = 0.1        | Keep multiplaying by x10
-    Learing Rate = 1          | or x3 ...
-    ...
+        Learning Rate = 0.001     | 
+        Learing Rate = 0.1        | Keep multiplaying by x10
+        Learing Rate = 1          | or x3 ...
+        ...
 
-  - Then choose the learning rate that gives the learning curve that
-    'deacrease fast and continous'.
+     - Then choose the learning rate that gives the learning curve that
+       'deacrease fast and continous'.
 
-===[ Polynomial Regression ]====================================================
+===[ Model: Polynomial Regression ]=============================================
 * 'Polynomial Regression' is a type of regression analysis where the 
   relationship between the 'independent variable(x)' and the 'dependent'
   'variable (y)' is modeled as an nth-degree polynomial
@@ -382,7 +401,7 @@ J(a->, b)                                J(a->, b)
   > [ Things to Watch out For ]
     - 'Overfitting': High-degree polynomials can fit training data too colsely,  
       hurting generalization.
-    - 'Extrapolation Risk': Polynomial curves can behavewildly outside the data
+    - 'Extrapolation Risk': Polynomial curves can behave wildly outside the data
        range 
     - 'Scaling': It is a good idea to normalize or standardize input features  
       when using high-degree terms.
@@ -877,7 +896,7 @@ J(a->, b)                                J(a->, b)
         'reasonable and smooth', so it works better for future data. 
 ================================================================================
 
-> [ Regularization With Descent Gradient: ]
+> [ Regularization With Gradient Descent: ]
   - Cost function with regularization:
 
     [----------------------------------------------------------------]
@@ -909,6 +928,4 @@ J(a->, b)                                J(a->, b)
    \|=|                    1 
       | b = b - Alpha * [ --- sum(f(x->) - y) ]   => Still the same
        \                   m 
-
-
 

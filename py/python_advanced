@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/03/24 16:45:18 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/24 21:55:46 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/26 12:12:46 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -637,7 +637,7 @@ ex:
       _ A 'formatter' defines how logs should be displayed.
         
         formatter = logging.Formatter(
-                                  "%(asctime)s - %(levelname)s - %(message)s") 
+                                  "%(asctime)s - %(levelname)s - %(message)s")
 
   4|> [ Set Formatter to Handler & Handler to Logger ] 
       # set/add formatter to our handler to use it for logs text format
@@ -645,4 +645,26 @@ ex:
       # Add handler to logger 
       logger.addHandler(handler)
 
+# INFO:[ Type Of Handlers in Logging Module ]===================================
+# 1|> logging.StreamHandler
+#     - Sends logs to streams like 'sys.stdout' or 'sys.stderr'
+#     - Common for 'console output'.
+# 2|> logging.FileHandler
+#     - Writes logs to a file
+# 3|> logging.MemoryHandler
+#     - Buffers logs in memory and flushes them to another handler when a
+#       condition is met 
+# 4|> logging.SMTPHandler
+#     - sends logs via 'email' using SMTP
+# 5|> logging.HttpHandler
+#     - sends logs via 'HTTP POST' or 'GET' to a web server
+# 6|> logging.SocketHandler 
+#     - sends logs over a 'TCP socket' to a logging server
+# 7|> logging.DatagramHandler
+#     - like 'socketHandler' but uses 'UDP'. 
+# NOTE:[ Other Handlers ]-------------------------------------------------------
+# - logging.QueueHandler
+# - logging.NullHandler
+# - logging.TimeRotatingFileHandler 
+# - logging.RotatingFileHandler
 ================================================================================

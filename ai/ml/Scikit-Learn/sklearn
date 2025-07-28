@@ -1,0 +1,53 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                 𓐓  sklearn 𓐔           
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀       Dev: oezzaou <OussamaEzzaou@gmail.com> 
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/23 16:21:13 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/28 12:25:23 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ Index: ]===================================================================
+1|> Sickit-Learn Introduction 
+
+===[ Sickit-Learn Introduction: ]===============================================
+* Now that you are confortable with 'NumPy/Pandas' for data manipulation and
+  'MatPlotLib/Seaborn', You are ready to dive into the next big step in the 
+  'datscience pipline': 'machine learning and (scikit-learn)' 
+  # NOTE:> scikit-learn (often abbreviated as 'sklearn')
+  - Sickit-learn is a powerful, easy-to-use Python library for 'machine'
+    'learning' It has been built on the top for core python libraries like:
+    > 'NumPy': (for numerical operations)
+    > 'SciPy': (for scientific computing) 
+    > 'matplotlib' (for basic visualization)
+  - It privides 'simple and efficient tools' for predictive data analysis,
+    supporting, supporting both 'supervised' and 'unsupervised learning' 
+    along with tools for:
+    > 'Model Selection'
+    > 'evaluation'
+    > 'preprocessing'
+  
+  # QUESTION:[ Where does scikit-learn fit in the data Science live Cycle? ]===
+  # 1|> Data Collection 
+  # 2|> Data Cleaning (NumPy/Pandas)
+  #     - remove duplicates
+  #     - handle missing (drop, or imputation<0, mean, bfill, ffill, etc>) 
+  #     - Correct Inconsisting formats ()
+  # 3|> Exploratry Data Analysis (EDA)  
+  #     - Data Visualization (matplotlib/Seaborn) 
+  #     - Data Analysis
+  #       . Summary statistics (df.describe(), df.info())
+  #       . Understand relationships, distributions, correlations
+  # 4|> Preprocessing (scikit-learn starts here)  
+  #     - data Transformation (Feature Scaling & categorical Encoding) 
+  #     - Feature Engineering
+  # 5|> Modeling
+  #     - Select ML algorithm (linearReression)
+  #     - Train Model: model.fit()
+  #     - Predict: model.predict()
+  #     - Evaluate

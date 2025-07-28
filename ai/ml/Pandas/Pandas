@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/26 12:00:30 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/28 12:23:57 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -29,6 +29,7 @@
       - Indexing: Direct Selection 
         . loc[]: 'Label-Based Selection'
         . iloc[]: 'Index-Based Selection'
+      - String Manipulation
     3 Ordering: '.sort_values()', '.sort_index()'
     4 Grouping & Aggregation
       - Grouping: 'groupby()'
@@ -610,6 +611,18 @@ Exploratory Data Analysis (EDA)
 # | Purpose    | Keep only rows that match         | Access specific part(s)   |
 # |            | condition                         | of data                   |
 # |____________|___________________________________|___________________________|
+
+|> [ String Manipulation: ]
+
+  1|> 'Series.str.extract()' is used to extract 'groups' from a strings column
+      that match a given 'regrex pattern'.
+
+      [ Series.str.extract(pat, flags=0, expand=True) ]
+        . 'pat': A regular expression 'pattern' with 'capturing groups'
+          (parentheses ())
+        . 'expand=True': (opt) Returns a DataFrame even if there is only one
+          group (default), Otherwise 'False' returns a Series if there's only
+          one group.
 
 ===[ Data Manipulation: Ordering: ]===
   1|> "df.sort_values(by=['label1', ...], ascending=[True, ...])", Is used to

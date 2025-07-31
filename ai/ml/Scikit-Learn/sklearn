@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/23 16:21:13 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/31 06:59:00 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/31 18:49:08 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -14,8 +14,7 @@
 
 ===[ Index: ]===================================================================
 1|> Sickit-Learn 
-    - Introduction 
-    - sklearn built-in datasets
+    - sklearn datasets
     - Input Features and Target Labels 
 2|> Preprocessing
 3|> Metrices 
@@ -59,21 +58,26 @@
   #     - Predict: model.predict()
   #     - Evaluate
 
-===[ Sklearn: Built-in Datasets ]===
+===[ Sklearn: Datasets ]===
 * Scikit-learn provides a collection of 'built-in datasets' that are useful for 
   'practicing machine learning' without having to search for or prepare data.
   - These datasets are available via 'sklearn.datasets'.
 
+# REVISION:---------------------------------------------------------------------
+# - Seaborn is also used to load built-in datasets: 
+#   > seaborn.get_dataset_names() => To get all available built-in datasets
+#   > seaborn.load_dataset(name)  => To load the the specific dataset 
+
       |---------------[ Dataset Types in `Sklearn` ]------------------| 
       |                               |                               |
-  [ Toy Datasets ]          [ Real Datasets ]         [ Synthetic Datasets ]
-* Small and built-in      * They are slightly       * Scikit-learn allows you
-> (Built-in)                larger datasets           to generate data to test
-                            that are 'fetched'        specific algorithms
-                            'from the internet'     > (Generated)
-                            and my be cached
-                            locally.
-                            > (Downloaded)
+  [ Toy Datasets ]      [ Real-World Datasets ]       [ Synthetic Datasets ]
+* Small and built-in    * They are slightly         * Scikit-learn allows you
+> (Built-in)              larger datasets             to generate data to test
+                          that are 'fetched'          specific algorithms
+                          'from the internet'       > (Generated)
+                          and my be cached
+                          locally.
+                        > (Featched/Downloaded)
 
 1|> [ Toy Datasets: (Built-in) ]
     - These are loaded directly into memory and are very fast to access.
@@ -89,7 +93,7 @@
     # NOTE:---------------------------------------------
     # - These return a 'Bunch object' like a dictionary.
 
-2|> [ Real Datasets: (Downloaded) ] 
+2|> [ Real Datasets: (Fetched/Downloaded) ] 
     - These are slightly larger datasets that are 'fetched from the internet'
       and may be cached locally.
     ____________________________________________________________________________
@@ -143,7 +147,6 @@
 #   |           |                            | experimentation                 |
 #   |___________|____________________________|_________________________________|
 # ==============================================================================
-
 
 ===[ Sklearn: Input Feature ('X') & Input Labels ('Y') ]===
 * 'X' represents the 'input features' 'Independent Variables', They are used

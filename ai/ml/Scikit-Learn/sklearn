@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/23 16:21:13 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/28 12:25:23 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/31 06:59:00 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -13,9 +13,16 @@
 #  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
 
 ===[ Index: ]===================================================================
-1|> Sickit-Learn Introduction 
+1|> Sickit-Learn 
+    - Introduction 
+    - sklearn built-in datasets
+    - Input Features and Target Labels 
+2|> Preprocessing
+3|> Metrices 
+4|> Meta Estimators 
+5|> Human-Learn
 
-===[ Sickit-Learn Introduction: ]===============================================
+===[ Sickit-Learn: ]============================================================
 * Now that you are confortable with 'NumPy/Pandas' for data manipulation and
   'MatPlotLib/Seaborn', You are ready to dive into the next big step in the 
   'datscience pipline': 'machine learning and (scikit-learn)' 
@@ -36,14 +43,14 @@
   # 1|> Data Collection 
   # 2|> Data Cleaning (NumPy/Pandas)
   #     - remove duplicates
-  #     - handle missing (drop, or imputation<0, mean, bfill, ffill, etc>) 
+  #     - handle missing (drop nans, or imputation, mean, bfill, ffill, etc>) 
   #     - Correct Inconsisting formats ()
   # 3|> Exploratry Data Analysis (EDA)  
   #     - Data Visualization (matplotlib/Seaborn) 
   #     - Data Analysis
   #       . Summary statistics (df.describe(), df.info())
   #       . Understand relationships, distributions, correlations
-  # 4|> Preprocessing (scikit-learn starts here)  
+  # 4|> Preprocessing (scikit-learn starts here) 
   #     - data Transformation (Feature Scaling & categorical Encoding) 
   #     - Feature Engineering
   # 5|> Modeling
@@ -51,3 +58,100 @@
   #     - Train Model: model.fit()
   #     - Predict: model.predict()
   #     - Evaluate
+
+===[ Sklearn: Built-in Datasets ]===
+* Scikit-learn provides a collection of 'built-in datasets' that are useful for 
+  'practicing machine learning' without having to search for or prepare data.
+  - These datasets are available via 'sklearn.datasets'.
+
+      |---------------[ Dataset Types in `Sklearn` ]------------------| 
+      |                               |                               |
+  [ Toy Datasets ]          [ Real Datasets ]         [ Synthetic Datasets ]
+* Small and built-in      * They are slightly       * Scikit-learn allows you
+> (Built-in)                larger datasets           to generate data to test
+                            that are 'fetched'        specific algorithms
+                            'from the internet'     > (Generated)
+                            and my be cached
+                            locally.
+                            > (Downloaded)
+
+1|> [ Toy Datasets: (Built-in) ]
+    - These are loaded directly into memory and are very fast to access.
+    ____________________________________________________________________________
+    Function               | Description                      | Target Type    |
+    -----------------------|----------------------------------|----------------|
+    `load_iris()`          | Iris flower (3 classes)          | Classification |
+    `load_digits()`        | Handwritten digits (0–9)         | Classification |
+    `load_wine()`          | Wine characteristics (3 types)   | Classification |
+    `load_breast_cancer()` | Breast cancer (malignant/benign) | Classification |
+    `load_diabetes()`      | Diabetes disease progression     | Regression     |
+    _______________________|__________________________________|________________|
+    # NOTE:---------------------------------------------
+    # - These return a 'Bunch object' like a dictionary.
+
+2|> [ Real Datasets: (Downloaded) ] 
+    - These are slightly larger datasets that are 'fetched from the internet'
+      and may be cached locally.
+    ____________________________________________________________________________
+    Function                    | Description                    | Target Type |
+    ----------------------------|--------------------------------|-------------|
+    `fetch_california_housing()`|-House prices in California     | Regre       |
+    `fetch_20newsgroups()`      |-Newsgroup text classification  | Class       |
+    `fetch_olivetti_faces()`    |-Faces images (64x64 grayscale) | Class       |
+    `fetch_covtype()`           |-Forest cover types from        | Class       |
+                                | cartographic data              |             |
+    `fetch_lfw_people()`        |-Labeled Faces in the Wild      | Class       |
+                                | (face recognition)             |             |
+    ____________________________|________________________________|_____________|
+    # NOTE:-------------------------------------------------
+    # - These functions typically include: 
+    #   > `as_frame=True` (for returning a Pandas DataFrame)
+    #   > `download_if_missing=True`
+
+3|> [ Synthetic Datasets: (Generated) ]
+    - Scikit-learn allows you to generate data to test specific algorithms.
+    _____________________________________________________________________
+    Function                           | Description                    |
+    -----------------------------------|--------------------------------|
+    `make_classification()`            |-Random classification dataset  |
+    `make_regression()`                |-Random regression dataset      |
+    `make_blobs()`                     |-Gaussian blobs (clustering)    |
+    `make_moons()`                     |-Binary classification with     |
+                                       | moon shapes                    |
+    `make_circles()`                   |-Binary classification with     | 
+                                       | circular shapes                |
+    `make_multilabel_classification()` |-Multi-label classification     |
+    ___________________________________|________________________________|
+
+# INFO:[ Dataset Object Structure: `Bunch` ]====================================
+# - Most datasets return a 'Bunch object' which behaves like a dictionary and 
+#   typically includes:
+#   {
+#     'data': X,               # Features
+#     'target': y,             # Labels
+#     'feature_names': [...],  # Feature column names
+#     'target_names': [...],   # Class names (for classification)
+#     'DESCR': "...",          # Description text
+#   }
+# INFO:[ Summary: ]-------------------------------------------------------------
+#   ____________________________________________________________________________
+#   | Type      | Examples                   | Purpose                         |
+#   |-----------|----------------------------|---------------------------------|
+#   | Toy       | `load_iris`, `load_wine`   | Quick demos, learning concepts  |
+#   | Real      | `fetch_california_housing` | Real-world data, larger scale   |
+#   | Synthetic | `make_classification`      | Testing algorithms,             |
+#   |           |                            | experimentation                 |
+#   |___________|____________________________|_________________________________|
+# ==============================================================================
+
+
+===[ Sklearn: Input Feature ('X') & Input Labels ('Y') ]===
+* 'X' represents the 'input features' 'Independent Variables', They are used
+  to make 'predictions'.
+* 'Y' represents the 'target label' 'Dependent Varibale', The are predection
+  that i am interested in making
+
+  > [ Exmaple: Titanic Dataset ]
+
+    'X': Sex, Port, Price, Ticket, ... 
+    'Y': Survived

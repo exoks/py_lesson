@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/23 16:21:13 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/31 18:49:08 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/01 12:43:52 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -16,15 +16,21 @@
 1|> Sickit-Learn 
     - sklearn datasets
     - Input Features and Target Labels 
-2|> Preprocessing
-3|> Metrices 
-4|> Meta Estimators 
-5|> Human-Learn
+2|> Sklearn Models
+    - Model Interfaces (Inconsistent APIs)
+    - Models Categories
+    - Supervised Learning Models 
+      . Regression
+      . Classification 
+3|> Preprocessing
+4|> Metrices 
+5|> Meta Estimators 
+6|> Human-Learn
 
 ===[ Sickit-Learn: ]============================================================
 * Now that you are confortable with 'NumPy/Pandas' for data manipulation and
   'MatPlotLib/Seaborn', You are ready to dive into the next big step in the 
-  'datscience pipline': 'machine learning and (scikit-learn)' 
+  'datascience pipline': 'machine learning and (scikit-learn)' 
   # NOTE:> scikit-learn (often abbreviated as 'sklearn')
   - Sickit-learn is a powerful, easy-to-use Python library for 'machine'
     'learning' It has been built on the top for core python libraries like:
@@ -34,9 +40,9 @@
   - It privides 'simple and efficient tools' for predictive data analysis,
     supporting, supporting both 'supervised' and 'unsupervised learning' 
     along with tools for:
+    > 'preprocessing'
     > 'Model Selection'
     > 'evaluation'
-    > 'preprocessing'
   
   # QUESTION:[ Where does scikit-learn fit in the data Science live Cycle? ]===
   # 1|> Data Collection 
@@ -59,14 +65,14 @@
   #     - Evaluate
 
 ===[ Sklearn: Datasets ]===
-* Scikit-learn provides a collection of 'built-in datasets' that are useful for 
+* Scikit-learn provides a collection of 'datasets' that are useful for 
   'practicing machine learning' without having to search for or prepare data.
   - These datasets are available via 'sklearn.datasets'.
 
 # REVISION:---------------------------------------------------------------------
 # - Seaborn is also used to load built-in datasets: 
 #   > seaborn.get_dataset_names() => To get all available built-in datasets
-#   > seaborn.load_dataset(name)  => To load the the specific dataset 
+#   > seaborn.load_dataset(name)  => To load the a specific dataset from list 
 
       |---------------[ Dataset Types in `Sklearn` ]------------------| 
       |                               |                               |
@@ -148,13 +154,148 @@
 #   |___________|____________________________|_________________________________|
 # ==============================================================================
 
-===[ Sklearn: Input Feature ('X') & Input Labels ('Y') ]===
+===[ Sklearn: Input Feature ('X') & Target Labels ('Y') ]===
 * 'X' represents the 'input features' 'Independent Variables', They are used
   to make 'predictions'.
-* 'Y' represents the 'target label' 'Dependent Varibale', The are predection
-  that i am interested in making
+* 'Y' represents the 'target label', 'Dependent Variable', The are predection
+  that i am interested in making.
 
-  > [ Exmaple: Titanic Dataset ]
-
+  > [ Exmaple (1): Kaggle - Titanic Dataset ]
     'X': Sex, Port, Price, Ticket, ... 
     'Y': Survived
+
+  > [ Exmaple (2): sklearn datasets ]
+    1. Toy/Built-in datasets => returns a 'Bunch' Object where:
+       - 'X': Input features: 'bunch.data' 
+       - 'Y': Target label:   'bunch.label' 
+
+    2. Real-World/Fetched datasets => returns a 'Bunch' Object where:
+       - 'X': Input features: 'bunch.data' 
+       - 'Y': Target label:   'bunch.label' 
+
+    3. Generated datasets => retuns a 'Tuple (data, label)' object where:
+       - 'X': Input features: 'tuple[0]'
+       - 'Y': Target label:   'tuple[1]'
+
+===[ sklearn: Models ]==========================================================
+* A 'Model' is 'machine learning algorithm' that is used to learn patterns from
+  data.
+  - A 'Model' is an 'object' that can be:
+    > 'trained (fit)' on data
+    > used to 'make predictions' on new data
+    > Follow a 'consistent API' using methods like `.fit()`, `.predict()`,
+      `.score()`, etc
+
+  # QUESTION:[ does 'consistent API' mean that these functions 
+  #                                                   operates over network ]===
+  # - When we say that Scikit-learn has a 'consistent API', we are not referring
+  #   to 'web APIs' or 'network communication', Instead we mean that all models
+  #   follow the same 'interface' (They inherite from the same abstracted class)
+  #   => A consistent 'Application Programming Interface in Python'
+  # >>> This Interface is defined by 'abstract base classes' like 
+  #   - `BaseEstimator`
+  #   - `RegressorMixin`
+  #   - `ClassifierMixin`
+  #   - `TransformerMixin`
+  # NOTE:----------------------------------------------------------------------- 
+  # - When we say fit()/predict() are part of Scikit-learn’s API, we mean
+  #   interface, not network. The model is trained and used locally.
+
+===[ sklearn: Model Interfaces ('consistent APIs') ]===
+
+- This is a Summary Diagram of the 'common interfaces' used between sklearn 
+  'Models'.
+            
+                        +----------------+
+                        |  Estimator     |  
+                        |----------------|
+                        | `BaseEstimator`|
+                        | + fit()        |
+                        | + get_params() |
+                        | + set_params() |
+                        +-------+--------+
+                                |
+          +---------------------+---------------+
+          |                                     |
+    `RegressorMixin`                      `TransformerMixin`
+    +-------v------+                 +-----------v----------+
+    | Predictor    |                 | Transformer          |
+    |--------------|                 |----------------------|
+    |+ predict(X)  |                 |+ fit()               |
+    |+ score(X, y) |                 |+ transform()         |
+    +--------------+                 |+ fit_transform()     |
+          |                          |+ inverse_transform() |
+    `ClassifierMixin`                +----------------------+
+  +-----------v----------+         
+  | Classifier           |
+  |----------------------|
+  |+ predict_proba(X)    |
+  |+ predict_log_proba(X)|
+  |+ decision_functions(X)
+  | (predict_proba)      |
+  +----------------------+
+
+  >>> 'All Models' are 'Estimators', But Models, that implement 'Both' `fit()` 
+      and `predict()` are called 'Predictors'.
+      # NOTE:[ VERY IMPORTNAT ]=================================================
+      # >>> Estimator & Predictor are the 'Core Concept of Models'.            | 
+      # ========================================================================
+  >>> As you can see all Scikit-learn models implement `BaseEstimator` Interface
+
+# INFO:[ SUMMARY ]==============================================================
+# * scikit-learn's architecture is designed around this:                       | 
+#   - All ML components (models, scalters, imputers, reducers) are "Estimators"|
+#   - Some are also "Predictors", some are also "Transformers".                |
+# _____________________________________________________________________________|
+# | Interface     | Core Method(s)            | Purpose                        |
+# | ------------- | ------------------------- | -------------------------------|
+# | `Estimator`   | `.fit(X, y)` or `.fit(X)` | Learns from data               |
+# | `Predictor`   | `.predict(X)`             | Makes predictions              |
+# | `Transformer` | `.transform(X)`           | Transforms input (e.g.,        |
+# |               |                           | scaling, PCA)                  |
+# ==============================================================================
+
+===[ sklearn: Model Categories ]===
+* sklearn model are categorized to:
+
+              |------------[ Model Categories ]-------------|
+              |                                             | 
+  [ Supervised Learnin Models ]               [ Unsupervised Learnin Models ]
+              |                                             |
+      |-------|---------|                         |---------|----------| 
+      |                 |                         |                    | 
+[ Regression ]      [ Classification ]    [ Clustering ]    [ Dimens Reduction ] 
+
+
+===[ sklearn: Supervised Learning Models ]===
+* Supervisde learning models learn from 'labled data', It is a data that has
+  'target inputs'.
+  # NOTE:[ IMPORTANT: ]---------------------------------------------------------
+  # - All supervised models in Scikit-learn are both 'Estimators' & 'Predictors'
+  # - Unsupervised learning models are typically 'Estimators', and optionally
+  #   'Transformers' or 'Predictors', depending on what they do. 
+
+
+>>> [ Regression Models: (Predict continuous values) ]
+    # REVISION:-----------------------------------------------------------------
+    # - Regression Models try to find a 'relationship' between 'input features'
+    #   (X) and 'target label' (y)
+    # - The model learns this relationship by minimizing a loss 'function',
+    #   commonly the 'Mean Squared Error (MSE)' (minimizing cost function Ja->,b)
+    # - Once trained, The model can 'predict values for unseen data'.
+
+    - All 'regression models' implement the 'RegressorMixin interface'. 
+    - `RegressorMixin` is a 'mixin class' provided by `sklearn.base` that
+      adds interface to 'all regression estimators', It provides: 
+      . `.score(X, y)` method: Return 'R^2 score' (coefficient of
+        determination) which measures how well the model predicts the target
+        
+      [ from sklearn.base import RegressorMixin ]
+
+    # QUESTION:[ Does `RegressorMixin` inherite from `BaseEstimator`? ]=========
+    # - `RegressorMixin` does not inherite from 'BaseEstimator', They are 
+    #   'separate mixins', However, 'all scikit-learn regressors' typically 
+    #   'inherit from BOTH'
+
+    1|> 'LinearRegression':
+

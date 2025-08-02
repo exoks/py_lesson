@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/23 16:21:13 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/01 12:43:52 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/01 17:36:56 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -20,8 +20,9 @@
     - Model Interfaces (Inconsistent APIs)
     - Models Categories
     - Supervised Learning Models 
-      . Regression
-      . Classification 
+      . Regression (linear_model models, tree models)
+      . Classification
+    - Unsupervisde learning Models
 3|> Preprocessing
 4|> Metrices 
 5|> Meta Estimators 
@@ -37,7 +38,7 @@
     > 'NumPy': (for numerical operations)
     > 'SciPy': (for scientific computing) 
     > 'matplotlib' (for basic visualization)
-  - It privides 'simple and efficient tools' for predictive data analysis,
+  - It provides 'simple and efficient tools' for predictive data analysis,
     supporting, supporting both 'supervised' and 'unsupervised learning' 
     along with tools for:
     > 'preprocessing'
@@ -120,18 +121,18 @@
 
 3|> [ Synthetic Datasets: (Generated) ]
     - Scikit-learn allows you to generate data to test specific algorithms.
-    _____________________________________________________________________
-    Function                           | Description                    |
-    -----------------------------------|--------------------------------|
-    `make_classification()`            |-Random classification dataset  |
-    `make_regression()`                |-Random regression dataset      |
-    `make_blobs()`                     |-Gaussian blobs (clustering)    |
-    `make_moons()`                     |-Binary classification with     |
-                                       | moon shapes                    |
-    `make_circles()`                   |-Binary classification with     | 
-                                       | circular shapes                |
-    `make_multilabel_classification()` |-Multi-label classification     |
-    ___________________________________|________________________________|
+    _______________________________________________________________________
+    | Function                           | Description                    |
+    |------------------------------------|--------------------------------|
+    |-`make_classification()`            |-Random classification dataset  |
+    |-`make_regression()`                |-Random regression dataset      |
+    |-`make_blobs()`                     |-Gaussian blobs (clustering)    |
+    |-`make_moons()`                     |-Binary classification with     |
+    |                                    | moon shapes                    |
+    |-`make_circles()`                   |-Binary classification with     | 
+    |                                    | circular shapes                |
+    |-`make_multilabel_classification()` |-Multi-label classification     |
+    |____________________________________|________________________________|
 
 # INFO:[ Dataset Object Structure: `Bunch` ]====================================
 # - Most datasets return a 'Bunch object' which behaves like a dictionary and 
@@ -248,7 +249,7 @@
 #   - Some are also "Predictors", some are also "Transformers".                |
 # _____________________________________________________________________________|
 # | Interface     | Core Method(s)            | Purpose                        |
-# | ------------- | ------------------------- | -------------------------------|
+# |---------------|---------------------------|--------------------------------|
 # | `Estimator`   | `.fit(X, y)` or `.fit(X)` | Learns from data               |
 # | `Predictor`   | `.predict(X)`             | Makes predictions              |
 # | `Transformer` | `.transform(X)`           | Transforms input (e.g.,        |
@@ -256,25 +257,24 @@
 # ==============================================================================
 
 ===[ sklearn: Model Categories ]===
-* sklearn model are categorized to:
+* sklearn models are categorized to:
 
               |------------[ Model Categories ]-------------|
-              |                                             | 
+              |                                             |
   [ Supervised Learnin Models ]               [ Unsupervised Learnin Models ]
               |                                             |
-      |-------|---------|                         |---------|----------| 
-      |                 |                         |                    | 
+      |-------|---------|                         |---------|----------|
+      |                 |                         |                    |
 [ Regression ]      [ Classification ]    [ Clustering ]    [ Dimens Reduction ] 
 
 
 ===[ sklearn: Supervised Learning Models ]===
 * Supervisde learning models learn from 'labled data', It is a data that has
   'target inputs'.
-  # NOTE:[ IMPORTANT: ]---------------------------------------------------------
+  # NOTE:[ IMPORTANT ]----------------------------------------------------------
   # - All supervised models in Scikit-learn are both 'Estimators' & 'Predictors'
   # - Unsupervised learning models are typically 'Estimators', and optionally
   #   'Transformers' or 'Predictors', depending on what they do. 
-
 
 >>> [ Regression Models: (Predict continuous values) ]
     # REVISION:-----------------------------------------------------------------
@@ -297,5 +297,52 @@
     #   'separate mixins', However, 'all scikit-learn regressors' typically 
     #   'inherit from BOTH'
 
-    1|> 'LinearRegression':
+  1|> [ Linear Models: ]
+    ____________________________________________________________________________
+    | Model Name          | Class Name          | Description                  |
+    |---------------------|---------------------|------------------------------|
+    | Linear Regression   | `LinearRegression`  | OLS linear regression        |
+    | Ridge Regression    | `Ridge`             | L2 regularization            |
+    | Lasso Regression    | `Lasso`             | L1 regularization            |
+    |                     |                     | (sparse models)              |
+    | ElasticNet          | `ElasticNet`        | L1 + L2 combined             |
+    |---------------------|---------------------|------------------------------|
 
+    # INFO:----------------------------------------------------------
+    # >> These models are part from `sklearn.linear_model` module.  
+    # NOTE:----------------------------------------------------------
+    # - The list above contains the most important models only 
+    # - here is the list of the others: 
+    # _______________________________________________________________
+    # | Class Name          | Description                           |
+    # |---------------------|---------------------------------------|
+    # | `BayesianRidge`     | Probabilistic linear regression       |
+    # | `ARDRegression`     | Automatic Relevance Determination     |
+    # | `HuberRegressor`    | Robust to outliers                    |
+    # | `TheilSenRegressor` | Robust to multicollinearity           |
+    # | `RANSACRegressor`   | Robust to large number of outliers    |
+    # | `QuantileRegressor` | Predicts quantiles                    |
+    # | `TweedieRegressor`  | For generalized linear models         |
+    # | `PoissonRegressor`  | Poisson-distributed target (counts)   |
+    # | `GammaRegressor`    | For skewed continuous positive values |
+    # | `SGDRegressor`      | Linear model trained with SGD         |
+    # |_____________________|_______________________________________|
+
+    2|> [ Tree-Based Models: ]
+      __________________________________________________________________________
+      | Model Name           | Class Name                                      |
+      |----------------------|-------------------------------------------------|
+      | Decision Tree        | `DecisionTreeRegressor`                         |
+      | Random Forest        | `RandomForestRegressor`                         |
+      |----------------------|-------------------------------------------------|
+      | Extra Trees          | `ExtraTreesRegressor`                           |
+      | Gradient Boosting    | `GradientBoostingRegressor`                     |
+      | HistGradientBoosting | `HistGradientBoostingRegressor` (for large data)|
+      |______________________|_________________________________________________|
+
+      # INFO:-------------------------------------------------------------------
+      # >> These models are part from `sklearn.tree` module.  
+
+===[ sklearn: Unsupervised Learning Models ]===
+
+===[ sklearn: Preprocessing ]===================================================

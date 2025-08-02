@@ -1,0 +1,113 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                 𓐓  roadmap 𓐔           
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀       Dev: oezzaou <OussamaEzzaou@gmail.com> 
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/30 16:53:06 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/30 16:59:51 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[🚀 Scikit-learn Mastery Roadmap: ]===========================================
+1|> 🟢 Beginner Phase (Fundamentals & Core API)
+🎯 Objectives:
+    - Understand Scikit-learn’s API design (fit, transform, predict)
+    - Work with datasets using Scikit-learn loaders
+    - Learn basic models: regression, classification
+    - Start using preprocessing tools
+
+  > Topics to Learn:
+    - fit, predict, transform, fit_transform
+    - Dataset utilities: load_iris, load_diabetes, train_test_split
+    > Basic models:
+        . LinearRegression, LogisticRegression
+        . KNeighborsClassifier, DecisionTreeClassifier
+    > Preprocessing:
+        . StandardScaler, LabelEncoder, OneHotEncoder, SimpleImputer
+    > Basic evaluation:
+        . accuracy_score, mean_squared_error, confusion_matrix
+
+🧠 Projects:
+    - Iris Classification
+    - Boston Housing Price Prediction (use fetch_california_housing instead
+      since Boston is deprecated)
+    - Titanic Dataset (from Kaggle)
+
+📚 Resources:
+    - 🔗 Scikit-learn Getting Started Guide
+    - 🎥 freeCodeCamp 6-hour ML course with Scikit-learn
+    - 📘 Book: Introduction to Machine Learning with Python by Andreas Müller
+         (chapters 1–4)
+
+2|> 🟡 Intermediate Phase (Pipelines, Model Selection, Tuning)
+🎯 Objectives:
+    - Learn how to streamline ML workflows
+    - Perform model selection and cross-validation
+    - Tune models effectively
+    - Get comfortable with feature engineering and transformation
+
+📘 Topics to Learn:
+    - Pipeline, ColumnTransformer
+    - Cross-validation tools:
+        . cross_val_score, StratifiedKFold
+    - Model selection:
+        . GridSearchCV, RandomizedSearchCV
+    - Feature engineering:
+        . PolynomialFeatures, FunctionTransformer
+    - Common models:
+        . RandomForest, SVM, GradientBoosting, VotingClassifier
+
+🧠 Projects:
+    - Spam Detection using text preprocessing and Pipeline
+    - Handwritten Digit Recognition (MNIST)
+    - Wine Quality Prediction with hyperparameter tuning
+
+📚 Resources:
+    - 🔗 Scikit-learn User Guide: Model Selection
+    - 🎥 Corey Schafer: Scikit-learn Pipelines & GridSearchCV
+    - 📘 Book: Hands-On ML with Scikit-Learn, Keras & TensorFlow by Aurélien
+         Géron (chapters 1–5, 14)
+
+3|> 🔴 Advanced Phase (Customization, Deployment, Best Practices)
+🎯 Objectives:
+    - Learn how to create custom transformers and estimators
+    - Understand advanced pipelines and ensembling
+    - Prepare models for production and deployment
+    - Apply ML to real-world scenarios
+
+📘 Topics to Learn:
+    - Custom transformers with BaseEstimator and TransformerMixin
+    - Custom estimators
+    - Model persistence: joblib, pickle
+    - Model deployment: exporting models, REST APIs (e.g., FastAPI, Flask)
+    - Advanced ensembling:
+        . StackingClassifier, BaggingClassifier
+    - Model interpretability tools: SHAP, LIME, permutation_importance
+
+🧠 Projects:
+    - Build a full pipeline for a financial fraud detection system
+    - Deploy a trained model with FastAPI and Docker
+    - Create a Scikit-learn extension: custom transformer or metric
+
+📚 Resources:
+    - 🔗 Scikit-learn Advanced Topics
+    - 🔗 Scikit-learn: Custom Estimators
+    - 🎥 Python Engineer – ML Deployment Tutorials
+    - 📘 Machine Learning Engineering by Andriy Burkov (for deployment mindset)
+
+🧩 Best Practices Throughout:
+    - Always split your data (train_test_split) or use CV
+    - Use Pipeline and ColumnTransformer for consistent preprocessing
+    - Prefer GridSearchCV or RandomizedSearchCV over manual tuning
+    - Monitor feature importance & model bias
+    - Use consistent evaluation metrics per problem (e.g., AUC for
+      classification, MAE for regression).
+
+4|> 🧠 Bonus:
+For continuous practice:
+    - 🔗 Kaggle Datasets + Notebooks
+    - 🔗 Scikit-learn Cheat Sheet PDF

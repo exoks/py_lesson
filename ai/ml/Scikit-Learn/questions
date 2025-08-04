@@ -1,0 +1,72 @@
+Great question! scikit-learn has many models, and organizing them clearly can help a lot. Here's a complete and logical classification of all major scikit-learn models, grouped by learning type and algorithm family — excluding deep learning, since scikit-learn doesn't focus on neural networks.
+🔵 1. Linear Models
+
+Used for both regression and classification.
+Task	Models
+Regression	LinearRegression, Ridge, Lasso, ElasticNet, BayesianRidge, HuberRegressor, SGDRegressor
+Classification	LogisticRegression, RidgeClassifier, SGDClassifier, Perceptron
+🟢 2. Tree-Based Models
+
+Powerful for handling non-linear data.
+Type	Models
+Decision Trees	DecisionTreeClassifier, DecisionTreeRegressor
+Random Forests	RandomForestClassifier, RandomForestRegressor
+Extra Trees	ExtraTreesClassifier, ExtraTreesRegressor
+Gradient Boosting	GradientBoostingClassifier, GradientBoostingRegressor, HistGradientBoostingClassifier, HistGradientBoostingRegressor
+🟣 3. Support Vector Machines (SVMs)
+
+Good for classification and regression with kernels.
+Type	Models
+Classification	SVC, LinearSVC, NuSVC
+Regression	SVR, LinearSVR, NuSVR
+🟡 4. Nearest Neighbors
+
+Instance-based, no model training.
+Type	Models
+Classification	KNeighborsClassifier, RadiusNeighborsClassifier, NearestCentroid
+Regression	KNeighborsRegressor, RadiusNeighborsRegressor
+🔴 5. Naive Bayes
+
+Fast and simple probabilistic models.
+Models
+GaussianNB, MultinomialNB, BernoulliNB, ComplementNB, CategoricalNB
+🟠 6. Discriminant Analysis
+
+Linear and quadratic boundaries.
+Models
+LinearDiscriminantAnalysis (LDA), QuadraticDiscriminantAnalysis (QDA)
+🟤 7. Ensemble Methods
+
+Combine multiple models for better performance.
+Method	Models
+Bagging	BaggingClassifier, BaggingRegressor
+Boosting	AdaBoostClassifier, AdaBoostRegressor
+Voting	VotingClassifier, VotingRegressor
+Stacking	StackingClassifier, StackingRegressor
+⚪ 8. Clustering
+
+Unsupervised learning (no labels).
+Models
+KMeans, MiniBatchKMeans, DBSCAN, AgglomerativeClustering, MeanShift, OPTICS, SpectralClustering, Birch, AffinityPropagation
+⚫ 9. Dimensionality Reduction
+
+Used for feature compression and visualization.
+Models
+PCA, TruncatedSVD, NMF, FastICA, FactorAnalysis, LatentDirichletAllocation (LDA), KernelPCA, Isomap, TSNE, LocallyLinearEmbedding (LLE)
+🧠 10. Neural Network (Shallow MLP)
+
+Only basic neural nets.
+Models
+MLPClassifier, MLPRegressor
+⚙️ 11. Model Selection Tools (Meta-Estimators)
+
+Not models, but useful for tuning and evaluation.
+Tools
+GridSearchCV, RandomizedSearchCV, cross_val_score, Pipeline, ColumnTransformer, SelectKBest, etc.
+✅ Summary by Learning Type:
+Type	Categories
+Supervised	Linear, Tree-Based, SVM, Ensemble, NN, Naive Bayes
+Unsupervised	Clustering, Dimensionality Reduction
+Meta	Pipelines, Transformers, Hyperparameter Tuning
+
+Would you like this as a visual chart or printable cheat sheet PDF?

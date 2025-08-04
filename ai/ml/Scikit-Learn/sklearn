@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/07/23 16:21:13 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/01 17:36:56 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/04 00:52:31 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -22,8 +22,9 @@
     - Supervised Learning Models 
       . Regression (linear_model models, tree models)
       . Classification
-    - Unsupervisde learning Models
+    - Unsupervised Learning Models
 3|> Preprocessing
+    - ML Pipelines
 4|> Metrices 
 5|> Meta Estimators 
 6|> Human-Learn
@@ -158,7 +159,7 @@
 ===[ Sklearn: Input Feature ('X') & Target Labels ('Y') ]===
 * 'X' represents the 'input features' 'Independent Variables', They are used
   to make 'predictions'.
-* 'Y' represents the 'target label', 'Dependent Variable', The are predection
+* 'Y' represents the 'target label', 'Dependent Variable', They are predections
   that i am interested in making.
 
   > [ Exmaple (1): Kaggle - Titanic Dataset ]
@@ -198,7 +199,7 @@
   #   - `RegressorMixin`
   #   - `ClassifierMixin`
   #   - `TransformerMixin`
-  # NOTE:----------------------------------------------------------------------- 
+  # NOTE:-----------------------------------------------------------------------
   # - When we say fit()/predict() are part of Scikit-learn’s API, we mean
   #   interface, not network. The model is trained and used locally.
 
@@ -239,12 +240,12 @@
   >>> 'All Models' are 'Estimators', But Models, that implement 'Both' `fit()` 
       and `predict()` are called 'Predictors'.
       # NOTE:[ VERY IMPORTNAT ]=================================================
-      # >>> Estimator & Predictor are the 'Core Concept of Models'.            | 
+      # >>> Estimator & Predictor are the 'Core Concept of Models'.            |
       # ========================================================================
   >>> As you can see all Scikit-learn models implement `BaseEstimator` Interface
 
 # INFO:[ SUMMARY ]==============================================================
-# * scikit-learn's architecture is designed around this:                       | 
+# * scikit-learn's architecture is designed around this:                       |
 #   - All ML components (models, scalters, imputers, reducers) are "Estimators"|
 #   - Some are also "Predictors", some are also "Transformers".                |
 # _____________________________________________________________________________|
@@ -267,10 +268,9 @@
       |                 |                         |                    |
 [ Regression ]      [ Classification ]    [ Clustering ]    [ Dimens Reduction ] 
 
-
 ===[ sklearn: Supervised Learning Models ]===
-* Supervisde learning models learn from 'labled data', It is a data that has
-  'target inputs'.
+* Supervised learning models learns from 'labled data', It is a data that has
+  'target labels'.
   # NOTE:[ IMPORTANT ]----------------------------------------------------------
   # - All supervised models in Scikit-learn are both 'Estimators' & 'Predictors'
   # - Unsupervised learning models are typically 'Estimators', and optionally
@@ -281,7 +281,7 @@
     # - Regression Models try to find a 'relationship' between 'input features'
     #   (X) and 'target label' (y)
     # - The model learns this relationship by minimizing a loss 'function',
-    #   commonly the 'Mean Squared Error (MSE)' (minimizing cost function Ja->,b)
+    #   commonly the 'Mean Squared Error (MSE)'(minimizing cost function Ja->,b)
     # - Once trained, The model can 'predict values for unseen data'.
 
     - All 'regression models' implement the 'RegressorMixin interface'. 
@@ -295,17 +295,17 @@
     # QUESTION:[ Does `RegressorMixin` inherite from `BaseEstimator`? ]=========
     # - `RegressorMixin` does not inherite from 'BaseEstimator', They are 
     #   'separate mixins', However, 'all scikit-learn regressors' typically 
-    #   'inherit from BOTH'
+    #   'inherit from BOTH'.
 
   1|> [ Linear Models: ]
     ____________________________________________________________________________
     | Model Name          | Class Name          | Description                  |
     |---------------------|---------------------|------------------------------|
-    | Linear Regression   | `LinearRegression`  | OLS linear regression        |
-    | Ridge Regression    | `Ridge`             | L2 regularization            |
-    | Lasso Regression    | `Lasso`             | L1 regularization            |
+    |-Linear Regression   |-`LinearRegression`  |-OLS linear regression        |
+    |-Ridge Regression    |-`Ridge`             |-L2 regularization            |
+    |-Lasso Regression    |-`Lasso`             |-L1 regularization            |
     |                     |                     | (sparse models)              |
-    | ElasticNet          | `ElasticNet`        | L1 + L2 combined             |
+    |-ElasticNet          |-`ElasticNet`        |-L1 + L2 combined             |
     |---------------------|---------------------|------------------------------|
 
     # INFO:----------------------------------------------------------
@@ -343,6 +343,59 @@
       # INFO:-------------------------------------------------------------------
       # >> These models are part from `sklearn.tree` module.  
 
-===[ sklearn: Unsupervised Learning Models ]===
-
 ===[ sklearn: Preprocessing ]===================================================
+# REVISION:------------------------|
+# * Preprocessing stage includes:  | 
+#   1|> Data transformation        | 
+#   2|> Feature engineering        |
+# ---------------------------------|
+
+===[ sklearn: PipeLine ]===
+* A 'machine learning pipeline' is a 'sequence of steps' that process data and
+  build a model. (the output of one step becomes the input to the next)
+  - These steps include:
+    1|> 'Data preprocessing' (cleaning, handling missing values)
+    2|> Feature Transformation 
+    3|> 'Model training'
+    4|> 'Model evaluation'
+    5|> 'Prediction or deployment' (optional) 
+
+  # QUESTION:[ But why this pipeline is important? ]============================
+  # - Automation: You don't have to manually repeat every step each time
+  # - Clean Code: It makes your machine learning workflow organized and modular
+  # - You can recreate the exact same process on new data
+  # QUESTION:[ Is it related to 'pipes' in IPC? ]===============================
+  # - Conceptually yes, In IPC a 'pipe' connects two processes, allowing the
+  #   output of one to be the input of another 
+  # - Similarly in ML pipelines, the output of one setp becomes the input of the
+  #   next.
+  # >> 'ML pipelines' are about communication between different OS process,
+  #    It is about 'idea of chaining', ML pipelines are 'higher-level'
+  #    'abstractions' built for ML tasks (Not OS-level tools)
+  # INFO:[ SUMMARY ]============================================================
+  # - pipeline howa object cantjme3 fih ga3 l steps li tatprocessi data o kat
+  #   buildi l model.
+  # ============================================================================
+
+  > [ Pipeline Creation: ]
+    # Importing pipline module
+    from skearn.pipeline import Pipline 
+
+    # Pipeline class takes a list of tuples, each tuple represent a step from the pipeline 
+    pipeline = Pipeline([
+      (...), # step 1
+      (...)  # step 2
+      ...
+    ])
+
+    > [ Example: ]
+      # A pipeline with two steps: scale -> train
+      pipeline = Pipeline([
+        ('scaler', StandardScaler())          # step 1: normalize data
+        ('classifier', LogisticRegression())  # step 2: train model 
+      ])
+
+      # training model
+      pipeline.fit(X, y)
+      # make predictions
+      pipeline.predict(X)

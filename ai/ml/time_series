@@ -1,0 +1,200 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀             𓐓  time_series 𓐔           
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀       Dev: oezzaou <OussamaEzzaou@gmail.com> 
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/08/18 10:21:13 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/18 14:55:49 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ Index ]====================================================================
+1|> Forcasting
+2|> Time Series 
+3|> Time Series Forcasting Models
+
+# QUESTION:[ ESTIMATION VS PREDICTION VS FORECASTING ]==========================
+# - ESTIMATION: Focues on 'current or past values' not future onces. 
+# - PREDICTION: can be future or unseen inputs, but does not necessarily account
+#               for time order.
+# - FORCASTING: Always 'time-dependent', often handles trends, seasonality and
+#   cycles.
+# _____________________________________________________________________________
+# | Concept     | Time-     | Focus               | Example                   |
+# |             |dependent? |                     |                           |
+# |-------------|-----------|---------------------|---------------------------|
+# | Estimation  | No        | Current/past values | Average sales last month  |
+# | Prediction  | Maybe     | Specific outcome    | Will it rain tomorrow?    |
+# | Forecasting | Yes       | Future over time    | Next month’s bakery sales |
+# |_____________|___________|_____________________|___________________________|
+# - Forcasting = making predictions about 'future or unknown values' based on
+#   'patterns in past or known data'.
+# NOTE:[ IMPORTANT NOTES ]------------------------------------------------------
+# - The data does not have to be tied to time
+# - Time Series Forcasting (Special Case)
+# - When data is not tied to time, forecasting looks very similar to
+#   'regression' or 'predictions tasks' in ML. 
+#   . Forecasting 'house prices' based on features (size, location, rooms)
+#   . Forecasting 'product dement' from product attributes, not necessarily from 
+#     time.
+# - All time series forcasting is 'forcasting', But not all forcasting are time 
+#   series.
+# - [ Time series analysis = statistical field (older than ML) ]
+# - [ Time series forecasting = can use ML methods             ]
+# CONCLUSION:-------------------------------------------------------------------
+# - Forcasting: "What will happen in the future?"
+# - Predection: "What is the target value given these inputs?" 
+# - Estimation: "What are the hidden parameters that explain my data?" 
+
+===[ Forcasting: ]==============================================================
+* 'Forcasting' means 'making an informed prediction' about the future based on
+  'past and present' data
+  - Forecasting works because:
+    . 'History influence the future'.
+    . Data often follows 'patterns' (daily, weekly, seasonal, economic cycles) 
+
+  # NOTE:-----------------------------------------------------------------------
+  # - Forecasting is perhaps the most common application of machine learning
+  #   in the real world.
+
+  # INFO:-------------------------------------------------------------
+  # - forcasting (noun): the job or activity of judging what is likely
+  #   to happen in the future, based on the information you have now:
+
+# CONCLUSION:-------------------------------------------------------------------
+# - Once data is related to 'time', the concept changes because observations are
+#   no longer "independent": they become 'sequentially dependent', so you need
+#   'time series forcasting' instead of regular prediction.
+# - Forcasting = using past + present information to make predictions about the 
+#   future, usually in situations where time plays a role.
+# - In short Forcasting is a type of predection 'specifically for future values
+#   over time' using historical data patterns.
+
+  > [ Simple Example: ]
+    * Imagine you run a small bakery:
+      - You sold 50 bread of bread on Monday
+      - 55 on Tuesday 
+      - 53 on Wednesday
+      - 60 on Thursday.
+
+  - If you want to know 'how many bread to bake on Friday', you don't just guess
+    randomly, you look at the 'past sales trend' ->> around 50-60 per day
+  |-> That "educated guess" for Friday's sales is a "forecast".
+
+===[ Forcasting Time Series Models ]============================================
+* 'Time Series Analysis' Concept is a concept that data scientist tackle in
+  their job
+  - These are different approach to make prediction in case of time series 
+    . ARIMA               |                               | Univariate model 
+    . Prophet             | try to use this model first   | Univariate model
+                           (handle missing values better)
+    . Neural Prophet      | try to use this model second  | Univariate Model
+
+    . Vector Autoregression (VAR)   | Multi-variate model
+
+    |--------------------[ Time Series Components ]--------------------|
+    |                   |                          |                   |
+    |                   |                          |                   |
+[ TREND ]         [ Seasunality ]             [ Cycle ]            [ VAR ]
+
+# QUESTION:[ time series are always related the concept of forcasting, Why? ]===
+# * A 'time series' is simply a "sequence of data points collected over time 
+#   usually at equal intervals".
+#   - Examples
+#     . Daily freight volumen at a port
+#     . Montly sales
+#     . Hourly electricity demand 
+#     . Yearly population counts
+#   formaly it is:
+#     [ X = {x1, x2, x4, ..., xt} ]
+#     where `xt` is the value observed at time t
+# * Forcasting is the 'process' of using historical data to predict future
+#   values 
+#   > If the data is a 'time series' type, then we call it
+#     |==> time series forcasting <===|
+#   # NOTE:>--------------------------------------------------------------------
+#   # - for casting can also apply to 'non-time' data
+# CONCLUSION:[ Relationship between 'time series' and 'forcasting' ]============
+# - Time Series -> the type of data (ordered in time)   | data structure
+# - Forcasting  -> the task (predecting future values)  | the predection task
+# - Time Series Forcasting -> A specific type of forcasting where the input data 
+#   is 'time-dependent (time series)'
+# - in simple word Predection of future points (values) in a time-ordered
+#   dataset (time series) 
+# REVISION:> Forcasting is predection technique as 'Estimation' and 'Prediction'
+
+  # INFO:-----------------------------------------------------------------------
+  # - Uni-variate model means that the model deals with single time series 
+  #   variable. 
+  # - Multi-Variate model can handle multi-time series variable.
+  # - Uni/Multi-variate model use depends on number of values we are predecting. 
+
+  # NOTE:[ VERY IMPORTANT NOTE ]------------------------------------------ 
+  # - All This model and approach that we have mentiend so far are treated
+  #   as time series problem. this one can be converted as traditional  
+  #   machine learning regression model. 
+
+  # NOTE:>------------------------------------------------------
+  # These are the list of models that i can use for the freight
+  # predection project 
+
+
+          |-------------------[ Time Series Model ]-------------------|
+          |                                                           |
+[ Time Series Traditional Model ]                           [ ML Models ]
+          |                                                 - Neural network  
+  |-------|-------------------------|                         Regressor 
+  |                                 |                       - Catboost Regressor 
+[ Univariate Models ]           [ Multi-variate Model ]     - Any regressor 
+- ARIMA model                   - Vector Autoregression  
+- SARIMA (season ARIMA Model)     model 
+  . It takes in the account
+    seasanlity
+- Prophet  
+- Neural Prophet (neural network version of 'prophet')
+# INFO:--------------------------------------------         --------------------
+# + These models are 'Recursive', which means               > Make predctions
+#   if we want to predict for 10 days in the future           directly depending
+#   the model will prodect first day and use it to            one the horizon
+#   predect the second one until the teenth day.            - Tough to Extend
+# + Easy to Extend                                          > Training data 
+# - Tough to get right                                        increases linearly  
+# - Can't add time varying features varying features          as we have more
+#   (mostly true for the univariate models)                   horisons to predict
+
+===[ ARIMA Model ]===
+* 'ARIMA' stands for 'Autoregressive Integrated Moving Average' it is a
+  forcasting technique used to predict future data based on past data, especially 
+  for things that change over time (like sales)
+  - The model contains three parts:
+    1|> `AR` (AutoRegressive) 
+    2|> `I`  (Integrated) 
+    3|> `MA` (Moving Average)
+  - In simple ARIMA combines patterns (AR), trends(I), and corrections for
+    surprises (MA) to make your `X` predictions as accurate as possible.
+
+===[ SARIMA Model ]===
+* 'SARIMA' stands  for 'Seasonal AutoRegressive Integrated Moving Average' is
+  extension of ARIMA that adds the ability to handle 'seasonality' (recurring
+  patterns like weekly, monthly, yearly cycles).
+  - Good choise when:
+    . Your data show 'trend' (increasing/decreasing pattern)
+    . Your data shows 'seasonality (repeated cycles): daily, weekly, yearly' 
+    # NOTE:[ THE Last ONE IS VERY VERY IMPORTANT INFORMATION ]==================
+    . You want an interpretable, classical model before moving to complex ML/DL 
+      models
+
+    - Advantages of SARIMA:
+      . Handles 'trend + seasonality' explicitly.
+      . Works well for 'small to medium datasets'. 
+      . Provides 'statistical interpretability' (you can explain coefficients) 
+      . Often a 'Strong baseline' before trying ML/DL models 
+
+  > [ Using in Python ]
+
+    pip install statsmodels
+

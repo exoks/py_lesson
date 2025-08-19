@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/08/18 10:21:13 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/18 14:55:49 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/19 13:37:33 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -15,7 +15,8 @@
 ===[ Index ]====================================================================
 1|> Forcasting
 2|> Time Series 
-3|> Time Series Forcasting Models
+3|> Time Series Analysis 
+4|> Time Series Forcasting Models
 
 # QUESTION:[ ESTIMATION VS PREDICTION VS FORECASTING ]==========================
 # - ESTIMATION: Focues on 'current or past values' not future onces. 
@@ -45,6 +46,14 @@
 #   series.
 # - [ Time series analysis = statistical field (older than ML) ]
 # - [ Time series forecasting = can use ML methods             ]
+# INFO:[ Time Series in Machine Learning ]-------------------------------------- 
+# - ML models can be applied to time series, but ML itself is 'not required' for
+#   time series analysis.
+# - Modern ML methods for time series:
+#   . Regression models using 'lagged features'.
+#   . Random Forest/XGBoost on time-based feature. 
+#   . Neural networks (RNN, LSTM, Temporal CNN) 
+# - Here, 'time series becomes a supervised ML problem': past -> future mapping 
 # CONCLUSION:-------------------------------------------------------------------
 # - Forcasting: "What will happen in the future?"
 # - Predection: "What is the target value given these inputs?" 
@@ -76,7 +85,7 @@
 
   > [ Simple Example: ]
     * Imagine you run a small bakery:
-      - You sold 50 bread of bread on Monday
+      - You sold 50 bread on Monday
       - 55 on Tuesday 
       - 53 on Wednesday
       - 60 on Thursday.
@@ -99,25 +108,25 @@
     |--------------------[ Time Series Components ]--------------------|
     |                   |                          |                   |
     |                   |                          |                   |
-[ TREND ]         [ Seasunality ]             [ Cycle ]            [ VAR ]
+[ TREND ]         [ Seasanality ]             [ Cycle ]            [ VAR ]
 
 # QUESTION:[ time series are always related the concept of forcasting, Why? ]===
 # * A 'time series' is simply a "sequence of data points collected over time 
 #   usually at equal intervals".
 #   - Examples
-#     . Daily freight volumen at a port
+#     . Daily freight volume at a port
 #     . Montly sales
 #     . Hourly electricity demand 
 #     . Yearly population counts
 #   formaly it is:
 #     [ X = {x1, x2, x4, ..., xt} ]
-#     where `xt` is the value observed at time t
+#     where `xt` is the value observed at time `t`
 # * Forcasting is the 'process' of using historical data to predict future
-#   values 
+#   values.
 #   > If the data is a 'time series' type, then we call it
 #     |==> time series forcasting <===|
 #   # NOTE:>--------------------------------------------------------------------
-#   # - for casting can also apply to 'non-time' data
+#   # - forecasting can also apply to 'non-time' data
 # CONCLUSION:[ Relationship between 'time series' and 'forcasting' ]============
 # - Time Series -> the type of data (ordered in time)   | data structure
 # - Forcasting  -> the task (predecting future values)  | the predection task
@@ -126,6 +135,36 @@
 # - in simple word Predection of future points (values) in a time-ordered
 #   dataset (time series) 
 # REVISION:> Forcasting is predection technique as 'Estimation' and 'Prediction'
+
+  # NOTE:>------------------------------------------------------
+  # These are the list of models that i can use for the freight
+  # predection project 
+
+
+          |-------------------[ Time Series Model ]-------------------|
+          |                                                           |
+[ Time Series Traditional Model ]                           [ ML Models ]
+          |                                                 - Regression with  
+  |-------|-------------------------|                         lagged feature 
+  |                                 |                       - Tree-based models 
+[ Univariate Models ]           [ Multi-variate Model ]       (Random Forest, 
+- ARIMA model                   - Vector Autoregression       (XGBoost, trained
+- SARIMA (season ARIMA Model)     model                       on time lagged 
+  . It takes in the account                                   features.
+    seasanlity                                              - Neural Networks
+- Prophet                                                   - Hybrid models  
+- Neural Prophet (neural network version of 'prophet')        combine ARIMA +
+                                                              ML for residual
+                                                              moderling.
+# INFO:--------------------------------------------         --------------------
+# + These models are 'Recursive', which means               > Make predctions
+#   if we want to predict for 10 days in the future           directly depending
+#   the model will prodect first day and use it to            one the horizon
+#   predect the second one until the teenth day.            - Tough to Extend
+# + Easy to Extend                                          > Training data 
+# - Tough to get right                                        increases linearly  
+# - Can't add time varying features varying features          as we have more
+#   (mostly true for the univariate models)                   horisons to predict
 
   # INFO:-----------------------------------------------------------------------
   # - Uni-variate model means that the model deals with single time series 
@@ -138,37 +177,9 @@
   #   as time series problem. this one can be converted as traditional  
   #   machine learning regression model. 
 
-  # NOTE:>------------------------------------------------------
-  # These are the list of models that i can use for the freight
-  # predection project 
-
-
-          |-------------------[ Time Series Model ]-------------------|
-          |                                                           |
-[ Time Series Traditional Model ]                           [ ML Models ]
-          |                                                 - Neural network  
-  |-------|-------------------------|                         Regressor 
-  |                                 |                       - Catboost Regressor 
-[ Univariate Models ]           [ Multi-variate Model ]     - Any regressor 
-- ARIMA model                   - Vector Autoregression  
-- SARIMA (season ARIMA Model)     model 
-  . It takes in the account
-    seasanlity
-- Prophet  
-- Neural Prophet (neural network version of 'prophet')
-# INFO:--------------------------------------------         --------------------
-# + These models are 'Recursive', which means               > Make predctions
-#   if we want to predict for 10 days in the future           directly depending
-#   the model will prodect first day and use it to            one the horizon
-#   predect the second one until the teenth day.            - Tough to Extend
-# + Easy to Extend                                          > Training data 
-# - Tough to get right                                        increases linearly  
-# - Can't add time varying features varying features          as we have more
-#   (mostly true for the univariate models)                   horisons to predict
-
 ===[ ARIMA Model ]===
 * 'ARIMA' stands for 'Autoregressive Integrated Moving Average' it is a
-  forcasting technique used to predict future data based on past data, especially 
+  forecasting technique used to predict future data based on past data, especially 
   for things that change over time (like sales)
   - The model contains three parts:
     1|> `AR` (AutoRegressive) 
@@ -198,3 +209,252 @@
 
     pip install statsmodels
 
+# NOTE:[ VERY IMPORTANT NOTES ]-------------------------------------------------
+# - Regular EDA often ignores order and focuses on distributions, correlations,
+#   and missing values.
+
+===[ Time Series Analysis ]=====================================================
+
+===[ Stationarity ]===
+* A 'stationary time series' has statistical properties that 'do not change'
+  'over time', mathematically means:
+  - 'Constant mean' over time ('constant (no-long term trend)') 
+  - 'Constant variance' over time
+
+  # QUESTION:[ But Why does it matter ?]-------------------------------------
+  # - Many classical time series models (AR, MA, ARMA, ARIMA), <assume
+  #   stationarity> because they relay on stable patterns to make predections
+  # - If the series is <non-stationary> (trends, changing variance), these
+  #   models my give 'biased or meaningless forecasts'.
+
+                      [ Stationarity  Types ]
+                                 |
+          |----------------------|--------------------| 
+          |                                           |
+  [ Strict stationarity ]                     [ Weak / Covariance stationarity ]
+- the 'entire distrubution' series           - Only 'mean', 'variance', and  
+  is unchanged over time.                      'autocorrelation' are constant
+  (rare in practice)                           (commonly used in practice)
+
+  # CONCLUSION:>----------------------------------------------------------------
+  # Stationarity = series has stable 'statistical properties over time', which
+  # is essential for many time series models to work properly.
+
+[ 'Variance' Transformation: Log && Box-Cox ]===
+1|> [ Log Transformation]
+  * you can simply use natural 'np.log' () transform the variance 
+
+  # NOTE:> Make sure to stationize 'variance' first and then 'mean'. 
+
+  - np.log(data['VOL_TRAFIC']) => another transformed dataframe
+
+2|> [ Box-Cox transformation ]
+  Box-Cox (Box Clock) transformation is a statistical technique used in
+  'time series analysis (and general ML/Stats)', to make data more 
+  'normal-like' and often more 'stationary'.
+
+  from scipy.stats import boxcox
+
+  data['TRAFIC_VOL_BOX_COX'], lam = boxcox(data['TRAFFIC_VOL'])
+
+[ Differencing: Make Transformation to mean ('trend') ]===
+* To make 'trend' mean constant
+                  
+          [       d(t) = y(t) - y(t - 1)      ]
+
+  - in pandas use function .diff() | data['TRAFFIC_VOL'].diff() 
+
+[ Stationarity test: READ ABOUT THIS Subject ]===
+????
+
+
+===[ Seasonality: ]===
+* 'seasonality' is just as fundamental in time series as 'trend' or
+  'stationarity'.
+  - A time series is 'seasonal' if it shows predictable changes that recure
+    every fixed period (day, week, month, year...).
+  - Examples:
+    . Weekly: shopping patterns (weekend spikes)
+    . Daily: electricity demand (higher at night/daytime peaks) 
+
+  # QUESTION:[ Why Seasonality Important? ]-------------------------------------
+  # 1. Model Assumption: many forecasting models (like ARIMA) assume
+  #    stationarity, 'Strong seasonality makes the series' non-stationary. 
+  # 2. Bias in Forecast: if seasonality is ignored, forecasts may systematically  
+  #    over/understimate during seasonal peaks and throughs.
+  # 3. Business Insight: Seasonality explains why something happens (ex, sales
+  #    in December not because of trend, but because of holidays) 
+  # > [ Example ]
+  # - Imagine monthly sales data:
+  #   . Trend = increasing over years
+  #   . Seasonality = spike every December (holidays)
+  #   . Residual = random noise
+  # - If you model without seasonality, the model might think December spikes
+  #   are "trend," leading to poor predictions in other months.
+  # - If you model with seasonality, it correctly adjusts for the December jump.
+
+[ Handling Seasonality: ]===
+1|> Transformation
+    - Removing => [ d(t) = y(t) - y(t - m) ] => use 'pandas.diff(periods=nbr)'
+    - Decomposition 
+2|> Using Models that handle seasonality (e.g, SARIMA) 
+
+===[ Decomposition ]===
+* 'decomposition' means 'breaking down' a 'complex series' into simpler,
+  interpretable 'componenents'. 
+  # NOTE:>-------------------------------------------------------------
+  # This help us understand underlying patterns rather than just seeing
+  # a noisy curve
+  - A time Series Y(t) is usually modeled as:
+
+    [   Yt = T(t) + S(t) + R(t)   ] -> 'Additive model' 
+    - When 'seasonal variations' are 'constant' over time. 
+                OR
+    [   Yt = T(t) * S(t) * R(t)   ] -> 'Multiplicative model'  
+    - When 'seasonal variations' 'grow/shrink' with the 'level' of the
+      series.
+
+    1. 'Trend': T(t): the long-term direction of data (upward, downward, flat)
+        example: sales increasing over years.
+    2. 'Seasonality': S(t): repeating, predictable patterns at fixed intervals.  
+    3. 'Residual/Noise': R(t) random 'fluctuations' left after removing trend
+                         and seasonality.
+                         
+    # INFO:-------------------------------------------------------------
+    # - Fluctuation: (noun) التقلب, a change of the process of changing,
+    #   especially continuously between one level or thing and another. 
+
+  > [ Transformation from multiplicative to addictive ]
+    - Use log or box-cox transformation to transform and stabilize the
+      'variance', once the variance is stabilized the model becomes 'additive'.
+
+# CONCLUSION:[ Decomposition Goal ]---------------------------------------------
+# - To analyze each part separately (trend forecasting, seasonality 
+#   understanding, noise detection)
+# - To prepare data for forecasting models like `SARIMA`, `Prophet`, etc. 
+
+  > [ How Decomposition is done in practice? ]
+  - There are multiple algorithms and methods to decompose the time series into
+    the three componenets, i want to go over the classic one, 
+
+    
+    1. Compute the trand componenet, T, using a 'moving/rolling' average. and
+       then 'De-trend (remove)' the series, 'Y-T' for 'additive' model, 'Y/T'
+       for 'multiplicative' model.
+    2. Compute the Seasonal componenet S, by taking the average of the
+       'de-trended' series for each season. 
+    3. 'The Residual componenet R', is calculated as 'R=Y-T-S' for additive
+       model and 'R=Y/(TS)' for multiplicative model. 
+    # NOTE:> Calculate components and then remove it, and then calculate and
+    #        remove it ... 
+   
+    - In python:
+
+        # Import the seasonal decompose function 
+        from statsmodels.tsa.seasonal import seasonal_decompose
+
+        plot_multi = seasonal_decompose(data['seasonal'],
+                                  model='additive/multiplicative') 
+        # It will show all different componenets (T), (S), (R) in different
+        # subplots 
+        plot_multi.plot()
+        plt.show()
+
+
+    # INFO:>---------------------------------------------------------------
+    # THERE ARE SEVERAL OTHER METHODS AVAILABLE FOR DECOMPOSITION such as 
+    # STL, X11, and SEATS, These are advanced methods and add to the basic
+    # approach from the classical method and improve upon its shortcomings.
+
+===[ Autocorelation (ACF): Autocorelation function ]===
+* 'Autocorelation' is one of the most 'tools' in time 'series analysis'
+  and the 'core of time series analysis'.
+  - 'Autocorrelation' (is also called 'serial correlation') 'measures' how   
+    'related' a time series is with its 'own past values'.
+  - In simple words: if todays value is strongly related to yesterday (or
+    last week s, last month s) the series has 'autocorrelation'
+  - It is just 'correlation', but instead of comparing two different variables,
+    you compare a variable with its 'lagged versions'.
+
+    [            Cov (Yt, Yt-k)           ]
+    [    pk =   ------------------        ]
+    [               simga^2               ]
+
+  # NOTE:> IT is very simple and close to PEARSON'R correlation concept
+  # - Pk is the correlation
+  #   +1 -> perfect postive correlation (past and present move together)
+  #   < +1 -> strong positive correlation 
+  #   -1 -> perfect negative correlation (past up, present down)
+  #   > -1 -> strong negative correlation 
+  #   0  -> no correlation
+
+  # QUESTION:[ What is a 'lag' in time series? ]---------------------------------
+  # - A 'lag' is just a shift backward in time. It means "how many steps back in
+  #   the past we look at to compare with the present"
+  #   . 'Lag 1': yesterday compared to today
+  #   . 'Lag 2': two days ago compared to today
+  #   . 'Lag 12': 12 monts ago compared to this month
+  # - Example:
+  #   ___________________
+  #   | Day | Temp (°C) |
+  #   |-----| ----------|
+  #   | 1   | 22        |
+  #   | 2   | 24        |
+  #   | 3   | 23        |
+  #   | 4   | 25        |
+  #   |_____|___________|
+  # - At lag 1 -> compare day2 with day1, day3 with day2, day4 with day3 
+  # - At lag 2 -> compare day3 with da1, day4 with day2
+  # So, lag="the time gap between the two values we are comparing"
+  #🔹 Why it matters
+  #   . If a series has high correlation at lag 1, it means yesterday strongly
+  #     influences today (good for autoregressive models).
+  #   . If there’s a spike at lag 7, maybe the data has weekly seasonality.
+  # CONCLUSION:[ Analogy ]------------------------------------------------------
+  # - A 'lag' is like a memory -- how much the past influences the present, with
+  #   the number telling you how far back you look.
+
+# CONCLUSION:[ PURPOSE ]--------------------------------------------------------
+# - Detects 'patterns & dependencies' in data  
+# - Helps idenfity 'seasonality' (e.g. high correlation at lag=12 months, yearly
+#   seasonality) 
+# - Used in model Building (AR, ARIMA, SARIMA rely heavily on autocorrelation)
+#   detect how many lags to use to build the models.
+
+[ Autocorelation In Python ]===
+    from statsmodels.graphics.tsaplots import plot_acf
+
+    plot_acf(data['TRAFFIC_VOLM'], lags=nbr)
+
+    plt.show() 
+
+# INFO:[ TOOLS ]----------------------------------------------------------------
+# - ACF (AutoCorrelation Function): shows correlations at different lags. 
+# - PACF (Partial AutoCorrelation Function): shows direct effect of a lag, 
+#   removing intermediate effects.
+# > [ Exmaple Intuition ]
+#   . If ice cream sales today are highly correlated with sales yesterday
+#     (lag 1), we’ll see a strong autocorrelation at lag 1.
+#   . If sales follow a 'weekly pattern', lags at 7, 14, 21… will show peaks in
+#     the autocorrelation function. 
+# 👉 These plots are standard for diagnosing which ARIMA/SARIMA parameters to use
+
+===[ Partial Autocorrelation (PACF) ]===
+- 'Autocorrelation': Measures how current values are related to past values
+  (lags)
+- 'Partial Autocorrelation (PACF)': Measures the correlation between a value
+  and its lag. 'after removing the effect of shorter lags' 
+  > Example:
+    . Autocorrelation at lag 5 includes effects from lags 1-4
+    . Partial autocorrelation at lag 5 removes those and shows the 
+      'direct relationship' between `Yt` and `Yt - 5`
+
+# QUESTION:[ Why it is important? ]---------------------------------------------
+# - In 'ARIMA/SARIMA modeling', PACF helps choose the 'order of the AR
+#   (AutoRegressive) term'.
+#   . If PACF cuts off after lag 'p', it suggests AR(p) might be appropriate
+# - ACF (Autocorrelation Function): on the other hand, helps choose the 'MA'
+#   (Moving Average) term
+# > So
+#   . PACF -> AR terms
+#   . ACF  -> MA terms

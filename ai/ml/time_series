@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/08/18 10:21:13 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/19 13:37:33 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/20 17:53:32 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -267,7 +267,6 @@
 [ Stationarity test: READ ABOUT THIS Subject ]===
 ????
 
-
 ===[ Seasonality: ]===
 * 'seasonality' is just as fundamental in time series as 'trend' or
   'stationarity'.
@@ -336,7 +335,6 @@
   > [ How Decomposition is done in practice? ]
   - There are multiple algorithms and methods to decompose the time series into
     the three componenets, i want to go over the classic one, 
-
     
     1. Compute the trand componenet, T, using a 'moving/rolling' average. and
        then 'De-trend (remove)' the series, 'Y-T' for 'additive' model, 'Y/T'
@@ -360,13 +358,12 @@
         plot_multi.plot()
         plt.show()
 
-
     # INFO:>---------------------------------------------------------------
     # THERE ARE SEVERAL OTHER METHODS AVAILABLE FOR DECOMPOSITION such as 
     # STL, X11, and SEATS, These are advanced methods and add to the basic
     # approach from the classical method and improve upon its shortcomings.
 
-===[ Autocorelation (ACF): Autocorelation function ]===
+===[ Autocorrelation (ACF): Autocorrelation Function ]===
 * 'Autocorelation' is one of the most 'tools' in time 'series analysis'
   and the 'core of time series analysis'.
   - 'Autocorrelation' (is also called 'serial correlation') 'measures' how   
@@ -443,7 +440,7 @@
 - 'Autocorrelation': Measures how current values are related to past values
   (lags)
 - 'Partial Autocorrelation (PACF)': Measures the correlation between a value
-  and its lag. 'after removing the effect of shorter lags' 
+  and its lag 'after removing the effect of shorter lags'.
   > Example:
     . Autocorrelation at lag 5 includes effects from lags 1-4
     . Partial autocorrelation at lag 5 removes those and shows the 
@@ -455,6 +452,140 @@
 #   . If PACF cuts off after lag 'p', it suggests AR(p) might be appropriate
 # - ACF (Autocorrelation Function): on the other hand, helps choose the 'MA'
 #   (Moving Average) term
-# > So
-#   . PACF -> AR terms
-#   . ACF  -> MA terms
+# > So:
+#   . ACF  -> MA terms, it help us identify the 'q' parameter in ARIMA (MA part)
+#   . PACF -> AR terms, it help us identify the 'p' parameter in ARIMA (AR part)
+
+[ Partial Autocorelation In Python ]===
+    from statsmodels.graphics.tsaplots import plot_pacf
+
+    plot_acf(data['TRAFFIC_VOLM'], method='')
+
+    plt.show() 
+
+# CONCLUSION:-------------------------------------------------------------------
+# - Correlating a time series with itself, ignoring the effect of intermediate
+#   lags, PACF is not really used that often but it's mainly used in determining
+#   number of auto regressor componenets when an ARIMA model, so it is gold
+#   standard when fitting forecasting model.  
+
+
+===[ Forecasting Metrices: To evaluate a Time series Model ]===
+1|> Mean Absolute Error (MAE) (most classic one) 
+          sum(1->n) (Yi - Fi)             |- Yi: is the actual value at `i`
+    MAE = -------------------             |- Fi: is the forcasted value at `i` 
+                  n                       |- n: number of samples
+
+    > adv:
+      - Intuitive
+      - Error in same units as forecast
+    > dadv:
+      - It does not penalize outliers
+      - Scale dependent 
+
+2|> Mean Squared Error (MSE) 
+    - It is known for me and it is used in the 'Cost function', instead of 
+      abs value, we use the '^2' 
+
+    > adv:
+      - Penalise outliers 
+    > dadv:
+      - Less interpretable
+      - Scale dependent
+
+3|> Root Mean Squared Error (RMSE)
+    - sqrt(MSE)
+
+    > adv:
+      - Penalise outliers
+      - Error in forecast units
+      - Best of both worlds of MSE and MAE  
+    > disadv:
+      - Less interpretable 
+      - Scale dependent 
+
+4|> Mean Absolute Percentage Error (MAPE) (percentage difference) 
+            sum(1->n) ( 100 * (|Ai - Fi| / Ai) )
+    MAPE = -------------------------------------
+                n
+
+    # NOTE:--------------------------------------------------------------
+    # - This is the base line matric used when building forecasting model
+    
+    > adv:
+      - Easy to interpret as precentage
+      - Scale independent
+    > dadv:
+      - Infinite error if the actual value is near zero 
+      - Biased to under-forecast 
+
+5|> Symmetric Mean Absolute Peercentage Error (SMAPE)
+6|> Mean Sqauared Logarithm Error (MSLE) 
+
+# INFO:---------------------------------------------------
+# - No Metric is Best than the other.
+# - Metric used depends on the context 
+# - advice: good to use more than one metric for you model
+
+===[ Basic Forecasting Methods for Time Series Analysis ]===
+* forecasting is a wide domain iwth numerous applications in almost every
+  industry, Due to this, the range of forecasting models is also very large
+  with each model having its own adv and dadv.
+  - In this toturial we are go voer some basic and simple forecasting models,
+    despite their cimplicity, these models can offer good resutls in practie
+    and provide a good basis to iterate from.
+
+  1|> Average Forecast
+      - had l module sahel bzff, it assumes all the future values are equal to
+        the 'mean' of the all the previous values., that is why is called
+        'average Model'.
+        _________________________________________________
+        [                                               ]
+        [                     sum(t:1->T) Y(t)          ]
+        [ Y-Hat = Y(t + h) = ---------------------      ]
+        [                             T                 ]
+        [_______________________________________________]
+
+  2|> Naive (mkalkh) Forecast
+      - This model sets the future forecast equat to the latest observed value
+        ___________________________________________
+        [                                         ]
+        [           Y(t + h) = Y(t)               ]
+
+  3|> Seasonal Naive Forecasting 
+      - This method is an extension of the naive model, but this time the
+        forecast is equal to the most recent observed value in the same 
+        season, Ex: the forecast for the next quarter one is equal to the
+        previous years quater one value. This model is useful when we have
+        a clean and large seasonal variation in our time series.
+        ___________________________________________
+        [                                         ]
+        [       Y(t + h) =  Y(T + h - m)          ]
+
+        . `m` is the seasonality of my data, for monthly data with a yearly
+          seasonality m=12, quarterly data would have m=4 and weekly data  
+          would have m=52
+
+  4|> Drift (or trend) Model
+      - This also an extension of the naive forecast whwere we let the
+        predection either linearly incrase or decrease through time as a
+        function of time step, h, scaled by the average historical trend 
+
+        ___________________________________________________
+        [                                                 ]
+        [       Y(t + h) = Y(t) + h * trend_growth        ]
+
+                          Y(t) - Y(t=1)
+        . trend_growth = --------------- = slope 
+                              t - 1
+
+        # NOTE:>----------------------------------------------------------------
+        # - THIS Model makes more sense to me actually
+        # - But this model does not capture the seasonality, It is just a line
+
+# CONCLUSION:>------------------------------------------------------------------
+# - These basic models are not that good
+# - They provide a good baseline
+# - Use them as comparison models.
+
+===[ Simple Exponential Smoothing ]===

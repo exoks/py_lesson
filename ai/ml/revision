@@ -1,0 +1,70 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                𓐓  revision 𓐔           
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀      Eng: oezzaou <oussama.ezzaou@gmail.com> 
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/08/21 11:40:18 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/21 12:13:22 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+- Time series are the data structure of a dataset, it is an ordered-time data,
+  this form is a bit different from the normal data (or non-ordered dataset) 
+  , in this structure the data is recorded over a fixed time interval. 
+
+- the concpet of time series leads us to time 'series analysis' to summarize and 
+  understand the time series dataset.
+
+- time series analysis concept:  
+  > Stationarity: (matimatically constant mean (trend) + constant variance)
+      - Differencing (to de-trend a time series), 
+      - log/Box-Cox Transformation (to remove the variance, <make it constant>) 
+  > Seasonality:  (predicted changes that happens periodically in fixed 
+                  periods).
+  > Decomposition: (the concept of breaking up time series model into Trend +
+                    Seasonaliy + Residuals) 
+      - Additive Model:           Y(t) = T(t) + S(t) + R(t)
+      - Multiplicative Model:     Y(t) = T(t) * S(t) * R(t) 
+
+  > Basic Forecasting Models
+      - Average Model: new forecasts takes the average value of the older values 
+                       over time.
+                                 sum(i:1|-> m) (Y(i)) 
+                      Y(t + h) = ---------------------
+                                          m
+          . Which lead us to a constant forecasts 
+
+      - Naive Model: This model is (mkalkh), new forecasts takes the last
+                     observed time serie value. 
+
+                     [ Y(t) = Y(t - 1) ] 
+
+      - Seasonal Naive Model: This model takes seasonality into consideration 
+                              , new forecasts takes the last observed time 
+                              series values in the same sesonality. 
+
+                   [ Y(t) = Y(t - 1 - m) ]
+
+      - Drift Model: this model takes trend into consideration 
+
+                   [ Y(t) = Y(t - 1) + (h * W) ] 
+
+                        Y(t) - Y(t=1)
+          . W = slope = ------------ : general 'growth', 'trend'.
+                             t 
+  > Simple Exponential Smoothing Model
+    . This model exponentialy smoothing the last observed values, by putting
+      more weights on last values, and less weights one the older ones.
+      `W`: weight parameter   0 <= W <= 1 
+      . `W`:= 1: if 'W=1' the model becomes a naive model. 
+
+      Y(t + h) = L(t) +  h * B(t) : Linear equation form 
+
+      L(t): level equation
+      B(t): trend equation 
+
+  > Holt's Linear Trend Model 

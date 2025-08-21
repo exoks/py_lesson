@@ -1,0 +1,94 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀   𓐓  time_series_questions 𓐔           
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀      Eng: oezzaou <oussama.ezzaou@gmail.com> 
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/08/20 18:34:38 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/20 18:34:47 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ QUESTIONS: ]===============================================================
+
+===[ Additive Models VS Predective Models ]===
+Additive models:
+Think of them like recipes. A time series is explained as the sum of different
+ingredients:
+
+Time Series=Trend+Seasonality+Random Noise
+Time Series=Trend+Seasonality+Random Noise
+
+Example: Ice cream sales = long-term growth (trend) + summer effect (seasonality) + random variations.
+These models don’t try to “predict” from data patterns in a complex way — they decompose the series into parts we can understand.
+
+Predictive models:
+These are more like black boxes that learn from past data to predict the future. They don’t necessarily split the series into components; instead, they learn rules or patterns.
+Example: Using ARIMA, SARIMA, or a machine learning model (like XGBoost, LSTM) to forecast next month’s sales.
+
+👉 In short:
+
+Additive models = explain structure (descriptive).
+
+Predictive models = forecast future values (predictive).
+
+===[ Seasonality Deep Understanding ]===
+🟢 Intuitive Explanation
+
+Seasonality means: 'the data' has a 'repeating pattern at regular intervals'.
+
+  . Example: Ice cream sales are always higher in summer and lower in winter.
+  . Example: Electricity demand spikes every evening when people come home.
+
+- It’s not just one number (like a scalar). Instead, it’s a pattern that
+  repeats—so think of it like a “shape” that the time series follows again and
+  again.
+
+🔵 Technical Explanation
+  - In time series models, seasonality is usually represented as:
+
+Additive model:
+
+
+ is the seasonal component, often defined as a function repeating with period 
+P
+P (e.g., 12 months, 7 days, 24 hours).
+
+Example: If monthly seasonality exists with period 
+P=12
+P=12, then:
+
+Multiplicative model:
+
+
+ scales the series proportionally.
+
+Representation:
+
+In decomposition → 
+St
+S
+t
+
+ is usually a vector of seasonal factors (one per time step in the cycle).
+
+In statistical models (like SARIMA) → seasonality enters as lagged terms at multiples of the seasonal period.
+
+In ML models (like Prophet) → seasonality can be modeled as a sum of sine and cosine functions (Fourier terms).
+
+So, seasonality is not a single scalar, but rather a systematic repeating structure that can be expressed as:
+
+A periodic function (sinusoids, indicator dummies, Fourier terms).
+
+A set of seasonal factors (one per period).
+
+✅ Summary:
+
+Seasonality = repeating patterns in time series.
+
+Represented as a function of time with fixed periodicity, not just a scalar.
+
+Practically, it’s encoded as a cycle of values (e.g., monthly factors), or as periodic functions in models.

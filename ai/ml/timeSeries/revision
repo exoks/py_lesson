@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/08/21 11:40:18 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/21 12:13:22 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/22 09:39:20 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -19,7 +19,7 @@
 - the concpet of time series leads us to time 'series analysis' to summarize and 
   understand the time series dataset.
 
-- time series analysis concept:  
+- time series analysis concept: 
   > Stationarity: (matimatically constant mean (trend) + constant variance)
       - Differencing (to de-trend a time series), 
       - log/Box-Cox Transformation (to remove the variance, <make it constant>) 
@@ -55,16 +55,43 @@
 
                         Y(t) - Y(t=1)
           . W = slope = ------------ : general 'growth', 'trend'.
-                             t 
+
+===[ Exponential Smoothing Family Models ]=== 
   > Simple Exponential Smoothing Model
     . This model exponentialy smoothing the last observed values, by putting
       more weights on last values, and less weights one the older ones.
       `W`: weight parameter   0 <= W <= 1 
       . `W`:= 1: if 'W=1' the model becomes a naive model. 
 
-      Y(t + h) = L(t) +  h * B(t) : Linear equation form 
-
-      L(t): level equation
-      B(t): trend equation 
+        Y(t + h) = W * Y(t) + W * (1 - W) * Y(t - 1) 
 
   > Holt's Linear Trend Model 
+    . This model exponential smooth both, 'level' and 'trend', following the 
+      same concept where we put more weight on the last values, and less
+      weight to the historical ones
+
+      Y(t + h) = L(t) +  h * B(t) : Linear equation form 
+
+  L(t): level equation: L(t) = W * Y(t) + (W - 1) * [L(t - 1) + b(t)] 
+  B(t): trend equation: b(t) = beta * (L(t) - L(t - 1)) + (1 - beta) * b(t - 1) 
+
+  > Holt winters Model
+    . This model triple exponenially smooth the all three time series componenets
+      'level', 'trend' and 'Seasonality' (Triple Smoothing)
+
+    - Additive Model (time series are Stationary)
+      Y(t + h) = L(t) + h * B(t) + S(t + h - m)  
+
+    - Multiplicative Model (time series variance changes with trend)
+      Y(t + h) = [ L(t) + h * B(t) ] * S(t + h - m) 
+
+  > [ Exponential Smoothing models In Python ]
+    from statsmodels.tsa.holtwinters SimpleExpSmoothing, holt, ExponentialSmoothing 
+
+
+===[ Residual Analysis ]===
+===[ Cross-Validation ]===
+
+===[ ARIMA family Models ]===
+  1|> [ Autocorrelation Regression (AR) Model ]
+      - 

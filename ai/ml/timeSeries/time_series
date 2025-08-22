@@ -1,11 +1,11 @@
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀             𓐓  time_series 𓐔           
 #  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
-#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀       Dev: oezzaou <OussamaEzzaou@gmail.com> 
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀       Eng: oezzaou <OussamaEzzaou@gmail.com> 
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/08/18 10:21:13 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/20 17:53:32 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/22 12:23:39 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -16,7 +16,24 @@
 1|> Forcasting
 2|> Time Series 
 3|> Time Series Analysis 
-4|> Time Series Forcasting Models
+    - Stationarity 
+    - Decomposition 
+    - Seasonality 
+4|> Naive Models
+    - Average Model
+    - Naive Model
+    - Seasonal Naive Model 
+    - Drift (trend) model
+5|> Exponential Smoothing Forecasting Models 
+    - Simple Exponential Smoothing Model (single exponential method) 
+    - Holt's Linear Trend Model (double exponential method)
+    - Holts Winters Model (triple exponenetial method) 
+4|> ARIMA Models 
+    - Auto-Regression Model (AR)
+    - Moving Average Model (MA) 
+    - Auto-Regression Integrated Moving Average Model (ARIMA) 
+    - Seasonal Auto-Regression Integrated Moving Average Model (SARIMA)
+
 
 # QUESTION:[ ESTIMATION VS PREDICTION VS FORECASTING ]==========================
 # - ESTIMATION: Focues on 'current or past values' not future onces. 
@@ -149,7 +166,7 @@
   |                                 |                       - Tree-based models 
 [ Univariate Models ]           [ Multi-variate Model ]       (Random Forest, 
 - ARIMA model                   - Vector Autoregression       (XGBoost, trained
-- SARIMA (season ARIMA Model)     model                       on time lagged 
+- SARIMA (season ARIMA Model)     Model                       on time lagged 
   . It takes in the account                                   features.
     seasanlity                                              - Neural Networks
 - Prophet                                                   - Hybrid models  
@@ -212,6 +229,9 @@
 # NOTE:[ VERY IMPORTANT NOTES ]-------------------------------------------------
 # - Regular EDA often ignores order and focuses on distributions, correlations,
 #   and missing values.
+
+
+
 
 ===[ Time Series Analysis ]=====================================================
 
@@ -288,7 +308,7 @@
   #   . Trend = increasing over years
   #   . Seasonality = spike every December (holidays)
   #   . Residual = random noise
-  # - If you model without seasonality, the model might think December spikes
+  # - If your model without seasonality, the model might think December spikes
   #   are "trend," leading to poor predictions in other months.
   # - If you model with seasonality, it correctly adjusts for the December jump.
 
@@ -336,10 +356,10 @@
   - There are multiple algorithms and methods to decompose the time series into
     the three componenets, i want to go over the classic one, 
     
-    1. Compute the trand componenet, T, using a 'moving/rolling' average. and
+    1. Compute the trand componenet, 'T', using a 'moving/rolling' average. and
        then 'De-trend (remove)' the series, 'Y-T' for 'additive' model, 'Y/T'
        for 'multiplicative' model.
-    2. Compute the Seasonal componenet S, by taking the average of the
+    2. Compute the Seasonal componenet 'S', by taking the average of the
        'de-trended' series for each season. 
     3. 'The Residual componenet R', is calculated as 'R=Y-T-S' for additive
        model and 'R=Y/(TS)' for multiplicative model. 
@@ -347,7 +367,6 @@
     #        remove it ... 
    
     - In python:
-
         # Import the seasonal decompose function 
         from statsmodels.tsa.seasonal import seasonal_decompose
 
@@ -358,13 +377,34 @@
         plot_multi.plot()
         plt.show()
 
-    # INFO:>---------------------------------------------------------------
-    # THERE ARE SEVERAL OTHER METHODS AVAILABLE FOR DECOMPOSITION such as 
-    # STL, X11, and SEATS, These are advanced methods and add to the basic
-    # approach from the classical method and improve upon its shortcomings.
+# QUESTION:[ Additive Model VS Multiplicative Model ]=========================== 
+# 1|> Additive model:
+#     The parts of the time series simply add together:
+#     [ Time Series=Trend + Seasonality + Noise ]
+#
+#     > Example: Suppose sales grow by +100 units per year (trend) and there’s a
+#       +30 spike every December (seasonality). No matter how high sales go, the
+#       seasonal effect always adds 30 units.
+#
+# 2|> Multiplicative model:
+#     The parts of the time series multiply:
+#     [ Time Series=Trend × Seasonality × Noise ]
+#
+#     > Example: Sales grow by 10% per year (trend) and December sales are 20%
+#       higher (seasonality). Now, as the trend grows, the seasonal ups and
+#       downs also get bigger in proportion.
+#
+# 👉 [ In short: ]
+#    - Additive = seasonal/trend effects are constant in size.
+#    - Multiplicative = seasonal/trend effects are relative (proportional).
+
+# INFO:>---------------------------------------------------------------
+# THERE ARE SEVERAL OTHER METHODS AVAILABLE FOR DECOMPOSITION such as 
+# STL, X11, and SEATS, These are advanced methods and add to the basic
+# approach from the classical method and improve upon its shortcomings.
 
 ===[ Autocorrelation (ACF): Autocorrelation Function ]===
-* 'Autocorelation' is one of the most 'tools' in time 'series analysis'
+* 'Autocorelation' is one of the most used 'tools' in time 'series analysis'
   and the 'core of time series analysis'.
   - 'Autocorrelation' (is also called 'serial correlation') 'measures' how   
     'related' a time series is with its 'own past values'.
@@ -589,3 +629,467 @@
 # - Use them as comparison models.
 
 ===[ Simple Exponential Smoothing ]===
+* The idea of exponential something originated in the 1950s and is basically a
+  fancy way of stating that we will put more weight on recet observations, older
+  observations will reveive less weight at an exponentially decaying rate, hence 
+  it is called 'exponential something'. (in short just exponentialy something
+  the data by adding more weights to previous and less weight to last)
+
+  [                                                                           ]
+  [   Y(t + 1) = W * Y(t) + W(1 - W) * Y(t - 1) + W(1 - W)^2 * Y(t - 2) + ... ]
+  [                                                                           ]
+
+    . `W` is the smothing parameters   0 <= W <= 1
+    . The smoothing parameter is the main parameter we need to estimate
+      when fitting this model. The parameter is often calculated by the method
+      of 'least squares' which is fortunately done for us by most computing
+      packages.
+    . The higher the value of `W`, the more weight is put on recent observations
+      and vice versa for lower values of `W`, if `W=1` then we recover the naive
+      forecast model where all forecasts are equal to the most recent 
+      observation.
+
+  - Like all time series exponential smoothing methods are often broken into
+    their components such as 'level', 'trend' and 'seasonality', As simple
+    exponential smoothing does not take into account 'trend' of 'seasonality',
+    it therefore only consists of the 'level componenet'. 
+
+    Overall Equation: [ Y(t + h) = l(t) ]           => `l`: level
+      . [ L(t) = W * y(t) + (1 - W) * l(t - 1) ] 
+
+  - 'Simple Exponential Smoothing' This is the most basic forcasting model in
+    the 'exponential something family', The reason this model is simple is
+    because it does not take into account 'trend' or 'seasonality'.
+  - In general this simple model is best when your data does not have any
+    'trend' or 'Seasonality', Alternatively, you can transform  your data by
+    carrying out 'differencing' and the 'Box-Cox transform' to make it
+    "stationary", hence removing its trend and seasonality.
+
+  > [ Simple Exponentail Smoothing in Python ] 
+
+    from statsmodels.tsa.holtwinters import SimpleExpSmoothing
+
+    model = SimpleExpSmoothing(data['feature'])
+    model.fit(optimized=True)
+    forcasts = model.forecast(test) 
+
+    # plot forecasts to see the resuls
+    # look at a summary about the model
+    model.summary() # It is a useful function try to use it.
+
+# CONCLUSION:-------------------------------------------------------------------
+# - Simple Exponential something model is the basic model for forecasting      | 
+#   1. Simple as does not take into account 'seasonality' or 'trend'           |
+#   2. Weights recent observations more than older ones                        | 
+#   3. Not very good because its so simple                                     |
+#   4. Good baseline model => flat forecast (all forecasts will be same and    |
+#      equal to the most recently observed value)                              |
+# ------------------------------------------------------------------------------
+
+===[ Holt's Linear Trend Model ]===
+# REVISION:---------------------------------------------------------------------
+# - The gist of exponential smoothing is to put more weight on recent
+#   observations and less weight, exponentially on more historical ones.
+# - The previous model is simple, because does not take 'trend' or 'seasonality' 
+#   into consideration, it does only forecast level, This part leads us to this
+#   particular model.
+* Holt s linear method (also known as 'double' exponential smoothing), which
+  like its name suggests, 'adds' a '(linear) trend component' to the 'simple'
+  'exponential smoothing model'.
+
+      [ Y(t + h) = L(t)  + H * B(t) ]
+
+      # NOTE:-------------------------------------------------------------------
+      # b + a * x: linear form that is why called Holt's Linear Trend Model. 
+
+      . level equation: L(t) = W * Y(t) + (1 - W) * (L(t - 1) + B(t - 1)) 
+                              --- * ---  + ----- *  ---------------------  
+            smoothing parameter:   Y(t)   weight     Y(t - 1)
+
+      . Trend Equation: B(t) = beta * (L(t) - L(t - 1)) + (1 - beta) * B(t - 1)  
+                               -----  ---------------- +  ---------- * ------- 
+              trend smoothing factor        B(t)          Weigths      B(t - 1)
+
+                    Y(t) - Y(0)
+      where: b(0) = -----------  => trend is gonna change over time
+                        T
+      . 'h': is the time step to forecast in the future. 
+
+      # NOTE:>------------------------------------------------------------------
+      # - As you can see the Trend Equation does put more weights on recent
+      #   trend (which is difference between last two levels), that is way
+      #   called double smoothing.
+      #
+        . 'beta': is the 'trend smoothing factor' 0 <= beta <= 1 
+      
+      - one issue with this 'current formulation is that the forecasts will'
+        'increase or decrease arbitrarily into the future', in reality nothing
+        grows nor decays indefinetely, therefore, there is often a dapening term
+        `Q` added to curtail the forecasts at long horizons.
+
+
+      . Overall Equation: Y(t + h) = L(t) + (Q + Q^2 + ... + Q^h) * b(t) 
+      . Level Equation: L(t) = W * Y(t) + (1 - W) * (L(t - 1) + Q * b(t - 1)) 
+  . Trend Equation: b(t) = beta * (L(t) - L(t - 1)) + (1 - beta) * Q * b(t - 1) 
+
+      . where `0 < Q < 1`, the reason it cannot be 0 or 1 is to ensure some
+        dampening indeed occurs. if Q=1 then the model would just be the
+        vanilla holt's linear trend model (method).
+
+
+      # INFO:------------------------------------------------------------------
+      # - horizon: (noun) the line in the distance where they sky and the land 
+      #   or sea seem to meet ( أُفُق ) 
+
+  > [ Hotl's Linear Model In Python ]
+
+    from statsmodels.tsa.holtwinters import SimpleExpSmoothing, holt
+
+    # 1|> Using simple exponential model 
+    model = SimpleExpSmoothing(data['feature'])
+    # simple exponential smoothing model (does not handle 'trend' or
+    # 'seasonality') 
+    fited_model = model.fit(optimized=True)  
+    simple_forecasts = fited_model.forecast(len(test))
+
+    # 2|> Using holt's linear model (double smoothing model)
+    model_holt = holt(data['feature'], damped_true=True) 
+    holt_fited_model = model_holt.fit()
+
+    # forecasts using holt's linear model
+    holt_forcasts = holt_fited_model.forecast(len(test))
+
+    # this function to understand what is happening under the hood
+    model_holt.summary() 
+
+
+# CONCLUSION:-------------------------------------------------------------------
+# - holt's linear model is much better, it handles both 'level (~mean)' and
+#   'trend'. we are one step away from gitting the best time series forecasting
+#   model. the (seasonal componenet is missing).
+
+===[ Holt Winters Method (Model) ]===
+# REVISION:--------------------------------------------------------------------- 
+# - we have bee discussting a very well known family of forecasting models,
+#   exponential smoothing.
+# - The fundamental principle of exponential smoothing is to put more weight on 
+#   recent observations and less on historical observations as a means to
+#   forecast the time series.
+# - The most basic exponential smoothing model (is called also single exponentail
+#   smoothing model), this model just forecast the 'level' of time series and 
+#   does not take into account 'trend' or 'seasonality'
+# - The next step from thsi simple model is holt's linear trend method, which is
+#   also known as 'double exponential smoothing model', this model incorporates
+#   the 'trend' as well as the 'level'.
+# - Finally, the next step from Holt's method is to find a way to include
+#   seasonality in the exponential smoothing model, this is WHERE 'Holt Winters'
+#   (triple exponential smoothing) comes in.
+* As stated above, the holt Winters model further 'extends' 'Holts linear trend' 
+  'method' by adding 'seasonality' to the forecast. The addition of
+  'seasonality' gives rise to two different Holt winters model, 'additive' and
+  'multiplicative'.
+  - The difference between the two models is the size of the 'seasonality'
+    'fluctuations' are mostly 'constant', However, for 'multiplicative model'
+    'the fluctuations' are 'proportional to the value of the time series at' 
+    'that given time'.
+
+  > [ Additive Model: ]
+      
+  Overall Equation: [ Y(t + h) = L(t) + h * b(t) + S(t + h - m) ] 
+  Level Equation: L(t) = W * (Y(t) - S(t - m)) + (1 - W) * (L(t - 1) + b(t - 1)) 
+  Trend Equation: b(t) = beta*(L(t) - L(t - 1)) + (1 - beta) * b(t - 1)  
+  Seasonality Equation: S(t) = gama*(Y(t) - L(t - 1) - b(t-1))+(1 - gama)*S(t-m)  
+                                    --------------------------
+                      time series at (t) - trend - level = Seasonality
+  # NOTE:----------------------------------------------------------------------
+  # - The concept here is simple , we take the trend and level, so the
+  #   seasonality is left, and we do some exponential smoothing by adding 
+  #   'gama' as the smoothing factor for 'seasonality componenet'
+  #
+  . 'm' is the seasonality of the time series, s(t) is the seasonal forecast 
+    componenet, s(t - m) is the forecast for the previous season and 'gama' is 
+    the seasonal componenet factor `0 <= gama <= 1 - W`
+
+  > [ Multiplicative Model: ]
+  Overall Equation: Y(t + h) = (L(t) + h * b(t)) * S(t + h - m)  
+  Level Equation: L(t) = W * (Y(t) / S(t - m)) + (1 - W) * (L(t - 1) + b(t - 1))
+  Trend Equation: b(t) = beta*(L(t) - L(t - 1)) + (1 - beta) * b(t - 1) 
+  Seasonality Equation: 
+    [ S(t) = gama * (Y(t) / (L(t - 1) + b(t - 1))) + (1 - gama) * S(t - m) ] 
+
+  > [ Holt Winters Model In Python ]
+    # imports different exponential smoothing models
+    from statsmodels.tsa.holtwinters import SimpleExpSmoothing, holt, ExponentialSmoothing 
+
+    # fit simple model and get forecasts
+    model_simple = SimpleExpSmoothing(train['feature']).fit(optimized=True) 
+    forecasts_simple = model_simple.forecast(len(test)) 
+
+    # fit Holt's model and get forecasts
+    model_holt = holt(train['feature'], damped_trend=True).fit(optimized=True)
+    holt_forecasts = model_holt.forecast(len(test))
+
+    # fit  Holt winters model and get forecasts
+    model_holt_winters = ExponentialSmoothing(train['feature'],
+                                        trend='mul', # multiplicative
+                                        seasonal='mul' # multiplicative
+                                        seasonal_periods=12).fit(optmized=True) 
+    forecasts_holt_winters = model_hotl_winters.forecast(len(test))
+
+# CONCLUSION:-------------------------------------------------------------------
+# - Holt winter model is the final model in exponential smoothing model family,
+#   it is the best model so far, it takes 'level', 'trend' and 'seasonality'
+#   into consideration (all three componenets are included).
+
+===[ Residuals Analysis ]===
+*  Being able to analyse your timie series model is essential to diagnose it 
+   'performance', One such way to do this is through the 'residuals' of the
+   'fitted model', It time series 'residuals r' are the difference between
+   the 'fitted value  `y-hat`' and 'actual value `y`'
+        [ r = Y(i) - Y-hat(i) ] 
+  > Purpose: useing residuals Analysis (diagonise) to improve our forecasting
+             methods.
+
+  > [ Residual Analysis ] 
+    - We can use the residuals to analyse how well our model has captured the 
+      characteristics of the data. In general residuals should:
+      . show 'very little' or 'no autocorrelation' or 'partial autocorrelation', 
+        if they 'have' the 'model has missed some information' that is in the
+        data. We can use 'Ljung-Box statistical test' and a 'correlogram' to
+        determine if the 'residuals' are 'indeed correlated'.
+      . the 'mean' of the residuals should be 'zero', otherwise the forecast 
+        will be biased, In reality this is quite easy to aadjust for by simply
+        'adding' or 'substracting' the bias from the forecasts. if mean!=0
+        |=> under, over forecasting exist.
+
+  > [ Difference Between 'Error' and 'Residual' ] 
+    - The 'error' is the difference between the 'actual' and 'forecasted' values
+    - the 'residuals' are the 'observed difference' between 'actual' and 'fitted'
+      values from your model.
+    > Ex:
+      . 'Error' = (True future temp - your forecast), But you only know it once
+        the 'REAL FUTURE ARRIVES'. (theoretical: involves the unobserved 'true'
+        model).
+      . 'Residual': (Observed temp in your dataset - models' fitted value), you
+        always have residuals for the training data because both actual and 
+        fitted are known. (observed: computed from data)
+
+  > [ Residuals In Python ]
+    # Getting fitted values by simply using fittedvalues attr 
+    fitted = model.fittedvalues 
+    # Getting Residualas by simplyg using resid attr
+    resid = model.resid
+
+    # NOTE:[ Video 13: rewatch this video ] 
+      
+# CONCLUSION:-------------------------------------------------------------------
+# - Residuals are the difference between actual values and fited values, It is  
+#   used to determine where our model may be struggling for example residuals
+#   can identify things such autocorrelation and bias in the forecasting model 
+#   and therefore we can correct this when we are rebuilding our forecasting
+#   model. This is really useful it allows you to understand what the model's
+#   doing and better diagnose it and so you can improve this forecast in next
+#   iteration. This analysis is easy to do, so it's recommended to be done. 
+
+===[ Coss-Validation For Time Series Forecasting ]===
+
+===[ AutoRegressive Model (AR) ]===
+# REVISION:---------------------------------------------------------------------
+# - In previous we covered some basic forecasting models like 'exponential'
+#   'smoothing' models family, In this post we will discover another family of 
+#   (ARIMA family) forecasting models begining with autoregression.
+  - 'Autoregression' is one of the most 'applied' and 'common models', It is not
+  necessarily the best, but it really good inial building block towards our
+  'ARIMA' which is kind of like the gold standard for models nowadays.
+  - Autoregression is when you forecast a time series using some linear weighted
+    combination of the previous values (lags) of that time series, As we are
+    'regression' a 'target value' against 'itself'. It is called auto-regression
+    , Mathematically, we can write autoregression as:
+
+  # INFO:[ Simple And Friendly Explanation ]------------------------------------
+  # - Imagine you want to guuess today's temperature
+  #   . You don't check the weather app
+  #   . Instead, you just look at yesterday's temperature and say: 
+  #     "Today will probably be about the same as yesterday, maybe a little"
+  #     "higher or lower"
+  # - That is the core idea of 'Autoregressive model': it predicts something 
+  #   'based on its own past values'.
+  #   . If you use only "yesterday's value", that is an `AR(1)` model 
+  #   . If you use the past "two day's values", that is an `AR(2)` model
+  #     and so on.
+  #     # NOTE:> It is like saying: "THE PAST EXPLAIN THE PRESENT"
+
+  * An 'autoregression (AR) model' is a time series model where the current
+    value of the series is expressed as a 'linear combination ot its past'
+    'values' plus some random error. 
+      
+      # NOTE:> It is in the form of multi-linear regression model.
+      [   Y(t) = C + Q1 * Y(t-1) + Q2 * Y(t - 2) + Qp * Y(t - p) + e(t)   ]
+
+  . `Y`: is the time series we are forecasting at various time steps.
+  . `Q`: are the fitted coefficients of the lags fore the time series.
+  . `e`: is the error term (typically normaly distributed)
+  . `p`: is the number of lagged componenets included in the model, this is also
+         known as the order.
+
+      > If we have no coefficients or they are all zero, this is ust 'white noise'. 
+      > If we only have Q1=1 and the other coefficients are zero, then this is a
+        'random walk'.
+
+  > [ Requirements: ]
+    - It is recommended to have 'stationary' time series, We need stationarity 
+      to ensure the statistical properties of the time series is consistent
+      through time. (rendering it easier to model)
+      # REVISION:>--------------------------------------------------------------
+      # Differencing & box-cox or lag transformation to ensure stationarity.
+      # (stabilize 'variance' and 'mean')
+
+      # NOTE:-------------------------------------------------------------------
+      # - Data must belongs to the same distribution 
+    - Using all time series forecasting may cause model overfitting, so we need
+      to select some those, we have to find optimal value `p` and basically the 
+      way we can do this is through 'plotting the PACF method (correlation'
+      'between lags ignoring the middle effect)'
+      - We need to find the optimal number `p` of lags we can use for the model 
+
+  # QUESTION:[ Why this model is called Auto-Regression? ]---------------------
+  # 1|> 'regression' in statistics means we try to explain or predict a
+  #     variable using other variables 
+  #     - Ex: Predicting someones's weight using their height -> that is a 
+  #       regression model.
+  # 2|> 'Auto', means self, So instead of predecting a variable using
+  #     'different variables (like height to predict weight)', here we predict
+  #     a variable 'using its own past values'.
+  # 3|> Putting it together
+  #     - 'Regression': -> prediction using explanatory variables
+  #     - 'Autoregression': -> prediction using the 'variable's own past values'
+  #       as the explanatory variables.
+  #     => "A regression of the variable on itself (with a time lag)"
+
+  > [ Walkthrough In Python ]
+    1|> plot the time series values 
+    2|> make sure that time series is 'stationary'
+        - Use differencting to 'de-trend' the time serie
+        - Use log or box-cox transform to make 'variance' constant
+    3|> Finding the number of lags that we need `p` 
+        - Using 'PACF' ploting method
+          from sttsmodels.graphics.tsaplots import plot_pacf 
+    # INFO:---------------------------------------------------------------------
+    # - When you build an 'autoregression model' the big question is:
+    #   "How many past steps should i look at to predict the present?"
+    # - PACF is the tool that tells you how far back in time you should look
+    #   when building an 'AR' model.
+    # - PACF: direct correlation between today and a past value, ignoring
+    #   everything in between
+    #   > If the 'direct correlation is high' -> the past value really matters 
+    #     to predict today
+    #   > if the 'direct correlation is near zero' -> the past value does help
+    #     predict today.
+    # - So when choosing 'how many past values (lags) to use In (AR) MODEL'
+    #   . Keep the lags that have 'high PACF' 
+    #   . Stop at the first lag where to PACF is basically zero -> no need to 
+    #     include further past values.
+    #   > Example:
+    #     - lag 1 correlation = 0.7 -> to day depends a lot on yesterday
+    #     - lag 2 correlation = 0.2 -> some effect, maybe include it
+    #     - lag 3 correlation = 0.0 -> today 'does not depend' on the value 3
+    #       days ago -> ignore it.
+    # - Basically: Hight PACF -> include, near zero -> ignore
+
+    4|> Build the model
+        from statsmodels.tsa.ar_model import AutoReg, ar_select_order
+        # Build AR model
+        # try from 1 -> 15 lags to see with ones gives the best results on test
+        # data
+        selector = ar_select_order(train['feature'], 15)
+        # Buid The Model
+        model = AutoReg(train['feature'], lags=selector.ar_lags).fit()
+    5|> Use Inverse Box-Cox to the 'forecasted values' 
+        from scipy.special import inv_boxcox
+
+        forecasts = inv_boxcox()
+
+# CONCLUSION:-------------------------------------------------------------------
+# AutoRegression is where you forecast a time series using some linear weighted
+# combination of the previous values (lags) of that time series, As we are
+# regressing a target value against itself, it is called auto-regression.
+
+===[ Moving Average Model (MA) ]===
+* The 'MA' model is away to "predict today's value using the 'error' (random"
+  "chocks) from revious days" 
+  - This model does not look 'directly at past values like (AR) model': it looks 
+    at how much yesterday (or the past few days) 'differed from what exprected'
+  - think of it as:
+    [ "What happened unexpectedly in the past few days will influence today" ]
+
+    [ X(t) = U + e(t) + O1 * e(t - 1) + O2 * e(t - 2) + ... + Oq * e(t - q) ]
+                        -------------
+                        an error term
+
+    . U: Average of all observed past value of the series (like baseline)
+    . e(t): random chock (error) today
+    . e(t-1), e(t-2), .. = past errors (random choks)
+    . O1, O2, ... = weights for each past error
+    . q = number of past error included 
+
+  - A big Question we should ask (order selection): 
+    "How to get the number of past error included `q`"
+
+    - We simply use 'ACF' technique to define `q` number of past error included
+      . If the a lag has high correlation, then it is 'influential'. 
+      . otherwise if it is not 'highly correlated', the it is not 'influential'. 
+
+  > Friendly Interpretaion:
+    . "Today's value" = 'baseline (average past observations)' + 
+                        'weighted errors from previous observations'
+
+
+  > [ Estimation: (Fitting terms coefficcients {O1, O2, ...Oq}) ]
+    - This process is not as easy as in linear or autoregression as the erros
+      are not observable, so how do we do it?
+     
+      well, It is not so straighforward, However, the general gitst is that the
+    'autocorrelation values for each lag are directly related to their cofficients'
+     therefore, once yu know the 'autocorrelation' of a 'forecast error' you can
+     work bakwards to acquire its coefficient.
+                                      O1
+                          C1 = -----------------
+                                  1 + O1^2
+
+    # NOTE:---------------------------------------------------------------------
+    # - The weight terms for (MA) are different (in way of estimation) than    |
+    #   from (AR) model, this is they key point you must REMEMBER.             |
+    # --------------------------------------------------------------------------
+
+  > [ Walkthrough In Python ]
+    1|> Make you time series 'stationary'  
+        - Use differencing to 'de-trend' the model 
+        - Use box-cox or log transformation to 'stabilize the variance' 
+        from scipy.stats import boxcox
+
+        data['feature_transformed'], lam = boxcox(data['feature'])
+    2|> Apply 'Auto-Correlation function (ACF)' to determine the order we are 
+        going to use 'q'.
+
+    3|> Use ARIMA Model
+        from statsmodels.tsa.arima.model import ARIMA
+
+        model = ARIMA(train['feature'], order=(0, 0, 13)).fit()
+        # ERROR:>> Make Search about Order
+
+    4|> Create New Forecasts
+    5|> Make inverse_transformations and differencing 
+
+    # INFO:---------------------------------------------------------------------
+    # - The blue region in the 'ACF' plot represent where the statistically 
+    #   significant (so anything in that region we dont really want, we want
+    #   the ones outside the blue region)
+    # - Even if you can clearly (hard to define using eye) see the lags that can
+    #   be used to the model it is a 'GOOD WAY TO BRUT FORCE APREACH ALL
+    #   POSSIBLE LAGS TO USE'.
+    
+# CONCLUSION:-------------------------------------------------------------------
+# - Autoregression (AR): Forecasting based on previous time series observations 
+# - Moving Average (MV): Forecasting based on previous 'errors' (estimating
+#   errors)
+# - These models required a 'stationary' time series dataset. 

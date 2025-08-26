@@ -1,0 +1,131 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀           𓐓  math_analysis 𓐔           
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀      Eng: oezzaou <oussama.ezzaou@gmail.com> 
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/08/26 10:39:04 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/26 12:13:07 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ Correlation Analysis ]====================================================
+* 'Correlation analysis' is a 'statistical method' used to measure the relation 
+  between 'two variables'.
+  - They key feature in 'correlation analysis' is:
+  1. How 'strong' the 'correlation' is ?
+  2. Which 'direction' the 'correlation goes' ? 
+
+  - correlation 'ceofficient (r)'
+    |r| < 0.1 => no correlation 
+    |r| < 0.3 => low correlation
+    |r| < 0.5 => medium correlation
+    |r| < 0.7 => high correlation 
+    |r| < 1   => very high correlation 
+    |r| == 1  => perfect correlation
+
+    |-----------------[ Correlation Coefficient 'r']--------------------|
+    |                 |                       |                         |
+[ Pearson (r) ]   [ Spearman (rs) ]   [ kendall's tau ]   [ Point-Biserial rpb]
+
+
+===[ Pearson correlation ceofficient (r) ]===
+* 'As all' correlation coefficients the 'Person correlation (r)' is a
+  'statistical measure' that 'quantifies' the relationshp 'between'
+  'two variables'.
+  - In the case of person correlation the 'linear relationshp' of metric
+    variabels is 'measured'.
+
+  # INFO:----------------------------------------------------------------------
+  # metric: (adj), the metric system of measurement uses units based on the
+  # gram, metre, and litre
+  
+        sum(i:1->n)[  (X(i) - X-bar(i)) * (Y(i) - Y-bar(i)) ] => Cov
+    r = ---------------------------------------------------------------------- 
+        sqrt[ sum(i:1->n)[X(i) - X-bar(i)^2] * sum(i:1->n)[Y(i) - Y-bar(i)^2]]
+          --------------------------------------------------------------------
+          > this part is called 'denominator', it ensures that the 'corelation'
+            'coefficient' is 'scaled' between [-1, 1]
+
+            
+  # NOTE:>---------------------------------------------------------------------
+  # - The 'correlation coefficient' is usually calculated with data taken from
+  #   a "SAMPLE".
+  # > example:
+  # - However, we often want to test a 'hypothesis' about the 'population'.
+  # INFO:[ Population ]--------------------------------------------------------
+  # - The word 'population' in statistics does not mean 'people', It is the
+  #   'entire set of items, events, or observations' you are interested in
+  #   studying 'Sample': Is a small subset of the population that you actually
+  #   observe. 
+  # INFO:[ Hypotheses ]--------------------------------------------------------
+  # - A 'Hypothese' in statistics is just an 'assumption or claim' about 
+  #   something (usually about a population) you want to study, It is like saying:
+  #   "I think this is true about a group, now let's check if the data"
+  #   "support it                                                     "
+  #   > [ Two main kinds of hypotheses ] 
+  #     1|> Null Hypothesis (H0) - the 'default belief' 
+  #         - H0 = Innocent until proven guilty 
+  #     2|> Alternative hypothesis (H1)      
+  #         - H1 = Guilty (we only accept this if the evidence is strong enough) 
+  #   > Why do we need it?
+  #     - We usually cannot check 'everyone or everything' (the full population)
+  #       Instead, we take a 'sample (a smaller set of data)' and use it to test
+  #       whether the clain about the while group makes sense.
+  #   > We always start by assuming the 'null hypothesis (H0)' is true and only
+  #     'reject it' if the evidence is strong enough in favor of the 
+  #     'alternative (H1)'
+  # INFO:[ significance ]------------------------------------------------------
+  # - We collect data (a sample), but 'randomness is always there', so we need
+  #   a 'rule' to decide.
+  #   - This is when we say the "the result is statistically significant" comes
+  #     in:
+  #     . The p-value is 'smaller' than our chosen threshold (significance
+  #       level, usually alpha = 0.05)
+  #     . So, the data is considered 'unlikely to have happend ust by random' 
+  #       'chance under H0'.
+  # - When the data is called 'statistically significant', it just means the
+  #   evidence was strong enough (low p-value) to reject the null hypothesis at
+  #   the chosen significance level.
+
+  - In the case of 'correlation analysis', we want to know if there is a
+    'correlation' in the 'population', for this we check: 
+      . 'correlation coefficient' in the 'sample' is statistially
+        'significantly' different from 'zero'.
+  - The 'hypothesis' in Pearson'r is:
+      . H0: the correlation coefficient (r) 'does not differ significantly' 
+        from 'zero'. => there is no linear relationship
+        # NOTE:[ IMPORTANT ]---------------------------------------------------
+        # It is always tested whether the 'null hypothesis' is rejected or not.
+      . H1: the correlation coefficient (r) 'differs significantly' from 'zero' 
+        => There is a linear relationship
+
+  - correlation coefficient is not enough to say that this sample is 'does not' 
+    'differ significantly' from 'zero'.
+
+    > Using (t-test)
+            r * sqrt(n - 2)
+        t = ---------------
+             sqrt(1 - r^2)
+    > and then (p-value): is p-value is smaller than the specified
+      'significance level' which is 'usually 5%', then the 'null-hypotheses H0'
+      is 'rejected' otherwise it is not
+
+# CONCLUSION:-------------------------------------------------------------------
+# You must check if the sample is 'statistically significant' using 'p-value'
+# and correlation ceoffcient to make the 'decision'.
+
+===[ Sperman Rank Correlation ]===
+===[ Kendall's Tau]===
+===[ Point Biserial Correlation ]===
+===[ Correlation VS Caustaion ]===
+
+===[ Significance ]===
+
+    
+
+    
+

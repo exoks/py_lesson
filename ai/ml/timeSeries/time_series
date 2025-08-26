@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/08/18 10:21:13 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/22 12:23:39 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/24 18:21:59 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -99,6 +99,7 @@
 #   future, usually in situations where time plays a role.
 # - In short Forcasting is a type of predection 'specifically for future values
 #   over time' using historical data patterns.
+# - Data are recorded is recorded at regular intervals.
 
   > [ Simple Example: ]
     * Imagine you run a small bakery:
@@ -907,7 +908,7 @@
     , Mathematically, we can write autoregression as:
 
   # INFO:[ Simple And Friendly Explanation ]------------------------------------
-  # - Imagine you want to guuess today's temperature
+  # - Imagine you want to guess today's temperature
   #   . You don't check the weather app
   #   . Instead, you just look at yesterday's temperature and say: 
   #     "Today will probably be about the same as yesterday, maybe a little"
@@ -969,11 +970,11 @@
   > [ Walkthrough In Python ]
     1|> plot the time series values 
     2|> make sure that time series is 'stationary'
-        - Use differencting to 'de-trend' the time serie
+        - Use differencing to 'de-trend' the time serie
         - Use log or box-cox transform to make 'variance' constant
     3|> Finding the number of lags that we need `p` 
         - Using 'PACF' ploting method
-          from sttsmodels.graphics.tsaplots import plot_pacf 
+          from statsmodels.graphics.tsaplots import plot_pacf 
     # INFO:---------------------------------------------------------------------
     # - When you build an 'autoregression model' the big question is:
     #   "How many past steps should i look at to predict the present?"
@@ -1087,9 +1088,196 @@
     # - Even if you can clearly (hard to define using eye) see the lags that can
     #   be used to the model it is a 'GOOD WAY TO BRUT FORCE APREACH ALL
     #   POSSIBLE LAGS TO USE'.
+    # CONCLUSION:--------------------------------------------------------------
+    # - This model does not give a good results comparted to 'Auto-Regressor'
+    #   model, but its power comes win it gets combined with (AR) Model
+    #   (AR) + (MA)
     
 # CONCLUSION:-------------------------------------------------------------------
 # - Autoregression (AR): Forecasting based on previous time series observations 
 # - Moving Average (MV): Forecasting based on previous 'errors' (estimating
 #   errors)
 # - These models required a 'stationary' time series dataset. 
+
+===[ ARIMA Model ]===
+* We have covered 'autoregression (AR)' and 'moving-average (MA)' models,
+  However do you know what is better than these two models?
+  => A single model that 'combines them!'
+  - Autoregressive Integrated Moving Average better know as 'ARIMA', is
+    probably the most used time series forecasting model.
+  > 'Autoregression (AR)': it is a model that forecast values using a 'linear'
+    'combination of the previously observed values'.
+    # NOTE:> (AR) model works perfoctly when the time series is staionary
+
+  > 'Moving Average (MA)': This model learns from the 'errors' not from the past 
+    observations.
+
+      [ ARIMA = (AR) + (I) + (MA) ]
+
+    - (I) differencing, this makes the series 'stationary', meaning patterns
+      and correlations are stable this stability makes (AR) and (MA) reliable
+      - The (I) part is not about finding trends, It is about 'removing trends'
+      'so (AR) and (MA) can do their job properly'.
+      >> In short 'Integration means differencing the data' substracting the 
+         previous value from the current one. 
+         - Example: Sales = [100, 105, 110, 115] 
+         . differences [5, 5, 5]
+         |=> now the trend is gone, it is just a flat line of '5'
+         |=> (AR) and (MA) ARE THEN APPLIED TO THIS DIFFERENCED SERIES.
+      >> After forecasting, the model 'integrate back' (adds the differences
+         up) to return predictions in the original scale.
+
+    # INFO:[ Differncing Outside ML and ARIMA Model ]---------------------------
+    # - It is simply looking at the 'change between two values instead of
+    #   the values themselves' 
+    # - I have noticed that differncing also describe growth but in a  
+    #   'discrete way (step by step)' in the same sequence otherwise
+    #   derivative describe the growth in a function (relation between 
+    #   multi-variables)
+    # __________________________________________________________________________
+    # | Aspect      | Differencing                      | Derivative           |
+    # |-------------|-----------------------------------|----------------------|
+    # | Domain      | Discrete data (steps, sequences)  | Continuous functions |
+    # | Change type | Step-to-step change               | Instantaneous change |
+    # | Precision   | Approximate (depends on step size)| Exact (as step → 0)  |
+    # |-------------|-----------------------------------|----------------------|
+    # | Example     | Sales went from 100 → 120 →       | Growth rate of sales | 
+    # |             | change = +20                      | curve at day         |
+    # |             |                                   | 5 = slope of tangent |
+    # |_____________|___________________________________|______________________|
+
+      # NOTE:>----------------------------------------------------------------
+      # - In calculus, differencing is the 'discrete' version of 'derivatives'
+      # - Both concepts are related (both measure change) but differencing
+      #   is for 'discrete jumps' while derivatives are for 'smooth, continous'
+      #   'changes'.
+
+  # INFO:[ ARIMA Components Analogy ]-----------------------------------------
+  # Think of ARIMA Like riding a bike on a hill:
+  #   . (AR) = your balance (keeps track of past moves)
+  #   . (MA) = correction when you wobble
+  #   . (I) = flattening the hill first, so you balance actualy works!
+  # _________________________________________________________________________
+  # [ If the hill is too steep (trend), you will topple over no matter      ] 
+  # [ how good your balance is.                                             ]
+  # - (AR) model does not directly handle 'trend'.
+
+
+  # INFO:[ ARIMA | Analogy ]--------------------------------------------------
+  # - 'ARIMA' is like a smart friend who remembers 'past patterns (past
+  #   observations<AR>)', notices 'trends', and learns from 'previous mistakes
+  #   (errors)<MA>'
+
+  > [ How to find number of Past Observation `p` ]
+    1|> AutoRegression (AR) Model
+        - We simply use the 'partial Autocorrelation function' to find the 
+          number of 'past observed time series' to use linearly in the question 
+    2|> like rebut or bruth forece let your model goes over all order and gives
+        you the best parameters that gives the best fitting
+
+  > [ How to find the number past errors `q` ]
+    1|> Moving Average (MA)
+    2|> like rebut or bruth forece let your model goes over all order and gives
+        you the best parameters that gives the best fitting (using AIC OR BIC)
+
+    # NOTE:> the 2 method is the simpliest one.
+
+  > [ How to define the `d` order of Differencing ]
+    - the order 'd' as this can be verified by carrying out a statistical test 
+      for stationarity. The most popular one is the 'Augmented'
+      'Dickey-Fuller (ADF)', where the null hypothesis is that time series is
+      not stationary (differencing -> check stationarity (if not) ->
+      differencing -> check stationarity ...)
+
+  > [ How to do estimation (find {O1, O2, ..., Oq}) ]
+    - As the stationary data elogn to some distribution (frequently the normal
+      distribution), we can estimate the coefficients using Maximum likelihood  
+      Estimation (MLE).
+      . MLE: deduces the optimal values of the coefficients that produce the  
+        highest probabilty of obtaining that data.
+      . MLE for normally distributed data, is the same result as carrying
+        ordinary least squares, therefore least squares is also frequently used
+        for this exact reason.
+
+  > [ ARIMA Model in Python ]
+    1|> differencing the data to stabilize the mean (trend)
+    2|> transform time series using (box-cox || log) to stabilize seasonality
+        (variance)  
+    3|> apply PACF and ACF to find:
+        . 'p': number of orders (past time series values used by (AR) model)
+        . 'q': ACF to find the number 'errors' used by (MA) model. 
+    4|> Train the ARIMA Model 
+        model = ARIMA(train['feature'], order=(p, d, q)).fit()
+    5|> make forecasts and inverse transformation using (inv_boxcox()) 
+
+===[ SARIMA Model ]===
+* This is the seasonal version of the 'ARIMA Model', So 'SARIMA' is an extension
+  of the regular ARIMA model that adds as seasonality component to the model,
+  this allows us to better capture seasonal affects that the regular ARIMA model 
+  does not permit.
+  - The classic ARIMA model has three componenets: Autoregressive, Integrated
+    (differencing), and Moving-Average, These are then linearly combined to form
+    the model
+
+    [ Y'(t) = C + (AR) + (MA) ]
+
+    . Y': differenced time series, the number of differencing applied is noted
+          as "d". 
+
+  # INFO:[ My Analysis ]------------------------------------------------------- 
+  # - As you can see ARIMA Model does not handle 'seasonality', because we
+  #   make the data stationary before training the model, that is why SARIMA 
+  #   extension comes up.
+  # - SARIMA Model adds the seasonality componenets, but how ? 
+  #   . The idea is simple, since the (AR) Model use a number 'p' of historical  
+  #     observations, we can simplay add other observation in another season
+  #     Y(t - m), Y(t - 2 - m), ..., Y(t - P - m), so we add a number 'P' of 
+  #     seasonal historical data. 
+  #   . We apply the same idea on (MA), we add a number 'Q' of seasonal error
+  #     terms to our (MA) Model
+
+  > [ Order Selection ]
+    - After the time series is stationary, we then need to deduce the best
+      orders (p, d, q) and (P, D, Q)m for our model 
+      . The simplest one to calculate is the season D, and regular differencing
+        d, by using 'Augmented Dickey-Fuller (ADF)' statistical test that 
+        deduces wheter a time series is stationary or not.
+      . (p, q, P, Q) can be computed by analysing the partial autocorrelation
+        function (PACF) and (ACF)
+
+  > [ Estimation ]
+    - The final step is to compute the corresponding coefficients for these
+      orders. The most common method is to use 'Maximum likelihood Estimation'
+      '(MLE)'.
+
+  > [ Python Walkthrough ]
+
+
+
+===[ statsmodels package ]===
+* `statsmodels` is a 'Python library for statistics and enconometrics'
+  - Think of it as:
+    . 'scikit-learn' -> focuses on machine learning models (prediction)
+    . 'statsmodels' -> focuses on statistical models (inference & explanation)
+  - It gives you tools to 'estimate models, run hypothesis tests, and explore'
+    'data with statistical rigor'.
+    > Here are the big ares of 'Statsmodels':
+    1|> Statistical Models
+        . Linear regression (OLS, GLS, WLS)
+        . Generalized linear models (Poisson, Logistic regression, etc)
+        . Time Series models (AR, MA, ARIMA, SARIMA, VAR)
+        . Survival models (duration analysis)
+    2|> Statistical Tests 
+        . t-tests, ANOVA, Chi-square
+        . Normality tests (Jarque-Bera, Shapiro-Wilk)
+        . Stationarity tests (ADF test)
+    3|> Time Series Analysis 
+        . Autocorrelation (ACF, PACF)
+        . Seasonal decomposition 
+        . Forecasting with ARIMA/SARIMA/VAR 
+    4|>  Data Exploration
+        . Descriptive statistics 
+        . correlations and summary tables
+        . Influence plots, residual diagnostics.
+
+

@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/08/21 11:40:18 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/22 09:39:20 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/26 15:56:14 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -23,12 +23,140 @@
   > Stationarity: (matimatically constant mean (trend) + constant variance)
       - Differencing (to de-trend a time series), 
       - log/Box-Cox Transformation (to remove the variance, <make it constant>) 
-  > Seasonality:  (predicted changes that happens periodically in fixed 
-                  periods).
+  > Seasonality: predicted changes that happens periodically in fixed 
+                 periods.
+      - There are two types of seasonality
+        1. Additive: Seasonal Cycles are constant in value
+        2. multiplicative: Seasonal Cycles are proportional to the trend
+      - How to identify seasonality type?: infortunatily there is no statistical
+        method to identify seasonality type, but we have some 2 options:
+        1. Option 1: Data Visualization
+           > You can use some plots like `month_plot`, `` to visualize
+             'seasonality'.
+             . `month_plot`: for monthly seasonality
+             # NOTE:> resample the data 'montly' and take the mean 
+             . `quarter_plot`: for quarter seasonality 
+             # NOTE:> resample the data 'quarterly' and take the mean  
+
+        2. Option 2: Model performance, try (additive & multiplicative) models
+                    to see wich one that fits best
+                    |=> (option 2 is generaly preferd) 
+
   > Decomposition: (the concept of breaking up time series model into Trend +
-                    Seasonaliy + Residuals) 
+                    Seasonaliy + Residuals) and visualize each part on each own 
       - Additive Model:           Y(t) = T(t) + S(t) + R(t)
       - Multiplicative Model:     Y(t) = T(t) * S(t) * R(t) 
+
+      > Seasonality:
+        . 24 for hourly
+        . 7 or 365 for daily, but 7 is preferred for modeling
+          # NOTE:> 7 is commonly used for modeling (ARIMA, SARIMA, SARIMAX)
+        . 52 for weekly
+        . 12 for montly
+        . 4 for quarterly
+        . 5 for weekdays 
+
+      - seasonal_decomposition in python 
+
+        from statsmodels.tsa.seasonal import seasonal_decompose
+        # Seasonal Decompostion in Python
+        seasonal_decompose(x, method="mut/add", period=)
+
+        - When in the index is date (in case of time series), we can simply
+          create another feature to help us improve our model prefermance
+          these feature are kind of related to seasonality concept 
+
+          . df['day'] = df.index.day
+          . df['month'] = df.index.month
+          . df['year'] = df.index.year
+          . df['weekday']. = df.index.day_name() # to get the name of the day  
+                                                 # instead of numerical number 
+          . df['is_weekend'] = df.index.weekday > 4 
+          # INFO:---------------------------------------------------------------
+          # - Weekday starts from 0 -> 6 
+          # --------------------------------------------------------------------
+        - When it comes to Feature Engineering - Lagged values (easy)
+          . df['feature_lag1'] = df['feature'].shift(1) 
+          . df['feature_lag2'] = df['feature'].shift(2)
+
+    > Auto-correlation
+      - This concept simply tell us if there is information in the past that
+        will help us predict values in the future.
+        (just correlating time series values with its 'lagged (past)' values)
+        . Its like totoal correlation between a series and its lagged values.
+
+        . Suppose that we want to understand the correlation between coffe 
+          assumption of today and all last past days.
+
+          > ACF: "how was my caffe asumption today related to the past days?"  
+              - This is the basic formual to caluclate autocorrelation 
+
+                        Cov(y(t), y(t - 1)) 
+                P(k) = -------------------- 
+                        Var(y(t))
+
+              - pacf_plot may use  the 'unbiased/sample autocorrelation'
+
+                       sum(t=k+1-> N)[(y(t) - y-bar) * (y(t - k) - y-bar) ]
+                p(k) = --------------------------------------------------- 
+                        sum(t=1->N)[ (y(t) - y-bar)^2 ] 
+
+          > PACF: "how does my coffe assumption relate specifically to 3 days"
+                  "ignoring the days in between?"
+                - There are two main ways to compute PACF: 
+                  . Using regression (direct method) => residuals 
+                  . Using Yule-Walker equations (AR coefficients)  
+            Y(t) = B1 * Y(t - 1) + B2 * Y(t - 2) + ... + Bk * y(t - k) + e(t)
+
+          > [ Analogy ]
+            - ACF: gives overall picture (it is simple)
+            - PACF: Zooms in on specific
+      > [ Application ]
+        - let's take a "fish sales average in differnet months", 
+          . S(t) = Avg sales in this month              (March) 
+          . S(t - 1) = Avg sales in the last month      (Fabruary) 
+          . S(t - 2) = Avg sales 2 months Ago           (January)
+
+        > Effects
+          - relation 1: 'Sales average in January' absuloty has 'effect' on
+            'Fabruary sales average', same idea between 'fabruary' and 'march'.
+          - relation 2: 'Sales average in January' has a 'direct effect' on 'March' 
+
+                        X  | Y
+                       ----|----
+                        J  | M
+                        F  | A
+                        M  | May
+
+          - IN 'PACF' we do not care about the effect 'through time periods', we
+            only care about 'direct effect'.
+            [   S(t - k) -> S(t)    ]
+            - 'Indirect effects' effects the process, it may be no correlation 
+              between two time periods but the 'intermediate effect' show a 
+              height correlation.
+            > does s(t - k) is a good predictor for S(t) ?
+              . suppose that k = 2 (lags) 
+                [ S(t) = W1 * S(t - 1) + W2 * S(t - 2)  + e ]
+
+                . `e`: error term
+                . `W1, W2`: are the direct effect of s(t - 1) and s(t - 2) 
+                  > `W2` is the direct effect of S(t - 2) on S(t)
+              - in case of k = 3
+                [ S(t) = W1 * S(t - 1) + W2 * S(t - 2) + W3 * (t - 3) + e ]
+                . `W3` is the direct effect `PACF` of s(t - 3) on S(t) 
+          # INFO:[ CONCLUSION ]-------------------------------------------------
+          # - PACF tell us the coeficient tell us the effect of that past time
+          #   serie value on the time series values.
+
+              
+        # INFO:[ They key concept in time series ]------------------------------
+        - mesurment of some values at a time periode depends one the measurment 
+          of that value on the previous time period.
+
+      # NOTE:-------------------------------------------------------------------
+      # - We expect lower correlation as the past values holds less information
+      # - Lag K means you are comparing the series with itself shifted
+      #   'K steps back' 
 
   > Basic Forecasting Models
       - Average Model: new forecasts takes the average value of the older values 
@@ -55,6 +183,7 @@
 
                         Y(t) - Y(t=1)
           . W = slope = ------------ : general 'growth', 'trend'.
+                           t - 1
 
 ===[ Exponential Smoothing Family Models ]=== 
   > Simple Exponential Smoothing Model
@@ -93,5 +222,8 @@
 ===[ Cross-Validation ]===
 
 ===[ ARIMA family Models ]===
-  1|> [ Autocorrelation Regression (AR) Model ]
-      - 
+  1|> [ AutoRegression (AR) Model ]
+      - It is a model that forecast the future based on a specific number 'p'
+        of past observations. 
+
+      [   Y(t + h) = y(t) + O1 * y(t - 1) + ... + Op * y(t - p)  ]

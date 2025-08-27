@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/08/18 10:21:13 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/24 18:21:59 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/27 14:59:36 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -458,6 +458,11 @@
 #   seasonality) 
 # - Used in model Building (AR, ARIMA, SARIMA rely heavily on autocorrelation)
 #   detect how many lags to use to build the models.
+# - In general 'correlation' is just a 'normalized covariance', always between
+#   -1 and 1
+#               Cov(x, y) 
+#   p(x, y) = ------------
+#             std(x) * std(y) 
 
 [ Autocorelation In Python ]===
     from statsmodels.graphics.tsaplots import plot_acf
@@ -1280,4 +1285,45 @@
         . correlations and summary tables
         . Influence plots, residual diagnostics.
 
+===[ Time Series Train-Test split (Time-Series Cross-Validation) ]===
+* In 'time series forecasing', splitting data into training and testing is
+  usually called 'time series cross-validation'. (or sometimes just
+  train-test split for time series).
+  - Time series 'cross-validation' are 'different' compared to normal 
+    'ML split'
+    > In 'regular ML', you can 'randomly shuffle' data and split into
+      'training/testing'.
+    > In time 'series', you 'cannot shuffle', because order matters (future
+      depends on past), So you split based on 'time order':
+      >> earlier observations -> 'training' | later ones -> 'testing'
+    > The 'test set' should be the 'number of period you expect the model to'
+      'predict in practice'.
+    > For the 'training data' should have at least 'two whole periods' of data. 
 
+  > [ Common Methods: (for train-test split) ]
+    1|> Simple train-test split   
+        . Exmaple: use first '80%' for 'training' and '20%' for 'testing'
+
+    2|> Rolling-origin/expanding window evaluation(time series cross-validation)
+        . Train on [t1, ..., tk], test on [tk + 1] 
+        . then expand: train on [t1, ..., tk + 1], test on [tk + 2] 
+        . This 'mimics forecasting' in real life
+
+    3|> Sliding window evaluation 
+        . Keep a fixed-size training window that slides forward through time.
+
+    # INFO:---------------------------------------------------------------------
+    # - The concept is called 'time series train-test split' and when done     |
+    #   systematically across multiple folds, It is called:                    |
+    #   >> Time Series Cross-Validation                                        |
+    # --------------------------------------------------------------------------
+
+    > [ Time Series Train-Split In Python ]
+      - For this we are going to use the 'simple train-split method' 
+
+      - Suppose that we want to predict the next 'sex month' for a 'weekly' 
+        time series data.
+      # sex months contains 18 week, this our period 
+      period = 18
+      train = data.loc[:-period, 0] # exclude the last 18 weeks from my dataset
+      test = data.loc[-period:, 0]  # test data contains only last 18 weeks  

@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/08/21 11:40:18 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/26 15:56:14 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/27 15:42:43 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -227,3 +227,31 @@
         of past observations. 
 
       [   Y(t + h) = y(t) + O1 * y(t - 1) + ... + Op * y(t - p)  ]
+
+
+===[ The Big challenge in Forecasting ]===
+* 'Differentiating' between 'trends & seasonality' is quite simple
+  in time series forecasting, but what makes this a 'complicated task' ? 
+  - The main challenge is in modeling and interpreting errors. (explaining
+    and integrating relevant factors, or regressor).
+  
+  - The data Engineering problem > Time horizon of data is very important
+    > because past 'may not' represent present or future.
+
+    > Example:
+      - let s take a '6 year' of data, the older data can cause 'noise' in our
+        model because 'past conditions may not reflect present or future'
+        scenarios. (you must decide wheter to include or exclude those values)
+
+  # INFO:======================================================================
+  # Stock data forecasting is a complex art that involves considering factors | 
+  # such as:                                                                  |
+  # - Data relevance                                                          |
+  # - Error modeling                                                          | 
+  # - External influences                                                     | 
+  # ===========================================================================
+
+===[ When Forecasting Gone Wrong? ]===
+- A lot of models failed to forecast future no matter how they are complex,
+  these stores remind us that the world full of surprises, No model in the 
+  world no matter how it is can predict 100% correct.

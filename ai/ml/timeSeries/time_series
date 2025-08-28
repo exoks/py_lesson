@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/08/18 10:21:13 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/27 14:59:36 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/28 12:37:26 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -230,8 +230,6 @@
 # NOTE:[ VERY IMPORTANT NOTES ]-------------------------------------------------
 # - Regular EDA often ignores order and focuses on distributions, correlations,
 #   and missing values.
-
-
 
 
 ===[ Time Series Analysis ]=====================================================
@@ -634,10 +632,12 @@
 # - They provide a good baseline
 # - Use them as comparison models.
 
+===[ Exponential Smoothing Forecasting Models ]=================================
+
 ===[ Simple Exponential Smoothing ]===
 * The idea of exponential something originated in the 1950s and is basically a
   fancy way of stating that we will put more weight on recet observations, older
-  observations will reveive less weight at an exponentially decaying rate, hence 
+  observations will receive less weight at an exponentially decaying rate, hence 
   it is called 'exponential something'. (in short just exponentialy something
   the data by adding more weights to previous and less weight to last)
 
@@ -658,10 +658,13 @@
   - Like all time series exponential smoothing methods are often broken into
     their components such as 'level', 'trend' and 'seasonality', As simple
     exponential smoothing does not take into account 'trend' of 'seasonality',
-    it therefore only consists of the 'level componenet'. 
+    it is therefore only consists of the 'level component'. 
 
     Overall Equation: [ Y(t + h) = l(t) ]           => `l`: level
       . [ L(t) = W * y(t) + (1 - W) * l(t - 1) ] 
+
+    > The formula says: “The forecast for any future point steps ahead is just"
+                        " equal to the current level at time ”
 
   - 'Simple Exponential Smoothing' This is the most basic forcasting model in
     the 'exponential something family', The reason this model is simple is
@@ -670,6 +673,54 @@
     'trend' or 'Seasonality', Alternatively, you can transform  your data by
     carrying out 'differencing' and the 'Box-Cox transform' to make it
     "stationary", hence removing its trend and seasonality.
+
+  # INFO:[ Deep Understand of 'Level' ]========================================
+  # - The 'level' is just the 'average or baseline value' around which your
+  #   series fluctuates "when there's no trend or seasonality".
+  # - Think of it as:
+  #   . The "center line" of the data
+  # > [ Example: ]
+  #   - suppose your daily sales are:
+  #     98, 102, 100, 99, 101
+  #     . They bounce up and down but hover around around ~100 
+  #     . That "~100" is the level.
+  # - Why Simple Expnential Smoothing cares about level
+  #   . this model assumes the series has 'no growth (trend)' and 'no repeated'
+  #     'cycles (seasonality)'
+  #   . So the only thing it needs to model is the 'current baseline (level)'
+  #   . forecasts then extend this baseline forward.
+  # QUESTION:[ But why using this concpet instead of using mean? ]==============
+  # - If the series is 'perfectly stable' (no changes over time) then yes
+  #   the mean would work fine as the 'level'.
+  # - But in real time series, the 'baseline shifts' as new data comes in.
+  #   . Example: sales hover around 100 for a while, then around 120 later
+  #   . A fixed mean won't adapt
+  # - SES does not take a simple mean, Instead if updates the 'level'
+  #   'dynamically' with each new observation:
+  #   [ L(t) = alpha * Y(t) + (1 - alpha) L(t - 1) ]
+  #   . L(t) = estimated level at time (t)
+  #   . y(t) =  actual observation 
+  #   . alpha = smoothing factor  
+  #   => This formula is like a 'moving, weighted mean' where recent values
+  #      count more.
+  # - In shorts:
+  #   . The mean = "one-time average of everything"
+  #   . The SES level = "continuously updated average, with memory that fades"
+  #     "for older data".
+  #   > This is why SES adapts if the series drifts upward or downward
+  # CONCLUSION:=================================================================
+  # - In short in Simple Exponentail smoothing is the current "average baseline" 
+  #   (level) of the series
+  # - SES formula is just a smart way of 'tracking a moving baseline' that
+  #   adjusts as new data arrives.
+  # ============================================================================
+
+  > [ How to find Alpha value? (α) ]
+    - In practice, we usually fit by minimizing a forecast error metric:
+      [ α = arg min (SSE(α))  ]
+
+      . where:
+        [   SSE = sum(t=1:->T)(y(t) - Y-hat(t, α)^2   ]
 
   > [ Simple Exponentail Smoothing in Python ] 
 
@@ -707,6 +758,8 @@
 
       # NOTE:-------------------------------------------------------------------
       # b + a * x: linear form that is why called Holt's Linear Trend Model. 
+
+    Smoothed Level = alpha * Recent_actual + (1 - alpha) * (Prev level - Prev Trend) 
 
       . level equation: L(t) = W * Y(t) + (1 - W) * (L(t - 1) + B(t - 1)) 
                               --- * ---  + ----- *  ---------------------  
@@ -799,6 +852,20 @@
     'the fluctuations' are 'proportional to the value of the time series at' 
     'that given time'.
 
+  > In general the Holt's winter models consists severla components: 
+    [ Next Forecast = Current Level + alpha * (Recent Acutal - Current Level) ] 
+
+    - Current Level: (baseline)
+    - Recent Actual: Recent Observation  
+    - alpha: fine-tuner
+
+    ===[ Example: ]===
+      - let's take for example 
+        . current level = 100 cups sold (baseline)
+        . yesterday level = 120 cups sold 
+        . let's imagen 'alpha=0.2': is usually selected 
+        => tomorrow forecast: 100 + 0.2 * (120 - 100)) = 104 
+ 
   > [ Additive Model: ]
       
   Overall Equation: [ Y(t + h) = L(t) + h * b(t) + S(t + h - m) ] 
@@ -1258,7 +1325,6 @@
   > [ Python Walkthrough ]
 
 
-
 ===[ statsmodels package ]===
 * `statsmodels` is a 'Python library for statistics and enconometrics'
   - Think of it as:
@@ -1327,3 +1393,29 @@
       period = 18
       train = data.loc[:-period, 0] # exclude the last 18 weeks from my dataset
       test = data.loc[-period:, 0]  # test data contains only last 18 weeks  
+
+===[ Measurment of Accuracy (Measurment of Errors) => Metrics ]===
+* The way of measuring 'errors' in 'regression' or 'time series forecasting' is
+  always the 'same'.
+  - Error : Delta between 'actual values (Y-hat)' and the 'predicted values' 
+
+  1|> MAE (Mean Absolute Error)
+
+          sum(| Y-hat - Y|) 
+    MAE = ------------------- => average distance (errors)
+                  N
+
+  2|> RMSE (Root Mean Squared Error)
+                  sum((y-hat - y)^2)
+    RMSE = sqrt( -------------------- )  => It handles outliers
+                         N
+
+  3|> MAPE (Mean Absolute Persentage Error)
+      
+            sum(|Y - Y-hat| / Y)
+    MAPE = ---------------------- => This one is the most interpretable metric
+                    N                IT Gives 'Percentage'.
+
+===[ Time Series Model in Production ]===
+* The 'final model' must be 'trained on all the data', and the 'errors' can't
+  be measured, but later

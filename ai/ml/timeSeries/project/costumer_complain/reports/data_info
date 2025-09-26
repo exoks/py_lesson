@@ -1,0 +1,277 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀               𓐓  data_info 𓐔           
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀      Eng: oezzaou <oussama.ezzaou@gmail.com> 
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/08/19 15:36:57 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/27 12:01:57 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ General Information About Port Logistics ]=================================
+
+Truck --> Autorisation --> Couloir --> entree_scanner --> scanner export -->
+entree_visite -> Embarkement
+
+===[ TIR Vs Without TIR ]===
+- TIR stands for 'Transports Internationaux Routiers' (International Road
+  Transport), It is a 'international customs transit system' that allows "goods"
+  "to travel across multiple countries with minimal customs checks in beetween"
+  , as long as they stay sealed and under 'TIR' rules.
+
+  # NOTE:-----------------------------------------------------------------------
+  # physically, a 'TIR container can be the same as a normal ISO SHIPPING'
+  # 'CONTAINER', The difference is:
+  #	- It must be build to 'TIR Convention specifications' (no hidden
+  #	  compartments, secure sealing points, lockable doors).
+  #	- It is officially 'approved' by customs authorities for TIR use.
+
+  > [ Example: ]
+    - If you ship goods from Morocco to Germany by truck:
+      . 'With TIR': Customs seals the container in Morroco, the truck cross spain
+                    and france without full customs stops, and is opend only in germany.
+      . 'Without TIR': the truck is stopped and checked at each border, with
+                       paperwork and possible inspections.
+
+===[ AMP service ]===
+* AMP (Autorisation de Mouvement Portuair / Port Movement Authorization) is a  
+  mandatory electronic authorization document for freight units - whether
+  for 'import' or 'export' and it is fully 'digitized' as part of Tanger Med 
+  (Med's smart logistics infrastructure).
+
+  # QUESTION:[ What is the meaning of 'AMPE' service ?]-------------------------
+  # Try to deeply understand this part when you get the full dataset.
+
+===[ FLOW: ]====================================================================
+
+1|>[ Administrative formalities ]=====================================
+===[ 'DATE_CREATION', 'DATE_OPERATION', 'DATE_VALIDATION' ]===
+  . 'DATE_CREATION': When the digital autorization request is requested 
+
+  . 'DATE_OPERATION': When the operation starts 
+   # NOTE:-----------------------------------------------
+   # - 'DATE_CREATION' and 'DATE_OPERATION' are the same.
+   # - So i can simply remove the 'DATE_OPERATION' column
+
+  . 'DATE_VALIDATION': when the document autorization is validated request is
+   validated.
+
+===[ 'DATE_IMPRESSION' ]===
+* print date, it's when the documents are printed
+
+===[ 'NO_AMP' ]===
+* number of degital autorization document under the AMP system.
+
+===[ 'AMPE' ]===
+* Maybe It is another stage in the AMP system.
+
+
+2|>[ ZRE Area : ]===================================================== 
+===[ 'DATE_ZRE' ]===
+===[ 'NO_ZRE' ]===
+
+
+3|>[ 'Corridor (COULOIR)' ]===========================================
+===[ 'COULOIR' ]===
+
+===[ 'ENTREE_COULOIR' ]===
+* when enter 'COULOIR'
+
+
+4|>[ 'Parking AREA' ]===========================================================
+===[ 'ENTREE_PARK_VISITE' ]===
+* date when the unit/truck entred the "port's parking visitation area" before 
+  processing.
+
+===[ 'TERMINAL' ]===
+===[ 'ENTREE_TERMINAL_EXPORT' ]===
+* This is the 'timestamp when the cargo (container, TIR, or goods)' physically 
+  enters the 'export terminal area' within the port.
+
+===[ 'SORTIE_TERMINAL_IMPORT' ]===
+
+===[ 'ENTREE_SCANNER_EXPORT' ]===
+* It is the time when the 'cargo (container, TIR unit, or goods)' enters the 
+  'export scanning area' at the port
+
+===[ 'DEBUT_VISITE_PHYSIQUE_EXPORT' ]===
+* the Start of 'physical scanning' after initial steps like scanning (someone
+  physically checks the cargo).
+
+===[ 'FIN_VISITE_PHYSIQUE_EXPORT' ]===
+* The end of 'physical scanning' 
+
+===[ 'ENTREE_SAS_IMPORT' ]===
+===[ 'SORTIE_SAS_IMPORT' ]===
+===[ 'SORTIE_SAS_EXPORT' ]===
+* In your dataset almost certainly refers to the 'timestamp when goods exit' 
+  "the export 'SAS' zone". 
+  - SAS stands for Secure controlled-access zone (like a customs gate or export
+    gate) that goods pass throw before boarding a vessel.
+
+  - SORTIE_SAS_EXPORT = the moment cargo leaves that secure export zone —
+    typically right before it’s loaded.
+
+5|>[ 'EMBARQUEMENT' Area (loading into vessel) ]===================
+===[ 'EMBARQUEMENT' ]===
+* Most likely refers to the 'place or port of loading', the location where goods
+  are 'put on board' a ship, (truck or other transport for departure).
+  - It can be 'a code or name' for the port/terminal where goods are loaded
+
+    > example: EMB250080127
+
+===[ 'DATE_EMBARQUEMENT' ]===
+* It is when the goods enters 'EMBARQUEMENT' area.
+  # NOTE:----------------------------------------------------
+  # - 'DATE EMBARQUEMENT' & 'EMBARQUEMENT EXPORT' are similar 
+
+===[ 'EMBARQUEMENT_EXPORT' ]===
+* when goods re actually loaded onto the export vessel (ship, truck, or other
+  transport) 
+  # NOTE:> this is useually the final export process at the prot before the
+  # goods leaves the port. 
+
+===[ 'STATUT_EXPLOITATION' ]===
+* means 'operational status'.
+
+  > Meanings:
+    - clôture — Closed
+      The operation or process is finished and formally closed.
+
+    - libéré — Released
+      The cargo or shipment has been cleared and is free to move or exit.
+
+    - contrôle exploitation exécuté — Operational control executed
+      The inspection or control step has been completed successfully.
+
+    - annulé — Canceled
+      The operation or shipment has been canceled or aborted.
+
+
+
+================================================================================
+- The rest of informations are recoreded throw this process, so there is no
+  point to know which step is recorded.
+
+
+===[ 'TYPE_UNITE' ]===
+* It tell us the 'mode/from' of transport
+  . 'TIR'
+  . 'Conteneur' (without TIR)
+
+===[ 'SS_UNITE_TYPE': ]===
+* This gives 'more specification' with each `TYPE_UNITE`.
+  - IF `UNITE_TYPE` = `TIR`
+    . 'Ensemble routier' => Road train (truck + tailer combination)
+    . 'Semi Remorque'	 => Semi-Trailer (pulled by a truck tractor)
+
+  - If `UNITE_TYPE` = 'Conteneur'
+    . 40' => 40-foot ISO container (You may also consider 20' or other sizes
+      in different datasets).
+
+===[ 'VIDE_PLEIN' ]=== 
+* Either the container is 'Full / PLEIN' or 'Empty / VIDE'
+
+===[ 'NATURE_MARCHANDISE' ]===
+* type of goods
+
+===[ 'MATIER_DANGER' ]===
+* True/False: Indicating the presense of dangerous materials.
+
+
+THIS PART GIVES more information about vissel that would ship the goods.
+===[ 'ESCALE' ]===
+- 'ESCALE': is the 'port call'. each port call gets a 'unique escale number'
+
+  > Example: ESC250080524
+    . ESC: prefix meaning 'Escale'
+    . 2500: A sequence or code identifying the vessel or the visit order in
+      the year.
+    . 0524: could be the date or something else.
+
+  # QUESTION:[ Why some goods have 'ESCALE' some 'NOT'? ]------------------------
+  # - Goods with 'ESCALE': These are linked to a vessel
+  #   . TIR: if the truck is only passing through the port and going to spain 
+  #          it may not have an 'ESCALE' because it is not linked to a vissel
+  # - Goods without 'ESCALE': These are not linked to a vessel  
+  #   . Conteneur: most likely to have an 'ESCALE' if it's being loaded/unloaded 
+  #                from a container ship.
+
+  # NOTE:------------------------------------------------------------------------
+  # - TIR units with type (semi-remorque) has => 'ESCALE'
+  # - TIR units with type (ensemble routier)  => NO 'ESCALE'
+  # - Conteneur 40' / 20'                     => NO 'ESCALE'
+  # - Camion 12m ou moins		      => NO 'ESCALE' 
+
+===[ 'NOM_NAVIRE' ]===
+* vissel name
+
+===[ 'IMO_NAVIRE' ]===
+* IMO stands for 'International Maritime Organization'. 
+- the IMO number is a 'unique premanent 7-digit number' assigned to every seagoing
+  vessel by the IMO, It is like a ship license plate, It never changes, even if 
+  the ship changes:
+  . Name
+  . Flag country
+  . Owner or operator
+
+- It is like a 'vessel id', it does tell you exactly the vissel
+# NOTE:--------------------------------------------------------------
+# You can replace all `ESCALE`, `NOM_NAVIRE` and 'ESCALE' by 'ESCALE'
+# '(TRUE/FALSE)'. 
+
+===[ 'ETA', 'ETD', 'RTA', 'RTD' ]===
+- 'ETA': Estimated time of arrival 
+- 'ETD': Estimated time of departure 
+- 'RTA': Real-time of arrival 
+- 'RTD': Real-time of departure 
+
+===[ 'ETAT_DECHARGEMENT' ]===
+* This feature shows the 'current status of the unloading process' of the cargo 
+  or freight unit from the ship, container, truck, or other transport means.
+  # NOTE:> removed
+
+===[ 'POIDS' ]===
+
+===[ 'STATUT_ADM' ]===
+* ???
+
+===[ 'GROUPAGE' ]===
+* is where goods from different shippers are grouped together into the same
+  container or transport unit to optimize space and cost.
+
+  [ It is given as id reference number | ex > 4110012050017845 ]
+  # NOTE:---------------------------------------------------------------------
+  # - If the shipment is 'full load', maybe this field is blank or uses another
+  #   code
+
+===[ 'TYPE_TRACTION' ]===
+* is the 'type of traction (vehicle)' used to move the cargo unit.
+
+===[ 'MAFI' ]===
+* 'MAFI trailer' is a flatbed platform designed to carry containers, heavy
+  machinery, or vehicles
+  - It is often used to transport 'non-containerized cargo' that can be rolled
+    on and off ships.
+  => It is given by the specific MAFI unit IDs 
+
+===[ 'DATE_COMMAND_TR' ]===
+* It is the 'date and time when a transport/truck order or command was issued'
+  for moving cargo
+
+===[ 'MAQ_EXPORT' ]===
+??
+
+===[ 'DATE_SEND' ]===
+?? date send from wich point
+
+
+===[ WHY 'NO_TRACTEUR' is missing ? ]===
+* If the NO_TRACTEUR is missing, it may mean:
+  - The unit was stationary or in storage (no tractor assigned at that moment).
+  - The record was captured at a stage where the tractor wasn’t yet attached
+    (e.g., before loading for road transport).

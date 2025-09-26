@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/08/21 11:40:18 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/28 10:13:12 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/09/08 11:05:20 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -220,6 +220,22 @@
   > [ Exponential Smoothing models In Python ]
     from statsmodels.tsa.holtwinters SimpleExpSmoothing, holt, ExponentialSmoothing 
 
+  - This 'model' is the favirate in the world of 'forecasting', because It is 
+    'simple'.
+
+  > [ Pros]
+    - Simple (good in the case of non-complex problems with 'trend' and
+      'seasonality')
+    - Simple Implementation
+    - Intuitive Model (no need to go for smoothing factors (alpha, beta, gama))
+    - Adaptable to changes 
+
+  > [ Cons ]
+    - Only one Seasonal Components (these models struggle when we have complex
+      time series) 
+    - External factors can not be used to refine the forecast (No room for
+      regressors) => like wheater, covide, ..., these staff can't be included
+      since the model 'relies' on 'past values'. 
 
 ===[ Residual Analysis ]===
 ===[ Cross-Validation ]===

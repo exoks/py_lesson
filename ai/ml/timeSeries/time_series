@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/08/18 10:21:13 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/28 12:37:26 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/09/10 10:45:04 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -24,15 +24,16 @@
     - Naive Model
     - Seasonal Naive Model 
     - Drift (trend) model
-5|> Exponential Smoothing Forecasting Models 
+5|> Exponential Smoothing Models 
     - Simple Exponential Smoothing Model (single exponential method) 
     - Holt's Linear Trend Model (double exponential method)
     - Holts Winters Model (triple exponenetial method) 
-4|> ARIMA Models 
+6|> ARIMA Models 
     - Auto-Regression Model (AR)
     - Moving Average Model (MA) 
     - Auto-Regression Integrated Moving Average Model (ARIMA) 
     - Seasonal Auto-Regression Integrated Moving Average Model (SARIMA)
+    - SARIMA Xogonous variables
 
 
 # QUESTION:[ ESTIMATION VS PREDICTION VS FORECASTING ]==========================
@@ -76,7 +77,7 @@
 # - Predection: "What is the target value given these inputs?" 
 # - Estimation: "What are the hidden parameters that explain my data?" 
 
-===[ Forcasting: ]==============================================================
+===[ Forecasting: ]=============================================================
 * 'Forcasting' means 'making an informed prediction' about the future based on
   'past and present' data
   - Forecasting works because:
@@ -149,7 +150,7 @@
 # - Time Series -> the type of data (ordered in time)   | data structure
 # - Forcasting  -> the task (predecting future values)  | the predection task
 # - Time Series Forcasting -> A specific type of forcasting where the input data 
-#   is 'time-dependent (time series)'
+#   is 'time-dependent (time series)'.
 # - in simple word Predection of future points (values) in a time-ordered
 #   dataset (time series) 
 # REVISION:> Forcasting is predection technique as 'Estimation' and 'Prediction'
@@ -256,8 +257,9 @@
   (rare in practice)                           (commonly used in practice)
 
   # CONCLUSION:>----------------------------------------------------------------
-  # Stationarity = series has stable 'statistical properties over time', which
-  # is essential for many time series models to work properly.
+  # Stationarity = series has stable 'statistical properties over time', which |
+  # is essential for many time series models to work properly.                 |
+  # ----------------------------------------------------------------------------
 
 [ 'Variance' Transformation: Log && Box-Cox ]===
 1|> [ Log Transformation]
@@ -965,6 +967,45 @@
 #   iteration. This analysis is easy to do, so it's recommended to be done. 
 
 ===[ Coss-Validation For Time Series Forecasting ]===
+- corss-validation is good technique to check model performance on all time 
+  periods.
+- We have to check for the model in different time periods, (e.g. last time
+  week, and week before last week, etc)
+
+  # NOTE:-----------------------------------------------------------------------
+  # - It is very important for time series to test the model in different
+  #   seasonal periods.
+  # - if the data is not used in the final model, it should be used for
+  #   validation. 
+
+    |---------------------[ Cross-validation types ]---------------------|
+    |                                                                    |
+[ Rolling Forecasts ]                                       [ Sliding Forecasts] 
+- Rolling CV extends                                      - Sliding CV keeps the   
+  the training data                                         same train length
+
+
+  > [ Cross-Validation in python ]
+    # import libraries
+    from pmdarima import auto_arima, ARIMA, model_selection
+
+    cv = model_selection.RollingForecastCV(h=1, step=1, initial=None)  
+    
+      . 'h': (opt) is the forecast horizons
+      . 'step': (opt) The size of step taken to increase the training sample
+                size 
+      . 'initial': (opt), the initial training size, if 'None', will use 1/3 
+                   the length of the time series
+
+    cv_score = model_selection.corss_val_score(model,
+                                               y=data['revenue'],
+                                               X=Exogonous_set,
+                                               scoring='mean_squared_error',
+                                               cv=cv,
+                                               verbose=1,
+                                               error_score=10000000000000000)
+
+===[ ARIMA Models Family ]======================================================
 
 ===[ AutoRegressive Model (AR) ]===
 # REVISION:---------------------------------------------------------------------
@@ -1005,12 +1046,12 @@
   . `p`: is the number of lagged componenets included in the model, this is also
          known as the order.
 
-      > If we have no coefficients or they are all zero, this is ust 'white noise'. 
+      > If we have no coefficients or they are all zero, this is just 'white noise'. 
       > If we only have Q1=1 and the other coefficients are zero, then this is a
         'random walk'.
 
   > [ Requirements: ]
-    - It is recommended to have 'stationary' time series, We need stationarity 
+    - It is recommended to have 'stationary' time series, We need stationarity
       to ensure the statistical properties of the time series is consistent
       through time. (rendering it easier to model)
       # REVISION:>--------------------------------------------------------------
@@ -1072,9 +1113,13 @@
     4|> Build the model
         from statsmodels.tsa.ar_model import AutoReg, ar_select_order
         # Build AR model
-        # try from 1 -> 15 lags to see with ones gives the best results on test
-        # data
-        selector = ar_select_order(train['feature'], 15)
+        # Try from 1 -> 15 lags to see with ones gives the best results
+        # INFO:-----------------------------------------------------------------
+        # - `ar_slect_order` is a helper function to 'choose the best lag order' 
+        #   for an AR model.
+        # - It tries different values of (p) lags and compares them using  
+        #   information criteria (AIC, BIC, HQIC)
+        selector = ar_select_order(train['feature'], maxlag=15)
         # Buid The Model
         model = AutoReg(train['feature'], lags=selector.ar_lags).fit()
     5|> Use Inverse Box-Cox to the 'forecasted values' 
@@ -1117,7 +1162,7 @@
                         'weighted errors from previous observations'
 
 
-  > [ Estimation: (Fitting terms coefficcients {O1, O2, ...Oq}) ]
+  > [ Estimation: (Fitting terms coefficients {O1, O2, ...Oq}) ]
     - This process is not as easy as in linear or autoregression as the erros
       are not observable, so how do we do it?
      
@@ -1148,7 +1193,7 @@
         from statsmodels.tsa.arima.model import ARIMA
 
         model = ARIMA(train['feature'], order=(0, 0, 13)).fit()
-        # ERROR:>> Make Search about Order
+        # ERROR:>> Make a Search about Order
 
     4|> Create New Forecasts
     5|> Make inverse_transformations and differencing 
@@ -1179,7 +1224,7 @@
     probably the most used time series forecasting model.
   > 'Autoregression (AR)': it is a model that forecast values using a 'linear'
     'combination of the previously observed values'.
-    # NOTE:> (AR) model works perfoctly when the time series is staionary
+    # NOTE:> (AR) model works perfectly when the time series is staionary
 
   > 'Moving Average (MA)': This model learns from the 'errors' not from the past 
     observations.
@@ -1282,6 +1327,16 @@
         model = ARIMA(train['feature'], order=(p, d, q)).fit()
     5|> make forecasts and inverse transformation using (inv_boxcox()) 
 
+# CONCLUSION:-------------------------------------------------------------------
+# - `ARIMA` is classical model that covers around 80% from the concept of time 
+#   series, some concept here are used for 'modern time series forecasting' even
+#   in the deep learning, they are some concepts here that are very important. 
+# - There some limitation for 'ARIMA' model 
+#   . It does not handle 'seasonality'
+#   . It does not include external factors
+# - SARIMA = ARIMA + Seasonality
+# - SARIMAX = ARIMA + Seasonality + External factors 
+
 ===[ SARIMA Model ]===
 * This is the seasonal version of the 'ARIMA Model', So 'SARIMA' is an extension
   of the regular ARIMA model that adds as seasonality component to the model,
@@ -1325,6 +1380,23 @@
   > [ Python Walkthrough ]
 
 
+===[ SARIMAX Model ]===
+* 'SARIMAX' model is just 'SARIMA model' + 'External Factors' 
+  - 'X' stands for 'eXogenous variables'. 
+  - Exogenous variables allows us to add some new features that represent
+    the external 'factors' to improve our 'model accuracy'.
+
+  # NOTE:=======================================================================
+  # - No new components is added to SARIMA >>
+  # - With SARIMAX you have to be careful of exogenous variables.
+  
+
+  > [ SARIMAX in Python ]
+  
+    from pmdarima import auto_arima
+    auto_arima() # the idea of auto_arima is to prevent overfitting
+
+
 ===[ statsmodels package ]===
 * `statsmodels` is a 'Python library for statistics and enconometrics'
   - Think of it as:
@@ -1351,7 +1423,7 @@
         . correlations and summary tables
         . Influence plots, residual diagnostics.
 
-===[ Time Series Train-Test split (Time-Series Cross-Validation) ]===
+===[ Time Series Train-Test split ]===
 * In 'time series forecasing', splitting data into training and testing is
   usually called 'time series cross-validation'. (or sometimes just
   train-test split for time series).
@@ -1419,3 +1491,173 @@
 ===[ Time Series Model in Production ]===
 * The 'final model' must be 'trained on all the data', and the 'errors' can't
   be measured, but later
+
+
+===[ Augmented Dicky-Fullter Test ]===
+* This is a 'statistical method' to define if a 'serie' is 'stationary' or 'not'.
+  - It tests 'contancy' of 'mean', 'variance', and 'covariance' over time.
+
+  from statsmodels.tsa.stattools import adfuller 
+
+  results = adfuller(df['feature'])
+
+  # p-value is the a statistical method to define if distribution is stationary
+  # or not, it help us define if the values is statistically significant or not 
+  p_value = result[1]
+
+  if p_value < 0.05:
+     print("evidence suggest that the time series is stationary")
+  else:
+     print("evidence suggest that the time series is not stationary")
+
+===[ AIC & BIC ]===
+* 'AIC (Akaike Information Criterion)' & 'BIC (Bayesian Information Criterion)'
+  are numbers that help you 'choose the best statistical model' when you have
+  multiple options.
+  - Think of them as 'score' for "your models": They take into accout 2 things
+    . 'goodness of fit' (how well the model explains your data) 
+    . number of parameters used - 'simplicity' (fewer parameters are better).
+  - 'Lower score' -> 'better model'
+
+  - 'AIC' is all about 'balance' (seeks a well-fitting model without execessive
+    parameters).
+  - 'BIC' penalizes models with more parameters, stronger aversion to model
+    complexity.
+
+  - auto.arima 'tests' many ARIMA models (combinition) and calculate 'AIC' and
+    'BIC' scores for them.
+    |==> The model with 'lowest AIC & BIC = Best Model'
+
+  # INFO:[ CONCLUSION ]=========================================================
+  # - Auto.arima explores different p, d, and q combinations, calculating AIC  |
+  #   and BIC for each model.                                                  |
+  # - They are not perfect but give a really solid start, because we should    |
+  #   mostly focus on error (MSE, MAPE ...)                                    |
+  # ============================================================================
+
+  > [ Pros ]
+    - data driven
+    - Penalty for Complexity
+    - Flexibility (it can be used with different models)
+
+  > [ Cons ]
+    - Relative measures 
+    - Busness Focus
+    - Information loss
+
+  # INFO:[ Analogy ]============================================================
+  # * Imagine you want a backpack for hiking:                                  |
+  #   - You could get a huge backpack with lots of compartmenets (fits         |
+  #     everything perfectly).                                                 |
+  #   - or smaller, simpler backpack (fits most essentials, easier to carry)   | 
+  #   - AIC/BIC are like a backpack rating:                                    |
+  #     . They 'penalize overly complicated backpacks' (models with too many   |
+  #       parameters) even if they "fit" everything.                           |
+  #     . They reward 'models that are simple but still work well'.            |
+  # ============================================================================
+ 
+  > [ Diff between AIC & BIC ]
+    ____________________________________________________________________________
+    | Criterion | Penalty for complexity | Use case                            |
+    |-----------|------------------------|-------------------------------------|
+    | AIC       | Mild penalty           | Good for prediction accuracy;       |
+    |           |                        | favors models that explain the data |
+    |           |                        | well even if slightly complex       |
+    |-----------|------------------------|-------------------------------------|
+    | BIC       | Strong penalty         | Good for finding the true underlying|
+    |           |                        | model; favors simpler models if data|
+    |           |                        | is limited                          |
+    |___________|________________________|_____________________________________|
+
+===[ SARIMA Model ]===
+* 'SARIMA' model is nothing but a 'ARIMA' model that has a 'seasonal component'
+  it adds the extra layer of the 'real world' that we need in order to forecast 
+  in heighest accuracy.
+  - We need 'sarima' because most of real-world data set has a seasonal patterns
+  - Seasonal components or parameters are
+    . 'P' = seasonal autoregressive order
+    . 'D' = seasonal differencing order
+    . 'Q' = seasonal moving average order
+    . 'm' = the number of periods in each season
+
+===[ 'Parameter Tuning' or 'hyprparameter Tuning' ]===
+* Fine tuning parameter is the key to go from a good forecasting to another one. 
+  - fine-tuning paramters means choosing the right settings (lags, differencing,
+    seasonality, smoothing weigths, etc) so your model properly capture 'trend'
+    + 'seasonality' + 'noise' and produces accurate forecasts.
+  - Tuning models allows tailoring the model to your problem and optimizes accuracy
+
+  [ Parameters ] => Run the model => Measure Error => [ Save ] 
+
+
+      |----------------[ Types of parameters ]----------------------|
+      |                                                             |
+[ Model Parameters ]                                      [ Hyperparameters ]
+- Learned automatically during training             - set by you before training
+> Example: In a linear regression model               and these are what you  
+  , the 'slop' and 'intercept' are                    'fine-tune'
+  parameters the model learns by itself             > Example: optimal order in
+                                                      ARIMA models, learning
+                                                      rate. 
+> [ Example In time Series ]
+  >> ARIMA ('p', 'd', 'q'):
+    - 'p': how many past observations to use (autoregression).
+    - 'd': how many times to difference to remove trend.
+    - 'q': how many past forecast errors to include.
+    > Fine-tuning = testing different values of ('p', 'd', 'q') to see which
+      combination fits best.
+
+  >> SARIMA ('P', 'D', 'Q', 's'):
+    - Adds seasonal parameters.
+    - Example: ice cream sales with a yearly cycle → you fine-tune s=365
+      (daily data with annual seasonality).
+    - Exponential Smoothing (α, β, γ):
+    - α: how much weight you give to recent values.
+    - β: how much weight you give to the trend.
+    - γ: how much weight you give to seasonality.
+    > Fine-tuning means adjusting these until your model reacts “just right”
+      to changes in the data.
+
+  >> Prophet:
+    - Has hyperparameters like seasonality strength, changepoint flexibility.
+    > Fine-tuning decides how flexible the model is in detecting sudden changes
+      or seasonal patterns.
+
+  -> [ How it’s done ]
+    - Manually: try different parameter values and check error metrics (MAE,
+      RMSE, MAPE).
+    - Automatically: use search strategies like: 
+      . Grid Search
+      . Random Search
+      . Auto-ARIMA (tests many paramter combincations for you)
+
+Automatically: use search strategies like Grid Search, Random Search, or
+Auto-ARIMA that test many parameter combinations for you.
+> [ How are they used? ]
+  - You start with some values (like a first guess).
+  - You train your model.
+  - If the results aren’t good, you adjust the hyperparameters and try again
+  - This process is repeated until you find a combination that works best
+  >> This is called "hyperparameter tuning" or "fine-tuning"
+
+  > [ Python Walkthrough ]
+    from sklearn.model_selection import ParameterGrid
+
+    # Creating a Hyperparameter Grid
+    param_grid = {
+      'p': [1, 2, 3],
+      'd': [0, 1],
+      'q': [1, 2, 3],
+      'P': [1, 2],
+      'D': [0],
+      'Q': [1,2]
+    }
+    
+    grid = ParameterGrid(param_grid)
+    
+    # Creating paramter tuning loop
+    for params in grid:
+        # build model with 'params'
+        # cross validation
+        # Evaluation using 'Cross validation' => get the score
+        # store the error

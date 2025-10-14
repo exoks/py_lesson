@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/08/21 11:40:18 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/09/08 11:05:20 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/09/28 15:29:53 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -274,3 +274,97 @@
 - A lot of models failed to forecast future no matter how they are complex,
   these stores remind us that the world full of surprises, No model in the 
   world no matter how it is can predict 100% correct.
+
+===[ Juypeter Notebook: ]=======================================================
+* Juypeter Notebook has been build on the top of `ipython`, ipython has been
+  developed as an extension of python to make it more interactive.
+  - Jupyter Notebook has two main type of cells:
+
+          |--------------------[ Cell Type ]---------------------|
+          |                                                      |
+    [ Markdown Cell ]                                      [ Code Cell ] 
+
+  # INFO:-----------------------------------------------------------------------
+  # - IPython = Interactive Python: is at the heart of jupyter and knowing what
+  #   it does makes a lot of the ecosystem clearer.
+  # - Think of it as Python's 'power user' command-line interface.
+  # - It provides:
+  #   > A 'richer interactive REPL' (read-eval-print loop) than the default
+  #     `python` shell 
+  #   > Useful 'syntax enhancements' (like '!' to run shell command, '%' magics
+  #     for special commands)
+  #   > History, tab-completion, object introspection (`obj?`, shows docs,
+  #     `obj??` shows source) 
+  #   > Integrastion with 'data science workflows', plotting, debugging, etc.
+  # - Running `ipython` you will get a prompt `In [1]:` instead of the normal
+  #   `>>>` 
+  # -> Inside Jupyter Notebooks: Every notebook kernel is actually an 'IPython'
+  #    'Kernel' which executes python code and communicates with the Notebook
+  #    frontend.
+  # -> Behind the scenes in tools: like JupyterLab, Spyder, VS Code notebooks,
+  #    etc.
+  # -> [ Key Features: ]
+  # - Magic commands: (`%` and `%%`)  
+  #     . %time my_func()         # time execution
+  #     . %lsmagic                # list all magics
+  #     . %pip install requests   # install into current kernel
+  #     . %%timeit
+  #     [x**2 for x in range(1000)]
+  # - Shell integration:
+  #     . !ls                     # run shell command
+  #     . files = !ls             # capture shell output into a Python list
+  # - Object inspection
+  #     . import math 
+  #     math.sqrt?                # show docstring
+  #     math.sqrt?                # show source if available
+  # - Rich display system -> handles images, HTML, LaTex, plots (when combined
+  #   with matplotlib, pandas, etc)
+  # -> [ Why It is Important ]
+  # - It makes 'interactive exploration' smooth for data science, ML, and
+  #   research
+  # - It is the 'engine' powering Jupyter Notebooks (so without IPython,
+  #   Jupyter, wouldn't run Python code)
+  # - It brings Python with the shell, making workflows faster and more flexible
+  # ----------------------------------------------------------------------------   
+
+===[ Anomalies VS Ouliers ]=====================================================
+Great question — they look similar at first but they are not exactly the same
+thing. Here’s the difference in the context of time series and data analysis:
+
+===[ Outliers ]===
+    Definition: Data points that deviate significantly from the general
+    distribution of the data.
+  - Context: Usually statistical — they lie far from the mean, median, or
+    expected range.
+
+  > [ Examples: ]
+  - In daily export traffic, if the typical volume is ~700 and one day has 2000,
+    that’s an outlier.
+  - A sensor records a temperature of 120°C when the usual range is 20–40°C →
+    outlier.
+  - Cause: Can be due to errors (data entry mistakes, faulty sensors) or rare
+    but valid events.
+
+===[ Anomalies ]===
+  - Definition: Patterns or behaviors in the data that don’t conform to expected
+    temporal trends, seasonality, or structure.
+  - Context: Time series–focused — anomalies consider the sequence and context,
+    not just individual points.
+
+  > [ Examples: ]
+  - Sudden drop in traffic during weekdays (where we normally expect high
+    traffic) → anomaly.
+  - Unexpected dip/spike in exports right in the middle of a seasonal holiday
+    pattern.
+  - Cause: Often indicate meaningful changes (fraud, system failure, sudden
+    demand shock).
+
+===[ ✅ Key Difference ]===
+  - Outlier → purely a statistical deviation (point-wise).
+  - Anomaly → context-aware deviation (sequence/time-wise).
+  -> All anomalies are “outliers in context,” but not all outliers are anomalies
+
+===[ ⚡ In time series EDA, you usually: ]===
+- Detect outliers with statistical methods (IQR, Z-score, etc.).
+- Detect anomalies with time series models (ARIMA residuals, STL decomposition,
+  machine learning methods like isolation forests, LSTMs, etc.).

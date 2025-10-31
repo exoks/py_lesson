@@ -1,0 +1,265 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                𓐓  fast_api 𓐔           
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀      Eng: oussama <oussama.ezzaou@gmail.com> 
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/10/27 13:58:23 by oussama
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/10/31 11:10:46 by oussama
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+# ===[ FastAPI Introduction ]===================================================
+ FastAPI is a modern python web framework designed to build fast APIs  
+
+===[ Uvicorn: Application Server (CGI) ]===
+- 'uvicorn' is fast, lightweight 'application server' used to run python web
+  application, especially those build with framework like 'FastAPI' and
+  'Starlette'.
+  -> It is based on 'ASGI (Async Server Gateway Interface)' which allows it to
+     handle many requests at the same time without waiting for one to finish
+     before (Async tasks) before starting another. 
+  -> Uvicorn handles both 'Async' and 'Sync' tasks. 
+  
+  # QUESTION:[ How does uvicorn handle both tasks `Async` and `Sync`? ]=========
+  # - In uvicorn, each woker runs you app inside an 'event loop (using asyncio)'
+  # - Here is how it handles both types of tasks:
+  #   > Async Tasks: These run directly on the event loop, uvicorn schedules and
+  #     switches between them efficiently without blocking.
+  #   > Sync tasks: When a synchronous function is called, uvicorn runs it in a
+  #     'separate thread pool', so it doesn't block the event loop.
+  # QUESTION:[ What is the diffence betwen 'Daphne' and 'Uvicorn'? ]============
+  # - As I already know that daphne asigns the task the worker, if the task
+  #   is an `Async` task, it the task is an `async` task it is handled using
+  #   and event loop inside a worker, otherwise it is a `sync` task that
+  #   assigned to a worker.
+  # INFO:> 'Execution Pool': means the type of workers that handle tasks
+  #   - It can be a single thread (event loop pool) or
+  #   - multiple threads (thread pool) or 
+  #   - Multiple process (process pool)
+  # > 'Daphne' VS 'Uvicorn'
+  #   - Uvicorn: `async` event loop + thread pool for `sync` tasks (event loop) 
+  #   - Daphne: `async` event loop + sync runs on single worker (multip-process) 
+  # ============================================================================
+
+  > [ General Structure ]
+
+    from fastapi import FastAPI
+
+    # Creating a FastAPI instance
+    instance = FastAPI()
+
+    # Create an HTTP Method (GET, POST, PUT, DELETE)
+    @instance.get('route /[path_parameters]') [post, put, delete]
+    [async] def func():
+      # code
+
+===[ URL/Request Parameters ]===================================================
+- Since the 'GET' request does not have a body we use the 'URL Paramters' to  
+  send the data.
+
+  |------------------------[ URL/Request Parameters ]---------------------|
+  |                                                                       |
+[ Path Parameters ]                                         [ Query Paramaters ]
+
+===[ Path Parameters ]===
+- Think of 'path parameters' as 'placeholders' in your 'URL' that let your API 
+  accept 'dynamic values'.
+
+> [ Analogy ]
+- Imagine a 'mail delivery system', you do not deliver mail to 'house 1',
+  'house 2', 'house 3' one by one manullay, instead you have an address
+  placeholder:
+
+    /house/{house_number}
+
+  - When a delivery comes for house 42, you just replace `{house_number}` with
+    `42`, FastAPI does the same thing with URLs
+
+
+  @app.get("/users/{user_id}")
+  def read_user(user_id: int):
+    return {"user_id: user_id"}
+
+
+  # CONCLUSION:=================================================================
+  # >> Path parameters make your routes flexible.                              |
+  # ============================================================================
+
+===[ Query Parameters ]===
+ 'Query Parameters' are extra bits of data you add to the URL 'after a'
+  'question mark `?`' 
+  - The are usually 'optional filters or options'.
+
+  > Example:
+
+    [   /items/?skip=10&limit=5   ]
+
+    . `skip=10` and `limit=5` are query parameters
+    # NOTE:> Query paramters ARE NOT part of the path like `/items/{item_id}`
+
+===[ Automatic API Documentation (Swagger UI) ]=================================
+ 'FastAPI' automatically creates 'interactive doumentation pages' for your API
+  , 'Without you writing any extra code'.
+  - These pages help you:
+    . See all your API endpoints
+    . Understand what each one does 
+    . Test them directly in your browser 
+  -> It is like FastAPI gives you a 'control panel' for your API automatically.
+
+
+> [ How it Works ]
+  - When you create routes (endpoints) using FastAPI, It already knows: 
+    . The HTTP method (GET, POST, PUT, DELETE)
+    . The path (`items/{id}`) 
+    . The Excepted input and output types 
+
+  -> Using this informations, 'FastAPI' automatically builds 'documentation'
+    'pages' following the 'OpenAPI standard (a global standard for describing'
+    'APIs)'.
+
+
+> [ Accessing the Docs ]
+  - Once you run your app (`uvicorn main:app --reload`) open your browser and
+    visit:
+    > 'Swagger UI': `https://127.0.0.1:8000/docs` 
+    > 'ReDoc' (alternative view):  `https://127.0.0.1:8000/redoc`
+  -> both show your API automatically, no setup required 
+
+===[ Pydantic Schemas & Validation ]===========================================
+ 'Pydantic' is a library that 'validates and parses data' using 'python type' 
+  'hints'.
+  - FastAPI uses it internally to 'make sure the data coming into (or out of)'
+    'your API is' 'the right type complete' and 'clean'.
+
+===[ Schema ]===
+  - A 'Schema' is basically a 'data model' that defines what a request or 
+    response should look like, you create it by defining a 'Pydantic class' that
+    inherits from `BaseModel`.
+
+    - Example:
+      from pydantic import BaseModel
+
+      class User(BaseModel):
+        # attributes
+        name: str
+        age: int
+        email: str
+
+    @app.get('/')
+    def request(user: User)
+        return {"message": f"User {user.name] created succesfully!}"}
+
+    - If a request like this comes in:
+      {
+          "name": "Oussame",
+          "age": 25,
+          "email": "oussame@example.com"
+      }
+    - It works fine, but if `age` is missing or "age: five", FastAPI
+      automatically returns a '422 validation error - you do not even'
+      'have to code it yourself'.
+
+===[ Filed: Validation Rules (extra features) ]===
+  - Pydantic lets you add 'extra validation' or 'constraints' using special
+    'fields' or 'decorators'.
+
+  [ Example: ]-----------------------------------------------------------------|
+  | from pydantic export BaseModel, Fieldm EmailStr                            |
+  |                                                                            |
+  | class User(BaseModel):                                                     |
+  |   name: str = Field(..., min_length=3, max_length=50)                      |
+  |   age: int = Field(..., ge=18, le=100, description="user's email address") |
+  |   email: EmailStr                                                          |
+  |                                                                            |
+  |   > `EmailStr`: validates proper email format                              |
+  |   > `min_length`, `max_length`, `ge`, `le` check limits                    |
+  |   > `...`: means required filed                                            |
+  |   > `description`: adds documentation info for OpenAPI (Swagger UI)        | 
+  -----------------------------------------------------------------------------| 
+
+  > [ Field Attributes ]
+    . `...`: (ellipsis) -> means 'required field' 
+    . `min_lenth`/`max_length` -> validate string lenth 
+    . `ge`/`le` (less or equal) -> numeric validation  
+    . `alias`: use another name in input/output
+    . `title`: Title used in docs / OpenAPI schema 
+    . `description`: Text description for docs
+    . `example`: example value for docs
+    . `deprecated`: mark field as deprecated in docs
+
+===[ Response Models ]===
+  - You can also use schemas to 'control what data is returned' to the client.
+
+    @app.get("user/{user_id}", response_model=User)
+    def get_user(user_id: int):
+        return {"name": "oussama", "age": 25, "email": "oussama@exmaple.com"}
+
+    > FastAPI will:
+      - Validate the response data before sending it
+      - Exclude unexpected fields automatically
+  _____________________________________________________________________
+  | Concept             | Description                                 |
+  |---------------------|---------------------------------------------|
+  |- Schema             |- A class defining structure & types of data |
+  |- Validation         |- Automatic checks by Pydantic               |
+  |- Request Model      |- Validates incoming data                    |
+  |- Response Model     |- Validates and shapes outgoing data         |
+  |_____________________|_____________________________________________|
+
+
+# INFO:=========================================================================
+# - Try to define the Schema of each request for more readability and this     |
+#   is the profitional way to do it.                                           |
+# >> Look at the `main.py` explain in `test/` directory                        |
+# ==============================================================================
+
+===[ Optional class ]===
+- The 'Optional' class from the 'typing' module is used to 'indicate that a'
+  'variable parameter, or return value can be either a specific type or `None`'
+  - It is a shorthand for saying:
+
+      [   Optional[X] == Union[X, None]   ] 
+
+  - So `Optional[int]` means "this value can be an `int` or `None`".
+
+> [ Why do we use it ]
+  - When writing functions, you often have parameters or return values that
+    might 'not always contain data', sometimes they can be missing, undefined
+    , or intentionally empty ('None').
+  - `Optional` helps you 'make that explicit' in your code, useful for both
+    readability and type checking tools (like `mypy` or your IDE)
+
+  # INFO:============================================================
+  # - If you are using `Python 3.10+` you can use a shorter syntax: |
+  #   def greet(name: str | None):                                  |
+  #     pass                                                        |
+  # - This means exactly the same as `Optional[str]`.               |
+  # =================================================================
+
+===[ HTTP Exceptions ]==========================================================
+- In FastAPI, an 'HTTP Exception' represents an intentional HTTP error response
+  you 'raise from insdie your code', typically when something goes wrong in your
+  API logic.
+
+  > It's a special kind of exception that tells FastAPI:
+    
+  [ Stop normal execution and return an HTTP response with this status code, ]
+  [ message and details.                                                     ]
+
+  > [ The class: `fastapi.HTTPException` ] 
+
+    # Import
+    from fastapi import HTTPException
+
+    # Exmaple 
+    return HTTPException(status_code=404, detail="Item not found") 
+
+  # INFO:-----------------------------------------------------------------------
+  # - HTTPException tells the program to stop the execution and raise and HTTP |
+  #   HTTP Exception.                                                          |
+  # - Common Use: 404 “not found”, 401 “unauthorized”, 400 “bad request”       |
+  # ----------------------------------------------------------------------------

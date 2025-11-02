@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/08/18 10:21:13 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/09/10 10:45:04 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/10/31 14:30:40 by oussama
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -174,7 +174,7 @@
 - Prophet                                                   - Hybrid models  
 - Neural Prophet (neural network version of 'prophet')        combine ARIMA +
                                                               ML for residual
-                                                              moderling.
+                                                              modeling.
 # INFO:--------------------------------------------         --------------------
 # + These models are 'Recursive', which means               > Make predctions
 #   if we want to predict for 10 days in the future           directly depending
@@ -1661,3 +1661,39 @@ Auto-ARIMA that test many parameter combinations for you.
         # cross validation
         # Evaluation using 'Cross validation' => get the score
         # store the error
+
+===[ Feature Engineering in time series  ]======================================
+* Feature Engineering is the process of using domain knowledge to extract
+  useful features from raw data, In time series analysis, effective feature
+  engineering is crucial for capturing temporal dependencies and patterns, which
+  can lead to better predictive performance and insights 
+
+> [ Key Techniques for Time Series Feature Engineering ]
+
+  1|> Lag Features: Capture past values of the time series to predict future
+      values.
+  
+  2|> Rolling Statistics: Calculate statistics (mean, standard deviation) over 
+      a rolling window
+
+  3|> Fourier Transforms: Decompose the time series into frequency components. 
+
+  4|> Handling Seasonality: Identify and adjust for seasonal pattern 
+
+> [ Lag Features: ] 
+  - Lag Features involve creating features that represent previous values in the
+    in the time series
+  
+  # NOTE:> It is not clear how can lag features help us improve the performance.  
+
+  # INFO:======================================================================= 
+  # - Lag features are on of the 'most powerful tools' in time series modeling
+  # - because they allow your model to `see` the past behavior of the series
+  #   and learn temporal dependecies.
+  # - Most time series are autocorrelated - past values influence future ones,
+  #   lag features make this relationship explicit for models like:
+  #     . Linear Regression
+  #     . Random Forests
+  #     . XGBoost
+  #     . Neural networks
+  # > Without lag features, these models cannot inherently learn from the series.

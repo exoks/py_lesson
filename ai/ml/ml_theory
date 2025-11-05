@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/11/05 14:33:03 by oussama
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/11/05 15:05:05 by oussama
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -1385,9 +1385,24 @@ J(a->, b)                                J(a->, b)
 
 ===[ Sampling with replacement: (statistical method) ]===
 * 'Sampling with replacement' means that when you select a data point (an
-  observation or row from your dataset) to be part of your sample, you rput it
+  observation or row from your dataset) to be part of your sample, you put it
   back into the pool before selecting the next one.
-  -> This allows the same data point to be selected multiple times. 
+  -> [ This allows the same data point to be selected multiple times ]
+
+  > [ Example ]
+    - Suppose that we have a 'feature' that 'contains 10 cases', we won't create
+      a 'single decision tree' for this 'feature', instead we are going to use
+      'tree ensembling' and create a 'group of dicition trees' using a
+      'statistical method sampling && replacing'.
+      . 'Statistically' and 'mathimatically' we have '10 power 10 different' 
+        'cases'. [ should we create a decision tree for each case from this
+        combinision? ]
+      . 'Answer': Nop, 'because it would be large and slow to create a decision'
+        'for each combinision which effect the performance of the model',
+        instead we take between '64 and 228 tree (100 is recommeded)'.
+
+
+===[ Random Forest ]===
 
 
 
@@ -1398,8 +1413,12 @@ J(a->, b)                                J(a->, b)
 
 
 
-[2]|> ===[ Random Forest ]===
 
-[3]|> ===[ Gradient Boosting ]===
 
-[4]|> ===[ Extreme Gradient Boosting ]===
+
+
+
+
+===[ Gradient Boosting ]===
+
+===[ Extreme Gradient Boosting ]===

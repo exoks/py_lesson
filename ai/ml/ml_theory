@@ -1,11 +1,11 @@
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
-#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                𓐓  ML_model 𓐔           
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀               𓐓  ml_theory 𓐔           
 #  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
 #  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀       Dev:  oezzaou  oussama.ezzaou@gmail.com 
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/24 13:07:42 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/11/05 14:33:03 by oussama
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -30,6 +30,16 @@
       . Regularization 
       . Cost function with regularization
       . Gradient Descent with regularization
+
+
+    |--------------[ Machine Learning Algorithms Types ]--------------|
+    |                                |                                |
+[ Parmateric Models ]        [ Tree-Based Models ]     [ Neural Network Models ]
+- Linear Regression          - Random Forest           - CNNs, RNNs 
+- Multi-linear regression    - Gradient Boosting
+- Polynomial regression        (XGBoost, LightGBM) 
+- Logistic regression
+
 
 ===[ Model: Linear Regression ]=================================================
 * Linear regression: (easy) is used to 'model the relationship' between: 
@@ -929,3 +939,467 @@ J(a->, b)                                J(a->, b)
       | b = b - Alpha * [ --- sum(f(x->) - y) ]   => Still the same
        \                   m 
 
+===[ ML: Decision Trees ]=======================================================
+
+===[ Index ]======================================
+1|> Decision Trees 
+2|> Random Forest
+3|> Gradient Boosting
+4|> Extreme Gradient Boosting
+
+===[ XGboost Model ]===
+# REVISION:---------------------------------------------------------------------
+          |-------------------[ Time Series Model ]-------------------|
+          |                                                           |
+[ Time Series Traditional Model ]                           [ ML Models ]
+          |                                                 - Regression with  
+  |-------|-------------------------|                         lagged feature 
+  |                                 |                       - Tree-based models 
+[ Univariate Models ]           [ Multi-variate Model ]       (Random Forest, 
+- ARIMA model                   - Vector Autoregression       (XGBoost, trained
+- SARIMA (season ARIMA Model)     Model                       on time lagged 
+  . It takes in the account                                   features.
+    seasonality                                              - Neural Networks
+- Prophet (suitable for people and passengers)               - Hybrid models  
+- Neural Prophet (neural network version of 'prophet')        combine ARIMA +
+                                                              ML for residual
+                                                              modeling.
+
+[1]|> ===[ Decision Trees ]===
+
+- A 'Decision Tree' is just a 'series of `if-then` rules' that split data into
+  smaller and smaller groups until each group is as `pure` (similar) as possible
+  
+  # INFO:[ Analogy ]------------------------------------------------------------
+  # - Think of it like how a person makes decisions step by step:
+  #   . "Is it raining?" -> is yes, take an umbrella
+  #   . if no -> "Is it cloudy" -> Maybe bring a light jacket
+  # -> That's exactly how a `Decision Tree` works, it keeps asking questions
+  #   that best separate the data.
+
+  - A Decision Tree looks like this:
+
+               [Root Node: Is temperature > 25°C?]            | Root Node
+                        /                     \
+                     Yes                       No
+            [Is humidity > 60%?]         [Is windy?]          | Decision Nodes
+                /         \                 /      \
+             Yes          No            Yes        No
+           "No"          "Yes"        "No"        "Yes"       | Leafs Nodes
+
+      - 'Root Node': The first and most important question 
+      - 'Branches': possible answers ('yes', 'No', '< value', '> value') 
+      - 'Leaves': final decisions or predictions
+
+  # QUESTION:[ What the tree is trying to do? ]--------------------------------|
+  # - At each step, the tree tries to ask the 'most informative question'      |
+  #   possible, the one that 'best split' the data into groups that are more   | 
+  #   consistent (or 'pure') in terms of the target variable.                  |
+  # - Example:                                                                 |
+  #   If we are predicting whether someone will 'buy ice cream', a good first  |
+  #   question might be 'is the temperature > 25C?' because that seperates     | 
+  #   'likely yes' vs 'likely no' quite well.                                  |
+  # QUESTION:[ How the tree chooses questions? (splits) ]----------------------|
+  # The algorithm test every feature (e.g: temerature, humidity, age, etc.) and|
+  # finds the 'split that gives the biggest improvement' in purity.            |
+  # - Fore Classification:                                                     |
+  #   . [ Gini Impurity ] - measures how mixed a group is.                     |
+  #   . [ Entropy (Information Gain) ] - measures disorder (borrowed from      |
+  #     infromation theory).                                                   |
+  # - For regression:                                                          |
+  #   . Uses 'variance reduction' (how much the split reduces the spread of    |
+  #     values).                                                               |
+  # > The tree chooses the question that makes the children nodes more 'pure'  |
+  #   than the parent node.                                                    |
+  # QUESTION:[ How the tree grows? ]-------------------------------------------|
+  # - 'It keeps splitting' the data recursively, each time choosing the best   | 
+  #   question.                                                                |
+  # - It 'stops' when:                                                         |
+  #   . The group is pure enough (e.g: all `yes` or all `No`) or               |
+  #   . The tree reaches a max depth, or                                       |
+  #   . There's too little data left to split meaningfully.                    | 
+  # ---------------------------------------------------------------------------|
+
+# ===[ NOTES ]===
+- Decision Tree is a 'supervised machine learning algorithm' used for both 
+  'classification' and 'regression' tasks.
+  - It works by 'splitting data into branches' based on 'conditions of the'
+    'input features'
+  > essentially forming a 'tree-like structure of if-then rules'.
+
+> [ Linear Regression & Logistic regression VS Decision tree ]===
+  _____________________________________________________________________________
+  | Aspect        | Linear Regression | Logistic Regression | Decision Tree   |
+  |---------------|-------------------|---------------------|-----------------|
+  | Type of Model | Parametric        | Parametric          | Non-parametric  |
+  |---------------|-------------------|---------------------|-----------------|
+  | Prediction    | Linear mathematical Logistic (sigmoid)  | Hierarchical    |
+  | Basis         | equation          | function            | if–then rules   |
+  |---------------|-------------------|---------------------|-----------------|
+  | Assumes       | Linear            | Linear in log-odds  | Non-linear and  |
+  | Relationships | (straight-line)   |                     | flexible        | 
+  | Are           |                   |                     |                 |
+  |---------------|-------------------|---------------------|-----------------|
+  | Interpret-    | Coefficients show | Coefficients show   | Very intuitive  |
+  | ability       | feature impact    | impact on log-odds  | (visual,        | 
+  |               |                   |                     |     rule-based) |
+  |---------------|-------------------|---------------------|-----------------|
+  | Data Handling | Requires scaling, | Similar to linear   | Handles both    | 
+  |               |                   |                     | numeric &       | 
+  |               | handles numeric   | regression          | categorical data| 
+  |               | data well         |                     | easily          |
+  |---------------|-------------------|---------------------|-----------------|
+  | Overfitting   | Moderate          | Moderate            | High (unless    |
+  |     Risk      |                   |                     | pruned or       |
+  |               |                   |                     | regularized)    |
+  |_______________|___________________|_____________________|_________________|
+
+  - 'Regression models': (linear, logistic) learn 'mathematical equations' that
+    fit data:
+            [   y = w1 * x1 + w2 * x2 + ... + b   ]
+    . They find the 'best-fitting line (or curve)' by optimizing coefficients 
+      to minimize error.
+  - 'Decision trees', on the other hand, do 'no equation-fitting', they
+    repeatedly 'partition the data' based on feature thresholds that maximize
+    '<purity>' (using metrics like 'Gini impurity' or 'information gain').
+  >> The final prediction is based on 'majority vote (classification)' or
+     'average value (regression)' of the samples in a leaf node
+ 
+> [ Strenghts of Decision Trees ]
+  - Easy To 'visualize and interpret' ('I can see the rules!')
+  - Can handle 'numeric and categorical' data
+  - Requires 'little preprocessing' (no scaling or normalization)
+  - works for both 'classification and regression'.
+  - can model 'nonlinear relationships' easily
+
+# NOTE:------------------------------------------------------------------------
+# - All boosting and bagging methods (including Random Forest and XGBoost) are
+#   build on decision trees.
+
+===[ Decision Tree Learning ]===
+* There are 'two main questions' must be asked before building any decision tree:
+1|> How to choose what feature to split on at each node (root/decision node) ?
+      - The general rule says: "shoose the feature that maximize the purity"
+        "or minimize the umpurity?"
+
+  > [ Purity & Impurity ]
+    - When a decision tree 'splits' data, it tries to create groups (branches)
+      that are as 'pure as possible' meaning, the examples inside each group are
+      'mostly of one kind'.
+    
+    # INFO:[ ANALOGY ]==========================================================
+    # > Imagine you want to group similar items together, all apples in one
+    #   basket, all oranges in another.
+    #   - If a basket has only apples, it's 'pure'
+    #   - If it has a mix of apples and orages, it's impure.
+    # >> The goal of the decision tree is 'to find questions (splits)" that make
+    #    these groups as pure as possible.
+    
+    - At each step, the decision tree asks:
+        [ Which feature (question) best splits my data into groups that are more
+          a like inside themselves? ]
+    - If the split results in:
+      . Groups with mostly one label -> 'high purity'
+      . Groups with mixed lables 'low purity'
+
+    > For example:
+      - 'Question': is the fruit color = red ?
+        . Yes -> 90% apples 
+        . No  -> 80% oranges
+        -> Great! That's a pretty pure split.
+
+    # NOTE:[ VERY IMPORTANT ]===================================================
+    # - Purity tells the decision tree 'how good its splits are'
+    # - The tree wants each final leaf (end node) to be as pure as possible
+    #   because:
+    #   . Pure leaves -> clear, confident predictions
+    #   . Impure leaves -> uncertain predictions (the tree is not sure) 
+    # - In training, the tree measures impurity using math (like 'Gini impurity'
+    #   or 'entropy'), but conceptually, it's all about 'how mixed' or 'cleanly'
+    #   'separated' the data is.
+
+2|> When do you stop splitting?
+  - When a node is 100% one class
+  - When splitting a node will result in the tree exceeding a maximum depth
+  - When improvements in 'purity score' are 'below a threshold' 
+  - When 'number of examples in' a node is below a 'threshold'
+
+===[ Measuring Purity: Entropy & Information Gain ]============================
+# REVISION:---------------------------------------------------------------
+# - Purity is about how similar the items in a group are after a split 
+#   . A 'pure' group means all items inside it belong to the same category
+#   . An 'impure' group has a mix
+# > So the goal from decision tree is to keep splitting the data until 
+#   the groups are as pure as possible.
+
+
+                |===[ How to Mesaure Purity ]===|
+                |                               |
+      [ Gini Impurity ]                     [ Entropy (measuring impurity: messness)]
+- Think of it as the chance           - 'Entropy', Similar idea, but  
+  of picking two different              it measures disorder 
+  items from the same group             . All one type = low disorder(pure)
+
+  # NOTE:=================================================================
+  # - Don't worry about the math, both are just ways to score how mixed or 
+  #   unmixed a group is. 
+  # - When building a decistion tree, the algorithm looks for the question 
+  #   (or 'split') that makes the resulting groups 'more pure' than before
+
+===[ Entropy ]===
+* 'Entropy' is just a way to 'measure how mixed or uncertain' a group of data is
+  - If a group has 'only one kind of thing', its "pure -> low entropy (or zero)"
+  - If it has 'a mix of different kinds', its 'impure -> high entropy'
+
+  # INFO:[ Uncertain ]==========================================================
+  # > `Uncertain`: (adj), not knowing what to do or believe, or not able to
+  #                decide about something.
+  # ============================================================================
+
+# INFO:[ Analogy ]===============================
+# * Think of entropy as a 'messiness' score:    |
+#   . 'More mixed' = more messy = higher entropy|
+#   . 'More uniform' = cleaner = lower entropy  |
+# ===============================================
+
+- The basic fomula for Entropy: 
+
+    Entropy = - Sum (pi * log2(pi))
+
+    . 'pi': the proportion (probability) of each class in the group.
+
+> [ Why using log base 2: (short answer: get the peak of H(pi) == 1) ]
+  - Entropy comes from information theory The idea of entropy comes from
+    "Claude Shannon's infromation Theory" (1948) 
+  - They wanted a way to measure how much 'information' or 'uncertainty' is in a
+    message or dataset. 
+  - In information theory, the 'amount of information' in a event depends on how
+    surprising it is. 
+
+    > if something is 'very predictable', it carries 'little information'.
+      ex: "the sun rieses in the east" -> not surprising
+    > if something is 'unlikely', it carries 'more information' 
+      ex: "it will snow in the desert today" -> surprising!
+
+  Shannon defined 'information' as:
+
+    [ Information(x) = - log2(p(x)) ]
+
+  - That's why "logarithms" come into play, they translate probabilities
+    (like 0,5, 0,25, etc) into "information content".
+
+# NOTE:[ VERY IMPORTANT ]=======================================================
+# - log of base 2 is used to get the pick of 1 (100%) instead of another base 
+#   . Suppose we used `ln (log of base 10)` we will get the same curve but
+#     with another 'peak != 1'.
+# ==============================================================================
+
+# QUESTION:[ Why specifically log base 2 ]======================================
+# - Because we measure information in 'bits', the basic unit of digital
+#   information. 
+#   . Each 'bit represents' a (yes/no | 1 or 0) question, like flipping a coin
+#     or answering a binray question.
+# - So using 'log base 2' means we are measuring:
+#   "How many binary questions (yes/no decisions) would it take to identify"
+#   "the correct class?"
+# - For Example:
+#   . if p = 0.5, then -log2(0.5) = 1bit -> one yes/no question
+#   . if p = 0.25, then -log2(0.25) = 2 bits -> two questions (more uncertainty)
+# > That's why 'base 2' makes sense, decision trees make binray decisions at
+# each step (`yes` or `no`), just like bits!.
+# INFO:[ EXAMPLE ]==============================================================
+# - Imagine guessing what fruit someone picked:
+# - If there are 2 equally likely fruits (apple or orange), it takes about 1
+#   yes/no question (“Is it an apple?”).
+# - If there are 4 equally likely fruits (apple, orange, banana, mango), it
+#   might take about 2 yes/no questions (“Is it an apple?” → No → “Is it an
+#   orange?” → etc.)
+# - So the log base 2 gives a measure of how many yes/no questions are needed,
+#   which fits perfectly with how decision trees split data!
+# ____________________________________________________________________________
+# | Concept     | Meaning                                                    |
+# |-------------|------------------------------------------------------------|
+# | Logarithm   | Turns probabilities into “information content.”            |
+# | Base 2      | Measures that information in bits (yes/no decisions).      |
+# | Why use it? | Because decision trees are made of binary splits,          |
+# |             | it’s a natural match!                                      |
+# |_____________|____________________________________________________________|
+# - So, we use log₂ because entropy is all about measuring uncertainty in bits,
+#   and decision trees reduce that uncertainty step by step — like answering a
+#   series of yes/no questions.
+# - Entropy measures how missness the group after splitting, the general formula 
+#     [ entropy = -sum(log2(pi)) ]
+# - log2(pi) measures the uncertainty in a group (or how many questions/decisions
+#   of yes/no)
+# ==============================================================================
+
+> [ Information Gain: ]
+  - 'Information Gain': measures 'how much impurity goes down' when we split the
+    data based on a certain feature (question)
+
+  > Example:
+    - If i split the candies by color, how much cleaner or more organized did my
+      boxes become?
+      > If the split makes the boxes very pure (each box mostly one color)
+        ===> [ We gain a lot of information ]
+      > If the split does not help much (still mixed colors)
+        ===> [ We gain little information ]
+ 
+    # INFO:[ CONCLUSION ]=========================================================
+    #  - INFORMATION GAIN = How much we improve the purity of our datat when we  |
+    #    split it using a feature                                                |
+    #  - INFORMATION GAIN = How much 'impurity' decreased 'after' we split       | 
+    # ============================================================================
+
+  > [ Exmaple ]
+    - Suppose that we have a group of '5 cats' and '5 not cats'
+    1. measuring the 'impurity' of this group
+
+      H(5 / 10) = 1.0 
+
+    2. suppose that we have 3 features to split the group and used as decision 
+       node ('Ear Sahpe', 'Face Shape', 'Whiskers').
+
+      - each features split the group into two groups, we can measure the impurity
+        of each group
+        [ h1, h1 ]
+
+      - Calculate the wighted average:
+
+      W(left) = (grp_count/10) * h1(left)  
+      W(right) = (grp_count/10) * h1(right)
+
+      W(splited) = W(left) + W(right) 
+
+      - Calculating the information gain
+
+    [ IG = (Impurity Before Split) - (Weighted Average impurity after split) ]
+
+    [ IG = P1(root) - (W(left) * H(p1(left)) + W(right) * H(p1(right))) ]
+      
+      # INFO:-------------------------------------
+      # Information Gain == Reduction of Entropy |
+      # ------------------------------------------ 
+
+# WARNING:[ You need to Try to build Decision Trees Manually ]==================
+# DO NOT FORGET to build some simple Decision Trees using pen & paper  
+
+===[ One Hot encoding of categorical features ]===
+  * 'One-hot encoding': turns categorical features into 'binary (0/1) features'
+    so algorithms, including decision trees can 'use them for split' and keep
+    it a 'binary decision tree'.
+    - If a 'categorical feature' can take on 'k values', create 'k binary'
+      'features' with (0 or 1 values)
+    - It is named 'one-hot encoding' because at 'any sample' you will find only
+      'one feature' that has the value '1' ('only one feature that is hot').
+
+  # INFO:[ VERY IMPORTANT ]=============================
+  # One-Hot Encoding can be used with 'decision trees'
+  # and neurtal networks also.
+
+===[ Decision Trees: Continuous Feature ]===
+# REVISION:[ Decision Making & Tree Splitting ]===================================
+# - As we Already know choosing the decision node, depends on the value of
+#   the Information Gain
+#   . Categorical Feature: 'Is it '<feature>' ?'
+#   . Numerical[Continuous] Features: 'Is it '<threshold>' ?'
+
+  - 'First thing first': you have to sort all the 'quantitive features' and
+    calculate the information gain of the 'threshold' between every 'two'
+    'cases/sample' and choose the 'feature' that has the 'biggest information' 
+    'Gain threshold'.
+
+  > [ Example ]
+    suppose that we have this feature
+
+    x = [1, 5, 6, 7, 9, -1]
+    
+    1. calculate the information gain at threshold = 1 
+    2. calculate the information gain at threshold = 5 
+    3. calculate the information gain at threshold = 6 
+    4. calculate the information gain at threshold = 7 
+    5. calculate the information gain at threshold = 9 
+    6. calculate the information gain at threshold = -1 
+
+  - The decision node would be the question with the threshold that 
+    has the biggest value of the ['information Gain']
+
+    [ is <= y?  where   IG = H[p(root)] - [ W(pleft) + W(pright)] ]
+
+  
+===[ Decision Trees: Regression Trees ]===
+* The final prediction is based:
+  - [Classification]: 'majority vote' > of the samples in a leaf node
+  - [Regression]: 'average value' > of the samples in a leaf node
+
+-> 'Classification Trees' minimize the 'impurity' using entropy
+    [ information gain = entropy(root) - Weighted average entropy ]
+
+-> 'Regression Trees' minimize the 'variance' insted of using 'Entropy'
+    we use the statistical quantity 'variance'. 
+    [ information gain = entropy(root) - Weighted average variance ] 
+
+===[ Tree Ensemble ]===
+* In 'Machine Learning', a 'tree ensemble' is a group of decision trees working
+  together to 'make predictions', A 'decision tree' is a 'if-then model' that
+  splits data into smaller and smaller subsets based on certain features.
+  - One 'single decision tree' can sometimes be too simple and make errors, 
+    'trees' are to 'sensitive to changes'.
+    > Example: changing one 'sample in the training set' can changes the whole
+               'decision tree design structure'. 
+  -> This is where 'ensemble methods' comes in, they 'combine multiple decision' 
+     'trees to make a stronger, more reliable prediction'.
+     but, "How can create different decision trees structures?"
+     "(sampling with replacement)"
+
+    |---------------[ Types of Tree Ensemble Methods ]---------------|
+    |                               |                                |
+    |                               |                                |
+[ Random Forest ]   [ Gradient Boosting Machines (GBM) ]        [ AdaBoost ]
+                    [ and XBoost ]
+
+# QUESTION:[ Why Are Tree Ensemble Methods Important? ]=========================
+# |> Better Accuracy:                                                          |
+#    Tree ensembles tend to be much more accurate than a single decision tree. |
+#    By combining the power of multiple trees, the model becomes much better at|
+#    finding patterns and making predictions.                                  |
+# |> Reduced Overfitting:                                                      |
+#    A single decision tree might fit the data too perfectly (overfitting),    |
+#    capturing random noise as if it were a real pattern. Since tree ensembles |
+#    take multiple trees into account, they can generalize better and avoid    |
+#    this issue.                                                               |
+# |> Handles Complex Data:                                                     |
+#    Tree ensembles can work with both numerical and categorical data, and they|
+#    handle missing data well. They’re also very flexible in modeling complex  |
+#    relationships, making them useful for a wide range of real-world problems.|
+# |> Feature Importance:                                                       |
+#     Tree ensembles can also tell us which features (or attributes) are the   |
+#     most important for making predictions. This can be really helpful when   |
+#     trying to understand the data and make decisions based on it.            |
+# |> Stability:                                                                |
+#     With a variety of trees making predictions, tree ensembles are less      |
+#     sensitive to small changes in the data. This makes them more stable and  |
+#     reliable than a single tree.                                             |
+# ==============================================================================
+
+
+===[ Sampling with replacement: (statistical method) ]===
+* 'Sampling with replacement' means that when you select a data point (an
+  observation or row from your dataset) to be part of your sample, you rput it
+  back into the pool before selecting the next one.
+  -> This allows the same data point to be selected multiple times. 
+
+
+
+
+
+
+
+
+
+
+[2]|> ===[ Random Forest ]===
+
+[3]|> ===[ Gradient Boosting ]===
+
+[4]|> ===[ Extreme Gradient Boosting ]===

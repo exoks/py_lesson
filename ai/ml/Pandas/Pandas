@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/06/20 12:43:36 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/28 12:23:57 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/11/29 19:11:57 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -47,6 +47,7 @@
 7|> Data Transformation: categorical Encoding && Feature scaling 
 8|> Exploratry Data Analysis ('EDA') - Deep Understaing & Data visualization
 9|> Data Transformation: Feature Engineering
+10
 
 ===[ Data Science Live Cycle: ]=================================================
 * In 'Data Science before training a model', The data typically goes through
@@ -1327,3 +1328,139 @@ ________________________________________________________________________________
 # # the ml_model file > machine learning models theory
 #
 # # QUESTION:> How to to apply Data Transforamtion in pandas (Data manipulation)
+
+===[ DateTime Accessor Operations ]===
+* In pandas, all operations related to the datetime64 dtype are coolectively
+  called "datetime accessor operations", accessed through `.dt`. 
+  - Pandas provides a special accessor called `.dt` that lets you work with  
+  with `datetime-like values` inside a series or column
+  - Think of `.dt` as a 'toolbox' that unlocks all datetime-speciic features
+  - You use it when your column has the dtype:
+    . `datetime64[ns]` 
+    . `timedelta64[ns]` 
+    . or stores timezones-aware timestemps
+
+    # QUESTION:[ Why do we need these datetime accessor? ]=====================
+    # - Because datetime values are not simeple strings, they contain structured components: 
+    #   . Year
+    #   . Month
+    #   . Day
+    #   . Hour
+    #   . Minute
+    #   . second
+    #   . weekday
+    #   . timezone
+    #   . etc
+    # - `.dt` allows you to 'extract', 'transform' and 'manipulate' those
+    #   components easily.
+
+  - Datetime accessor operations (or `.dt` accessor operations)
+  - Includes things like this: 
+    . Extracting componenets -> `.dt.year`, `.dt.month`, `.dt.day` ... 
+    . Datetime arithmetic -> adding /subtracting timedeltas
+    . Converting -> pd.to_datetime() 
+    . Rounding -> `.dt.floor()`, `.dt.ceil()`
+    . shifting -> `.dt.shift()`, `.dt.tz_localize()`, `.dt.tz_convert()`   
+    . Frequency-based operations -> resampling (ont time index)
+
+
+    |--------------------[ Datetime Accessor Operations ]-------------------|
+    |                    |                              |                   |
+[ Extracing  ]        [ Boolean Checks ]            [ DateTime Transformations ] 
+[ Components ]        `.dt.is_month_start`          - `.dt.floor('D')` 
+`.dt.year`            `.dt.is_leap_year`            - `.dt.ceil('H')`  
+`.dt.month`           `.dt.is_year_end`             - `dt.round('15 min')` 
+`.dt.day`             `.dt.is_year_start`           > Use Case:
+`.dt.hour`            > Use Case:                   Round timestamps to the 
+`.dt.minute`          Find all records at           nearest hour for time-
+`.dt.second`          the end of each month         series cleaning. 
+`.dt.weekday` 
+`.dt.day_name()`
+`.dt.month_name()`
+> Use case:
+Extract the month
+to group your
+data by month 
+
+[ Timezone Handling ]                 [ Timedelta Operations ] 
+ . `.dt.tz_localize('UTC')`           - `.dt.days` 
+ . `.dt.tz_covert('Europe/Paris')`    - `.dt.seconds` 
+> Use case:                           - `.dt.total_secons()`
+  Converting timestamps from 'UTC'    > Use case:
+  to local time.                      Calculate how long each
+                                      operation took
+
+
+# TIP:-------------------------------------------------------------------------- 
+# - Once you master `.dt` working with time-based data (time series data) 
+#   becomes 'clean', 'readable' and 'powerful'.
+# - If you want to master these operations focus on:
+#   1. Pandas `.dt` accessor
+#   2. Time series operations (indexing and slicing)
+#   3. Resampling & frequency conversion 
+#   4. Timezones & offset aliases 
+#   5. Timedelta operations 
+# ------------------------------------------------------------------------------
+
+===[ `datetime` VS `timedelta` ]===
+- A `datetime` object represents a specific point in time (e.g. 2025-11-209
+  18:42:00) 
+- A `timedelta` object represents a duration (e.g, 3 days, 4 hours, 20 minutes)
+
+-> A `datetime` object 'does not store or contain' a timedelta inside it
+-> We use `timedelta` to modify a `datetime`
+
+  # Imports 
+  from datetime import datetime, timedelta
+
+  # get the current datetime  
+  now = datetime.now()
+
+  # creating a timedelta = 2 days 00:00:00
+  delta = timedelta(days=2)
+
+  # Shift the current date by 2 days (timedelta) 
+  future = now + delta
+
+
+  # QUESTION:[ Why isn't timedelta part of datetime? ]==========================
+  # - `datetime` is a specific timestamp
+  # - `timedelta` is a difference between timestamps
+  # - internally a `datetime` object stores:
+  #   . year, month, day
+  #   . hour, minute, second
+  #   . microsecond
+  #   . timezone into (optional)
+  # -> It does 'not' store any duration
+  # > [ Analogy: ]
+  # - `datetime` = a location 
+  # - `timedelta` = a distance
+  # -> A location does not contain a distance, but you can move a distance
+  #   forward/backawrd from a location.
+  # ============================================================================
+
+  > [ `timedelta` object ]
+    - `timedelta` represents a 'duration' a length of time like:
+      . 3 days
+      . 2 hours
+      . 5 minutes
+      . or any combination
+    # NOTE:[ It is 'not a date', just a DIFFERENCE BETWEEN dates/times ]
+    
+    - Example:
+
+      from datetime import timedelta
+    
+      delta = timedelta(days=2, hours=3, minutes=30) 
+
+      -> A duration of '2 days', '3 hours', '30 minutes' 
+
+
+    # INFO:[ The difference between 'datetime' is 'timedelta' object ]
+
+# INFO:[ SUMMARY ]==============================================================
+# - datetime = a timestamp                                                     |
+# - timedelta = a duration                                                     |
+# - You 'add/subtract' timedelta to move in time                               | 
+# - You 'substract datetimes' to get a timedelta                               | 
+# ==============================================================================

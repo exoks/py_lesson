@@ -1,0 +1,77 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀           𓐓  joblib_pickle 𓐔           
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀      Eng: oussama <oussama.ezzaou@gmail.com> 
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/11/10 09:47:53 by oussama
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/11/10 10:29:10 by oussama
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ `joblib` format ]===
+* '.joblib' is a file format commonly used to 'save' and 'load' machine learning
+  models, especially those 'involving large numpy arrays or other complex'
+  'objects like scikit-learn models', It is a part of the '`joblib` library',
+  which is optimized for 'serializing large python objects efficiently'.
+  1. It is particularly useful when dealing with large datasets or machine
+     learning models that 'involve large numerical arrays', such as in 'deep'
+     'learning' or 'traditional machine learning with large feature matrices' 
+  2. `joblib` supports compression (`.gz` or `.xz`) which can reduce the file
+     size of large models while maintaining quick read and write speeds 
+  3. 'Faster I/O': for 'large models', `.joblib` can be 'faster than other' 
+     'serialization formats' like '`pickle`' because it is optimized for
+     numerical data (such as numpy arrays), making it more efficient when
+     saving and loading models
+
+    # Install lib
+    pip install joblib
+
+    # import joblib 
+    from joblib import dump, load
+
+    # save the trained model to a file
+    dump(model, 'path.joblib')
+
+    # load the model
+    model = load('path.joblib')
+
+> [ `.pickle` ]
+  - `pickle` is python's "standard library for serializing and deserializing"
+    python objects, 'it can serialize nearly any python object', including 
+    custom objects and classes, However while `pickle` is 'versatile' and
+    can save almost anything, it has some 'trade-offs', especially when
+    'working with large numerical data'.
+  _______________________________________________________________________
+  | Feature             | `.joblib`            | `.pickle`              |
+  |---------------------|----------------------|------------------------|
+  | Optimized for large | Yes, especially for  | No, slower for large   |
+  | data                | numpy arrays         | numerical arrays       | 
+  |---------------------|----------------------|------------------------|
+  | Compression         | Built-in support     | No built-in compression|
+  |                     | for compression      | but can use `gzip` or  | 
+  |                     |                      | other libraries for    | 
+  |                     |                      | manual compression     |
+  |---------------------|----------------------|------------------------|
+  | Speed               | Generally faster     | Slower, especially with| 
+  |                     | for large models     | large numerical arrays |
+  |---------------------|----------------------|------------------------|
+  | Cross-version       | Generally good, but  | Less reliable across   | 
+  | compatibility       | needs to be tested   | Python versions        |
+  |---------------------|----------------------|------------------------|
+  | Portability         | Can be less portable | Highly portable (though|
+  |                     | across environments  | less reliable across   |
+  |                     | (depends on libraries| Python versions)       |
+  |                     |  used)               |                        |
+  |_____________________|______________________|________________________|
+
+===[ CONCLUSION ]===
+- Use '`.joblib`': when working with large numerical arrays (deep learning
+  models or large scikit-learn models like random forest or gradient boosting
+  machines) where 'both' 'speed' and 'compression' are important. 
+- Use '`.pickle`': when you are saving 'smaller models' or 'general python'
+  objects and the 'file size is not concern', 'pickle is a more general-purpose'
+  'serialization tool'.

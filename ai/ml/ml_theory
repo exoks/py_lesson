@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/11/07 19:52:51 by oussama
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/11/09 18:01:56 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -1352,11 +1352,14 @@ J(a->, b)                                J(a->, b)
      but, "How can create different decision trees structures?"
      "(sampling with replacement)"
 
-    |---------------[ Types of Tree Ensemble Methods ]---------------|
-    |                               |                                |
-    |                               |                                |
-[ Random Forest ]   [ Gradient Boosting Machines (GBM) ]        [ AdaBoost ]
-                    [ and XBoost ]
+    |---------------[ Types of Tree Ensemble algorithms ]---------------|
+    |                   |                           |                   |
+    |                   |                           |                   |
+[ AdaBoost ]  [ Gradient Boosting ]           [  XGBoost ]    [ Random Forest ]
+- Adaptive
+  Boosting
+- the first
+  model
 
 Decision Tree -> Bagging -> Random Forest -> Boosting -> Gradient Boosting -> XGBoost   
 
@@ -1403,7 +1406,7 @@ Decision Tree -> Bagging -> Random Forest -> Boosting -> Gradient Boosting -> XG
         'for each combinision which effect the performance of the model',
         instead we take between '64 and 228 tree (100 is recommeded)'.
 
-                            ensemble learning
+                          [ ensemble learning ]
       |--------------------[ Tree ensembling ]--------------------|
       |                                                           |
       |                                                           |
@@ -1474,11 +1477,54 @@ Random Forest ~= Bagging (Bootstrap <sampling with replacement> + Aggregation)
 -> There are many types of 'boosting algorithms', 'adaboost', 'Gradient boost'
    and 
 
-===[ Boosting: AdaBoost (adaptive boosting) Algorithm ]=== 
-  - AdaBoost (short for Adaptive Boosting) is the first and most classic
-    boosting algorithm, proposed by Freund and Schapire (1996).
+===[ Boosting: AdaBoost Algorithm (adaptive boosting) ]=== 
+* AdaBoost (short for Adaptive Boosting) is the first and most classic
+  boosting algorithm, proposed by Freund and Schapire (1996).
+  - Trees in 'adaptive boost' are useually 'one root node' and 'two leaves' it
+    is called 'Stump'. 
+  -> So this model is a 'forest of stumps' unlike 'random forest'
+    '(forest of trees)'.
+  -> 'Random forest' take advantage from all features to build decision trees. 
 
-===[ Boosting: Gradient Boosting Algorithm ]===
+  # INFO:-----------------------------------------------------------------------
+  # - Stump: (noun) the short part of something  that is left after most of it |
+  #   has been removed.                                                        | 
+  # ----------------------------------------------------------------------------
+ 
+  - A 'Stump' use only 'one variable/feature' to make a decition tree, example:
+
+                      [ sick ]
+                      /      \
+                    yes       no
+
+  - 'Stumps' are technically a 'weak learners', however this is the way adaboost
+    likes it, and it is one of the reasons they are so commonly combined.
+
+  # INFO:[ AdaBoost VS Random Forest ]========================================== 
+  # 1. Random forest use a forest of dicision trees that built using different |
+  #    subsets of random features and samples, otheriwse AdaBoost use a forest | 
+  #    of stumps, where each stump built using only one feature with makes it  |
+  #    a weak learners.                                                        |
+  # 2. In random forest the trees hase equal weight in voting otherwise in     |
+  #    others adaboost some stumps get more say in the final classification    | 
+  #    than the larger stumps get more say in the final classification than    |
+  #    the smaller stumps.                                                     |
+  # 3. In Random Forest Each dicision tree is made independently from the      |
+  #    others, it does not matter wich one has been created first, A forest of | 
+  #    stumps made by AdaBoost the order is important, the error made by the   |
+  #    first stump influence how the second stump is made.                     | 
+  # ============================================================================
+
+  # QUESTION:[ How to define how much say a stump has in the calssification ]=== 
+  # - We determine how much say a stump hsa in the final classification based on 
+  #   how well it classified the samples. 
+
+  # INFO:[ ANALOGY ]------------------------------------------------------------
+  # Imagine a teacher giving more attention to students who failed to last     |
+  # quiz each round, focusing on mistakes until everyone understands.          |
+  # ----------------------------------------------------------------------------
+
+===[ Boosting: Gradient Boosting Algorithm (GBM) ]===
 * 'Gradient Boosting' is one of the most powerful ideas in modern machine
   learning, It is a 'tree ensemble method' trees (built in parallel),
   like random forest, but it builds trees in a 'very different way'.
@@ -1540,5 +1586,6 @@ Random Forest ~= Bagging (Bootstrap <sampling with replacement> + Aggregation)
   in 2016.
 
 ====[ Conclusion ]=============================================================
-
-Decision Tree -> Bagging -> Random Forest -> Boosting -> Gradient Boosting -> XGBoost   
+}> Bagging = parallel, independent learners (variance reduction).
+}> Boosting = sequential, dependent learners (bias reduction).
+}> Decision Tree -> Bagging -> Random Forest -> Boosting -> Gradient Boosting -> XGBoost   

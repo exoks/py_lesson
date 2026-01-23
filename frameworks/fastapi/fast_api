@@ -1,11 +1,11 @@
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
-#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                𓐓  fast_api 𓐔           
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                 𓐓 fast_api 𓐔           
 #  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
 #  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀      Eng: oussama <oussama.ezzaou@gmail.com> 
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/10/27 13:58:23 by oussama
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/10/31 11:10:46 by oussama
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2026/01/14 16:18:34 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -25,7 +25,7 @@
   -> Uvicorn handles both 'Async' and 'Sync' tasks. 
   
   # QUESTION:[ How does uvicorn handle both tasks `Async` and `Sync`? ]=========
-  # - In uvicorn, each woker runs you app inside an 'event loop (using asyncio)'
+  # - In uvicorn, each woker runs the app inside an 'event loop (using asyncio)'
   # - Here is how it handles both types of tasks:
   #   > Async Tasks: These run directly on the event loop, uvicorn schedules and
   #     switches between them efficiently without blocking.
@@ -42,7 +42,7 @@
   #   - Multiple process (process pool)
   # > 'Daphne' VS 'Uvicorn'
   #   - Uvicorn: `async` event loop + thread pool for `sync` tasks (event loop) 
-  #   - Daphne: `async` event loop + sync runs on single worker (multip-process) 
+  #   - Daphne: `async` event loop + sync runs on single worker (multi-process) 
   # ============================================================================
 
   > [ General Structure ]
@@ -258,8 +258,109 @@
     # Exmaple 
     return HTTPException(status_code=404, detail="Item not found") 
 
-  # INFO:-----------------------------------------------------------------------
-  # - HTTPException tells the program to stop the execution and raise and HTTP |
-  #   HTTP Exception.                                                          |
-  # - Common Use: 404 “not found”, 401 “unauthorized”, 400 “bad request”       |
-  # ----------------------------------------------------------------------------
+  # INFO:----------------------------------------------------------------------
+  # - HTTPException tells the program to stop the execution and raise and HTTP|
+  #   HTTP Exception.                                                         |
+  # - Common Use: 404 “not found”, 401 “unauthorized”, 400 “bad request”      |
+  # ---------------------------------------------------------------------------
+
+===[ FastAPI Structure ]=======================================================
+project/
+│
+├── app/
+│   ├── __init__.py
+│   ├── main.py             # FastAPI app instance
+│   ├── asgi.py             # optional if using ASGI server
+│   ├── settings.py         # environment-dependent settings
+│   ├── config.py           # constants, static paths, magic numbers
+│   ├── ml_models/          # machine learning trained models 
+│       ├── model.joblib 
+│       └── ...
+│   ├── routes/
+│   │   ├── __init__.py
+│   │   ├── zone_processing_time.py
+│   │   └── other_routes.py
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   └── logger.py
+│   └── models/             # Pydantic models or ORM models
+│       ├── __init__.py
+│       └── ...
+│
+├── requirements.txt
+├── Dockerfile
+├── .dockerignore
+└── README.md
+
+===[ `settings.py` ]===
+> Purpose:
+  - Defines 'environment-specific, changeable configuation'
+  - Typically loaded at 'runtime' 
+  - May read from 'environment variables', '.env' or external config sources 
+
+-> runtime configuration, environment-specific, loaded via 'Pydantic' or
+   'os.environ' 
+  
+  # app/settings.py
+  from pydantic import BaseSettings
+
+  class Settings(BaseSettings):
+      APP_NAME: str = "Simulation API"
+      DEBUG: bool = true
+      HOST: str = "0.0.0.0"
+      PORT: int = 3000
+      LOGS_DIR: str = "/app/logs" 
+
+  settings = Settings()   # or get_settings() function
+
+  > Notes:
+    - Can change values without changing code (via environement variables) 
+    - often used in dependency injection in FastAPI:
+
+# import settings
+  from app.settings import settings
+
+  print(settings.APP_NAME)
+  # - Creates a new FastAPI app object
+  # - Sets a 'custom title' for the automatic docs 
+  # - Turns 'debug mode' on or off depending on the configuration 
+  FastAPI(title=settings.APP_NAME, debug=settings.DEBUG)
+  # > [ purpose: title ]
+  #   . Sets the title of your API
+  #   . Where it shows up: The title appears in 'automatic API documentation' 
+  #     that FastAPI generates (Swagger UI and ReDoc)
+  #   . `settings.APP_NAME` means the title is being read from some `settings`
+  #     object or module, usually from 'environment variables' or 'config file'
+
+
+===[ `config.py` ]===
+> Purpose:
+  - defines 'constants and static values'
+  - usually 'hardcoded', not 'not depend on environment' 
+  - Independent and reusable across the project 
+  - Safe to import anywhere without circular import problems 
+
+===[ `__init__.py` ]===
+  ___________________________
+  | Purpose           | Use |
+  |-------------------|-----|
+  | Mark package      | ✔   |
+  | Clean imports     | ✔   |
+  | Expose public API | ✔   |
+  | Run heavy logic   | ❌  |
+  |___________________|_____|
+
+===[ `config.py` VS `settings.py` ]===
+  _____________________________________________________________________________
+  | Feature               |           `settings.py`       |    `config.py`    |
+  |-----------------------|-------------------------------|-------------------|
+  | Environment-dependent | ✅ (via env vars or .env)     | ❌usually static  |
+  |-----------------------|-------------------------------|-------------------|
+  | Changeable at runtime | ✅                            | ❌                |
+  |-----------------------|-------------------------------|-------------------|
+  | Safe to import        | ⚠️ can cause circular imports | ✅                |
+  | anywhere              |                               |                   | 
+  |-----------------------|-------------------------------|-------------------|
+  | Purpose               | App settings, configurable    | Constants, static |
+  |                       | behavior                      | configuration     |
+  |_______________________|_______________________________|___________________|

@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2026/02/06 10:43:10 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2026/02/06 11:02:32 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2026/02/06 11:24:32 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -19,16 +19,16 @@
   can lead to better predictive performance and insights 
 
 ===[ Time Series Feature Engineering ]===
-
   1|> Lag Features: Capture past values of the time series to predict future
       values.
-  
-  2|> Rolling Statistics: Calculate statistics (mean, standard deviation) over 
+
+  2|> Calendar / datetime features: Decompose the time series into frequency
+      components (e.g.: dayofweek, day, month, ...) 
+
+  3|> Rolling Statistics: Calculate statistics (mean, standard deviation) over 
       a rolling window
 
-  3|> Fourier Transforms: Decompose the time series into frequency components. 
-
-  4|> Handling Seasonality: Identify and adjust for seasonal pattern 
+  4|> Handling Seasonality: Identify and adjust for seasonal pattern  
 
 ===[ Lag Features: ]=== 
 * Since the 'past influence the future', we can simply use the past values to  

@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/10/27 13:58:23 by oussama
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2026/01/14 16:18:34 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2026/01/29 11:09:27 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -351,6 +351,88 @@ project/
   |___________________|_____|
 
 ===[ `config.py` VS `settings.py` ]===
+  - The core idea ('this is the rule')
+    "Can this value realistically change between environments or deployments"
+    "without touching code?"
+    - IF 'YES'  -> `settings` 
+    - IF 'NO'   -> `config`
+    . That's it, Everything else is details
+
+  > [ `settings` = HOw the app is deployed ]
+    - Things that depend on: 
+      . environment (dev / stagin / prod)
+      . secrets
+      . infrastructure 
+      . ops / DevOps decisions
+    - These are usually:
+      . loaded from env vars
+      . different per machine
+      . not part off the app's "identity"
+    - Examples:
+      . DATABASE_URL
+      . REDIS_URL
+      . DEBUG
+      . LOG_LEVEL 
+      . SECRET_KEY
+      . JWT_SECRET
+    -> You Expect these to change when:
+      . you deploy somewhere else
+      . someone else runs the app 
+      . CI/CD runs it
+
+  > [ `config` = How the app behaves ] 
+    - Thins that define:
+      . rules
+      . policies
+      . limits 
+      . structure
+    - These are:
+      . mostly static
+      . part of the codebase logic
+      . changed intentionally by developers 
+    - Examples:
+      . CORS_ORIGINS
+      . API_PREFIX = "/api/v1"
+      . MAX_PAGE_SIZE = 100
+      . PASSWORD_MIN_LENGTH = 12
+      . DEFAULT_TIMEZONE = 'UTC'
+    -> You do not 'expect' these to change randomly per server
+
+# QUESTION:[ Why Cors belong to config? ]--------------------------------------
+# - Why CORS belongs in `config`:
+# - Ask the question:
+#   "Should CORS change just because I deploy to another machines?"
+#   -> `NO`, It's a 'security plicy' not infra.
+# -- hort answer (truth, no tricks) --
+# 👉 Config can change between development and production
+# 👉 But it changes by decision, not by necessity
+#    -> That distinction is everything.
+# -- The refined rule (this is the real one) --
+#    Ask two questions, in this order:
+#   1️⃣Must this change for the app to run?
+# - Yes → settings
+# - No → go to question 2
+# -- Is this a policy / rule / behavior decision?
+#    - Yes → config
+#    - No → settings
+# -----------------------------------------------------------------------------
+
+  > [ Why this works so well? ]
+    - Because
+      -> `settings` are 'external facts'
+      -> `config` is 'internal decisions' 
+
+  __________________________________________________
+  | Variable       | Why it changes     | Where    |
+  |----------------|--------------------|----------|
+  | DEBUG          | Safety / verbosity | config   |
+  | CORS_ORIGINS   | Security policy    | config   |
+  | API_RATE_LIMIT | Abuse prevention   | config   |
+  | DATABASE_URL   | Infra              | settings |
+  | REDIS_HOST     | Infra              | settings |
+  | SECRET_KEY     | Security secret    | settings |
+  |________________|____________________|__________|
+
   _____________________________________________________________________________
   | Feature               |           `settings.py`       |    `config.py`    |
   |-----------------------|-------------------------------|-------------------|

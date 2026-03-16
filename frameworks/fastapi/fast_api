@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/10/27 13:58:23 by oussama
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2026/01/29 11:09:27 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2026/02/13 18:17:26 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -446,3 +446,40 @@ project/
   | Purpose               | App settings, configurable    | Constants, static |
   |                       | behavior                      | configuration     |
   |_______________________|_______________________________|___________________|
+
+# INFO:[ `app.state` ]=========================================================
+# - `app.state` is a shared application-wide storage object attached to your  |
+#   FastAPI app.                                                              |
+# - Think of it as:                                                           |
+#   'A safe place to store things that live as long as the application lives' |
+# - `app.state` is technically an instance of "Starlette's" class, it behaves |
+#   like a 'simple object' where you can attach 'any attribute' to it         |
+# -> Example: app.state.<object> = value                                      |
+# - LifeCycle:                                                                |
+#   . When is it created?       -> When FastAPI app is created                |
+#   . When is it destroyed?     -> When the server shuts down                 |
+#   . How long does data live?  -> Exactly as long as the app runs            |
+# =============================================================================
+#
+# INFO:[ Nager.Date API ]======================================================
+# - Using an API is a very common and 'good feature-engineering move' for time
+#   time-series models
+#   -> `Nager.date`: is the best of simplicty, accuracy, and backend-
+#       friendliness
+# - Why it fits you use case:
+#   . Free & public (no API Key)
+#   . Clean REST API
+#   . Country-based holiday lookup
+#   . Easy to cache and preprocess for forecasting horizons
+#   . >> Widely used in production <<
+# NOTE:[ Very Important Note for Morocco & Islamic Holidays ]==================
+# - Islamic holidays are 'moon-sighting based', so:
+#   . APIs give 'estimated dates'
+#   . Governments ay annouce holidays +-1 day
+# - More Accurate Alternative (Hybrid Approach), Use two sources:
+#   1|> National holidays -> Nager.Date
+#   2|> Islamic holidays -> Hijri / Umm al-qura calendar
+#     - Options:
+#       . AlAdhan API (Hijri calendar)
+#       . Local precomputed tables (recommended for ML stability)
+# =============================================================================

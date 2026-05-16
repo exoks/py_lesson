@@ -1,0 +1,75 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀              𓐓 ts_feature_eng 𓐔        
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀  Engineer: oezzaou <oussama.ezzaou@gmail.com>
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2026/02/06 10:43:10 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2026/02/06 11:24:32 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ Feature Engineering in Time Series Data  ]================================
+* Feature Engineering is the process of using domain knowledge to extract
+  useful features from raw data, In time series analysis, effective feature
+  engineering is crucial for capturing temporal dependencies and patterns, which
+  can lead to better predictive performance and insights 
+
+===[ Time Series Feature Engineering ]===
+  1|> Lag Features: Capture past values of the time series to predict future
+      values.
+
+  2|> Calendar / datetime features: Decompose the time series into frequency
+      components (e.g.: dayofweek, day, month, ...) 
+
+  3|> Rolling Statistics: Calculate statistics (mean, standard deviation) over 
+      a rolling window
+
+  4|> Handling Seasonality: Identify and adjust for seasonal pattern  
+
+===[ Lag Features: ]=== 
+* Since the 'past influence the future', we can simply use the past values to  
+  help us predict the future, this is the main idea of lag features.  
+  - Since the lag feature are correlated, we use different lags to help the  
+    model capture the 'seasonality' (e.g. 1, 7, 14, 24, ...) 
+
+  # NOTE:[ Lag Features Can be created for both 'Target' & 'Features' ]
+
+# CONCLUSION: ]================================================================
+# - Lag features are one of the 'most powerful tools' in time series modeling | 
+# - because they allow your model to `see` the past behavior of the series    |
+#   and learn temporal dependecies.                                           |
+# - Most time series are autocorrelated - past values influence future ones,  |
+#   lag features make this relationship explicit for models like:             |
+#     . Linear Regression                                                     |
+#     . Random Forests                                                        |
+#     . XGBoost                                                               |
+#     . Neural networks                                                       |
+# > Without lag features, these models cannot inherently learn from the series|
+# - A lag feature is the value of the target or feature k period(s) in the    | 
+#   past: X(t - k)                                                            |
+# =============================================================================
+
+===[ Lag Feature-engine: `LagFeatures` class ]===
+- Lag 'feature-engine' provides a class `LagFeatures` to create a transformer 
+
+  # imports
+  from feature_engine.timeseries.forecasting import LagFeatures
+
+  # code: MS: Months
+  lag_transformed = LagFeatures(variables=['y'], freq=['1MS', '2MS', '3MS'])
+  lag_transformed.fit_transform(df)
+
+  # Output
+  - a dataFrame of target columns 
+  _________________________________________________________
+  | DateIndex  |  y  | y_lag_1MS | y_lag_2MS  | y_lag_3MS |
+  |------------|-----|-----------|------------|-----------|
+  | 2025-01-01 | ... |   NaN     |    NaN     |    NaN    |
+  | 2025-02-01 | ... |   ...     |    NaN     |    NaN    |
+  | 2025-03-01 | ... |   ...     |    ...     |    NaN    |
+  | 2025-04-01 | ... |   ...     |    ...     |    ...    |
+  | 2025-05-01 | ... |   ...     |    ...     |    ...    |

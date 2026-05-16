@@ -1,11 +1,11 @@
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
-#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                𓐓  fast_api 𓐔           
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                 𓐓 fast_api 𓐔           
 #  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
 #  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀      Eng: oussama <oussama.ezzaou@gmail.com> 
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/10/27 13:58:23 by oussama
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/10/31 11:10:46 by oussama
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2026/02/13 18:17:26 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -25,7 +25,7 @@
   -> Uvicorn handles both 'Async' and 'Sync' tasks. 
   
   # QUESTION:[ How does uvicorn handle both tasks `Async` and `Sync`? ]=========
-  # - In uvicorn, each woker runs you app inside an 'event loop (using asyncio)'
+  # - In uvicorn, each woker runs the app inside an 'event loop (using asyncio)'
   # - Here is how it handles both types of tasks:
   #   > Async Tasks: These run directly on the event loop, uvicorn schedules and
   #     switches between them efficiently without blocking.
@@ -42,7 +42,7 @@
   #   - Multiple process (process pool)
   # > 'Daphne' VS 'Uvicorn'
   #   - Uvicorn: `async` event loop + thread pool for `sync` tasks (event loop) 
-  #   - Daphne: `async` event loop + sync runs on single worker (multip-process) 
+  #   - Daphne: `async` event loop + sync runs on single worker (multi-process) 
   # ============================================================================
 
   > [ General Structure ]
@@ -258,8 +258,228 @@
     # Exmaple 
     return HTTPException(status_code=404, detail="Item not found") 
 
-  # INFO:-----------------------------------------------------------------------
-  # - HTTPException tells the program to stop the execution and raise and HTTP |
-  #   HTTP Exception.                                                          |
-  # - Common Use: 404 “not found”, 401 “unauthorized”, 400 “bad request”       |
-  # ----------------------------------------------------------------------------
+  # INFO:----------------------------------------------------------------------
+  # - HTTPException tells the program to stop the execution and raise and HTTP|
+  #   HTTP Exception.                                                         |
+  # - Common Use: 404 “not found”, 401 “unauthorized”, 400 “bad request”      |
+  # ---------------------------------------------------------------------------
+
+===[ FastAPI Structure ]=======================================================
+project/
+│
+├── app/
+│   ├── __init__.py
+│   ├── main.py             # FastAPI app instance
+│   ├── asgi.py             # optional if using ASGI server
+│   ├── settings.py         # environment-dependent settings
+│   ├── config.py           # constants, static paths, magic numbers
+│   ├── ml_models/          # machine learning trained models 
+│       ├── model.joblib 
+│       └── ...
+│   ├── routes/
+│   │   ├── __init__.py
+│   │   ├── zone_processing_time.py
+│   │   └── other_routes.py
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   └── logger.py
+│   └── models/             # Pydantic models or ORM models
+│       ├── __init__.py
+│       └── ...
+│
+├── requirements.txt
+├── Dockerfile
+├── .dockerignore
+└── README.md
+
+===[ `settings.py` ]===
+> Purpose:
+  - Defines 'environment-specific, changeable configuation'
+  - Typically loaded at 'runtime' 
+  - May read from 'environment variables', '.env' or external config sources 
+
+-> runtime configuration, environment-specific, loaded via 'Pydantic' or
+   'os.environ' 
+  
+  # app/settings.py
+  from pydantic import BaseSettings
+
+  class Settings(BaseSettings):
+      APP_NAME: str = "Simulation API"
+      DEBUG: bool = true
+      HOST: str = "0.0.0.0"
+      PORT: int = 3000
+      LOGS_DIR: str = "/app/logs" 
+
+  settings = Settings()   # or get_settings() function
+
+  > Notes:
+    - Can change values without changing code (via environement variables) 
+    - often used in dependency injection in FastAPI:
+
+# import settings
+  from app.settings import settings
+
+  print(settings.APP_NAME)
+  # - Creates a new FastAPI app object
+  # - Sets a 'custom title' for the automatic docs 
+  # - Turns 'debug mode' on or off depending on the configuration 
+  FastAPI(title=settings.APP_NAME, debug=settings.DEBUG)
+  # > [ purpose: title ]
+  #   . Sets the title of your API
+  #   . Where it shows up: The title appears in 'automatic API documentation' 
+  #     that FastAPI generates (Swagger UI and ReDoc)
+  #   . `settings.APP_NAME` means the title is being read from some `settings`
+  #     object or module, usually from 'environment variables' or 'config file'
+
+
+===[ `config.py` ]===
+> Purpose:
+  - defines 'constants and static values'
+  - usually 'hardcoded', not 'not depend on environment' 
+  - Independent and reusable across the project 
+  - Safe to import anywhere without circular import problems 
+
+===[ `__init__.py` ]===
+  ___________________________
+  | Purpose           | Use |
+  |-------------------|-----|
+  | Mark package      | ✔   |
+  | Clean imports     | ✔   |
+  | Expose public API | ✔   |
+  | Run heavy logic   | ❌  |
+  |___________________|_____|
+
+===[ `config.py` VS `settings.py` ]===
+  - The core idea ('this is the rule')
+    "Can this value realistically change between environments or deployments"
+    "without touching code?"
+    - IF 'YES'  -> `settings` 
+    - IF 'NO'   -> `config`
+    . That's it, Everything else is details
+
+  > [ `settings` = HOw the app is deployed ]
+    - Things that depend on: 
+      . environment (dev / stagin / prod)
+      . secrets
+      . infrastructure 
+      . ops / DevOps decisions
+    - These are usually:
+      . loaded from env vars
+      . different per machine
+      . not part off the app's "identity"
+    - Examples:
+      . DATABASE_URL
+      . REDIS_URL
+      . DEBUG
+      . LOG_LEVEL 
+      . SECRET_KEY
+      . JWT_SECRET
+    -> You Expect these to change when:
+      . you deploy somewhere else
+      . someone else runs the app 
+      . CI/CD runs it
+
+  > [ `config` = How the app behaves ] 
+    - Thins that define:
+      . rules
+      . policies
+      . limits 
+      . structure
+    - These are:
+      . mostly static
+      . part of the codebase logic
+      . changed intentionally by developers 
+    - Examples:
+      . CORS_ORIGINS
+      . API_PREFIX = "/api/v1"
+      . MAX_PAGE_SIZE = 100
+      . PASSWORD_MIN_LENGTH = 12
+      . DEFAULT_TIMEZONE = 'UTC'
+    -> You do not 'expect' these to change randomly per server
+
+# QUESTION:[ Why Cors belong to config? ]--------------------------------------
+# - Why CORS belongs in `config`:
+# - Ask the question:
+#   "Should CORS change just because I deploy to another machines?"
+#   -> `NO`, It's a 'security plicy' not infra.
+# -- hort answer (truth, no tricks) --
+# 👉 Config can change between development and production
+# 👉 But it changes by decision, not by necessity
+#    -> That distinction is everything.
+# -- The refined rule (this is the real one) --
+#    Ask two questions, in this order:
+#   1️⃣Must this change for the app to run?
+# - Yes → settings
+# - No → go to question 2
+# -- Is this a policy / rule / behavior decision?
+#    - Yes → config
+#    - No → settings
+# -----------------------------------------------------------------------------
+
+  > [ Why this works so well? ]
+    - Because
+      -> `settings` are 'external facts'
+      -> `config` is 'internal decisions' 
+
+  __________________________________________________
+  | Variable       | Why it changes     | Where    |
+  |----------------|--------------------|----------|
+  | DEBUG          | Safety / verbosity | config   |
+  | CORS_ORIGINS   | Security policy    | config   |
+  | API_RATE_LIMIT | Abuse prevention   | config   |
+  | DATABASE_URL   | Infra              | settings |
+  | REDIS_HOST     | Infra              | settings |
+  | SECRET_KEY     | Security secret    | settings |
+  |________________|____________________|__________|
+
+  _____________________________________________________________________________
+  | Feature               |           `settings.py`       |    `config.py`    |
+  |-----------------------|-------------------------------|-------------------|
+  | Environment-dependent | ✅ (via env vars or .env)     | ❌usually static  |
+  |-----------------------|-------------------------------|-------------------|
+  | Changeable at runtime | ✅                            | ❌                |
+  |-----------------------|-------------------------------|-------------------|
+  | Safe to import        | ⚠️ can cause circular imports | ✅                |
+  | anywhere              |                               |                   | 
+  |-----------------------|-------------------------------|-------------------|
+  | Purpose               | App settings, configurable    | Constants, static |
+  |                       | behavior                      | configuration     |
+  |_______________________|_______________________________|___________________|
+
+# INFO:[ `app.state` ]=========================================================
+# - `app.state` is a shared application-wide storage object attached to your  |
+#   FastAPI app.                                                              |
+# - Think of it as:                                                           |
+#   'A safe place to store things that live as long as the application lives' |
+# - `app.state` is technically an instance of "Starlette's" class, it behaves |
+#   like a 'simple object' where you can attach 'any attribute' to it         |
+# -> Example: app.state.<object> = value                                      |
+# - LifeCycle:                                                                |
+#   . When is it created?       -> When FastAPI app is created                |
+#   . When is it destroyed?     -> When the server shuts down                 |
+#   . How long does data live?  -> Exactly as long as the app runs            |
+# =============================================================================
+#
+# INFO:[ Nager.Date API ]======================================================
+# - Using an API is a very common and 'good feature-engineering move' for time
+#   time-series models
+#   -> `Nager.date`: is the best of simplicty, accuracy, and backend-
+#       friendliness
+# - Why it fits you use case:
+#   . Free & public (no API Key)
+#   . Clean REST API
+#   . Country-based holiday lookup
+#   . Easy to cache and preprocess for forecasting horizons
+#   . >> Widely used in production <<
+# NOTE:[ Very Important Note for Morocco & Islamic Holidays ]==================
+# - Islamic holidays are 'moon-sighting based', so:
+#   . APIs give 'estimated dates'
+#   . Governments ay annouce holidays +-1 day
+# - More Accurate Alternative (Hybrid Approach), Use two sources:
+#   1|> National holidays -> Nager.Date
+#   2|> Islamic holidays -> Hijri / Umm al-qura calendar
+#     - Options:
+#       . AlAdhan API (Hijri calendar)
+#       . Local precomputed tables (recommended for ML stability)
+# =============================================================================

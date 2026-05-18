@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/12 08:13:45 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2026/03/16 10:55:43 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2026/03/29 22:11:39 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -31,7 +31,7 @@
       . Cost function with regularization
       . Gradient Descent with regularization
 
-
+                                     |
     |--------------[ Machine Learning Algorithms Types ]--------------|
     |                                |                                |
 [ Parmateric Models ]        [ Tree-Based Models ]     [ Neural Network Models ]
@@ -2438,7 +2438,7 @@ If you want, next I can:
     -> Access is "network-based via an object storage service" 
 
 # INFO:[ 'FastFS' VS 'MinIO' ]-------------------------------------------------
-- FastFs = direct disk storage                                                |
+- RustFs = direct disk storage                                                |
 - MinIO = 'scalable object service' for distributed systems                   |
 _______________________________________________________________________________
 | Feature              | FastFS (Filesystem) | MinIO                          |
@@ -2697,3 +2697,17 @@ _______________________________________________________________________________
   Features    → Feature store
   Metadata    → SQL database
   Models      → Model registry
+
+
+===[ When do You Retrain The model? ]===
+- Three common strategies:
+
+  1|> Scheduled Retraining
+    - every month / year
+
+  2|> Data-Drift Triggered
+    - Retrain when enough new data arrives 
+    - e.g., +10% dataset 
+
+  3|> Performance-Based (this is the best strategie)
+    - Retrain when accuracy drops 

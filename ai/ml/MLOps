@@ -1,0 +1,286 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                  𓐓 MLOps 𓐔             
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀  Engineer: oezzaou <oussama.ezzaou@gmail.com>
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2026/03/16 11:10:58 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2026/03/19 12:21:24 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ MLOps ]===================================================================
+* "MLOps" refers to the 'practice' and 'discipline ' within machine learning
+  aims that to 'unify' and 'streamline' the machine learning system development
+  (Dev) and machine learning system operation (Ops) 
+  - It involves collaboration between 'data scientist', 'ML engineers', and
+    'IT professionals' -> to automate and optimize the: 
+    
+      "[ end-to-end lifecycle of machine learning applications ]"
+
+  -> 'MLOps' is the overlap between 'Machine Learning', 'DevOps' and
+     'Data Engineering'. 
+
+  > [ MLOps Components ]
+    1. Data Management (Data Ingestion Pipeline)
+    2. Version Control
+    3. Automation (pipeline)
+    4. Experiment tracking 
+    5. CI/CD 
+    6. Monitoring
+    7. Retraining
+
+  > [ Machine Learning Lifecycle ]
+    1|> Data Problem: This is the first problem that we face when it commes 
+        to data, once the data is given in different form, it must be
+        wirehoused in a single place, so it can be used by 'data scientist', 
+        'data anylysis', etc.
+        > NOTE:[ This is 'Data Engineer' Role ], MLOps solves this problem 
+
+    2|> Code implementation Problem: the training python file or script from
+        'data loading' -> 'model evaltion', contains a lot of components 
+        (loader (data ingestion), preprocessor, feature engineering, training 
+        evaluation).
+       - Which make it:
+          . Difficult in maintenance
+          . Limited Reusability
+          . Harder Collaboration
+          . Poor Scalability
+          . Testing Challenges 
+       # NOTE:[ Modular Coding: OOP principales is the solution problem ]
+
+    3|> Version Problem: Version tracking wich version is used for prediction
+
+    4|> Experiment Tracking Problem: `MLFlow` help us use experiment tracking 
+
+    5|> Deployment Problem: CI/CD pipeline 
+
+    6|> Data Drift Problem: monitoring (GRAFANA) 
+
+    7|> Infrastructure Problem: the whole pipeline
+
+    8|> Automation Problem: (pipeline is mainly used for automation)
+        - pipeline tracking tool: DVC (data version controling) 
+
+  > [ Benefits of MLOps ]
+    1. Scalability
+    2. Improved performance 
+    3. Reproducibility
+    4. Collaboration and efficiency 
+    5. Risk REduction
+    6. Cost Saving
+    7. Faster time to market
+    8. Better compliance and governance
+
+# NOTE:[ `git/github` is a main tool in 'DevOps' & 'MLOps' ]
+
+===[ DVC: MLOps tools ]===
+* DVC (data version control) is used for 'ML pipelines' and 'pipeline tracking' 
+  # NOTE:[ 'airflow' and 'MLflow' are used for the same purpose ]
+
+  > [ End-To-End ML pipeline: ]
+    data ingestion -> data validation -> data transformation -> model training 
+    -> model evalutation -> prediction pipeline -> user app -> deployment
+
+  - In simple word DVC is like 'git', it allows you to track pipeline and data
+    exactly like 'git' where it allows us to track files. 
+
+===[ Cloud ]===
+- Cloud service provider: `aws`, `gcp`, `azure`, ...
+- All the cloud service has the same `storing service`, but in different name
+  . `AWS`: S3 bucket (MinIO role)
+  . `GCP`: G bucket  
+  . `AZUR`: azure blob
+- All the have the same almost the same service, only 'names' and 'ui' changes
+
+===[ Experiment Tracking: `MLFlow` ]===
+* In 'Machine learning', building a model usually requires 'many experiments'.
+  - A 'data scientist' might try:
+    . different algorithms 
+    . different hyprparameters
+    . different datasets
+    . different 'feature engineering methods'
+    -> Each attempt produces 'different results'
+  
+  - 'Experiment tracking' is the practice of 'recording everything about each'
+    'experiment' so you can:
+    . remember what you tried
+    . compare results betrween experiments
+    . reproduce a good model later
+
+  # INFO:[ ANALOGY: think of it like 'lab notebook for ML experiments' ]
+  #      [ Experiment Tracking = Git for Machine Learning Experiment   ]
+  
+  - Without 'experiment tracking', you might ask questions like:
+    . "Which parameters produced this good model?"
+    . "Which dataset version did i use?"
+    . "Why was this experiment better than the previous one?"
+    -> Experiment Tracking answers those questions
+
+  > [ Why Experiment Tracking Is Important ]
+    - It records:
+      . What you changed
+      . What you run
+      . What result you got
+      -> So you never lose track of your experiments
+
+  > [ `MLFlow` ]
+    - `MLflow` is a tool that helps you 'manage machine learning experiments'
+      'and models'.
+    - When you train machine learning models, you usually run 'many experiments'
+      each experiment may use:
+      . different parameters
+      . different datasets
+      . different algorithms
+    - MLflow helps you 'track, organize, and save all of these experiments', so
+      you do not lose important information.
+    - A simple way to think about it:
+      [ MLflow = a management system for your 'machine learing experiments'   ]
+      [          'and models'                                                 ]
+
+    # QUESTION:[ What's the problem that MLflow solves? ]----------------------
+    # - Image you train a model like this:                                    |
+    # """"                                                                    |
+    #   python train_model.py                                                 |
+    #   python train_model.py                                                 |
+    #   python train_model.py                                                 |
+    # """"                                                                    |
+    # - After several runs, you may forget:                                   |
+    #   . Which parameters you used                                           |
+    #   . Which experiment produced the best accuracy                         |
+    #   . Which dataset was used                                              |
+    #   . Where the trained model file is                                     |
+    #   -> MLflow 'automatically records these details' for you               |
+    # -------------------------------------------------------------------------
+
+===[ `MinIO`: object storage system database ]===
+* `MinIO` is a 'high-performance', 'S3-compatible object storage server', it
+  allows you to 'store' and 'manage' 'unstructured data' (like images, videos
+  , CSVs, machine learning datasets) locally or in the cloud
+  - 'MinIO' is often used in development, testing, and small-scale production
+    setups as a lightweight 'alternativate to AWS S3'.
+
+  > Use cases include:
+    . Storing 'machine learning datasets'
+    . Hosting 'static files' for 'web applications' 
+    . Acting as 'object storage' for 'microservices'
+
+  > [ Installing And Running a Local MinIO Server ] 
+    1|> Download MinIO Server: 
+      # Linux/macOS 64-bit
+      """"
+        wget https://dl.min.io/server/minio/release/linux-amd64/minio
+        chmod +x minio
+      """"
+
+    2|> Start MinIO Server: 
+      # choose a local folder to store data, e.g `~/minio-data` 
+      """"
+        ./minio server ~/minio-data
+      """"
+      # you see output like:
+      """"
+        Endpoint:  http://127.0.0.1:9000  http://192.168.x.x:9000
+        AccessKey: minioadmin
+        SecretKey: minioadmin
+      """"
+      # This indicates MinIO is running locally on port `9000`
+
+    3|> Accessing the `MinIO` Web Console
+      # Open a web browser and go to
+      """"
+        http://localhost:9000
+      """"
+      # - Use the AccessKey('minioadmin'), and SecretKey('minioadmin') to log in 
+      # - You Can manage buckets, upload files, and view objects via this web
+      #   interface.
+
+    # INFO:[ `bucket` ]--------------------------------------------------------
+    # - `Bucket` is basically like a 'folder or container' where you store    |
+    #   objects (files)                                                       |
+    # - Think of it this way:                                                 | 
+    #   . `Bucket` -> A top-level storage container                           |
+    #   . `Object` -> A file inside that bucket (could be text, image, csv,   |
+    #                 model weights, etc.)                                    | 
+    # - You can have 'Multiple buckets' to organize your data by project,     |
+    #   environment, or type.                                                 |
+    # - You often organize buckets like this (common pattern)                 |
+    #   ml-project                                                            |
+    #   │                                                                     |
+    #   ├── raw-data/                                                         |
+    #   ├── processed-data/                                                   |
+    #   ├── features/                                                         |
+    #   └── models/                                                           |
+    # -------------------------------------------------------------------------
+
+===[ RustFS: filesystem / object storage system ]===
+* 'RustFS': (often referred to as FastFS) is a 'high-performance'
+            'filesystem / object storage system written in Rust'.
+
+  - Core Idea -> it gives you:
+      . 'Very fast file access' (close to disk speed)
+      . 'Safe memory' handling (thanks to rust)
+      . 'Simple storage' without heavy infrastructure
+ 
+  - When to use it:
+      . You need 'fast local or distributed file storage'
+      . You care about 'performance and low latency'
+      . Your services run 'close to the storage (same machine or cluster)'
+
+  - How RustFs Works:
+      1. Store files directly
+          - Files are written to disk (like a filesystem)
+          - Exmaple: /data/processed/train.parquet
+      2. Access via filesystem or service 
+          - your backend or pipeline reads directly from disk
+      3. Optional: wrap with an API
+          - You Expose endpoints:
+          """"
+            GET /dataset/train
+          """"
+          - Backend reads file -> return data
+
+  -> Exmaple in your pipeline:
+      . Saving processed data:
+        """"
+        /data/
+          raw/
+            processed/
+            dataset_v1.parquet
+        """"
+      . Reading in python: 
+        """"
+            import pandas as pd
+            df = pd.read_parquet("/data/processed/dataset_v1.parquet")
+        """"
+      - 'No network layer no object storage API, just fast I/O'
+
+  > [ RustFS VS MinIO ]
+    ________________________________________________________________________
+    | Feature      | RustFS (FastFS)           | MinIO                     |
+    |--------------|---------------------------|---------------------------|
+    | Type         | Filesystem                | Object storage (S3-like)  |
+    | Access       | Direct disk (POSIX)       | HTTP / S3 API             |
+    | Performance  | ⚡ Very fast (local I/O)  | 🚀 Fast but network-based |
+    | Setup        | Simple                    | Medium (server + config)  |
+    | Scalability  | Limited (depends on infra)| High (distributed)        |
+    | Best for     | Local pipelines           | Distributed systems       |
+    | Data sharing | Harder (needs API)        | Easy (HTTP access)        |
+    | Versioning   | Manual                    | Built-in (optional)       |
+    | Cloud-native | ❌ No                     | ✅ Yes                    |
+    | Security     | OS-level                  | IAM, policies             |
+    |______________|___________________________|___________________________|
+
+# NOTE:[ VERY IMPORTANT ]======================================================
+# - In ML systems, `trained models` are typically stored in:                  |
+#                                                                             |
+#   1. 'Object storage (most common)': `MinIO`, `Amazon S3`                   |
+#   2. 'Model registry': `MLflow` model registry (for versions and metadata)  |
+#   3. 'Filesystem': (simple setups): local or network storage                | 
+#                                                                             |
+# -> Most Production ML Systems store model files in 'object storage' and     | 
+#    track them with a model registry.                                        |
+# =============================================================================

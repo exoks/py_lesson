@@ -1,0 +1,1204 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                  𓐓 tabfm 𓐔             
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀  Engineer: oezzaou <oussama.ezzaou@gmail.com>
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2026/07/08 14:25:19 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2026/07/22 15:29:48 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+# ===[ Index ]=================================================================
+# ===[ part 1 ]=== 
+1. What problem TabICLv2 tries to solve? 
+2. Why foundation models for tabular data are difficult 
+3. Who created TabICLv2
+4. The intuition behind In-Context Learning
+5. Why TabICLv2 is revolutionay
+6. High-level architecture
+7. Comparison with XGBoost, CatBoost, LightGBM, Random Forest, and MLP
+# ===[ part 2 ]===
+8. Why synthetic data is used 
+9. how the model is pretrained
+10. how a tabular dataset becomes transformer tokesn
+11. how attention works on tables
+12. 'Why the model does not need gradient descent' on your dataset
+13. Why this generalizes to unseen datasets 
+# ===[ part 3 ]===
+14. Installation
+15. The Python API
+16. What `fit()` actually does
+17. What `predict()` actually does
+18. A complete regression Example
+19. Evaluation
+20. Saving & loading
+21. GPU vs CPU
+22. Performance recommendations
+# NOTE:[ The index must be changed later ]
+
+# ===[ part 4 ]===
+23. Foundation Models Retraining 
+
+# ===[ The Main Poblem ]=======================================================
+- Imagine you receive a completely new dataset
+  . for example:
+    ______________________________________
+    | Age | Salary | Experience | Bought |
+    |-----|--------|------------|--------|
+    | 23  | 40k    | 2          | 0      |
+    | 45  | 90k    | 18         | 1      |
+    | 31  | 55k    | 6          | 0      |
+    |_____|________|____________|________|
+
+  > Normally your workflow is:
+
+        Collect data
+             |
+        Clean Data
+             |
+        Feature Engineering
+             |
+        Model Selection
+             |
+        Train Model 
+             |
+        Hyper-Parameters Tunning
+             | 
+        Validation
+             |
+        Prediction
+
+    - Every new dataset requires repeating almost everything
+    - If tommorrow someone gives you hospital data
+      """ Patients.csv """
+    - You Train Again
+    - Next Week
+      """ Financial.csv """
+    - You Train again
+    - Next Month
+      """ Weather.csv """
+    - Train again.
+    --> Every dataset starts from scratch 
+
+    # NOTE:[ Traditional ML assumes: "I know nothing until you train me" ]
+
+===[ The Big Idea ]===
+- Now Think about 'ChatGpt'
+  Suppose you ask:
+    """ Translate this sentence to French"""
+
+  - You do not train chatGPT, you simply provide 'exmaples' or 'instructions' 
+  - The 'model already knows how language works', it just adapts to your prompt
+  => That is called 'In-Context Learning (ICL)'
+
+  |> [ In-Context Learning (ICL) ]
+     - Instead of learning 'through gradient descent every time'.
+     - The model learns from the 'context you provide'
+     - Exmaple:
+      . For LLMs:
+      """
+        prompt
+        |
+        Example 1
+        Example 2
+        Example 3
+        |
+        Prediction
+      """
+      -> No Training
+
+  |> [ Core Idea ] 
+     - researchers asked:
+      "" Can we do the same thing for tabular data? ""
+     - Instead of 'train XGBoost'
+     - Could we simply provide 
+       """
+        Training rows
+          |
+        predictions
+       """
+     ->> That question gave birth to 'TabICL'
+
+# ===[ Why Fondation models for tabular data are difficult ]===================
+- Language has 'Words'
+- Images have 'pixels'
+- Tabular data has ... 'Everything'
+  . Exmaple:
+      """ Hospital
+        Age
+        Height
+        Weight
+        Diagnosis
+      """
+      """ Bank 
+        Income 
+        Balance 
+        Credit Score 
+      """
+      ...
+  - There is no 'universal vocalbulary'
+  - 'Every dataset' has 'different meanings' 
+  ->> [ That's Why tabular foundation models are much harder than language models ]
+
+  |> [ Why Tree Models have dominated? ] 
+     - For nearly '20 years': if someone says
+       "I have tabular data"
+     - people immediately think
+       . XGBoost
+       . LightGBM
+       . CAtBoost 
+     - Because tree ensembles are incredibly good at
+       . Mixed features types
+       . missing values
+       . nonlinearities 
+       . small datasets
+       . noisy features
+     -> 'Neural networks usually lose on tabular datasets'
+     -> 'That is why computer vision became dominated by transformers' 
+     -> 'Language become domincated by Transformer'
+     -> 'Tabular data stayed dominated by gradient boosting'
+
+# ===[ What is TabICLv2? ]=====================================================
+- Think of it as:
+  """
+    A pretrained Transformer that has already learned how to solve thousands
+    (or millions) of tabular learning problems before you even use it.
+  """
+- Instead of saying:
+  """
+    Learn from my dataset
+  """
+- You say: 
+  """
+    Here are examples
+    Predict this new row
+  """
+->> That is completely different philosophy
+  
+- Traditional ML:
+      """
+        Dataset
+          |
+        Training
+          |
+        Model
+      """
+
+- TabICLv2
+      """
+        pretrained Foundation model
+        |
+        Dataset as Context
+        |
+        Predictions
+      """
+->> 'The knowledge already exists inside the model'
+
+  |> [ Why is it called a foundation Model? ]
+     - A foundation model is trained 'once' on an 'enormous and diverse set '
+       'of taks so it can later adapt to many new tasks with little or no'
+       'additional training'.
+     - Example:
+       . 'GPT' -> language
+       . 'CLIP' -> vision-language
+       . 'SAM' -> image segmentation
+       . 'TabICLv2' -> tabular data
+
+  # INFO:[ VERY VERY IMPORTANT ]===============================================
+  # - The important point is that the training happens before you eve download
+  #   the model, when you use it, you are leveraging the knowledge learned
+  #   during that massive pretraining phase.
+  # ===========================================================================
+
+
+  |> [ Who Created TabICLv2? ] 
+     - 'TabCLIv2' was introduced by researchers from the 'inria' and
+       'collaborating institutions', it extends the original 'TabICL' work
+       with improvements in scalability, training methodology, and performance,
+       aiming to create a true foundation model for tabular machine learning
+
+     - The motivation was simple:
+        """
+          Can we build a single pretrained model that performs well across
+          thousands of tabular datasets without requiring dataset-specific
+           hyperparameter turning?
+        """
+        -> Instead of spending hours tunning 'XGBoost' or 'CatBoost' for every
+           new dataset, the researchers wanted a model that already 'understands'
+           tabular prediction problems
+
+
+# ===[ High-Level Architecture ]===============================================
+- Internally, 'TabICLv2' is still a 'Transformer'
+
+Training Dataset
+──────────────────────────
+x₁ → y₁
+x₂ → y₂
+x₃ → y₃
+...
+xₙ → yₙ
+        │
+        ▼
+Transformer Encoder
+        │
+Attention compares
+every example
+with every other example
+
+        │
+        ▼
+Predict y?
+for the query sample
+
+-> Instead of 'treating rows independently', The transformer attends to
+   'relationships between all the provided examples'
+- This allows it to 'infer patterns' from the 'context rather' than 'fitting' 
+  model prameters specifically to your dataset
+
+|> [ The most Important Mental Model ]
+   - Foreget this
+      """ XGBoost learns Your Dataset """
+   - Instead think:
+     """
+        TabICLv2  already learned millions of datasets
+        You dataset simply reminds it
+        which pattern is relevant
+     """
+   
+   # INFO:[ ANALOGY ]==========================================================
+   # - Imagine two doctors
+   #  1|> Doctor A: Fresh graduate 
+   #      - Reads your medical record 
+   #      - Studies for 10 hours
+   #      - Finally gives a diagnosis 
+   #  2|> Doctor B: Has treated one million patients 
+   #      - Looks at your symptoms
+   #      - immediately recognizes the pattern 
+   #      - TabICLv2 is much closer to Doctor B
+   # -> The expensice learning happended long before you arrived
+
+# ===[ How is it different from XGBoost? ]=====================================
+_____________________________________________________________________________________________________
+| Aspect                           | XGBoost           | TabICLv2                                     |
+|----------------------------------|-------------------|--------------------------------------------- |
+| - Needs training on your dataset | ✅ Yes            | Minimal or none, depending on the usage mode |
+| - Hyperparameter tuning          | Usually important | Often much less important                    |
+| - Learns via gradient boosting   | ✅                | ❌                                         |
+| - Pretrained on many tasks       | ❌                | ✅                                         |
+| - Foundation model               | ❌                | ✅                                         |
+| - Uses Transformer attention     | ❌                | ✅                                         |
+| - Can leverage prior knowledge   | ❌                | ✅                                         |
+|   from pretraining               |                   |
+|__________________________________|___________________|_____________________________________________|
+
+-> This is a change in 'how learning happens', not just 'which Algo is used'
+
+
+  |> [ Comparing With 'MLPs' ] 
+     - Your current workflow with an MLP likely looks like
+
+     Dataset
+        |
+     Update weights
+        |
+     Repeat for handres of epochs
+        |
+     Finish models
+
+     -> With 'TabICLv2', the heavy weight updates occurred during the models'
+        large-scale pretraining phase.
+     -> At 'inference time', you mainly provide the model with labeled examples
+        '(the context)' and ask it to 'predict labels for new rows', in many 
+        use cases, 'there is no lengthy optimization loop over your dataset'.
+
+# ===[ Conclusion ]============================================================
+ By the end of this first part, you should remember these five ideas:
+
+1|> 'TabICL is a foundation model for tabular data', analogous in spirit to
+    how 'GPT is a foundation model for text (language)'
+2|> 'It relies on in-cntext learning' using labeled examples as context 
+    rather than training from scratch on every dataset.
+3|> 'Its knowledge comes from extensive pretraining' across many tabular 
+    tasks, allowing it to generalize to new datasets. 
+4|> 'It uses a Transformer architecture', enabling 'attention across examples' 
+    instead of 'building decision trees'.
+5|> 'It changes the workflow' from 'train a model for eawch dataset' toward 
+    adapt a 'pretrained model' to a new dataset with minimal additional work.
+
+
+# ===[ The Core idea of `TabICL` ]=============================================
+- let's compare two worlds:
+  
+  |> [ Traditional ML ]
+     - Suppose you have a 'housing dataset'
+     - You train model 'only' on this dataset
+        """
+          Housing Data
+              |
+          Train XGBoost
+              |
+          Housing predictor
+        """
+     - The model 'knows nothing about':
+        . medicine
+        . banking
+        . biology
+        . logistics
+        . finance
+     -> 'it only learned housing.'
+
+  |> [ Tabular Foundation Model ]
+     - know imagine doing this 'millions' of times:
+              Housing
+                ↓
+              Medical
+                ↓
+              Insurance
+                ↓
+              Astronomy
+                ↓
+              Finance
+                ↓
+              Agriculture
+                ↓
+              Weather
+              ...
+              Millions more
+
+     -> 'Instead of creating millions of separate models' 
+     ->> 'What if one transformer learned all of them'
+     -->>> That is the idea behind 'TabICLv2'
+
+
+  |> [ Where do Millions of datasets come from?]
+     - Here is the first 'surprising fact':
+       -> 'Most of datasets are not collected from the real world'
+       --> Instead:
+       -> They are 'generated synthetically'
+     - This is one of the biggest conceptual 'differences'  from
+       almost every 'ML model you have used'.
+     - But Why?
+       . Imagine traying to collect
+          """ 10 million """ real tabular datasets -> it's impossible
+       . Instead, 'researchers generate them automatically'
+       . For Example:
+         """ X1 -> y = sin(x) """ dataset 1
+         """ y = X^2 """ dataset 2
+         """ y = log(x) """ dataset 3
+         """ y = x1 + x2 """ dataset 4
+         ...
+       . Millions
+     -> The objective is not 'to memorize these functions'
+     -> It is to expose the 'Transformer to a huge variety of relationships':
+        . linear
+        . nonlinear
+        . noisy
+        . sparse
+        . inferactions
+        . discountinuities
+        . categorical patterns
+        . different feature scales
+        . missing values (depending on the pretraining setup)
+     ->> Over time, it learns 'how predictions problems tend to look', rather
+         than memorizing a specific dataset.
+
+    # QUESTION:[ Why Synthetic Data Works? ]===================================
+    # - This seems strange at first:                                          |
+    #   " How can fake data help with real-world problems?"                   |
+    # - Think about pilots:                                                   |
+    #   . Pilots train extensively in flight simulators                       |
+    #     " The simulator is not the real sky "                               |
+    #   . But it teaches the important patterns:                              |
+    #     - Responding to turbulence                                          |
+    #     - Instrument interpretation                                         |
+    #     - Emergency procedures                                              |
+    #   -> Similarly, synthetic datasets expose the model to the structure    |
+    #      of prediction problems                                             |
+    #   -> When it later sees a real  medical or financial dataset, many of the
+    #     statistical patterns are familiar.underlying                        | 
+    # =========================================================================
+
+# ===[ TabCLIv2 vs XGBoost - Transformers VS tree ]============================
+
+|> [ Pretraing Loop in ICL ]
+   - Conceptually, pretraining looks like this:
+
+     Generate Dataset
+            |
+     Hide Some Labels
+            |
+      Predict Them
+            |
+     Compute Error
+            |
+     Update Transformers
+            |
+     Generate New Dataset
+            |
+          Repeat 
+
+   - This process is repeated on an 'enormous number of tasks'
+   - 'Eventually the model starts learning general strategies like':
+     . Which features matter?
+     . Which rows are similar?
+     . What kinds of nonlinear relationships commonly appear?
+     . What kinds of nonlinear relationships commonly appear?
+     . How should information from labeled examples influence predictions?
+   # NOTE:=====================================================================
+   # - The model is not learning one function, it's learning:
+   #   """ how to solve supervised learning algorithms """
+
+  |> [ What does Transformer Actually See? ]
+     - Suppose your dataset is:
+        ______________________________________
+        | Age | Salary | Experience | Bought |
+        |-----|--------|------------|--------|
+        | 22  | 35k    | 1          | 0      |
+        | 28  | 60k    | 5          | 1      |
+        | 35  | 90k    | 11         | 1      |
+        |_____|________|____________|________|
+
+     - Traditional ML sees rows independently 
+        """
+          Row 1
+          |
+          Prediction
+        """
+        """
+          Row 2
+          |
+          Prediction
+        """
+     - TabICLv2 instead receives a 'context' of labeled examples plus an
+       unlabeled query.
+       . Conceptually:
+      
+          Example:
+          Age=22 Salary=35k Exp=1
+          Label=0
+
+          Example:
+          Age=28 Salary=60k Exp=5
+          Label=1
+
+          Example:
+          Age=35 Salary=90k Exp=11
+          Label=1
+
+          Query:
+          Age=31 Salary=70k Exp=7
+          Label= ?
+       . 'This resembles few-short prompting with an LLM':
+          English → French
+
+          Dog → Chien
+
+          Cat → Chat
+
+          Bird →
+
+          ?
+       . The model infers the task from the examples:
+
+    - Tranditional tree models split features: 
+       """
+          Age > 30?
+            yes
+          Salary > 60k?
+       """
+    - Transformers instead compare exampels to one another:
+      Imagine the query:
+      """
+        Age = 31
+        Salary = 70k
+        Experience = 7
+      """
+    - The 'attention' mechanism may focus more on:
+      """
+        Age = 28
+        Salary = 60k
+        Experience = 5
+      """
+      . Than on
+      """
+        Age = 70
+        Salary = 15k
+        Experience = 45
+      """
+    -> Because the first exmaple is more informative for the query
+    -> This comparison happens across all examples simultaneously
+
+  |> [ Self-Attention (High-Level View) ] 
+     - For every example in the context, the model computes representations 
+       (often described as 'queries', 'keys' and 'values')
+     """
+        Example 1 ─┐
+                   │
+        Example 2 ─┼─────────────┐
+                   │             │
+        Example 3 ─┘             ▼
+                          Attention Scores
+                                 ▼
+                         Weighted Combination
+                                 ▼
+                         Better Representation
+     """
+     - The result is that each 'example's representation is "informed by the others"
+     - In TabICLv2, this lets the model reason about relationships withing the
+       context when predictiong the query.
+
+  # QUESTION:[ Why No Training on Your dataset? ]============================== 
+  #  Suppose you have already trained for monts on millions of synthetic tasks
+  #   - Now you receive:
+  #     " Customer churn "
+  #   - Instead of running
+  #     """
+  #       Gradient Descent  
+  #           |
+  #       500 epochs
+  #           |        
+  #       Weight updates
+  #     """   
+  #   - You simply provide labeled examples as context
+  #     . The pretrained TRAnsformer uses its existing knowledge to
+  #       infer the mapping
+  #     . its parameters say fixed
+  #   - The context changes -- not the weights
+  # ===========================================================================
+_______________________________________________________________________
+| Step                  | XGBoost        | TabICLv2                   |
+|-----------------------|----------------| ---------------------------|
+| Receive dataset       | ✅             | ✅                         |
+| Initialize new model  | ✅             | ❌ (uses pretrained model) |
+| Train on your data    | ✅             | Usually no                 |
+| Hyperparameter search | Often          | Often unnecessary          |
+| Weight updates        | Yes            | No (during inference)      |
+| Prediction            | After training | Directly from context      |
+|_______________________|________________|____________________________|
+
+# INFO:[ Helpful Analogy ]=====================================================
+# - Imagine your are learning to solve Sodoku
+#   1|> Traditional ML
+#       . You study 'one puzzle' repeatedly until you master it
+#       . When a new puzzle arrives, you start over
+#   2|> TabICLv2
+#       . You have solved 'millions of sudoku puzzles' 
+#       . A new puzzle appears
+#       . You don't relearn Sodoku
+#       . You recognize the pattern and solve it immediately
+# ->> That is the essence of foundation models
+# =============================================================================
+
+===[ Conclusion ]===
+1|- 'TabICLv2 is pretrained on an enormous number of tasks', many of which are
+    'synthetically generated'
+  # INFO:===
+  # - 'enormous': (adj), very large
+  # - 'synthetic': (adj), not from the real world (sina3i, machi tabi3i)
+
+2|- 'Synthetic data is a feature, not a limitation', it allows the model to
+    learn broad 'statistical patterns' at scale
+3|- 'Your dataset becomes context', not training data in the traditional sense
+4|- 'The Transformer uses attention acros examples' to infer the mapping from
+    'inputs' to 'outputs'.
+5|- 'Inference does not involve updating the models weigths'; it relies on
+    the knowledge acquired during pretraining.
+
+# NOTE:[ `.fit()` in TabICLv2 ]===
+# - Earler we described TabICLv2 as requiring "no training", That's the core
+#   idea behind 'pure in-context learning', but it's worth nothing that some 
+#   implementations also offer optional `fit()` APIs for convenience or 
+#   calibration, Those methods typically prepare or cache dataset rather
+#   than performing the kind of iterative optimication you see in XGBoost
+#   and MLP.
+
+# ===[ Installation ]==========================================================
+- Let's connect the gap betwen theory and what we will actually write in python
+- One thing is important before we begin:
+  """"
+    The `fit()` method in TabICLv2 does not mean what `fit()` means in
+    scikit-learn. 
+  """"
+  # NOTE:=====================================================================
+  # - This is probably the biggest source of confusion for people comming from
+  #   traditional machine learning (ML).
+  # ==========================================================================
+
+- Install the base package:
+  """ pip install tabicl """
+- For time-series forecasting:
+  """ pip install 'tabicl[forecast]' """"
+- For SHAP explantions:
+  """ pip install 'tabicl[shap]' """ 
+- For fine-tunning:
+  """ pip install 'tabicl[finetune]' """
+
+  |> [ The API ]
+    """
+      from tabicl import TabICLRegressor
+
+      model = TabICLRegressor()
+
+      model.fit(X_train, y_train)
+
+      predictions = mdoel.predict(X_test)
+    """
+# NOTE:========================================================================
+# Looks like every sklearn model ..., BUT INTERNALLY IT BEHAVES VERY DIFFERENT]
+# =============================================================================
+
+  |> [ What happens Inside `fit()` ]
+     - Suppose you call 
+        """ model.fit(X_train, y_train) """
+     - In XGBoost: internally, it does:
+        """
+          Initialize Trees
+            |
+          Build Tree 1
+            |
+            Compute Residuals
+            | 
+          Build Tree 2
+            |
+          ....
+            |
+          Handred of trees created sequencially
+        """
+     - In MLP
+        """
+          Initialize Weights
+              |
+          Forward Pass
+              |
+            Loss
+              |
+          Backpropagation
+              |
+          Update Weights
+              |
+          Repeat 500 epochs
+        """
+        Again ...
+        training.
+     - IN 'TabICLv2': Something much simpler happens
+        """ model.fit(X_train, y_train) """
+        -> Internally, it mostly:
+            . Stores the training dataset
+            . performs preprocessing
+            . downloads the pretrained checkpoint if needed 
+            . optionally builds a 'KV(Key-Value) cache' for faster 
+              repeated predictions
+        -> 'It does not retrain The transformer on your data', The actual 
+           in-context reasoning happens when you later call `predict()`
+    
+  |> [ Where Does learning happen? ] 
+     - The answer suprises almost eveyone
+     - learning happens here:
+        """
+          model.predict(X_test)
+        """
+        Not because the weights change ...
+        but because the transformer receives
+        """
+          Training Examples
+            +
+          Test Example
+        """
+      -> at the same time.
+     - Conceptually, the model is doing something like:
+       """
+        Transformer(
+          X_train,
+          y_train,
+          X_test
+        )
+       """
+       . instead of:
+       """
+        Transformer(X_test)
+       """
+       -> The training set becomes part of the input (the context), not
+          something used to optimize the models parameters
+        """
+              Fit
+               ↓
+          Store X_train
+            
+          Store y_train
+               ↓
+             Predict
+               ↓
+             Combine
+
+             X_train
+             y_train
+             X_test
+               ↓
+        Run ONE Transformer Forward Pass
+               ↓
+            Predictions
+        """
+      - Notice What's missing: There is 'no'
+        . optimizer
+        . epochs 
+        . backpropagation
+        . weight updates
+      - during normal inference
+
+# ===[ Complet Regression Example ]============================================ 
+- Suppose we want to predict the house prices
+""" python
+import pandas as pd
+
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_absolute_error
+
+from tabicl import TabICLRegressor
+
+# Load data
+df = pd.read_csv("houses.csv")
+
+X = df.drop(columns=["price"])
+y = df["price"]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42
+)
+
+model = TabICLRegressor()
+
+model.fit(X_train, y_train)
+
+pred = model.predict(X_test)
+
+mae = mean_absolute_error(y_test, pred)
+
+print(mae)
+"""
+
+# NOTE:========================================================================
+# - It seems similar to sickit-learn. it was designed to be API-compatibel    ]
+# =============================================================================
+
+
+# QUESTION:[ Why does not need hyperparameter Tunning? ]=======================
+# - Think about XGBoost, You might turne:
+#   """
+#     max_depth
+#     learning_rate
+#     gamma
+#     n_estimators
+#     ...
+#   """
+#   -> Sometimes yu search over hundreds of combinations
+# - With TabICLv2
+#   """
+#     model = TabICLRegressor()
+#   """
+#   -> That's offten enough.
+#   -> The heavy optimization happened during the model's pretraining, so the
+#      default configuration already performs strongly on many datasets.
+# ?: Can you fine fine-tuen it?
+# - Yes: Tere are two 'different modes'
+#   1|> Mode 1: Zero-Shot / In-context learning
+#       """
+#         TabICLRegressor()
+#       """
+#       -> No parameter updates: This is the default
+#   2|> Mode 2: Fine-tunning
+#       """
+#         FinetunedTabICLRegressor()
+#       """
+#       -> Now the transformer's weights are updated on your specific dataset
+#          using gradient descent, much like other deep learning models
+#          This mode is optional and intended for cases where you want to adapt 
+#          the pretrained model further
+# =============================================================================
+
+
+# ====[ Evaluation ]==========================================================
+- Exactly the same as sklearn
+"""
+from sklearn.metrics import (
+    mean_absolute_error,
+    mean_squared_error,
+    r2_score
+)
+
+pred = model.predict(X_test)
+
+print(mean_absolute_error(y_test, pred))
+
+print(mean_squared_error(y_test, pred))
+
+print(r2_score(y_test, pred))
+"""
+
+Or for your forecasting projects:
+"""
+from sklearn.metrics import mean_absolute_percentage_error
+
+mape = mean_absolute_percentage_error(
+    y_test,
+    pred
+)
+"""
+-> Nothing special here
+
+# ===[ Saving Models ]=========================================================
+- Instead of `joblib.dump()`, TabICLv2 provides its own API
+"""
+  model.save("regressor.pkl")
+"""
+
+- Load it later with:
+  """
+    from tabicl import TabICLRegressor
+
+    mdoel = TabICLRegressor.load("regressor.pkl")
+  """
+
+# ===[ GPU or CPU ]============================================================
+
+1|> Small Datasets
+    """
+      100 samples
+
+      500 samples
+
+      2,000 samples
+    """
+    -> CPU is often sufficient
+
+2|> Medium datasets
+    """
+      20,000 samples
+
+      50,000 samples
+    """
+    -> GPU becomes beneficial
+
+3|> Large datasets
+    """
+      100,000+
+
+      500,000+
+    """
+    -> GPU is strongly recommended
+
+  # NOTE:=======================================================================
+  # The developers report that an H100 GPU can process a dataset with 50,000
+  # samples and 100 features in under 10 seconds, and the model can scale to
+  # much larger datasets using memory offloading techniques.
+  # ============================================================================
+
+===[ KV Cache ]=================================================================
+- This is a feature unique to TABICLv2
+-> Suppose
+  """
+    model.fit(train)
+  """
+-> then
+  """
+    model.predict(test1)
+    model.predict(test2)
+    model.predict(test3)
+    model.predict(test4)
+  """
+-> Without caching: 'The transformer repeatedly processes the same training context'
+- With
+  """
+    TabICLRegressor(
+      kv_cache=True
+    )
+  """
+-> The expensice representations fo the training data are computed once
+   during 'fit()' and reused, makeing repeated predictions much faster
+   at the cost of additional memory
+
+===[ Conclustion ]===
+- You should now understand the Python API beyond its surface:
+  -> `fit()` 'does not train' the pretrained transformer in the default mode;
+    it prepares and stores the context.
+
+  -> `predict()` is where the model performs 'in-context learning', using the
+     the training examples alongside the test examples in a single fowrard pass
+
+  -> The API intentionally mirros scikit-learn, making it easy to integrate 
+     into existing workflows.
+
+  -> Fine-tunning is 'optional' and uses a separate estimator when you want
+     to update the model's weights
+
+  -> Feature like 'KV caching' improve repteated inference efficiency without
+     changing predictions
+
+===[ TFMs ]====================================================================
+- 'TFMs (Tabular foundation models)', it is a very young field compared by
+  (LLMs), They all share the same philosophy:
+  """
+    Pretrain once on millions of tabular learning tasks, then adapt to new
+    datasets with little or no per-dataset training
+  """
+
+- Here's the current landscape:
+
+| Model              | Organization    | Main Idea                                                                     | Status                |              |
+| ------------------ | --------------- | ----------------------------------------------------------------------------- | --------------------- | ------------ |
+| TabPFN         | Prior Labs      | Bayesian-inspired Transformer using in-context learning                       | ⭐ Pioneer             |              |
+| TabPFN v2 / v3 | Prior Labs      | Improved scalability, regression, larger datasets                             | ⭐ State-of-the-art    |              |
+| TabICL         | Inria           | Open-source in-context learning Transformer                                   | ⭐ Open source         |              |
+| TabICLv2       | Inria           | Better synthetic pretraining, scalable attention, regression & classification | ⭐ Current SOTA (open) |              |
+| TabFM          | Google Research | Zero-shot foundation model for tabular data                                   | ⭐ New (2026)          |              |
+| ConTextTab     | Research        | In-context learning for tabular data                                          | Experimental          |              |
+| Mitra          | Research        | Transformer-based tabular foundation model                                    | Experimental          |              |
+| LimiX          | Research        | Foundation model for tabular learning                                         | Experimental          |              |
+| TabDPT         | Research        | Dense prediction Transformer for tabular tasks                                | Experimental          | ([arXiv][1]) |
+
+
+                                [ Big Three TFMs ]
+                                        |
+    +-----------------------------------+--------------------------------+
+    |                                   |                                |
+[ TabPFN ]                        [ TabICLv2 ]                        [ TabFM ] 
+- This is the model          - Fully open source            - Released by 
+that made 'TMFs' popular     - Supports 'class' and 'reg'     google research in 
+- originally focused on      - Handles much larger datsets    2026
+  'small datasets'             than the original 'TabPFN'  - Inspired by the 
+- Extremely strong for       - Uses improved synthetic data  success of 'TimesFM'
+  classification               generatin and architectural   for time series
+- Based on a Transformer       innovtions                  - aims to provide  
+  trained on millions of                                     'Zero-Shot' on 
+  synthetic datasets                                         tabular data
+
+
+===[ Foundation Models retraining ]============================================
+* 'TabICL does not retrain in the same way as XGBoost or neural network' 
+  'trained from scratch'. The answer depends on whether you are using:
+  1|_ The 'pretrained (foundation) TabICL model', or
+  2|_ A 'fine-tuned TabICL model' 
+
+  |> [ Initial Training ]
+     - Suppose you have data from '2017-2024'
+     """
+        Pretrained TabICL
+              |
+        Fine-tune on 2017-2024
+              |
+        Fine-tuned model (Version 1)
+     """
+     -> During 'fine-tuning', the model 'updates its weights' using 'gradient'
+        'descent'
+     -> The models 'learns' patterns like:
+        - weekly seasonality
+        - holiday effects
+        - lag relationships
+        - feature interactions
+        # NOTE:[ These are stored inside the model weights ]
+
+  |> [ New Data Arrives ] 
+     - Now suppose one month passes, you 'receive january 2025'
+
+       """ Old training
+          2017 ---------- 2024 + new data (Jan 2025)
+       """
+       -> The question becomes:
+          """ Shoudl we train only on January 2025? """
+          -> usually 'no'.
+       -> because the model 'would immediately start forgetting what it '
+          'learned before'.
+          # NOTE:[ This phenomenon is called 'catastrophic forgetting']
+
+  |> [ Retraining: Option 1 (Recommended) ]
+     - Continue fine-tuning using 'old + new data' 
+     - Instead of:
+        "" Jan 2025 only ""
+     - You use:
+        "" 2027 - 2025 ""
+     - or
+        "" 2020 - 2025 ""
+     - Depending on your window
+     - The process becomes
+        """
+          Version 1
+             |
+          Load weights
+             |
+          Fine-tune again
+          using old + new data
+             |
+          Version 2
+        """
+        -> Notice Something important:
+           - You are not 'starting from foundation model again'
+           - So the model already knows your dataset 
+
+    |> [ What happens internally? ]
+       - Suppose ne weights equals:
+          """ 0.82 """
+       - after seeing new data
+          """
+              Gradient
+                |
+                0.82 -> 0.8214
+          """ 
+       - Another
+          """
+            -0.44
+              |
+            -0.437
+          """
+       - 'Thousands' or 'millions' of weights get slightly adjusted.
+       - Nothing is reset
+
+    |> [ Why include old data? ]
+      - Imagine your port usually behaves like:
+        """
+          monday: 120
+          tuesday: 135
+          wednesday: 150
+        """
+      - Then january happens to be 
+        """
+          monday: 300
+          tuesday: 320
+          wednesday: 340
+        """
+      - If you train only on january
+        The model may conclude
+          """
+            Mondays are around 300
+          """
+        -> Which is incorrect
+        -> INcluding historical data keeps the learned long-term distribution
+
+    |> [ Sliding Window ]
+       - Sometimes keeping all history is 'unnecessary'. 
+       - Instead
+          """
+            2017 2018 2019 2020 2021 2022 2023 2024 2025
+                              |
+                  keep only recent years
+          """
+       - For example:
+          """
+          last 3 years
+          """
+       - This is common when
+         -> The system changes over time.
+         -> older patterns become irrelevant
+         -> concept drift exist
+      # NOTE:[ Try this approach with TabICLv2, example: 2020 ->>> ]
+
+    |> [ Fine-tunning Procedure ]
+       - Suppose today you have 
+         """
+            Version 1
+            trained on
+
+            2017-2024
+         """
+       - A month later
+         """
+            2017-2025
+         """ 
+       - Then
+         """
+            model = FinetunedTabICLRegressor(...)
+
+            model.load_weights("version1")
+
+            model.fit(
+                X_train_new,
+                y_train_new,
+                epochs=20,
+                learning_rate=1e-5
+            )
+         """
+       -> Notice:
+          - Fewer epoches
+          - Small learning rate
+          ->> because the model already knows the task
+
+    # QUESTION:[ Should we retrain from scratch? ]=============================
+    # - The answer usually not:
+    #   """
+    #     Foundation Model 
+    #           |
+    #       Fine-Tune
+    #           |
+    #       Throw away
+    #           |
+    #     Foundation Model again
+    #           |
+    #       Fine-Tune
+    #   """
+    #   -> This wastes all previous learning
+    # - Instead
+    #   """
+    #     Version 1
+    #       |
+    #     Version 2
+    #       |
+    #     Version 3
+    #       |
+    #     Version 4
+    #   """
+    #   -> Each version 'improves upon the last'.
+    # QUESTION:[ Is this the same as online learning? ]=========================== 
+    # - The answer: not exactly
+    # - Online learning looks like:
+    #   """
+    #      receive one sample
+    #             |
+    #       Update model
+    #             |
+    #      receive another model
+    #             |
+    #       Update Model
+    #   """
+
+    - TabICL fine-tuning is typically done in 'batches' you accumulate new data 
+      (for example, a day, a week, or a month). 'then run another fine-tuning'
+      'session' on that 'batch'
+      ->> This is often called 'incremental fine-tuning' or 'continued'
+          'fine-tuning', not true online learning
+
+# ===[ Conclusion ]============================================================
+1|> Keep the current fine-tuned model (ex: trained until 2024)
+2|> when enough new data has accumulated (ex: monthly, or quarterly, ...) 
+    append it to your training dataset.
+3|> Recompure any features that depend on history (such as lags & rolling ...)
+4|> Load the existing fine-tuned model weights 
+5|> Continue fine-tuning for a 'small number of epoches with a low learning' 
+    'rate'.
+6|> Evaluate on a recent validation priod before replacing the prudction 
+    model.
+
+7|> Different Implementations: 
+ ______________________________________________________________________________
+ | Aspect             | TabICL     | Finetuned         |    Pretraining       |
+ |                    | Regressor  | TabICLRegressor   | (developers only)    | 
+ |--------------------|------------|-------------------|----------------------|
+ | Updates weights?   | ❌ No      | ✅ Yes            | ✅ Yes               |
+ |--------------------|------------|-------------------|----------------------|
+ | Uses your training | As context | To optimize       | To create the        |
+ | data               | only       | weights           | foundation model     | 
+ |--------------------|------------|-------------------|----------------------|
+ | Training time      | Seconds    | Minutes to hours  | Days to weeks        |
+ |--------------------|------------|-------------------|----------------------|
+ | Typical user       | Most users | Users with one    | Researchers          |
+ |                    |            | important dataset |                      |
+ |--------------------|------------|-------------------|----------------------|
+ | Goal               | Zero-shot  | Adapt the model   | Build the foundation |
+ |                    | prediction | to one dataset    | model itself         | 
+ |____________________|____________|___________________|______________________|
+# =============================================================================

@@ -1,0 +1,726 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                𓐓 dl_theory 𓐔           
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀  Engineer: oezzaou <oussama.ezzaou@gmail.com>
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2026/07/27 11:42:36 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2026/11/02 15:07:59 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+===[ Index ]===================================================================
+1|> The Story of AI
+    . The first AI Era (1950s - 1970s)
+    . Birth Of Machine Learning
+    . Machine Learning Definition
+    . The problem behind machine learning
+
+2|> Introduction to Deep Learning
+3|> What is a neuron?
+
+
+===[ The story Begins: Artifial Intelligence ]================================
+- 'Imagine' you are in the '1950s', 'computers' had just been 'invented'.
+- 'Researchers' asked a fascinating question:
+  "Can a machine think?"
+  . This was not a 'programming question'
+  . It was a 'philosophical question'
+- 'Instead of telling computers exactly what to do', 'could they learn by'
+  'themselves?'
+- That dream became known as -> 'Artificial Intelligence (AI)'
+# NOTE:------------------------------------------------------------------------
+# - Notice something important: AI is not a specific algorithm it's simply the
+#   <goal>:
+#   -> Create machines capable of performing tasks that normally require human
+#   -> intelligence.
+# - Examples:
+#   . Recognizing faces
+#   . understanding languages
+#   . playing chess
+#   . driving cars
+#   . translating languages
+#   . generating images
+#   . writing code
+# -> (AI) is the distination
+# -> Every else (Machine learning, deep learing, refinforcement learning, ...)
+#    is simply one possible road toward that destination.
+# -----------------------------------------------------------------------------
+
+===[ The first AI Era (1950s - 1970s) ]===
+- Researchers believed intelligence could be programmed directly
+- Their idea was simple:
+  """
+    Human Intelligence
+          |
+      'Write Rules'
+          |
+    Computer becomes intelligent
+  """
+- Suppose we want to 'recognize a cat', A 'programmer write a rules':
+  """
+    If has wiskers
+       & has tail
+       & has four legs
+       & meows
+    then
+      cat
+  """
+  ->> This approach is called > 'Rule-based AI' or 'Symbolic Ai'
+      The 'computer never learns', it only 'follows rules/instructions'
+      (This is what is called 'programming intelligence')
+
+  # QUESTION:[ What this approach 'Rule-based AI' fails? ]=====================
+  # - Real life is messy. consider cats:
+  #   . Some cats have no tails
+  #   . Some cats do not meow 
+  #   . Some are sleeping
+  #   . Some are enormous
+  #   ...
+  # - Soon You end up writing 'thousands of rules':
+  #   IF
+  #     ...
+  #   ELSE IF
+  #     ...
+  #   ELSE IF
+  #     ...
+  #   ELSE
+  #   -> Eventually: 'IMPOSSIBLE'
+  # - The world contains too many exceptions, Researchers realized something 
+  #   profound
+
+===[ Birth Of Machine Learning ]===
+* Researchers realized something profound:
+  - 'Instead of teaching computers':
+    """ Rules """ maybe 
+
+  - 'We should teach them'
+    """ Examples """
+  ->> 'This idea changed AI Forver' <<-
+
+  - Instead of this: (Rule-based AI: programming intelligence)
+    """
+      programmer
+          |
+      Write Rules
+          |
+      Computer
+    """
+  - We now have:
+    """
+             Data
+              |
+      Learning algorithm
+              |
+            Model
+    """
+  - We program
+    """ The ability to learn (algorithm)""" instead of """ Rules """ This is
+    what is called 'Machine learning'.
+
+  - Example: 
+    * Imagine 'recognizing handwritten digits'
+      - Traditional Programming:
+        """
+          programmer
+              |
+          find every possible shpae of (7) all cases (explicitly)
+              |
+          Impossible
+        """
+      - Machine Learning:
+        """
+          thousands of images
+                  |
+          Learning algorithm
+                  |
+          Model discovers the pattern (implicitly)
+        """
+    ->> The 'programmer no longer writes' the 'rules', the algorithm 'discovers'
+        'them automatically'
+    -->> "This is a huge conceptual shift" <<--
+
+===[ Machine Learning Definition ]===
+* Arthur samuel (1959) gave one of the 'earliest definitions':
+  """
+    A 'computer learns' from 'experience' if its 'performance' at a 'task' 
+    'improves' with experience.
+  """
+  - year later, Tom mitchell formalized it:
+  """
+    A computer program is said to learn from experience 'E' with respect to 
+    some task 'T' and performance measure 'P', if its performance at 'T' as
+    measured by 'P' improves with 'E'.
+  """
+  -->> Notice Something: There is no 'mention' of 'neural networks', Machine
+       Learning is much broader.
+
+  # QUESTION:[ How machine learning works? ]===================================
+  # - Suppose you want to predict house prices:
+  # - Your data: Examples
+  #   [ House size, Bedrooms, Bathrooms, Age, Garage, Location ]
+  # NOTE:[ EXAMPLES NOT RULES ] 
+  # - Algorithms like:
+  #   . Linear Regression
+  #   . Random Forest
+  #   . XGBoost
+  #   ...
+  # - Learns the relationships (unlike rules-based AI when we had to programm
+  #   relationships and patterns explicitly as instructions) 
+  # ==========================================================================
+  
+  But ....
+
+===[ The Hidden Problem Behind Machine Learning ]===
+* Suppose Instead you want to recognize cats:
+  - The computer receives an image of cat  224x224 pixels:
+    """
+      pixels
+      pixels
+      ...
+      pixels
+    """
+  - For an image that is: '224 * 224 * 3' -> "150,528 numbers" 
+  - The computer only sees numbers, it does not know
+    [ ear, tail, eye, fur, wisker ]
+  - It sees:
+    """
+      12
+      83
+      142
+      201
+      ...
+    """
+  # QUESTION:------------------------------------------------------------------
+  # - How can an algorithm discover a cat from raw numbers?
+  # - Classical Machine learning struggled.
+
+                  [ Researchers Invented a solution ]
+                                  |
+      +---------------------------+---------------------------+
+      |                                                       |
+[ Feature Engineering ]                                 [ Deep Learning ]
+- Manual Feature engineering                      - Automatic feature engeering
+
+
+  |> [ Feature Engineering ]
+     - Insted of giving 'raw pixels', 'humans extracte useful information'
+       (describe images)
+     - Example:
+       'cat image':
+        """
+              Image
+                |
+            Edge detector
+                |
+              Corners
+                |
+              Texture
+                |
+              Shape
+                |
+          Machine Learning
+        """
+        ->> This process is called 'Feature Engineering'
+        --> The 'human' 'decides' what is 'important'
+        --> The 'model' only 'learns' from those 'engineered features'
+
+     - [ Analogy ]: 
+       * 'Imagine teaching someone' to 'recognize apples':
+         Instead of showing 'apples', you tell them:
+         X = [ 'Round', 'Red', 'Sweet', 'Smooth' ]
+         > You are describing the object
+         > You are not 'letting them discover it', That is exactly what feature
+           engineering does.
+
+    # INFO:--------------------------------------------------------------------
+    # - Feature engineering transforms images into handcrafted numerical      |
+    #   features (tabular data) that classical machine learning algorithms    |
+    #   can use.                                                              |
+    # -------------------------------------------------------------------------
+
+    - [ Why Feature engineering became the bottelneck? ]
+      1|> Every 'Problem needs experts'
+         . 'medical images?' > different features
+         . 'Speech?'         > different features
+         . 'Text'            > different features
+         . 'Time series'     > different features
+         -> 'Every field require years of expertise'
+
+      2|> classical machine learning (1980s-2000s): in the early days of 
+          machine learning, computers 'could not learn useful features from'
+          'raw images'. Humans had to manullay design them:
+          'Image' -> 'Hand-crafted feature extraction' -> 'Feature vector' ->  
+          'machine learning classifier' -> 'prediction' 
+          . For example if you wanted to recognize cats and dogs, you might
+            manually extract:
+              -> 'Number of edges'
+              -> 'Corner count'
+              -> 'Shape descriptors'
+              -> ...
+          . Then you would feed these numbers into a classifier like:
+              -> 'Support Vector Machine (SVM)'
+              -> 'Random Forest'
+              -> 'Logistic Regression'
+              -> 'Decision Tree'
+          # NOTE:[ VERY IMPORTANT NOTE ]=======================================
+          # - The early ML models never saw the original images, it only saw
+          #   the features you engineered.
+          # ->> The hardest Part In this Process is 'Feature Engineering' <<-
+          - The Big Problem:
+            . Imagine you are building a face recognition system, you ask:
+                "Which features identify a face?"
+            . Maybe: (Eye distance, Nose length, Mouth width, Face symmetry)
+            . But 'another engineer' might 'choose completely different'
+              features.
+          # INFO:==============================================================
+          # - The quality of the system depended heavily on 'human expertise' ]
+          # - That why people even joked:                                     ]
+          #   " Machien learning is 90% feature engineering "                 ]
+          # - Neural networks changed the question:                           ]
+          #   > instead of asking "which feature should i extract?"           ]
+          #   > researchers asked "Can the computer discover the useful"      ] 
+          #                       "features by itself?"                       ]
+          # -> That idea became "representation learning"                     ]
+          # - Instead of:                                                     ]
+          #   Image -> Feature Engineering (manual) -> Model -> predictions   ]
+          # - image -> representation (neural network) -> learn features      ]
+          #   automatically -> predictions                                    ] 
+          # ===================================================================
+
+      3|> 'Good features' determin 'success', The algorithm often 'mattered' less
+          the 'features'.
+
+         # NOTE:---------------------------------------------------------------
+         # - People joked: "Machine Learning is really Feature engineering"
+         # - This joke means that 'in classical machine learning' the quality
+         #   of your manually engineered features often mattered more than the
+         #   choice of algorithm.
+         # - For example:
+         #   1. Dataset A -> Raw images -> Random Forest (poor performance)
+         #   2. Dataset A -> Carefully engineered features (edges, textures,
+         #      shapes). -> Random Forest (good performance)
+         #   -> Even switching from 'Random Forest' to 'XGboost' might improve 
+         #      performance only slightly, while 'better feature engineering'
+         #      'could improve it dramatically'.
+         # -> So People Joked: "Machine Learning is not about choosing the best"
+         #    "algorithm, It is about creating the best features".
++------- # -------------------------------------------------------------------+
+|                                                                             | 
+|                                                                             |
++> [ 'Deep Learning' changed this by 'learning the features automatically' ] <+
++> [ reducing the need for 'manual feature engineering'.                   ] <+
+
+   |> [ Deep Learning ]
+      - 'Researchers' asked:
+        """ Instead of manullay designing features ..."""
+      - Could the computer learn the features by itself?
+        This single question gave birth to -> 'deep learning'
+
+      - 'Convolutional Neural Networks' (CNNs)
+        . This is where the 'revolution' really happend, 'CNNs'
+        . Instead of 'engineers writing code like': 
+          detect_edges(image)
+          detect_corners(image)
+          measure_texture(image)
+          >>>> 'The CNNs learns filters automatically' <<<<
+        . The 'first layer' learns things like:
+          [ 'vertical edges', 'horizontal edges', 'diagonal edges' ]
+        . The 'second layer' combines them into 
+            [ 'curves', 'circles', 'textures' ]
+        . The 'third layer' learns:
+            [ 'eyes', 'ears', 'wheels', 'windows' ]
+        . The 'firth layer' learns:
+            [ 'faces', 'cars', 'cats' ]
+        . finally:
+            [ 'cat' ]
+        . Notice 'Something amazing':
+          > no body programmed the concept of eye
+          > nobody programmed the 'cat ears'
+          > no body programmed 'whiskers'
+          -> The 'network invented' those 'internal representations' because
+             they helped 'minimize prediction error'.
+
+# QUESTION:[ Did Deep Learning start with computer vision? ]===================
+# - The answer: Not Exactly
+# - Neural Networks are much older
+# - A simplified timeline
+#   . 1943: The first mathematical model of an artificial neuron by Warren
+#     McCulloch and Walter Pitts.
+#   . 1958: Frank Rosenblatt introduced the Perceptron.
+#   . 1986: David Rumelhart, Geoffrey Hinton, and Ronald Williams popularized
+#           backpropagation.
+#   . 1998: Yann LeCun developed early CNNs (LeNet) for handwritten digit
+#           recognition.
+#   . 2012: Alex Krizhevsky, Ilya Sutskever, and Geoffrey Hinton introduced
+#           AlexNet, which dramatically outperformed traditional computer
+#           vision methods on the ImageNet competition.
+# ->> The '2012 ImageNet victory' is widely regraded as the moment deep 
+#     learning became the 'dominat approach in AI'
+# QUESTION:[ Why computer vision first? ]======================================
+# - Images contain enormous amounts of raw information
+# - A single image of size 2024 * 224 * 3 contains:
+#   2024 * 224 * 3 = 150528 numbers 
+# - Trying to manually engineer the perfect features from over 150000 values is
+#   incredibly difficult. 
+#   -> Deep neural networks excelled because they could learn a hierarchy of
+#      features directly from those pixels.
+# INFO:[ THEN THE REVOLUTION SPREAD ]==========================================
+# - after CNNs transformed computer vision, the same core idea, 'learning'
+#   'representations automatically instead of relying on hand-crafted features'
+#   was adapted to many domains:
+#   . 'Speech recognition': learned acoustic fetaures directly from autdio
+#                           waveforms or spectrograms.
+#   . 'Natural Language Processing': learned word and sentence representations
+#                                    instead of relying on manullay designed
+#                                    linquistics features.
+#   . 'Time Series forecasting': learned temporal patterns rather than
+#                                depending entirely on manually created lag
+#                                features and seasonal features.
+#   . 'Recommender systems': learned latent user and item represenations 
+#                            instead of using only engineered statistics.
+# INFO:[ This connects directly to your Machine learning journey ]=============
+# - You already understand that in classical machine learning you create
+#   features such as:
+#   . Lag features
+#   . Rolling averages
+#   . Holiday indicators
+#   . day of week
+#   . month
+#   . seasonal variables
+# - Those are the tabular data equivalent of 'HOG' or 'SIFT' feature in
+#   classical computer vision: 'human-designed representations'
+# - Deep learning's central idea:
+#   "Instead of asking humans to tell the model what information is important" 
+#   "build models that can discover useful representations from raw data"
+#   "themselves."
+# ->> That single shitf from 'feature engineering' to 'representation learning'
+#     is the conceptual leap that explains why deep learning was so
+#     transformative. <<-
+# =============================================================================
+
+# QUESTION:[ is CNNs a foundation model? ]=====================================
+# - The answer: No
+# - A CNN is an 'architecture', not a foundation model
+# - 'CNN' = a neural network architecture designed to learn features from raw
+#           images 
+# - 'Foundation Model' = a very large model pre-trained on massive datasets
+#                        that can be adapted to many downstream tasks
+#                        (e.g, CLIP, SAM, DINOv2, Vision Transformers).
+# - So historically:
+#   > CNNs were the 'deep learning architecture' that 'replaced manual feature'
+#     'engineering for images'.
+#   > Modern vision foundation models often use 'Transformers' instead of
+#     'CNNs' although many realy founation models were 'CNN-based' or
+#     'CNN-Inspired'.
+# =============================================================================
+
+
+===[ Introduction to Deep Learning ]===========================================
+* 'Deep learning' is a 'subset of machine learning'.
+
+  - Instead of
+    'data' |-> 'manual (human) feature engineering' |-> 'machine learning'
+
+  - We now have:
+    'Data' |-> 'Neural Network' |-> 'Features' |-> 'Prediction' 
+
+  # NOTE:[ VERY IMPORTANT NOTE ]===============================================
+  # - The same model learns:
+  #   1. What features matters  | 
+  #   2. How to use them        |
+  #                             +--> Simultaneously 
+  # --> This is revolutionary.
+
+# QUESTION:[ Why Is it Called 'Deep'? ]========================================
+# - Imagine stacking many transformations:                                    |
+#   """                                                                       |
+#     Image                                                                   |
+#       |                                                                     |
+#     Edges                                                                   |
+#       |                                                                     |
+#     Corners                                                                 |
+#       |                                                                     |
+#     Shapes                                                                  |
+#       |                                                                     |
+#     Objects                                                                 | 
+#       |                                                                     |
+#       |                                                                     |
+#      Cat                                                                    |
+#   """                                                                       |
+# -> 'Each layer learns something slightly more abstract'                     |
+#   """                                                                       |
+#     Layer 1                                                                 |
+#       |                                                                     |
+#     Layer 2                                                                 |
+#       |                                                                     |
+#     Layer 3                                                                 |
+#       |                                                                     |
+#     Layer 4                                                                 |
+#       |                                                                     |
+#     Layer 5                                                                 |
+#   """                                                                       |
+# -> Many layers: Deep Network -> hence -> [ Deep Learning ]                  |
+# =============================================================================
+
+===[ Simple Analogy: ]===
+- Imagine teaching a 'child', the 'child' does not 'memorize':
+  """ Cat's have exactly this ear angle (feature) """
+  -> [ Instead, 'the child gradually builds concepts'. ] 
+
+  . First: 'lines'
+  . Then: 'Curves'
+  . Then: 'Eyes' 
+  . Then: 'Faces'
+  . Then: 'Animals'
+  . Then: predict|-> 'Cats'
+
+- 'Deep Learning' attempts to imitate this hierarchy of representations:
+  -> This is called 'representation learning'.
+
+===[ Why Didn't Deep Learning Take Over Immediately? ]===
+* 'Neural networks' were proposed decades 'earlier', In fact, the 'first'
+  'simple neural model', the 'Perceptron', was introduced by Frank Rosenblatt
+  in 1958.
+  -> So Why was not everyone using them?
+
+  1|> [ Not Enough Data ]
+      - 'Deep networks' contain 'millions (and today), sometimes billions' of 
+        'parameters'.
+      - With only a 'few thousand training examples', they easily 'memorize'
+        instead of 'generalizing'. 
+      - The 'internet changed this'. 'Suddenly researchers had access to'
+        'millions of images, documents, videos, and speech recordings'.
+
+  2|> [ Not Enough Compute Power ]
+      - 'Training' even a 'modest neural network requires performing enormous'
+        numbers of 'matrix multiplications'.
+      - 'GPUs' were simply 'too slow' for 'large-scale' training.
+      - 'GPUs' originally 'built to render video game graphics', turned out to
+        be exceptionally good at performing many matrix operations in parallel.
+      - This 'dramatically reduced training times from weeks or months to days'
+        'or hours'.
+
+  3|> [ Better Algorithms ]
+      - 'Earlier neural networks were difficult to optimize'
+      - 'Several advances made deep learning practical', including:
+        . Improved activation functions (such as ReLU)
+        . Better weight initialization
+        . More effective optimization algorithms (such as Adam)
+        . Regularization techniques (like Dropout)
+        . Normalization methods such (as Batch Normalization)
+      -> These innovations made 'training deeper networks' 'stable' and
+         'efficient'.
+
+  4|> [ The ImageNet Revolution (2012) ]
+      - The turning point came in '2012'
+      - Researchers led by 'Alex Krizhevsky', working with 'Ilya Sutskever'
+        and 'supervised by Geoffrey Hinton', trained a 'deep convolutional'
+        'neural network' called 'AlexNet' on the 'ImageNet competition'.
+      - 'Compared' to 'previous computer vision system', 'AlexNet' on the
+        'ImageNet competition'.
+      - This was not a 'small improvement', it was a 'leap that convinced the'
+        'research community that deep learning can outperform carefully'
+        'engineered classical computer vision pipelines.'
+      -> From 'that moment onward, deep learning repidly' become the 'dominant'
+         'approach in computer vision and later expanded into', 'speech'
+         'recognition', 'naturalnguage processing (NLP)', 'recommondation'
+         'systems', 'robotics' and 'generative AI'.
+
+===[ CONCLUSION ]===
+- 'AI' is the 'broad goal' of 'creating systems' that perform 'tasks'
+  requiring 'human intelligence'.
+  . Early 'AI relied on handwritten rules', which failed because the real 
+    world is to complex.
+- 'Machine learning' replaced 'explicit rules' by 'learning from data'.
+- 'Deep Learning' extends 'Machine learning' by 'learning both features and'
+  'the prediction function directly from raw data'
+- It is called 'deep' because it stacks 'many layers', each learning
+  increasingly abstract representations.
+- 'Deep learning' became practical only when 'three ingredients came together:'
+  [ Large datasets, Powerful GPUs, and Improved training algorithms ]
+- The '2012 ImageNet/AlexNet breakthrough' demonstrated the power of 'deep'
+  'neural networks' and triggered 'the modern AI revolution'
+
+===[ What is a Neuron? ]=======================================================
+* 'Objective': Understand how a 'single artificial' 'neuron works' and 'why'
+  'millions of them together become intelligent'.
+* Before building a 'Neuron', let's ask a "simple question"
+  - Suppose you are 'buying a house', How do 'you decide' whether it's 
+    'expensive' or 'not'? 
+  - You don't look "at just one thing", "instead" your brain "combines"
+    "multiple pieces of information", for examples:
+    """
+      House Size
+      Bedrooms
+      Bathrooms
+      Location
+      Age
+      Garage
+    """
+  - Without realizing it your brain performs something like this:
+    """
+      Decision =
+          (Size × Importance)
+              +
+          (Bedrooms × Importance)
+              +
+          (Location × Importance)
+             +
+          ...
+    """
+    -> Then your brain says: "This house is worth about 450,000$".
+    -> You simply model the relationship between 'house price (target label)'
+       and the 'input features (bedrooms, location, size, etc.)'
+    # INFO:[ CONCLUSION ]======================================================
+    # - An artficial neuron is nothing more than:
+    #   """ a mathematical function that combines several inputs and produces
+    #       one output """
+    # =========================================================================
+
+  |> [ Example ] 
+     - Suppose we are 'predicting house prices':
+     - Our inputs are:
+        """
+          x₁ = House Size
+          x₂ = Bedrooms
+          x₃ = Bathrooms
+          x₄ = Age
+        """
+     -> The 'neuron' must 'combine' them 'somehow'.
+     -> Known Information: Not 'every feature' is 'equally important'  
+     - Each information has it's own 'weight' (contribution of feature)
+       """
+          w₁
+          w₂
+          w₃
+          w₄
+       """
+     -> Think of a weight as: "how much should this input influence the decision?" 
+        . large weight -> very important
+        . small weight -> less important
+        . negative weight -> works against the prediction
+     - Suppose:
+        """
+            Feature    |      Weight     |
+            -----------|-----------------|
+            House Size |        0.9      |
+            Bedrooms   |        0.5      |
+            Bathrooms  |        0.4      |
+            Age        |       -0.2      | older houses decrease value
+        """
+        ->> So the 'neuron' learns this 'automatically' -> you never tell it.
+
+  # NOTE:[ VERY IMPORTANT NOTE: Excellent Observation ]========================
+  # - Wait ... Is not this just 'Linear Regression?'
+  # - In fact 'Yes'.
+  # - A 'Single neuron' without' an activation function' is mathematically
+  #   equivalent to 'linear regression' (for regression tasks).
+  # -> Deep learning does not start with something magical, It begins with a
+  #    model you already know.
+  # ===========================================================================
+
+# QUESTION:[ Then Why Is not one neuron Enough? ]==============================
+# - Suppose we want to recognize at cat.
+# - Can one equation describe!
+#   . ears
+#   . fur
+#   . whiskers
+#   . eyes
+#   . tails
+#   . lighting
+#   . pose
+#   . background
+#   -> NO
+#   -> The world is far too complex.
+#   -> A single neuron can only learn a 'linear relationship'
+#   -> Real-world problems are highly 'non-linear'
+#      This leads us to the next missing ingredient
+# =============================================================================
+                                      |
+                                      |
+                                      +
+
+===[ Activation Functions: Adding Non-linearity ]===
+- Imagine a 'neuron' that always passes 'its score' 'directly' to the 'output'
+  """
+    Input
+      |
+    Neuron
+      |
+    Ouput
+  """
+- No matter 'how many' such 'neurons you stack', the entire network is still
+  behaves like 'one large linear equation'.
+- That is a 'surprising' but fundamental result in 'deep learning'.
+- To escape this limitation, each neuron applies an 'activation function' to
+  its score:
+  """
+    Inputs
+      |
+    Weighted Sum
+      |
+    + Bias
+      |
+    Activation Function
+      |
+    Output
+    ->> The activation function decides 'how the neuron should respond' to its
+        computed score.
+  """
+
+- 'An intuition for Activation Functions':
+  Think of a motion 'sensor light'
+    . If 'nobody walks' by, the light 'stays off'.
+    . If 'someone enters' the room the 'light turns on'.
+  -> The 'sensor' does not 'respond equally' to every 'tiny signal'. it decides
+     whether the 'signal is significant enough'.
+  -> 'An activiation function' plays a similar role, it transforms the neuron's
+      'raw score' into a more useful ouput
+
+
+                  [ Popular activation functions ]
+                                |
+      +-------------------------+-------------------------+
+      |                         |                         |
+[   ReLU   ]               [ Sigmoid ]                 [ Tanh ]
+- Rectified Linear      - Compresses outputs        - Compresses outputs 
+  Unit.                   into the range [0, 1]       into the range [-1, 1]
+- Outpus 0 for            , making it useful          and keeps values  
+  values <= 0             for probabilities.          centered around 0 
+  and passes
+  positive 
+  scores through
+  unchanged
+  it's the
+  default choise
+  in many modern
+  networks.
+
+# QUESTION:[ Why Activation Functions Matter? ]================================
+# - Without activation functions:
+#   Input
+#     |
+#   Linear
+#     |
+#   Linear
+#     |
+#   Linear
+#     |
+#   Output
+#   -> Is still just a 'linear model'
+#
+# - With activation fucntions:
+#   Input
+#     |
+#   Linear
+#     |
+#   Activation
+#     | 
+#   Ouput
+#   -> The network can learn highly complex non-linear relationships such as
+#      recognizing faces, translating languages, or generating images. 
+# =============================================================================

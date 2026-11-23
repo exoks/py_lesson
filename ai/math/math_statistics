@@ -1,11 +1,11 @@
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
-#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀         𓐓  math_statistics 𓐔           
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀             𓐓 math_statistics 𓐔        
 #  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
 #  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀       Dev: oezzaou <ousama.ezzaou@gmail.com> 
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/27 16:26:07 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/08/26 16:02:48 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2026/06/02 15:00:36 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -1035,8 +1035,197 @@
           r^2 = 0.73 * 0.73 = 0.53 
 
         - Percantage of error is less by 53 of the ones given by 'mean'
-# CONCLUSION:===================================================================
-# 1|_ We found the best line that describe the linear relationship between vars. 
+# CONCLUSION:==================================================================
+# 1|_ We found the best line that describe the linear relationship between vars 
 # 2|_ We found equation regression for prediction. 
 # 3|_ 'r' and 'r^2' is used to calculate the line fitting. 
-# ==============================================================================
+# =============================================================================
+
+===[ Probability ]=============================================================
+
+===[ Randomness ]===
+* randomness is everywhere, it means:
+  . we can't perfectly predict single events,
+  . but we can understand patterns across many events
+  . words to describe randomness 'uncertainty', 'chance', 'risk', 'likelihood'
+  . degrees of variability: 'rarely', 'seldom', 'sometimes', 'common', 'frequent'
+    'often'. 
+
+-> And surprisingly: 
+  . randomness is not disorder
+  . it is something we can 'measure', 'study', and use to make better decisions
+  . randomness is 'something related to the number of cases' (Law of large numbers)
+    > if we have few cases, it becomes 'variable and unpredictable'     
+    > if we have many cases, it becomes 'very constant and predictable'
+  . Small samples: are irregular, 'which means irregularity is a principle with'
+    'small smaples'
+
+  # NOTE:[ The humman brain is not good at generating randomness ]
+
+  - Pulling a 'random case' -> called 'chance-experiment ...' 
+  - The results of pulling is called -> 'outcome'
+  - the operation or pulling a 'random case' is called -> 'independent trial' 
+  - the operation of 'doing the independent trials' is called -> 'Experiment' 
+
+
+-> 'Independent trails' are not very common in real life -> but 'probabilities'
+   can be 'quantified'
+
+# QUESTION:[ What is the big picture of probability? ]=========================
+# * Probability is simpley a "to describe uncertainty using logic and counting" 
+# -> everything you are learning is just a different tool for answering one
+#    question: "What can happen, and how likely it can happen?"
+# -> the big mental map: `Here is the hierarchy of probability concepts`
+#
+# Probability
+# │
+# ├── 1. Outcomes
+# │      └── The possible results
+# │
+# ├── 2. Sample Space
+# │      └── The set of ALL possible outcomes
+# │
+# ├── 3. Events
+# │      └── A group of outcomes we care about
+# │
+# ├── 4. Counting Techniques
+# │      ├── Permutations (arrangements)
+# │      └── Combinations (selections)
+# │
+# ├── 5. Probability Calculation
+# │      └── Favorable outcomes / Total outcomes
+# │
+# ├── 6. Multi-Step Probability
+# │      └── Tree Diagrams
+# │
+# ├── 7. Conditional Probability
+# │      └── Probability changes because new information appears
+# │
+# └── 8. Independence vs Dependence
+#        └── Whether one event affects another
+# =============================================================================
+
+1|> Outcomes
+    - everthing stars with 'outcomes':
+      . 'outcome': is one possible result
+    - Example
+      . rolling a die -> outcome = 4
+      . fliping a coin -> outcome = heads
+      . drawing a card -> outcome = Ace
+    -> 'probability' begins by asking:
+        "What are all possible results?"
+
+2|> Sample Space
+    - The sample space is:
+      "the collection of all possible outcomes"
+    - Exmaple: rolling a die
+      . sample spaces = {1, 2, 3, 4, 5, 6} 
+    - Think of the sample space as:
+      . the "universe" of possible results
+    - Without the sample space:
+      . probability has no foundation
+
+3|> Events
+    - An event is:
+      . "a specific thing we care about"
+    - Example:
+      . "getting an even number" 
+    - possible outcomes:
+      . {2, 4, 6} 
+    - So:
+      > "sample space" = everything possible
+      > "event" = the subset you care about 
+    - [ This is a 'HUGE idea' ]
+
+4|> Probability Formula
+    - Now probability becomes simple:
+      [ probability = favorable outcomes / total outcomes ]
+    - Example:
+      probability of rolling an even number = 3 favorable outcomes / 6 total outcomes = 0.5
+
+    - "This is the core engine of probability", Everything else builds on this
+
+5|> Why counting Techniques Exist?
+  - Now comes to the important questions:
+  - Exmaple:
+    . Choosing 5 cards from 52 cards
+    . arranging letters 
+    . lottery systems
+  - "Listing every possibility manually becomes impossible"
+  => That is why counting techniques exist
+  => They are are shortcuts for counting outcomes.
+
+# QUESTION:[ Where Tree Diagrams Fit? ]========================================
+# - Tree diagrams are used when:
+#   1. events happen in sequence
+#   2. step-by-step
+#   -> Example:
+#     . flip coin twice
+#     . draw cards one after another
+#     . choose objects sequentially
+#   -> A tree diagram visually shows:
+#     . every path
+#     . every possible sequence
+#     . and how probabilites evolve
+# =============================================================================
+
+===[ Independence VS Dependence ]===
+- This concept asks:
+  "Does one event affect another?"
+
+  1|> Independent Events
+      . One event does NOT change the other 
+      - example:
+        "flipping a coin twice"
+      > First flip does not affect second flip
+
+  2|> Dependent Events
+      . One event changes future probabilities.
+      - Exmaple:
+        "Drawing a card WITHOUT replacement"
+      - If you remove one 'ACE':
+        . The deck changes,
+        . Future probabilites change 
+      > This is dependence
+  
+===[ The hidden structure behind everything ]===
+1|> Single-Step Problems
+  . sample space
+  . events
+  . basic probability
+  - Example:
+    . drawing a card
+
+2|> Large Counting Problems
+  . Use:
+    . combinations
+    . permuations
+  > Because listing outcomes is too hard
+
+3|> Sequential Problems:
+    . Use:
+      . tree diagrams
+    > Because events happen step-by-step
+
+4|> Information-Update Problems
+    . Use:
+      . conditional probability
+    > Because the sample space changes after lerning information
+
+5|> Relationship Problems
+   . Use: 
+      . indpendence/dependence
+    > To know wheather probabilites stay constant or change
+
+===[ Sample Space, Event, Probability of event & Tree Diagram ]=== 
+* tree diagram is a tool used to "measure the probability" if:
+  1. Independent events
+  2. small number of cases
+  3. listing 'outcomes'
+
+
+# CONCLUSION:==================================================================
+[ Sample space: Collection of all possible outcomes  for a random phenomenon, O1, O2, ..., On]
+                        [Event: subset from sampel space: O2, O3]
+
+===[ Probabilities & Sets ]===

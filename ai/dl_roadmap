@@ -1,0 +1,676 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                𓐓 dl_roadmap 𓐔          
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀  Engineer: oezzaou <oussama.ezzaou@gmail.com>
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2026/11/02 14:57:21 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2026/11/02 14:57:22 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃  
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                              
+
+# Your personalized GenAI roadmap
+
+Target: AI/ML Engineer with GenAI specialization
+
+My recommendation is to build on your existing ML and software engineering experience and progressively add deep learning, LLMs, and generative modeling.
+
+I would design your learning path around one objective:
+
+Become an AI/ML Engineer who can develop, understand, evaluate, and deploy both traditional ML models and GenAI systems.
+
+Not just someone who knows how to call an LLM API.
+
+## 1. Your starting point
+
+Let's distinguish what you already know from what you need to strengthen.
+
+| Area                 | Your current foundation      | Recommendation                         |
+| -------------------- | ---------------------------- | -------------------------------------- |
+| Python               | Good practical experience    | Continue using it                      |
+| Mathematics          | Applied ML knowledge         | Strengthen linear algebra and calculus |
+| Classical ML         | XGBoost, MLP, forecasting    | Maintain and deepen                    |
+| Data processing      | Pandas, NumPy, EDA           | Already sufficient to start            |
+| Software engineering | APIs, Docker, Redis          | Strong advantage                       |
+| MLOps                | Training/inference pipelines | Extend toward LLMOps                   |
+| Deep learning        | Some MLP experience          | Strengthen significantly               |
+| PyTorch              | Needs focused development    | Learn properly                         |
+| NLP                  | Limited foundation           | Start from fundamentals                |
+| Transformers         | New learning area            | Study in depth                         |
+
+You don't need to repeat introductory Python, basic statistics, or classical ML courses.
+
+# 2. The roadmap: 16 weeks
+
+I would allocate approximately 10–15 hours per week, alongside your current job.
+
+# 16-week learning journey
+
+# 4
+
+Learning stages
+
+Foundations to production
+
+# 16
+
+Weeks
+
+Structured progression
+
+# 160–240
+
+Study hours
+
+Approximate total
+
+# 4
+
+Portfolio projects
+
+Practical milestones
+
+This is a target learning schedule, not a guarantee of mastery in 16 weeks.
+
+## Stage 1 — Deep Learning and PyTorch
+
+Weeks 1–4
+
+Foundation
+
+Objective: Understand how modern neural networks learn and become comfortable with PyTorch.
+
+### Week 1: Neural network fundamentals
+
+Learn:
+
+- Perceptrons and multilayer neural networks.
+- Forward propagation.
+- Backpropagation.
+- Computational graphs.
+- Gradient descent.
+- Loss functions.
+- Activation functions.
+
+Mathematics to study alongside:
+
+- Partial derivatives.
+- Chain rule.
+- Matrix multiplication.
+- Gradients.
+
+Practical exercise: implement a small neural network using NumPy, including forward and backward propagation.
+
+### Week 2: PyTorch fundamentals
+
+Learn:
+
+- Tensors and tensor operations.
+- Autograd.
+- `torch.nn`.
+- `nn.Module`.
+- Optimizers.
+- Loss functions.
+- GPU acceleration.
+
+Practical exercise: implement a neural network using PyTorch to classify a dataset.
+
+### Week 3: Training deep learning models
+
+Learn:
+
+- Dataset and DataLoader.
+- Training and validation loops.
+- Batch sizes.
+- Learning rates.
+- Adam and AdamW.
+- Weight decay.
+- Dropout.
+- Batch normalization versus layer normalization.
+
+Practical exercise: train and evaluate an MLP, experiment with hyperparameters, and compare results.
+
+### Week 4: Deep learning architecture concepts
+
+Learn:
+
+- CNNs and their purpose.
+- RNNs and LSTMs.
+- Sequence modeling.
+- Word embeddings.
+- Why recurrent architectures have limitations.
+
+You don't need to master CNNs or LSTMs. Understand their design and purpose so you can appreciate why Transformers became important.
+
+Stage 1 deliverable: A clean PyTorch project with a training pipeline, validation, metrics, checkpoints, and reproducible experiments.
+
+Resources:
+
+- [Official PyTorch tutorials](https://docs.pytorch.org/tutorials/?utm_source=chatgpt.com)
+- [Dive into Deep Learning](https://d2l.ai/?utm_source=chatgpt.com) — particularly useful for mathematical explanations and implementations.
+
+## Stage 2 — NLP and Transformers
+
+Weeks 5–8
+
+Core architecture
+
+Objective: Understand the architecture behind modern LLMs.
+
+### Week 5: NLP fundamentals
+
+Learn:
+
+- Text preprocessing.
+- Tokenization.
+- Vocabulary.
+- One-hot encoding.
+- Word2Vec.
+- Word embeddings.
+- Semantic similarity.
+- Positional information.
+
+Practical exercise: build a simple text classification model using PyTorch.
+
+### Week 6: Attention mechanisms
+
+This is an extremely important week.
+
+Learn:
+
+- Sequence-to-sequence models.
+- Encoder-decoder architecture.
+- Attention mechanisms.
+- Self-attention.
+- Query, Key, Value.
+- Scaled dot-product attention.
+
+Understand this equation:
+
+\\[ Attention(Q,K,V)= softmax\left(\frac{QK^T}{\sqrt{d_k}}\right)V \\]
+
+Don't just memorize it. Understand:
+
+- What Q, K, and V represent.
+- Why we calculate their dot product.
+- Why we divide by the square root of the key dimension.
+- Why Softmax is used.
+- How the output is constructed.
+
+### Week 7: Transformer architecture
+
+Learn:
+
+- Multi-head attention.
+- Positional encodings and embeddings.
+- Feed-forward networks.
+- Residual connections.
+- Layer normalization.
+- Encoder versus decoder.
+- Causal masking.
+
+[Transformers | João A. Leite](https://images.openai.com/static-rsc-4/tCqeMkgoU_ntTKqvErydt7lGToYyozhKo2L54J2_q2jNQlB2T9do3cSjtl0zvM3RZ2Eas5BlP1oO-9AJgKqf7vC7At1xhqENtu80rvsaGz5DYQ-RHKIcbjV7fJi816FB6xQ5bXJ7sdtwOos8WefU8ONi6IuFgXi_IuE6Lqlddpg?purpose=inline)
+
+[joaoaleite.github.io](https://joaoaleite.github.io/blog/2024/transformers/?utm_source=chatgpt.com)
+
+### Week 8: GPT and language model training
+
+Learn:
+
+- Autoregressive language modeling.
+- Next-token prediction.
+- Pretraining.
+- Training objectives.
+- Context windows.
+- Temperature.
+- Top-k and top-p sampling.
+- Inference versus training.
+
+Stage 2 deliverable: Implement a miniature GPT-style decoder-only Transformer using PyTorch.
+
+You don't need billions of parameters. A small character-level language model is enough to understand the complete training and generation process.
+
+Resources:
+
+- [Hugging Face LLM Course](https://huggingface.co/learn/llm-course/?utm_source=chatgpt.com)
+- [Andrej Karpathy — Let's build GPT from scratch](https://www.youtube.com/watch?v=kCc8FmEb1nY\&utm_source=chatgpt.com)
+- [Attention Is All You Need](https://arxiv.org/abs/1706.03762?utm_source=chatgpt.com) — original Transformer paper.
+
+## Stage 3 — LLM Engineering and Generative AI
+
+Weeks 9–12
+
+Practical GenAI
+
+Objective: Learn how to work with pretrained models and build useful GenAI applications.
+
+At this point, you should have a reasonable understanding of how LLMs work internally.
+
+### Week 9: Hugging Face ecosystem
+
+Learn the core Hugging Face libraries:
+
+- `transformers`
+- `tokenizers`
+- `datasets`
+- `evaluate`
+- `accelerate`
+
+Understand:
+
+- Loading pretrained models.
+- Loading tokenizers.
+- Text generation.
+- Model inference.
+- Pipeline API versus direct model usage.
+- Model checkpoints.
+- Model configuration.
+
+Practical exercise: load an open-source model, generate text, experiment with decoding strategies, and compare outputs.
+
+### Week 10: LLM adaptation and fine-tuning
+
+Learn:
+
+- Pretraining versus fine-tuning.
+- Instruction tuning.
+- Supervised fine-tuning (SFT).
+- LoRA.
+- QLoRA.
+- Parameter-efficient fine-tuning (PEFT).
+- Training datasets and evaluation.
+
+You should understand the difference between:
+
+| Approach           | Purpose                                             |
+| ------------------ | --------------------------------------------------- |
+| Prompt engineering | Guide model behavior through instructions           |
+| RAG                | Give the model relevant external information        |
+| Fine-tuning        | Adapt model behavior through training               |
+| Pretraining        | Learn general language representations and patterns |
+
+Practical exercise: fine-tune a small open-source language model using LoRA on a carefully prepared dataset.
+
+### Week 11: Embeddings and semantic search
+
+This is where your existing ML knowledge becomes particularly useful.
+
+Learn:
+
+- Embedding models.
+- Dense vector representations.
+- Cosine similarity.
+- Semantic search.
+- Vector indexing.
+- Approximate nearest neighbors.
+- Chunking strategies.
+- Reranking.
+
+For example, consider these sentences:
+
+```
+Sentence A: How can I train a machine learning model?
+
+Sentence B: What are the steps to build an ML model?
+```
+
+Their words are different, but their meanings are similar.
+
+An embedding model maps them into numerical vectors that can be compared using similarity measures.
+
+Practical exercise:
+
+Build a semantic search engine using:
+
+- Sentence Transformers.
+- Qdrant or PostgreSQL with pgvector.
+- FastAPI.
+
+### Week 12: RAG architecture
+
+Learn:
+
+- Document ingestion.
+- PDF extraction.
+- Text splitting.
+- Embedding generation.
+- Vector storage.
+- Similarity search.
+- Context retrieval.
+- Prompt construction.
+- Answer generation.
+- Retrieval evaluation.
+
+[What is a Vector Database? Essential Guide for GenAI Developers](https://images.openai.com/static-rsc-4/QsI9v0agV3kw3yj4VD6cOLujOjf_o2E76xc0HFHWKi_DdlOMXSpzyWe6FtsVuTXezWWIz9tJZs1MJ_swuUgNRSWi_ZjbbzOkWyUmoe19I4tSAADQZjM6pmA92s_xNwn6pfECQPt4HJ4zHoBpGztakyd5EVNr96h4WeuO6q0FFqQ?purpose=inline)
+
+[psitrontech.com](https://psitrontech.com/blog/vector-store-for-generative-ai?utm_source=chatgpt.com)
+
+Stage 3 deliverable: Build a production-oriented RAG system.
+
+I have a project idea that would be especially valuable for your portfolio:
+
+Technical Documentation Assistant
+
+Create an application that can ingest technical documentation, retrieve relevant information, answer questions with citations, and identify when it doesn't have enough information to answer.
+
+Use FastAPI, Docker, PostgreSQL/pgvector or Qdrant, and an LLM API.
+
+Resources:
+
+- [Hugging Face course](https://huggingface.co/learn/llm-course/?utm_source=chatgpt.com)
+- [Sentence Transformers documentation](https://www.sbert.net/?utm_source=chatgpt.com)
+- [Qdrant documentation](https://qdrant.tech/documentation/?utm_source=chatgpt.com)
+
+## Stage 4 — Advanced GenAI, LLMOps and Production
+
+Weeks 13–16
+
+Engineering specialization
+
+Objective: Move beyond building prototypes and learn to engineer reliable GenAI systems.
+
+### Week 13: AI agents and tool calling
+
+Learn:
+
+- Function calling.
+- Tool execution.
+- Agent workflows.
+- Planning and execution.
+- Short-term and long-term memory.
+- Multi-step reasoning workflows.
+- MCP fundamentals.
+
+Understand the difference between a normal LLM application and an agent.
+
+For example:
+
+A normal LLM application answers a question.
+
+An agent can receive a request, decide which tool to use, call an API, inspect the result, and continue working toward the requested outcome.
+
+Practical exercise: build an agent that can query a database, call an external API, and return a structured result.
+
+### Week 14: LLM evaluation
+
+This is one of the most important areas that distinguishes an experienced AI engineer from someone who simply builds demos.
+
+Learn:
+
+- Offline and online evaluation.
+- Evaluation datasets.
+- Groundedness.
+- Faithfulness.
+- Answer relevance.
+- Retrieval precision and recall.
+- Hallucination evaluation.
+- LLM-as-a-judge and its limitations.
+- Regression testing.
+
+For RAG applications, evaluate retrieval separately from answer generation.
+
+A model can generate a fluent answer while retrieving completely irrelevant documents.
+
+### Week 15: LLMOps and optimization
+
+This is where your existing MLOps experience becomes a significant advantage.
+
+Learn:
+
+- Model serving.
+- Quantization.
+- GPU memory management.
+- Batching.
+- Streaming inference.
+- Caching.
+- Latency optimization.
+- Token-cost optimization.
+- Observability.
+- Prompt and model versioning.
+- Guardrails and security.
+
+Explore:
+
+- vLLM.
+- MLflow.
+- Hugging Face TGI concepts.
+- OpenTelemetry.
+- RAG evaluation tools.
+
+You already know Docker, FastAPI, Redis, and model deployment. You should focus on what changes when the model is an LLM rather than starting deployment from scratch.
+
+### Week 16: Production project
+
+Build an end-to-end GenAI system.
+
+My recommendation is to combine your traditional ML and GenAI knowledge:
+
+Intelligent ML Forecasting Assistant
+
+Imagine extending your existing PortSense forecasting system with a natural-language interface.
+
+[Dashboard agents in Looker | Google Cloud Blog](https://images.openai.com/static-rsc-4/ZYhv8blGKF7GpwGljC8GzTJ6GV-0Mc72EDS4QYXDbR5C49WQLbD3TaG5a35ib11_-CUkTmGjMke5Pm1yWqXX5M_7A-9BWYvzkZKEtHUkxq_mjiAcTl2-UFoMSXbNAwmHRo1xgAQRvXtKR94aHTG6wqHRrPxoAz0PcdmNGS2FX7Y?purpose=inline)
+
+[cloud.google.com](https://cloud.google.com/blog/products/business-intelligence/dashboard-agents-in-looker/?utm_source=chatgpt.com)
+
+A user could ask:
+
+- What is the expected import traffic tomorrow?
+- Which domains experienced the highest increase this month?
+- Explain the forecast for a particular domain.
+- Compare actual traffic with predicted traffic.
+- What historical trends might explain this result?
+
+The architecture could look like this:
+
+```
+             User
+              |
+         FastAPI API
+              |
+         LLM Interface
+              |
+       Tool Orchestration
+          /         \
+         /           \
+   ML Forecast     SQL Queries
+      Service       Historical Data
+         \           /
+          \         /
+         Result Processing
+                |
+        LLM Response
+                |
+             User
+```
+
+The important engineering principle: the LLM should not replace your forecasting model.
+
+Your XGBoost/MLP forecasting system remains responsible for numerical predictions. The LLM acts as an interface for interpreting results, retrieving information, and orchestrating tools.
+
+This is a good example of combining classical ML and GenAI rather than replacing one with the other.
+
+# 3. Don't forget the broader Generative AI field
+
+One important addition to the roadmap: GenAI is not synonymous with LLMs.
+
+There are several families of generative models.
+
+[Build a Large Language Model (From Scratch)](https://images.openai.com/static-rsc-4/8jwGJdlvoxbR4sFV7yvQiql22wi-uiuQhawlTJPpOFVZ15U67Fj1uRFUGWITw-TMia6sEaynCzHh3yzMYm0aJ2aWFXogyIf_TqR7zPSkD1n2lmVCCGwzZBcurqYt4JDG26TTBPX5Sf2pSY8Q_8HSFzZvxd4Do17hstyHH3jPA-M?purpose=inline)
+
+Autoregressive models
+
+Generate the next element based on previous elements. GPT-style LLMs are the most familiar example.
+
+[Variational Autoencoders are Beautiful | Blogs](https://images.openai.com/static-rsc-4/JX8NVKbvfD5JUVB9iESMjD44CZA4saYHQGwyJJ99VGQx2IxkfXunMy7gcpaNXa8AAeFVwwdP7tXIKsDF0Nyk8wm9W-NLrDfly-Jb81x1E8meHZNB-BuQRSRMnYuI0BFvPRCuKpEfvvrK9WdI7lobnknJ0OuFjDldasC_1XrSjVI?purpose=inline)
+
+Variational Autoencoders (VAEs)
+
+Learn a latent representation and generate new samples from it.
+
+[The Essential Guide to Neural Network Architectures](https://images.openai.com/static-rsc-4/RHKZsBj--bwbkHaD8xWx_X_TQWCBxNn5KiuFCl_fNT0lECjlFJF14YqEbveeUxKtSBKPGJFL8lTK-zP7XutFHEJODWw7zkr4vQjlsUtp-I02frzIbYfp4PVxpTe6rnT9NM_cjVSkVDjyCN47vKpxElkyOum4GkOSlNDTIy8rREc?purpose=inline)
+
+Generative Adversarial Networks (GANs)
+
+Use a generator and discriminator trained in competition.
+
+[GPT Image 2 VS Nano Banana 2: Which AI Image Model Wins in 2026?](https://images.openai.com/static-rsc-4/TyFdWyEM_n4hhWGhgkCh-rgrpHc6zo4RQEDJaVBbaYfENX1lHAvRcjsJ0r9Zu5J7hJ5WjhMhLAuil5wi2KFJU7iaMnZtD-aX10iMhRnDvIKNMX18jbrcc6KZbg7ilA1srH-2IJcU8DoAv3_v5OeWYn-rO7weIlmxbjfrm8ZP94k?purpose=inline)
+
+Diffusion models
+
+Learn to generate samples by reversing a noise-adding process.
+
+I recommend learning the mathematical intuition and architecture of VAEs, GANs, and diffusion models after your main Transformer track.
+
+Why? Because as an AI/ML Engineer, you should understand the broader generative modeling landscape, especially if you eventually work with synthetic data, image generation, or multimodal systems.
+
+This also connects with your previous interest in synthetic tabular data generation, including CTGAN and TVAE.
+
+# 4. Your weekly study routine
+
+Since you're working, I wouldn't recommend studying randomly. Use a consistent routine.
+
+Assuming 12 hours per week:
+
+| Activity                     | Hours/week |
+| ---------------------------- | ---------- |
+| Theory and mathematics       | 3          |
+| Practical implementation     | 5          |
+| Reading papers/documentation | 1          |
+| Project development          | 2          |
+| Revision and notes           | 1          |
+| Total                        | 12         |
+
+My preferred learning approach:
+
+1. Understand the concept.
+2. Study the mathematical intuition.
+3. Implement a small example.
+4. Experiment with different configurations.
+5. Build something using the concept.
+6. Document what you learned.
+
+For example, when studying self-attention, don't immediately jump into Hugging Face. Implement scaled dot-product attention in PyTorch first.
+
+That small implementation will help you understand what happens inside the Transformer.
+
+# 5. Recommended learning resources
+
+I would avoid purchasing expensive courses initially. These resources are enough to get started.
+
+["Dive into Deep Learning" auf Englisch kaufen](https://images.openai.com/static-rsc-4/Qoa29pJPtXLdlxcW-0necccjno4FhhBbYwWO0Oy-_10urtoEjgKpqkkquwEy_5LFfa8cFk_pgZBjzZN2bt5AQitScv7bt0wz_EGnPLA9CtHqJY6AA46f9R4FKw8qt99zEUGnhSXDV04a0eVE0uJNL0GSLbD1sOFjdceenQrxwT8?purpose=inline)
+
+1\. Dive into Deep Learning
+
+My recommendation
+
+Deep learning, mathematics, implementation.
+
+[Free online book](https://d2l.ai/?utm_source=chatgpt.com)
+
+[Intro to PyTorch: Part 1. A brief introduction to the PyTorch… | by Tony Flores | TDS Archive | Medium](https://images.openai.com/static-rsc-4/95LFP4nKYN43tfIte_2ZxS5PUGUTopOOh4ub4ZKXoI9XCo4k8OnCOqJvYOkF0XYs0H3bZhdiSXswaWqxMnkbjCttNZwIlu7DEHzoLHmB7dfEFwcfyXMpMjJ509EO6opJyvynbjQyKcP5QwUXmT-vA5Cj8niIZef0-hKJC1DMfS0?purpose=inline)
+
+2\. PyTorch official tutorials
+
+Tensors, neural networks, autograd, training.
+
+[Start learning](https://docs.pytorch.org/tutorials/?utm_source=chatgpt.com)
+
+[Hugging Face Logo PNG Vector (SVG) Free Download](https://images.openai.com/static-rsc-4/VDB8j7x4PNhvbx0pgtjT0SMwlomVGWDAfmmdYVTBktpxyuEVA9dMZQZAMyIIqQaHu5ubLHU_p8Ni6OhREqJhfh5epBOZlyXsGVVuIHWbT_NfSEYWZHRBYmxsMTh3WU__ogS-ReZZT-ey6bz0oE-CqihPa2TljIbsWr74Y_VFAw0?purpose=inline)
+
+3\. Hugging Face LLM Course
+
+NLP, Transformers, tokenizers, fine-tuning.
+
+[Start the course](https://huggingface.co/learn/llm-course/?utm_source=chatgpt.com)
+
+[Andrej Karpathy // Laude Impact Profile](https://images.openai.com/static-rsc-4/2WhYWJpi8WI1bGnoK3xq2UjUidC_G_mRKQwVWr4TVI8PmYX0L0eARvxjLVM7vpODoBhO-lGOLbvaryuYyPl_bafzzUWRXW6XDcilZw1SvYUOK_Ol717lk5m4X8DAOjNGpSpm6FyCIyZz-XoN7VjyimJQR755jhHKUzvvIeYPSmw?purpose=inline)
+
+4\. Andrej Karpathy — Neural Networks: Zero to Hero
+
+Excellent explanations and hands-on implementations.
+
+[Watch the lectures](https://karpathy.ai/zero-to-hero.html?utm_source=chatgpt.com)
+
+[Recordings | CS25](https://images.openai.com/static-rsc-4/YMsf0oh51-T5cE3mLUfXcospwOJH0KijM5mNewPtmH8fexWFd8aqmcBM0kI1_LnqxE8AA_zWF6Aqo3EuckiRNriOW55TCNktHOCUJCbZwiZ91WPxHHZeCM6zawzJXoZPz2v1nitzNSSAGOltoLfvVm2wdWIjhGs0DzQnLc75ghw?purpose=inline)
+
+5\. Stanford CS25
+
+Advanced Transformer architectures and applications.
+
+[Explore the course](https://web.stanford.edu/class/cs25/?utm_source=chatgpt.com)
+
+# 6. How to measure your progress
+
+Don't measure progress by how many courses you've completed.
+
+Use these milestones instead:
+
+| Milestone     | You should be able to...                |
+| ------------- | --------------------------------------- |
+| Deep learning | Explain and train neural networks       |
+| PyTorch       | Implement a complete training loop      |
+| Transformers  | Explain and implement self-attention    |
+| LLMs          | Load and run pretrained models          |
+| Fine-tuning   | Fine-tune a small model with LoRA       |
+| RAG           | Build and evaluate a retrieval pipeline |
+| Agents        | Implement tool calling and workflows    |
+| LLMOps        | Deploy and monitor an LLM application   |
+
+If you can do these things independently, you're building genuine engineering skills.
+
+# 7. My advice about your career direction
+
+I want to emphasize something important.
+
+Don't position yourself as someone who has abandoned ML and started learning GenAI.
+
+Position yourself as an AI/ML Engineer who understands:
+
+- Classical machine learning.
+- Deep learning.
+- Generative modeling.
+- LLM architectures.
+- Retrieval systems.
+- Fine-tuning.
+- AI infrastructure and production deployment.
+
+This is a strong technical combination.
+
+Also, don't neglect your mathematical foundations. Your balanced theoretical approach is a good choice: understand the equations and architecture, implement the important components, and then use production frameworks.
+
+# 8. Let's turn this into an actionable learning plan
+
+I suggest we treat this as an ongoing learning project, with one stage at a time.
+
+## Your first milestone
+
+Start here — Week 1
+
+Deep Learning fundamentals
+
+Your first objectives:
+
+- Understand perceptrons and multilayer neural networks.
+- Understand forward propagation.
+- Understand backpropagation.
+- Understand gradient descent.
+- Understand loss functions and activation functions.
+- Implement a small neural network using NumPy.
+
+Your first practical project
+
+Implement a simple neural network from scratch using NumPy, without PyTorch or TensorFlow.
+
+The objective is to understand how the network learns, not to achieve state-of-the-art accuracy.
+
+After completing this milestone:
+
+Move to PyTorch and reproduce the same network using `nn.Module` and `autograd`.
+
+One last recommendation: keep your existing PortSense project as your main case study when you reach the GenAI integration stage. It gives you a meaningful way to demonstrate the combination of traditional ML, LLMs, and production engineering.&#x20;
+
+My suggestion: Let's start with Week 1 and study deep learning properly. I can teach you the concepts progressively, including mathematical explanations, NumPy implementations, exercises, and practical PyTorch examples. We shouldn't move to the next topic until you understand the current one.

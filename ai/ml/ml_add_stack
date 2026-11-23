@@ -1,0 +1,67 @@
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀               𓐓 ml_add_stack 𓐔         
+#  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀
+#  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀  Engineer: oezzaou <oussama.ezzaou@gmail.com>
+#  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀
+#  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇
+#  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2026/07/03 14:32:32 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2026/07/03 15:21:34 by oezzaou
+#  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀
+#  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀
+#  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪
+#  ⠀⠀⠀⠀⠀⡄⠀⠀⠀⠘⢧⡀⠀⠀⠸⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠐⠋⠀⠀⠀                     𓄂 oussama ezzaou𓆃
+#  ⠀⠀⠀⠀⠀⠘⠄⣀⡀⠸⠓⠀⠀⠀⠠⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+
+# ===[ Ensemble Stacking ]=====================================================
+* 'Ensemble stacking' is a technique used to combine multiple models to
+  generate predictions.
+  - It's a common technique of ensemble learning, as "bagging" and "boosting".
+
+                      +-------------------+
+                      | Ensemble Learning |
+                      +---------|---------+
+                                |
+          +---------------------+---------------------+
+          |                     |                     |
+     +-----------+         +----------+          +----------+
+     |  Bagging  |         | Boosting |          | Stacking |
+     +-----------+         +----------+          +----------+
+     - Random Forest       - AdaBoost            - MLP
+                           - Gradient Boosting   - Meta-Model
+                           - XGBoost
+
+  # INFO:[ Stacking ]----------------------------------------------------------
+  # - This technique is called stacking because the models are literally      |
+  #   arranged in 'layers (stacks)'.                                          |
+  # ->> where the output of one layer becomes the input of the next layer     | 
+  #                                                                           |
+  #   |> [ Layer 1: (level 0)]: X -> model_1, model_2 ... |-> predictions     |
+  #   |> [ Layer 2: level(1) ]:                                               |
+  #                             [ predictions ]                               |
+  #                                   |                                       |
+  #       [ instead of of averging them we stack them into another model ]    |
+  #                                   |                                       |
+  #                             [ meta-model ]                                |
+  #                                   |                                       |
+  #                           [ final predictions ]                           |
+  # ---------------------------------------------------------------------------
+# QUESTION:[ Why Stacking and not just Averging? ]-----------------------------
+# -> averaging assumes:                                                       |
+#     [ Final predictions = mean(pred_1, pred2, ..., pred_n) ]                |
+#     - all the 'predictions' is given the 'same weight'.                     | 
+# -> Stacking gives:                                                          |
+#    - 'different weights' to the model 'predictions' by modeling each model  |
+#       'predictions' and the actual 'predictions'. by another 'model manager'|
+#       called -> 'meta-model'.                                               | 
+#    - The 'Meta-Model' learns things like this:                              |
+#       """                                                                   |    
+#         if MLP is usually better on weekends:                               |
+#           trust MLP more                                                    |
+#         if XGBoost is better during seasonal peaks:                         |
+#           trust XGBoost more                                                |
+#       """                                                                   |
+#     > Example:                                                              |
+#       - for linear meta-model, it may learn:                                |
+#         """ final = 0.3 * xgb_pred + 0.7 * mlp_pred """                     |
+#       - or even more complex relationships if the 'meta-model' is nonlinear |
+# -----------------------------------------------------------------------------

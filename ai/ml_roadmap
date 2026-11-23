@@ -1,11 +1,11 @@
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣦⣴⣶⣾⣿⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀                                              
-#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀              𓐓  ml_roadmap 𓐔           
+#  ⠀⠀⠀⠀⠀⠀⠀⢠⡶⠻⠛⠟⠋⠉⠀⠈⠤⠴⠶⠶⢾⣿⣿⣿⣷⣦⠄⠀⠀⠀                𓐓 ml_roadmap 𓐔          
 #  ⠀⠀⠀⠀⠀⢀⠔⠋⠀⠀⠤⠒⠒⢲⠀⠀⠀⢀⣠⣤⣤⣬⣽⣿⣿⣿⣷⣄⠀⠀                                              
 #  ⠀⠀⠀⣀⣎⢤⣶⣾⠅⠀⠀⢀⡤⠏⠀⠀⠀⠠⣄⣈⡙⠻⢿⣿⣿⣿⣿⣿⣦⠀        Dev: oezzaou  oussama.ezzaou@gmail.com 
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀                                              
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇                                              
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/05/21 17:13:59 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/07/24 13:26:01 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2026/11/02 15:08:58 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀                                              
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀                                              
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪      
@@ -24,7 +24,7 @@
         . Integrals                                                     | ...
       - Probability & Statistics:
         . Descriptive statistics                                        | Done
-        . Inferential Statistics                                        | ... 
+        . Inferential Statistics                                        | ...
 
 2|> Machine Learning Theory
     * Goal: Understand the theoretical principles behind machine learning models
@@ -46,7 +46,7 @@
       - Matplotlib/Seaborn (data visualization)                       
         . Matplotlib                                                    | Done 
         . Seaborn                                                       | Done 
-      - Scikit-learn (basic ML models)                                  | ...
+      - Scikit-learn (basic ML models)                                  | Done 
     > Resources:
       - NumPy Quickstart
         |=> 'https://numpy.org/doc/stable/user/quickstart.html'
@@ -59,10 +59,10 @@
     * Goal: Learn the ML process — preprocessing, training, evaluation.
     > Topics:
       - Supervised learning (classification, regression)                | Done
-      - Model evaluation (confusion matrix, metrics)                    | 
+      - Model evaluation (confusion matrix, metrics)                    | Done 
     > Mini-Projects:
-      - Predict housing prices (regression)                             |
-      - Classify iris or MNIST digits                                   |
+      - Predict housing prices (regression)                             | Done
+      - Classify iris or MNIST digits                                   | Done
     > Resources:
       - Hands-On ML with Scikit-Learn (GitHub repo)
         |=> "https://github.com/ageron/handson-ml2"
